@@ -3,15 +3,17 @@
 Selects quasi-circular, non-spinning BBH simulations from the SXS catalog
 with q in [1, 20], extracts the (2,2) strain mode at the highest available
 resolution, resamples onto a uniform time grid aligned to the amplitude peak,
-and writes a consolidated benchmark HDF5 file.
+and writes separate training and validation HDF5 files.
 
 For non-spinning systems the coprecessing frame coincides with the inertial
 frame and h_{2,-2}(t) = conj(h_{2,2}(t)), so only h22 is stored.
 
+Split: 20 training (must include q=1 and q=20) + 21 validation.
+
 Source: SXS Gravitational Waveform Database (https://data.black-holes.org)
 
 Usage:
-    python curate_analytic_dataset.py [--output ../analytic_benchmark.h5]
+    python curate_analytic_dataset.py
 """
 
 import argparse
@@ -26,8 +28,6 @@ import sxs
 # ── Configuration ──────────────────────────────────────────────────────────
 
 DT_GEOMETRIC = 0.1          # uniform time step in units of M
-TAPER_START_M = 200.0       # cosine taper ramp-on width (from start)
-TAPER_END_M = 50.0          # cosine taper ramp-off width (to end)
 T_END_AFTER_PEAK_M = 100.0  # keep ringdown up to this many M past peak
 MAX_LENGTH_M = 10000.0      # maximum total waveform length
 EXTRA_BUFFER_M = 100.0      # skip past metadata.reference_time by this much
@@ -36,15 +36,8 @@ SPIN_THRESHOLD = 0.01       # max |chi| to count as non-spinning
 ECC_THRESHOLD = 0.005       # max eccentricity to count as quasi-circular
 Q_MIN, Q_MAX = 1.0, 20.5
 
-
-def smooth_taper(t, t_start, t_end):
-    """Cosine taper: 0 at t <= t_start, 1 at t >= t_end."""
-    w = np.ones_like(t)
-    mask = (t > t_start) & (t < t_end)
-    phase = np.pi * (t[mask] - t_start) / (t_end - t_start)
-    w[mask] = 0.5 * (1.0 - np.cos(phase))
-    w[t <= t_start] = 0.0
-    return w
+N_TRAIN = 20
+N_VAL = 21
 
 
 def select_simulations():
@@ -102,6 +95,57 @@ def select_simulations():
     return selected
 
 
+def split_train_val(selected):
+    """Split into 20 training + 21 validation.
+
+    Training must include q=1 and q=20 (endpoints).
+    Remaining training samples are chosen to give roughly uniform coverage.
+    """
+    n_total = len(selected)
+    assert n_total >= N_TRAIN + N_VAL, (
+        f"Need at least {N_TRAIN + N_VAL} sims, got {n_total}"
+    )
+
+    qs = np.array([s["q"] for s in selected])
+
+    # Reserve endpoints for training
+    i_q1 = np.argmin(np.abs(qs - 1.0))
+    i_q20 = np.argmin(np.abs(qs - 20.0))
+    reserved = {i_q1, i_q20}
+
+    # Select remaining training indices for roughly uniform q spacing
+    remaining_idx = [i for i in range(n_total) if i not in reserved]
+    remaining_qs = qs[remaining_idx]
+    n_need = N_TRAIN - len(reserved)
+
+    # Greedy selection: pick indices that maximise minimum spacing
+    chosen = list(reserved)
+    for _ in range(n_need):
+        best_idx = None
+        best_min_gap = -1
+        for i in remaining_idx:
+            if i in chosen:
+                continue
+            trial = sorted(chosen + [i])
+            trial_qs = qs[trial]
+            gaps = np.diff(trial_qs)
+            min_gap = np.min(gaps) if len(gaps) > 0 else 0
+            if min_gap > best_min_gap:
+                best_min_gap = min_gap
+                best_idx = i
+        chosen.append(best_idx)
+
+    train_idx = sorted(chosen)
+    val_idx = sorted([i for i in range(n_total) if i not in set(train_idx)])
+
+    train = [selected[i] for i in train_idx]
+    val = [selected[i] for i in val_idx]
+
+    print(f"Training: {len(train)} sims, q = {[f'{s['q']:.2f}' for s in train]}")
+    print(f"Validation: {len(val)} sims, q = {[f'{s['q']:.2f}' for s in val]}")
+    return train, val
+
+
 def find_highest_lev(sxs_id):
     """Determine the highest available Lev for a simulation."""
     for lev in [6, 5, 4, 3, 2]:
@@ -155,37 +199,18 @@ def preprocess_sim(sxs_id, lev):
         + 1j * np.interp(t_uniform, t_shifted, np.imag(h22_raw))
     )
 
-    # Phase-align: phase = 0 at t = 0
-    i0 = int(np.argmin(np.abs(t_uniform)))
-    phi0 = float(np.angle(h22_uniform[i0]))
-    h22_uniform *= np.exp(-1j * phi0)
-
-    # Cosine taper at both ends
-    w_start = smooth_taper(
-        -t_uniform, t_start=-(t_uniform[0] + TAPER_START_M), t_end=-t_uniform[0]
-    )
-    w_end = smooth_taper(
-        t_uniform, t_start=t_uniform[-1] - TAPER_END_M, t_end=t_uniform[-1]
-    )
-    h22_uniform *= w_start * w_end
-
-    # Amplitude and unwrapped phase
-    h22_amp = np.abs(h22_uniform).astype(np.float64)
-    h22_phase = np.unwrap(np.angle(h22_uniform)).astype(np.float64)
-    h22_phase -= h22_phase[i0]
-
     return {
         "t": t_uniform.astype(np.float64),
-        "h22_amp": h22_amp,
-        "h22_phase": h22_phase,
+        "h22_real": np.real(h22_uniform).astype(np.float64),
+        "h22_imag": np.imag(h22_uniform).astype(np.float64),
         "n_samples": n_pts,
         "lev": lev,
     }
 
 
-def build_benchmark_file(selected, output):
-    """Process all selected simulations and write the benchmark HDF5."""
-    n_total = len(selected)
+def write_split(sim_list, output, split_name):
+    """Process simulations and write to an HDF5 file."""
+    n_total = len(sim_list)
     n_done = 0
     n_failed = 0
     failed = {}
@@ -193,21 +218,20 @@ def build_benchmark_file(selected, output):
 
     with h5py.File(output, "w") as h5:
         h5.attrs["description"] = (
-            "Non-spinning BBH (2,2) mode waveforms from SXS, q in [1, 20]. "
-            "Uniform time grid in geometric units (M), peak-aligned at t=0."
+            f"Non-spinning BBH (2,2) mode waveforms from SXS ({split_name} set), "
+            f"q in [1, 20]. Uniform time grid in geometric units (M), "
+            f"peak-aligned at t=0."
         )
         h5.attrs["source"] = "SXS Gravitational Waveform Database"
         h5.attrs["url"] = "https://data.black-holes.org"
         h5.attrs["dt_geometric"] = DT_GEOMETRIC
         h5.attrs["t_align"] = "h22_amplitude_peak"
-        h5.attrs["phase_convention"] = "phase=0 at t=0 (amplitude peak)"
-        h5.attrs["taper_start_M"] = TAPER_START_M
-        h5.attrs["taper_end_M"] = TAPER_END_M
         h5.attrs["non_spinning"] = True
+        h5.attrs["split"] = split_name
 
         gz = dict(compression="gzip", compression_opts=4)
 
-        for sim_info in selected:
+        for sim_info in sim_list:
             sid = sim_info["sxs_id"]
             n_done += 1
             try:
@@ -228,21 +252,21 @@ def build_benchmark_file(selected, output):
                 grp.attrs["n_samples"] = data["n_samples"]
 
                 grp.create_dataset("t", data=data["t"], **gz)
-                grp.create_dataset("h22_amp", data=data["h22_amp"], **gz)
-                grp.create_dataset("h22_phase", data=data["h22_phase"], **gz)
+                grp.create_dataset("h22_real", data=data["h22_real"], **gz)
+                grp.create_dataset("h22_imag", data=data["h22_imag"], **gz)
                 h5.flush()
 
                 rate = n_done / (time.time() - t0)
                 eta = (n_total - n_done) / rate / 60 if rate > 0 else 0
                 print(
-                    f"[{n_done}/{n_total}] {sid} q={sim_info['q']:.4f} "
+                    f"  [{n_done}/{n_total}] {sid} q={sim_info['q']:.4f} "
                     f"Lev{lev} n={data['n_samples']} ({elapsed:.1f}s, ETA {eta:.0f}min)"
                 )
 
             except Exception as e:
                 n_failed += 1
                 failed[sid] = str(e)
-                print(f"[FAIL] {sid}: {e}")
+                print(f"  [FAIL] {sid}: {e}")
                 traceback.print_exc()
 
         # Metadata table
@@ -259,13 +283,13 @@ def build_benchmark_file(selected, output):
 
     elapsed_total = (time.time() - t0) / 60
     print(
-        f"\nDone: total={n_total} processed={n_done - n_failed} "
+        f"  {split_name}: total={n_total} processed={n_done - n_failed} "
         f"failed={n_failed} time={elapsed_total:.1f}min"
     )
     if failed:
-        print("Failed simulations:")
+        print("  Failed:")
         for sid, err in failed.items():
-            print(f"  {sid}: {err}")
+            print(f"    {sid}: {err}")
 
 
 def main():
@@ -273,15 +297,24 @@ def main():
         description="Curate Analytic Bench dataset from SXS non-spinning BBH"
     )
     parser.add_argument(
-        "--output",
+        "--output-dir",
         type=Path,
-        default=Path(__file__).parent.parent / "analytic_benchmark.h5",
+        default=Path(__file__).parent.parent,
     )
     args = parser.parse_args()
 
     selected = select_simulations()
+    train, val = split_train_val(selected)
     print()
-    build_benchmark_file(selected, args.output)
+
+    train_path = args.output_dir / "analytic_training.h5"
+    val_path = args.output_dir / "analytic_validation.h5"
+
+    print(f"Writing training set to {train_path}")
+    write_split(train, train_path, "training")
+    print()
+    print(f"Writing validation set to {val_path}")
+    write_split(val, val_path, "validation")
 
 
 if __name__ == "__main__":
