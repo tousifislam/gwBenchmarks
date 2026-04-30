@@ -1,0 +1,18 @@
+name: validity
+description: "NRHybSur3dq8 extrapolation awareness and reliability prediction"
+
+# Cost parameters
+t0: 0.001       # 1 ms per point (in seconds)
+alpha: 0.05
+
+# Input parameter ranges (extends beyond training domain to test extrapolation)
+parameters:
+  q: [1.0, 20.0]
+  chi1_mag: [0.0, 1.0]
+  chi2_mag: [0.0, 1.0]
+
+# Dataset
+dataset:
+  n_train: null
+  n_test: null
+  held_out_regions: []

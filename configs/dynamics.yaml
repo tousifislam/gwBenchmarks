@@ -1,0 +1,20 @@
+name: dynamics
+description: "Eccentric spinning orbital dynamics prediction"
+
+# Cost parameters
+t0: 0.01        # 10 ms per trajectory (in seconds)
+alpha: 0.10
+
+# Input parameter ranges
+parameters:
+  q: [1.0, 10.0]
+  chi1_mag: [0.0, 0.8]
+  chi2_mag: [0.0, 0.8]
+  e0: [0.0, 0.3]
+  x0: [0.05, 0.2]
+
+# Dataset
+dataset:
+  n_train: null
+  n_test: null
+  held_out_regions: []

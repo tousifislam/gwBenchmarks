@@ -1,0 +1,25 @@
+name: analytic
+description: "Analytic surrogate waveform for non-spinning BBH"
+
+# Cost parameters
+t0: 0.001       # 1 ms per waveform (in seconds)
+alpha: 0.10
+
+# Loss parameters
+lambda: 1.0     # weight on coefficient RMSE
+
+# Input parameter ranges
+parameters:
+  q: [1.0, 20.0]
+
+# Validation requirements (checked qualitatively or via automated tests)
+# - correct equal-mass limit
+# - smooth behavior in q
+# - correct test-mass trend near q=20
+# - no unphysical oscillations
+
+# Dataset
+dataset:
+  n_train: null
+  n_test: null
+  held_out_regions: []

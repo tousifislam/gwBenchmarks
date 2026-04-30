@@ -1,0 +1,24 @@
+name: waveform
+description: "Co-precessing h22 waveform prediction"
+
+# Cost parameters
+t0: 0.01        # 10 ms per waveform (in seconds)
+alpha: 0.10
+
+# Loss weights
+weights:
+  mismatch: 1.0
+  phase_rmse: 1.0
+  logamp_rmse: 1.0
+
+# Input parameter ranges
+parameters:
+  q: [1.0, 10.0]
+  chi1_mag: [0.0, 0.8]
+  chi2_mag: [0.0, 0.8]
+
+# Dataset
+dataset:
+  n_train: null       # to be specified
+  n_test: null
+  held_out_regions: []  # parameter regions excluded from training
