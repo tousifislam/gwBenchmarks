@@ -16,3 +16,4 @@ htmlcov/
 *.swp
 *.swo
 .ipynb_checkpoints/
+envs/

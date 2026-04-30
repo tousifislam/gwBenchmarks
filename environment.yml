@@ -1,0 +1,22 @@
+name: gwbench
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+    - numpy
+    - scipy
+    - matplotlib
+    - h5py
+    - pyyaml
+    - pandas
+    - sxs
+    - pycbc
+    - gwtools
+    - scikit-learn
+    - joblib
+    - anthropic
+    - openai
+    - -e .
