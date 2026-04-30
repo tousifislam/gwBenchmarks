@@ -11,3 +11,5 @@ from gwbenchmarks.benchmarks import (
     AnalyticBench,
     ValidityBench,
 )
+from gwbenchmarks.models.registry import MODELS, get_model
+from gwbenchmarks.runner import BenchmarkRunner

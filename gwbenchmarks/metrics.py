@@ -124,3 +124,61 @@ def expected_calibration_error(
         ece += (n_bin / n_total) * abs(avg_pred - avg_true)
 
     return float(ece)
+
+
+MSUN_SEC = 4.925491025543576e-06
+
+
+def frequency_domain_mismatch(
+    h_pred, h_ref, dt_geometric, mtot_msun, f_low=20.0
+):
+    """Compute frequency-domain mismatch using the aLIGO PSD.
+
+    Converts geometric-unit waveforms to physical units using *mtot_msun*,
+    then delegates to PyCBC's ``match`` function with the
+    ``aLIGOZeroDetHighPower`` noise curve.
+
+    Parameters
+    ----------
+    h_pred : array_like
+        Predicted complex waveform (geometric units).
+    h_ref : array_like
+        Reference complex waveform (geometric units).
+    dt_geometric : float
+        Time step in geometric units (units of M).
+    mtot_msun : float
+        Total mass in solar masses (for conversion to seconds).
+    f_low : float
+        Low-frequency cutoff in Hz.
+
+    Returns
+    -------
+    float
+        Mismatch (1 - match). Returns ``np.nan`` if PyCBC is unavailable
+        or the match computation fails.
+    """
+    try:
+        from pycbc.types import TimeSeries
+        from pycbc.filter import match
+        from pycbc.psd import aLIGOZeroDetHighPower
+    except ImportError:
+        return np.nan
+
+    dt_sec = dt_geometric * mtot_msun * MSUN_SEC
+
+    hp_pred = TimeSeries(np.real(np.asarray(h_pred, dtype=np.float64)), delta_t=dt_sec)
+    hp_ref = TimeSeries(np.real(np.asarray(h_ref, dtype=np.float64)), delta_t=dt_sec)
+
+    tlen = max(len(hp_pred), len(hp_ref))
+    hp_pred.resize(tlen)
+    hp_ref.resize(tlen)
+
+    delta_f = 1.0 / hp_ref.duration
+    flen = tlen // 2 + 1
+    psd = aLIGOZeroDetHighPower(flen, delta_f, f_low)
+
+    try:
+        m, _ = match(hp_ref, hp_pred, psd=psd, low_frequency_cutoff=f_low)
+        return 1.0 - m
+    except Exception:
+        return np.nan
