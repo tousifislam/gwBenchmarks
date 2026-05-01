@@ -190,6 +190,9 @@
       "loss": 0.7165766589041672,
       "model": "extratrees"
     },
-    "analytic": null
+    "analytic": {
+      "loss": 0.27197858463072794,
+      "model": "closed_form"
+    }
   }
 }
