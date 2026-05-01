@@ -174,10 +174,22 @@
       "loss": 0.2199241507170676,
       "model": "extratrees"
     },
-    "remnant": null,
-    "dynamics": null,
-    "ringdown": null,
-    "validity": null,
+    "remnant": {
+      "loss": 0.09140929368888882,
+      "model": "extratrees"
+    },
+    "dynamics": {
+      "loss": 0.010031634570708676,
+      "model": "gpr_rbf"
+    },
+    "ringdown": {
+      "loss": 3.9327163560389704e-07,
+      "model": "spline"
+    },
+    "validity": {
+      "loss": 0.7165766589041672,
+      "model": "extratrees"
+    },
     "analytic": null
   }
 }
