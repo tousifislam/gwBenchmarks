@@ -462,9 +462,9 @@ const DATA = {
   opus46:           { waveform: 1.63e-1, remnant: 8.99e-2, dynamics: 9.35e-3, ringdown: 1.13e-5, validity: 7.22e-1, analytic: 1.68e-1 },
   opus47:           { waveform: 1.25e-1, remnant: 8.87e-2, dynamics: 9.84e-3, ringdown: 5.63e-6, validity: 7.22e-1, analytic: 3.79e-3 },
   gpt55_high:       { waveform: 6.60e-1, remnant: 5.64e-2, dynamics: 1.17e-2, ringdown: 2.24e-3, validity: 5.36e-1, analytic: 7.26e-1 },
-  gpt54_mini:       { waveform: 1.25e-1, remnant: 8.87e-2, dynamics: 9.84e-3, ringdown: 5.63e-6, validity: 7.22e-1, analytic: 6.39e-1 },
+  gpt54_mini:       { waveform: 2.32e-1, remnant: 8.87e-2, dynamics: 9.84e-3, ringdown: 5.63e-6, validity: 7.22e-1, analytic: 6.39e-1 },
   gpt53_codex_high: { waveform: 6.60e-1, remnant: 5.64e-2, dynamics: 1.17e-2, ringdown: 2.24e-3, validity: 5.36e-1, analytic: 7.26e-1 },
-  gpt52:            { waveform: null,    remnant: null,    dynamics: null,    ringdown: null,    validity: null,    analytic: null    },
+  gpt52:            { waveform: 2.20e-1, remnant: null,    dynamics: null,    ringdown: null,    validity: null,    analytic: null    },
 };
 
 const FABRICATED = {
@@ -489,13 +489,15 @@ const PHYS_REQ = {
 };
 
 const AGENTS = [
+  // Claude models
   { id: 'opus47',           label: 'Opus 4.7',           color: '#0d7c66' },
   { id: 'opus46',           label: 'Opus 4.6',           color: '#7c3aed' },
   { id: 'sonnet46',         label: 'Sonnet 4.6',         color: '#3b5bdb' },
-  { id: 'gpt55_high',       label: 'GPT-5.5 High',       color: '#0d9488' },
-  { id: 'gpt53_codex_high', label: 'GPT-5.3 Codex High', color: '#16a34a' },
-  { id: 'gpt54_mini',       label: 'GPT-5.4 Mini',       color: '#0284c7' },
   { id: 'haiku',            label: 'Haiku 4.5',          color: '#d97706' },
+  // GPT models
+  { id: 'gpt55_high',       label: 'GPT-5.5 High',       color: '#0d9488' },
+  { id: 'gpt54_mini',       label: 'GPT-5.4 Mini',       color: '#0284c7' },
+  { id: 'gpt53_codex_high', label: 'GPT-5.3 Codex High', color: '#16a34a' },
   { id: 'gpt52',            label: 'GPT-5.2',            color: '#e11d48' },
 ];
 

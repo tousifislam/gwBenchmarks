@@ -10,10 +10,10 @@ import json
 from pathlib import Path
 
 AGENTS     = [
-    "haiku",
-    "opus46",
     "opus47",
+    "opus46",
     "sonnet46",
+    "haiku",
     "gpt55_high",
     "gpt54_mini",
     "gpt53_codex_high",
