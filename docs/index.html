@@ -106,6 +106,7 @@
   .tbd { color: var(--muted); font-size: 11px; }
   .val-best { color: var(--accent); font-weight: 600; }
   .nr-ref { color: var(--nr); font-weight: 600; font-style: italic; }
+  .phys-ref { color: #b45309; font-weight: 600; font-style: italic; }
 
   /* benchmark grid */
   .bench-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
@@ -241,9 +242,10 @@
     </div>
     <div class="note">
       Best model per agent per benchmark. Haiku dynamics / ringdown / validity / analytic excluded (fabricated results).
-      Where available, the NR Error row shows the numerical relativity truncation error — the irreducible floor
-      set by finite resolution in the ground-truth simulations. The best LLM-built models approach this floor on
-      several benchmarks.
+      Where available, the <span style="color:var(--nr);font-weight:600">NR Error</span> row shows the numerical relativity truncation error — the irreducible floor
+      set by finite resolution in the ground-truth simulations.
+      The <span style="color:#b45309;font-weight:600">Physics Req.</span> row shows the accuracy needed for
+      scientific applications such as gravitational wave parameter estimation and detection.
     </div>
     <div class="table-wrap">
       <table>
@@ -469,6 +471,16 @@ const NR_ERRORS = {
   analytic: 3.88e-5,
 };
 
+// Physics requirements: accuracy needed for scientific applications
+const PHYS_REQ = {
+  waveform: 5e-3,
+  remnant:  1e-3,
+  dynamics: 1e-4,
+  ringdown: 1e-6,
+  validity: 1e-3,
+  analytic: 5e-3,
+};
+
 const AGENTS = [
   { id: 'opus47',           label: 'Opus 4.7',           color: '#0d7c66' },
   { id: 'opus46',           label: 'Opus 4.6',           color: '#7c3aed' },
@@ -510,6 +522,14 @@ nrRow.innerHTML = `
   }).join('')}`;
 tbody.appendChild(nrRow);
 
+// Physics requirement row
+const physRow = document.createElement('tr');
+physRow.innerHTML = `
+  <td class="rank" style="color:#b45309">req</td>
+  <td><span class="model-name" style="color:#b45309"><span class="model-dot" style="background:#b45309"></span>Physics Req.</span></td>
+  ${BENCHES.map(b => `<td class="phys-ref">${fmt(PHYS_REQ[b.id])}</td>`).join('')}`;
+tbody.appendChild(physRow);
+
 // Sort agents by average loss (lower is better)
 const ranked = AGENTS.map(a => {
   const losses = BENCHES.map(b => DATA[a.id]?.[b.id]).filter(v => v !== null && v !== undefined);
@@ -539,7 +559,9 @@ const grid = document.getElementById('bench-grid');
 BENCHES.forEach(bench => {
   const vals = AGENTS.map(a => DATA[a.id]?.[bench.id]).filter(v => v != null);
   const nrv = NR_ERRORS[bench.id];
-  const allVals = nrv != null ? [...vals, nrv] : vals;
+  const prv = PHYS_REQ[bench.id];
+  const refVals = [nrv, prv].filter(v => v != null);
+  const allVals = [...vals, ...refVals];
   const worst = allVals.length ? Math.max(...allVals) : 1;
 
   const card = document.createElement('div');
@@ -555,6 +577,17 @@ BENCHES.forEach(bench => {
         <span class="bar-label-nr">NR Error</span>
         <div class="bar-track"><div class="bar-fill" style="background:var(--nr);width:${w}%"></div></div>
         <span class="bar-val-nr">${fmt(nrv)}</span>
+      </div>`;
+  }
+
+  // Physics requirement bar
+  if (prv != null) {
+    const w = (prv / worst) * 100;
+    barsHtml += `
+      <div class="bar-row">
+        <span class="bar-label-nr" style="color:#b45309">Physics Req.</span>
+        <div class="bar-track"><div class="bar-fill" style="background:#b45309;width:${w}%"></div></div>
+        <span class="bar-val-nr" style="color:#b45309">${fmt(prv)}</span>
       </div>`;
   }
 
