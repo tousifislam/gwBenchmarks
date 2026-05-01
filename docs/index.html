@@ -107,6 +107,8 @@
   .val-best { color: var(--accent); font-weight: 600; }
   .sim-ref { color: var(--sim); font-weight: 600; font-style: italic; }
   .phys-ref { color: #b45309; font-weight: 600; font-style: italic; }
+  .verdict-met { color: var(--accent); font-weight: 600; font-size: 11px; }
+  .verdict-not { color: #dc2626; font-weight: 600; font-size: 11px; }
 
   /* benchmark grid */
   .bench-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
@@ -245,6 +247,7 @@
       <ul style="margin:0;padding-left:1.2rem;list-style:disc">
         <li><span style="color:var(--sim);font-weight:600">Simulation Error</span> — the irreducible floor set by the ground-truth data itself, arising from different sources depending on the benchmark: numerical relativity resolution convergence (waveform, remnant, analytic), EOB truncation (dynamics), or optimized mismatches (validity). The best LLM-built models approach this floor on several benchmarks.</li>
         <li><span style="color:#b45309;font-weight:600">Physics Req.</span> — the accuracy threshold needed for scientific applications such as gravitational wave detection and parameter estimation. Models meeting this bar produce results reliable enough for use in real data analysis pipelines.</li>
+        <li><span style="color:var(--accent);font-weight:600">Verdict</span> — whether each agent's best model meets the physics requirement for that benchmark (<span class="verdict-met">&#x2714; Met</span>) or falls short (<span class="verdict-not">Not yet</span>).</li>
       </ul>
     </div>
     <div class="table-wrap">
@@ -557,6 +560,23 @@ ranked.forEach((a, rank) => {
       return `<td class="${cls}">${fmt(v)}</td>`;
     }).join('')}`;
   tbody.appendChild(tr);
+
+  // Verdict row for this agent
+  const vtr = document.createElement('tr');
+  vtr.style.borderBottom = '2px solid var(--border)';
+  vtr.innerHTML = `
+    <td></td>
+    <td style="font-size:10px;color:var(--muted);padding-top:0;padding-bottom:0.5rem">Verdict</td>
+    ${BENCHES.map(b => {
+      const fab = FABRICATED[a.id]?.has(b.id);
+      if (fab) return '<td></td>';
+      const v = DATA[a.id]?.[b.id];
+      if (v === null || v === undefined) return '<td class="tbd">—</td>';
+      const req = PHYS_REQ[b.id];
+      if (v <= req) return '<td class="verdict-met">&#x2714; Met</td>';
+      return '<td class="verdict-not">Not yet</td>';
+    }).join('')}`;
+  tbody.appendChild(vtr);
 });
 
 // ── Build benchmark cards ──
