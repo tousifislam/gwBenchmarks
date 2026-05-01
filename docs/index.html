@@ -23,7 +23,7 @@
     --gpt54:    #0284c7;
     --gpt53:    #16a34a;
     --gpt52:    #e11d48;
-    --nr:       #9333ea;
+    --sim:      #9333ea;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -105,7 +105,7 @@
   .best-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); background: rgba(13,124,102,0.08); border: 1px solid rgba(13,124,102,0.2); padding: 0.1rem 0.4rem; border-radius: 3px; margin-left: 0.4rem; }
   .tbd { color: var(--muted); font-size: 11px; }
   .val-best { color: var(--accent); font-weight: 600; }
-  .nr-ref { color: var(--nr); font-weight: 600; font-style: italic; }
+  .sim-ref { color: var(--sim); font-weight: 600; font-style: italic; }
   .phys-ref { color: #b45309; font-weight: 600; font-style: italic; }
 
   /* benchmark grid */
@@ -120,11 +120,11 @@
   .bench-bars { display: flex; flex-direction: column; gap: 0.45rem; }
   .bar-row { display: flex; align-items: center; gap: 0.5rem; }
   .bar-label { width: 72px; font-size: 10px; color: var(--text-dim); flex-shrink: 0; }
-  .bar-label-nr { width: 72px; font-size: 10px; color: var(--nr); flex-shrink: 0; font-weight: 600; }
+  .bar-label-sim { width: 82px; font-size: 10px; color: var(--sim); flex-shrink: 0; font-weight: 600; }
   .bar-track { flex: 1; height: 5px; background: rgba(0,0,0,0.06); border-radius: 99px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 99px; transition: width .6s ease; width: 0%; }
   .bar-val { font-size: 10px; color: var(--text-dim); width: 68px; text-align: right; flex-shrink: 0; }
-  .bar-val-nr { font-size: 10px; color: var(--nr); width: 68px; text-align: right; flex-shrink: 0; font-weight: 600; }
+  .bar-val-sim { font-size: 10px; color: var(--sim); width: 68px; text-align: right; flex-shrink: 0; font-weight: 600; }
 
   /* radar */
   .radar-wrap { display: grid; grid-template-columns: 1fr 280px; gap: 2rem; align-items: center; }
@@ -243,7 +243,7 @@
     <div class="note">
       <div style="margin-bottom:0.5rem">Best model per agent per benchmark. Haiku dynamics / ringdown / validity / analytic excluded (fabricated results).</div>
       <ul style="margin:0;padding-left:1.2rem;list-style:disc">
-        <li><span style="color:var(--nr);font-weight:600">NR Error</span> — the numerical relativity truncation error, i.e. the irreducible floor set by finite resolution in the ground-truth simulations. The best LLM-built models approach this floor on several benchmarks.</li>
+        <li><span style="color:var(--sim);font-weight:600">Simulation Error</span> — the irreducible floor set by the ground-truth data itself, arising from different sources depending on the benchmark: numerical relativity resolution convergence (waveform, remnant, analytic), EOB truncation (dynamics), or optimized mismatches (validity). The best LLM-built models approach this floor on several benchmarks.</li>
         <li><span style="color:#b45309;font-weight:600">Physics Req.</span> — the accuracy threshold needed for scientific applications such as gravitational wave detection and parameter estimation. Models meeting this bar produce results reliable enough for use in real data analysis pipelines.</li>
       </ul>
     </div>
@@ -469,7 +469,7 @@ const FABRICATED = {
 };
 
 // NR truncation errors (measured from dataset resolution convergence)
-const NR_ERRORS = {
+const SIM_ERRORS = {
   waveform: 8.44e-4,
   remnant:  3.18e-2,
   analytic: 3.88e-5,
@@ -513,18 +513,18 @@ function fmt(v) {
 // ── Build leaderboard ──
 const tbody = document.getElementById('leaderboard-body');
 
-// NR reference row first
-const nrRow = document.createElement('tr');
-nrRow.innerHTML = `
-  <td class="rank" style="color:var(--nr)">ref</td>
-  <td><span class="model-name" style="color:var(--nr)"><span class="model-dot" style="background:var(--nr)"></span>NR Error</span></td>
+// Simulation error reference row first
+const simRow = document.createElement('tr');
+simRow.innerHTML = `
+  <td class="rank" style="color:var(--sim)">ref</td>
+  <td><span class="model-name" style="color:var(--sim)"><span class="model-dot" style="background:var(--sim)"></span>Simulation Error</span></td>
   ${BENCHES.map(b => {
-    const v = NR_ERRORS[b.id];
+    const v = SIM_ERRORS[b.id];
     return v != null
-      ? `<td class="nr-ref">${fmt(v)}</td>`
+      ? `<td class="sim-ref">${fmt(v)}</td>`
       : `<td class="tbd">—</td>`;
   }).join('')}`;
-tbody.appendChild(nrRow);
+tbody.appendChild(simRow);
 
 // Physics requirement row
 const physRow = document.createElement('tr');
@@ -563,7 +563,7 @@ ranked.forEach((a, rank) => {
 const grid = document.getElementById('bench-grid');
 BENCHES.forEach(bench => {
   const vals = AGENTS.map(a => DATA[a.id]?.[bench.id]).filter(v => v != null);
-  const nrv = NR_ERRORS[bench.id];
+  const nrv = SIM_ERRORS[bench.id];
   const prv = PHYS_REQ[bench.id];
   const refVals = [nrv, prv].filter(v => v != null);
   const allVals = [...vals, ...refVals];
@@ -574,14 +574,14 @@ BENCHES.forEach(bench => {
 
   let barsHtml = '';
 
-  // NR reference bar (if available)
+  // Simulation error reference bar (if available)
   if (nrv != null) {
     const w = (nrv / worst) * 100;
     barsHtml += `
       <div class="bar-row">
-        <span class="bar-label-nr">NR Error</span>
-        <div class="bar-track"><div class="bar-fill" style="background:var(--nr);width:${w}%"></div></div>
-        <span class="bar-val-nr">${fmt(nrv)}</span>
+        <span class="bar-label-sim">Sim. Error</span>
+        <div class="bar-track"><div class="bar-fill" style="background:var(--sim);width:${w}%"></div></div>
+        <span class="bar-val-sim">${fmt(nrv)}</span>
       </div>`;
   }
 
@@ -590,9 +590,9 @@ BENCHES.forEach(bench => {
     const w = (prv / worst) * 100;
     barsHtml += `
       <div class="bar-row">
-        <span class="bar-label-nr" style="color:#b45309">Physics Req.</span>
+        <span class="bar-label-sim" style="color:#b45309">Physics Req.</span>
         <div class="bar-track"><div class="bar-fill" style="background:#b45309;width:${w}%"></div></div>
-        <span class="bar-val-nr" style="color:#b45309">${fmt(prv)}</span>
+        <span class="bar-val-sim" style="color:#b45309">${fmt(prv)}</span>
       </div>`;
   }
 
