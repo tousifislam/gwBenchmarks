@@ -1,99 +1,87 @@
 # gwBenchmarks
 
-Benchmark suite for evaluating LLM-based models for gravitational wave (GW) modelling using fully numeric, automatable metrics. All tasks avoid human scoring and instead rely on physically meaningful loss functions.
-
-## Scoring
-
-Each benchmark *b* is scored using:
-
-```
-S_b = L_b * [1 + alpha_b * log(1 + t_b / t0_b)]
-```
-
-where:
-- **L_b** = accuracy loss (benchmark-specific)
-- **t_b** = evaluation runtime
-- **t0_b** = reference runtime scale
-- **alpha_b** = cost penalty weight
-
-Lower scores are better.
+Benchmark suite for evaluating LLM-based gravitational wave (GW) modelling using fully numeric, physically motivated metrics. All tasks avoid human scoring and rely on standard loss functions from GW astronomy.
 
 ## Benchmarks
 
-### 1. Waveform Bench (Co-precessing h22)
+### 1. Waveform Bench (Co-precessing h₂₂)
 
 | | |
 |---|---|
 | **Input** | q, spin vectors chi1, chi2, time grid t_i |
-| **Output** | Re(h22_copr(t_i)), Im(h22_copr(t_i)) |
-| **Loss** | L = w1\*M + w2\*RMSE(phi) + w3\*RMSE(log A) |
-| **t0** | 10 ms per waveform |
-| **alpha** | 0.10 |
+| **Output** | Re(h22(t_i)), Im(h22(t_i)) |
+| **Loss** | Mean frequency-domain mismatch over total masses [40, 80, 120, 160, 200] M☉ |
 
-### 2. Remnant Bench
+### 2. Remnant Bench (Kick velocity)
 
 | | |
 |---|---|
 | **Input** | q, spin vectors chi1, chi2 |
-| **Output** | final mass Mf/M, final spin vector chi_f, kick velocity vector v_k |
-| **Loss** | L = NRMSE(Mf) + NRMSE(chi_f) + NRMSE(v_k) |
-| **t0** | 0.1 ms per point |
-| **alpha** | 0.05 |
+| **Output** | kick velocity magnitude v_k |
+| **Loss** | NRMSE(v_k) |
 
-### 3. Dynamics Bench (Eccentric Spinning)
+### 3. Dynamics Bench (Eccentric spinning orbital dynamics)
 
 | | |
 |---|---|
-| **Input** | q, chi1, chi2, initial conditions e0, x0, zeta0, time grid t_i |
-| **Output** | e(t_i), x(t_i), zeta(t_i) |
-| **Loss** | L = RMSE(e) + RMSE(x) + mean(1 - cos(zeta - zeta\*)) |
-| **t0** | 10 ms per trajectory |
-| **alpha** | 0.10 |
+| **Input** | q, chi1, chi2, initial conditions e0, x0, time grid t_i |
+| **Output** | PN frequency parameter x(t_i) |
+| **Loss** | Pointwise RMS relative error on x(t) |
 
-### 4. Ringdown Bench (QNM)
+### 4. Ringdown Bench (Quasi-normal modes)
 
 | | |
 |---|---|
-| **Input** | final mass Mf, final spin chi_f, mode indices (l, m, n) |
+| **Input** | final spin chi_f, mode indices (l, m, n) |
 | **Output** | omega_real, omega_imag |
-| **Loss** | L = \|d_omega_R / omega_R\*\| + \|d_omega_I / omega_I\*\| |
-| **t0** | 0.01 ms per query |
-| **alpha** | 0.03 |
+| **Loss** | Mean of relative errors on Re(ω) and Im(ω) |
 
-### 5. Analytic Bench (Non-spinning BBH, q in [1, 20])
+### 5. Analytic Bench (Non-spinning BBH, q ∈ [1, 20])
 
 | | |
 |---|---|
 | **Input** | q, time grid t_i |
-| **Output** | analytic surrogate waveform |
-| **Loss** | L = mismatch + lambda \* RMSE(coefficients) |
-| **t0** | 1 ms per waveform |
-| **alpha** | 0.10 |
+| **Output** | Re(h22(t_i)), Im(h22(t_i)) |
+| **Loss** | Mean frequency-domain mismatch over total masses [40, 80, 120, 160, 200] M☉ |
 
-Requirements:
-- Correct equal-mass limit
-- Smooth behavior in q
-- Correct test-mass trend near q=20
-- No unphysical oscillations
-
-### 6. Validity Bench (NRHybSur3dq8)
+### 6. Validity Bench (NRHybSur3dq8 extrapolation)
 
 | | |
 |---|---|
 | **Input** | q, chi1, chi2 |
-| **Output** | predicted mismatch M_hat |
-| **Loss** | L = RMSE(log M_hat, log M\*) + ECE |
-| **t0** | 1 ms per point |
-| **alpha** | 0.05 |
+| **Output** | predicted mismatch M̂ |
+| **Loss** | RMSE(log M̂, log M*) |
 
-Goal: evaluate extrapolation awareness and reliability prediction.
+## Frequency-domain mismatch
+
+The FD mismatch is computed via PyCBC using the aLIGO `aLIGOZeroDetHighPower` PSD, maximized over time and phase shifts:
+
+```
+mismatch = 1 - max_{t,phi} <h_pred, h_ref> / sqrt(<h_pred, h_pred> <h_ref, h_ref>)
+```
+
+with `f_low = 15 Hz`, `f_high = 990 Hz`. PyCBC is required for the waveform and analytic benchmarks.
+
+## Datasets
+
+HDF5 dataset files are **not** stored in this repository due to size. Each benchmark directory under `datasets/` contains:
+- `README.md` — dataset description, parameter ranges, train/val split
+- `scripts/` — curation and plotting scripts
+- `plots/` — reference plots of the dataset
+
+| Benchmark | Training | Validation |
+|---|---|---|
+| waveform | `waveform_training.h5` | `waveform_validation.h5` |
+| remnant | `remnant_training.h5` | `remnant_validation.h5` |
+| dynamics | `dynamics_training.h5` | `dynamics_validation.h5` |
+| ringdown | `ringdown_training.h5` | `ringdown_validation.h5` |
+| analytic | `analytic_training.h5` | `analytic_validation.h5` |
+| validity | `validity_training.h5` | `validity_validation.h5` |
 
 ## Rules
 
-- All datasets must include held-out parameter regions.
-- No brute-force optimization allowed at evaluation time.
-- All outputs must be direct predictions.
-- Scores are fully numeric and reproducible.
+- No brute-force optimization at evaluation time — all outputs must be direct model predictions.
+- Metrics are fully numeric and reproducible.
 
 ## Installation
 
@@ -108,7 +96,7 @@ from gwbenchmarks import WaveformBench
 
 bench = WaveformBench(config_path="configs/waveform.yaml")
 result = bench.evaluate(predictions, targets, runtime=0.005)
-print(f"Loss: {result.loss:.6f}, Score: {result.score:.6f}")
+print(f"Loss: {result.loss:.6f}")
 ```
 
 ## Project Structure
@@ -117,18 +105,16 @@ print(f"Loss: {result.loss:.6f}, Score: {result.score:.6f}")
 gwBenchmarks/
 ├── gwbenchmarks/
 │   ├── __init__.py
-│   ├── scoring.py          # Cost-penalized scoring formula
-│   ├── metrics.py          # Mismatch, RMSE, NRMSE, ECE, etc.
-│   ├── benchmarks/
-│   │   ├── base.py         # Abstract benchmark class
-│   │   ├── waveform.py     # Benchmark 1
-│   │   ├── remnant.py      # Benchmark 2
-│   │   ├── dynamics.py     # Benchmark 3
-│   │   ├── ringdown.py     # Benchmark 4
-│   │   ├── analytic.py     # Benchmark 5
-│   │   └── validity.py     # Benchmark 6
-│   └── data/
+│   ├── metrics.py          # FD mismatch, RMS relative error, NRMSE
+│   ├── runner.py           # Benchmark runner
+│   └── benchmarks/
+│       ├── base.py         # Abstract benchmark class
+│       ├── waveform.py
+│       ├── remnant.py
+│       ├── dynamics.py
+│       ├── ringdown.py
+│       ├── analytic.py
+│       └── validity.py
 ├── configs/                # YAML configs per benchmark
-├── tests/
-└── examples/
+└── datasets/               # READMEs, scripts, plots (HDF5 files hosted separately)
 ```
