@@ -241,11 +241,11 @@
       <span class="section-tag">ALL BENCHMARKS &middot; LOWER IS BETTER</span>
     </div>
     <div class="note">
-      Best model per agent per benchmark. Haiku dynamics / ringdown / validity / analytic excluded (fabricated results).
-      Where available, the <span style="color:var(--nr);font-weight:600">NR Error</span> row shows the numerical relativity truncation error — the irreducible floor
-      set by finite resolution in the ground-truth simulations.
-      The <span style="color:#b45309;font-weight:600">Physics Req.</span> row shows the accuracy needed for
-      scientific applications such as gravitational wave parameter estimation and detection.
+      <div style="margin-bottom:0.5rem">Best model per agent per benchmark. Haiku dynamics / ringdown / validity / analytic excluded (fabricated results).</div>
+      <ul style="margin:0;padding-left:1.2rem;list-style:disc">
+        <li><span style="color:var(--nr);font-weight:600">NR Error</span> — the numerical relativity truncation error, i.e. the irreducible floor set by finite resolution in the ground-truth simulations. The best LLM-built models approach this floor on several benchmarks.</li>
+        <li><span style="color:#b45309;font-weight:600">Physics Req.</span> — the accuracy threshold needed for scientific applications such as gravitational wave detection and parameter estimation. Models meeting this bar produce results reliable enough for use in real data analysis pipelines.</li>
+      </ul>
     </div>
     <div class="table-wrap">
       <table>
