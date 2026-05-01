@@ -30,6 +30,26 @@ MODELS = {
         "model_id": "gpt-5.3",
         "name": "GPT-5.3",
     },
+    "gpt-5.5-high": {
+        "class": OpenAIModel,
+        "model_id": "gpt-5.5",
+        "name": "GPT-5.5 High",
+    },
+    "gpt-5.4-mini": {
+        "class": OpenAIModel,
+        "model_id": "gpt-5.4-mini",
+        "name": "GPT-5.4 Mini",
+    },
+    "gpt-5.3-codex-high": {
+        "class": OpenAIModel,
+        "model_id": "gpt-5.3-codex",
+        "name": "GPT-5.3 Codex High",
+    },
+    "gpt-5.2": {
+        "class": OpenAIModel,
+        "model_id": "gpt-5.2",
+        "name": "GPT-5.2",
+    },
 }
 
 

@@ -34,8 +34,12 @@ results/
 |-------|-------|-----------|--------|
 | Opus 4.7 | claude-opus-4-7 | `opus47/` | — |
 | Opus 4.6 | claude-opus-4-6 | `opus46/` | — |
-| Sonnet 4.6 | claude-sonnet-4-6 | `sonnet/` | — |
+| Sonnet 4.6 | claude-sonnet-4-6 | `sonnet46/` | — |
 | Haiku 4.5 | claude-haiku-4-5 | `haiku/` | — |
+| GPT-5.5 High | gpt-5.5, reasoning high | `gpt55_high/` | — |
+| GPT-5.4 Mini | gpt-5.4-mini | `gpt54_mini/` | — |
+| GPT-5.3 Codex High | gpt-5.3-codex, reasoning high | `gpt53_codex_high/` | — |
+| GPT-5.2 | gpt-5.2 | `gpt52/` | — |
 
 ## Per-approach outputs
 

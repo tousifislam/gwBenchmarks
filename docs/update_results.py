@@ -9,7 +9,16 @@ Usage:
 import json
 from pathlib import Path
 
-AGENTS     = ["haiku", "opus46", "opus47", "sonnet46"]
+AGENTS     = [
+    "haiku",
+    "opus46",
+    "opus47",
+    "sonnet46",
+    "gpt55_high",
+    "gpt54_mini",
+    "gpt53_codex_high",
+    "gpt52",
+]
 BENCHMARKS = ["waveform", "remnant", "dynamics", "ringdown", "validity", "analytic"]
 ROOT       = Path(__file__).parent.parent   # gwBenchmarks/
 
@@ -32,12 +41,12 @@ out.write_text(json.dumps(results, indent=2))
 print(f"Written {out}")
 
 # summary to stdout
-print("\n{'Agent':<12}", end="")
+print(f"\n{'Agent':<20}", end="")
 for b in BENCHMARKS:
     print(f"  {b[:10]:<12}", end="")
 print()
 for agent in AGENTS:
-    print(f"{agent:<12}", end="")
+    print(f"{agent:<20}", end="")
     for bench in BENCHMARKS:
         v = results[agent][bench]
         val = f"{v['loss']:.3e}" if v and v["loss"] is not None else "—"

@@ -19,6 +19,10 @@
     --sonnet:   #5e81f4;
     --opus46:   #a78bfa;
     --opus47:   #00c9a7;
+    --gpt55:    #14b8a6;
+    --gpt54:    #38bdf8;
+    --gpt53:    #22c55e;
+    --gpt52:    #f43f5e;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -74,6 +78,10 @@
   .pill-sonnet  { color: var(--sonnet); border-color: var(--sonnet); background: rgba(94,129,244,0.08); }
   .pill-opus46  { color: var(--opus46); border-color: var(--opus46); background: rgba(167,139,250,0.08); }
   .pill-opus47  { color: var(--opus47); border-color: var(--opus47); background: rgba(0,201,167,0.08); }
+  .pill-gpt55   { color: var(--gpt55); border-color: var(--gpt55); background: rgba(20,184,166,0.08); }
+  .pill-gpt54   { color: var(--gpt54); border-color: var(--gpt54); background: rgba(56,189,248,0.08); }
+  .pill-gpt53   { color: var(--gpt53); border-color: var(--gpt53); background: rgba(34,197,94,0.08); }
+  .pill-gpt52   { color: var(--gpt52); border-color: var(--gpt52); background: rgba(244,63,94,0.08); }
 
   /* section headers */
   .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
@@ -173,6 +181,10 @@
       <span class="pill pill-sonnet">Sonnet 4.6</span>
       <span class="pill pill-opus46">Opus 4.6</span>
       <span class="pill pill-opus47">Opus 4.7</span>
+      <span class="pill pill-gpt55">GPT-5.5 High</span>
+      <span class="pill pill-gpt54">GPT-5.4 Mini</span>
+      <span class="pill pill-gpt53">GPT-5.3 Codex High</span>
+      <span class="pill pill-gpt52">GPT-5.2</span>
     </div>
   </div>
 
@@ -228,6 +240,22 @@
         <div class="legend-item">
           <div class="legend-swatch" style="background:var(--opus47)"></div>
           <div><div class="legend-name">Opus 4.7</div><div class="legend-note">claude-opus-4-7<br>Most capable · Frontier</div></div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:var(--gpt55)"></div>
+          <div><div class="legend-name">GPT-5.5 High</div><div class="legend-note">gpt-5.5<br>Codex · reasoning high</div></div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:var(--gpt54)"></div>
+          <div><div class="legend-name">GPT-5.4 Mini</div><div class="legend-note">gpt-5.4-mini<br>Codex · compact model</div></div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:var(--gpt53)"></div>
+          <div><div class="legend-name">GPT-5.3 Codex High</div><div class="legend-note">gpt-5.3-codex<br>Codex · reasoning high</div></div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:var(--gpt52)"></div>
+          <div><div class="legend-name">GPT-5.2</div><div class="legend-note">gpt-5.2<br>Codex baseline</div></div>
         </div>
       </div>
     </div>
@@ -291,6 +319,10 @@
 
 <script>
 const AGENTS = [
+  { id: 'gpt55_high',       label: 'GPT-5.5 High',       color: '#14b8a6' },
+  { id: 'gpt54_mini',       label: 'GPT-5.4 Mini',       color: '#38bdf8' },
+  { id: 'gpt53_codex_high', label: 'GPT-5.3 Codex High', color: '#22c55e' },
+  { id: 'gpt52',            label: 'GPT-5.2',            color: '#f43f5e' },
   { id: 'opus47',   label: 'Opus 4.7',   color: '#00c9a7' },
   { id: 'opus46',   label: 'Opus 4.6',   color: '#a78bfa' },
   { id: 'sonnet46', label: 'Sonnet 4.6', color: '#5e81f4' },
