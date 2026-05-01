@@ -1,132 +1,66 @@
 # LLM Agent Benchmark Runner
 
-Instructions for launching Claude Code agents to run the gwBenchmarks suite.
-
-## Directory structure
-
-```
-llm_agents/
-├── agent_prompts/          # canonical benchmark prompts (edit here to update all agents)
-│   ├── waveform.md
-│   ├── remnant.md
-│   ├── dynamics.md
-│   ├── ringdown.md
-│   ├── validity.md
-│   └── analytic.md
-├── generate_prompt.py      # fills {AGENT}/{AGENT_LABEL} placeholders
-├── results/
-│   ├── comparison/         # cross-agent plotting scripts
-│   ├── haiku/{bench}/      # run artifacts land here
-│   ├── opus46/{bench}/
-│   ├── opus47/{bench}/
-│   └── sonnet46/{bench}/
-└── README.md               # this file
-```
-
-## Step 1 — Generate the agent prompt
-
-Before launching, write the agent-specific prompt into the result directory:
-
-```bash
-# from the gwBenchmarks/ root
-python llm_agents/generate_prompt.py <agent> <benchmark> --write
-```
-
-Examples:
-
-```bash
-python llm_agents/generate_prompt.py haiku    waveform --write
-python llm_agents/generate_prompt.py opus46   remnant  --write
-python llm_agents/generate_prompt.py opus47   ringdown --write
-python llm_agents/generate_prompt.py sonnet46 dynamics --write
-```
-
-Supported agents: `haiku`, `opus46`, `opus47`, `sonnet46`  
-Supported benchmarks: `waveform`, `remnant`, `dynamics`, `ringdown`, `validity`, `analytic`
-
-To regenerate all 24 prompts at once:
-
-```bash
-for agent in haiku opus46 opus47 sonnet46; do
-  for bench in waveform remnant dynamics ringdown validity analytic; do
-    python llm_agents/generate_prompt.py $agent $bench --write
-  done
-done
-```
-
-## Step 2 — Start Claude Code with the right model
+## Step 1 — Start Claude Code
 
 Open a terminal in the `gwBenchmarks/` root and launch Claude Code with
-`--dangerously-skip-permissions` so the agent can read/write files and run
-code without manual approval.
+`--dangerously-skip-permissions` and the model you want to evaluate.
 
 ### Haiku (`claude-haiku-4-5-20251001`)
-
 ```bash
 claude --dangerously-skip-permissions --model claude-haiku-4-5-20251001
 ```
 
 ### Sonnet 4.6 (`claude-sonnet-4-6`)
-
 ```bash
 claude --dangerously-skip-permissions --model claude-sonnet-4-6
 ```
 
 ### Opus 4.6 (`claude-opus-4-6`)
-
 ```bash
 claude --dangerously-skip-permissions --model claude-opus-4-6
 ```
 
 ### Opus 4.7 (`claude-opus-4-7`)
-
 ```bash
 claude --dangerously-skip-permissions --model claude-opus-4-7
 ```
 
-## Step 3 — Launch the benchmark loop
+---
 
-Once inside the Claude Code session, launch the loop with:
+## Step 2 — Launch the benchmark loop
 
+Once inside the Claude Code session, paste the loop command for your model.
+The agent will run all six benchmarks one by one, in order.
+
+### Haiku
 ```
-/ralph-loop:ralph-loop "Read llm_agents/results/<agent>/<benchmark>/AGENT_PROMPT.md carefully and execute every task described in it. Work from the gwBenchmarks/ root directory. Do not stop until the completion string (e.g. WAVEFORM_BENCH_COMPLETE) is printed." --max-iterations 3
-```
-
-### Full examples
-
-**Haiku — waveform:**
-```
-/ralph-loop:ralph-loop "Read llm_agents/results/haiku/waveform/AGENT_PROMPT.md carefully and execute every task described in it. Work from the gwBenchmarks/ root directory. Do not stop until WAVEFORM_BENCH_COMPLETE is printed." --max-iterations 3
+/ralph-loop:ralph-loop "You are the Haiku agent for the gwBenchmarks suite. Your agent ID is 'haiku'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py haiku <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read llm_agents/results/haiku/<benchmark>/AGENT_PROMPT.md carefully, (3) execute every task described in it — do not stop until the completion string is printed, (4) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE." --max-iterations 3
 ```
 
-**Opus 4.7 — ringdown:**
+### Sonnet 4.6
 ```
-/ralph-loop:ralph-loop "Read llm_agents/results/opus47/ringdown/AGENT_PROMPT.md carefully and execute every task described in it. Work from the gwBenchmarks/ root directory. Do not stop until RINGDOWN_BENCH_COMPLETE is printed." --max-iterations 3
-```
-
-**Sonnet 4.6 — dynamics:**
-```
-/ralph-loop:ralph-loop "Read llm_agents/results/sonnet46/dynamics/AGENT_PROMPT.md carefully and execute every task described in it. Work from the gwBenchmarks/ root directory. Do not stop until DYNAMICS_BENCH_COMPLETE is printed." --max-iterations 3
+/ralph-loop:ralph-loop "You are the Sonnet 4.6 agent for the gwBenchmarks suite. Your agent ID is 'sonnet46'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py sonnet46 <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read llm_agents/results/sonnet46/<benchmark>/AGENT_PROMPT.md carefully, (3) execute every task described in it — do not stop until the completion string is printed, (4) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE." --max-iterations 3
 ```
 
-Completion strings per benchmark:
+### Opus 4.6
+```
+/ralph-loop:ralph-loop "You are the Opus 4.6 agent for the gwBenchmarks suite. Your agent ID is 'opus46'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py opus46 <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read llm_agents/results/opus46/<benchmark>/AGENT_PROMPT.md carefully, (3) execute every task described in it — do not stop until the completion string is printed, (4) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE." --max-iterations 3
+```
 
-| Benchmark | Completion string |
-|-----------|------------------|
-| waveform  | `WAVEFORM_BENCH_COMPLETE` |
-| remnant   | `REMNANT_BENCH_COMPLETE` |
-| dynamics  | `DYNAMICS_BENCH_COMPLETE` |
-| ringdown  | `RINGDOWN_BENCH_COMPLETE` |
-| validity  | `VALIDITY_BENCH_COMPLETE` |
-| analytic  | `ANALYTIC_BENCH_COMPLETE` |
+### Opus 4.7
+```
+/ralph-loop:ralph-loop "You are the Opus 4.7 agent for the gwBenchmarks suite. Your agent ID is 'opus47'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py opus47 <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read llm_agents/results/opus47/<benchmark>/AGENT_PROMPT.md carefully, (3) execute every task described in it — do not stop until the completion string is printed, (4) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE." --max-iterations 3
+```
+
+---
 
 ## What gets saved
 
-Each agent writes its results into `llm_agents/results/<agent>/<benchmark>/`:
+Each agent writes results into `llm_agents/results/<agent>/<benchmark>/`:
 
 ```
 llm_agents/results/opus47/waveform/
-├── AGENT_PROMPT.md              # generated in Step 1
+├── AGENT_PROMPT.md              # generated automatically in step (1)
 ├── CHANGELOG.md                 # updated after every approach
 ├── models/
 │   ├── 01_svd_gpr_raw/
@@ -136,31 +70,29 @@ llm_agents/results/opus47/waveform/
 │   │   └── scorecard.json
 │   └── ...
 └── comparison/
-    ├── error_data.json          # raw per-sample validation errors
-    ├── summary_table.json       # ranked model comparison
+    ├── error_data.json
+    ├── summary_table.json
     ├── best_model.json
     ├── progress.{png,pdf}
     ├── loss_only_comparison.{png,pdf}
     └── error_histograms.{png,pdf}
 ```
 
-Model binaries (`saved_model/`, `*.pkl`, `*.joblib`) are gitignored. Everything
-else — scripts, scorecards, plots, JSON summaries — is committed.
+Model binaries (`saved_model/`, `*.pkl`, `*.joblib`) are gitignored.
+Scripts, scorecards, plots, and JSON summaries are committed.
+
+---
 
 ## Updating a prompt
 
-Edit `llm_agents/agent_prompts/<benchmark>.md` (one file), then regenerate:
-
-```bash
-python llm_agents/generate_prompt.py opus47 waveform --write
-```
+Edit `llm_agents/agent_prompts/<benchmark>.md` (one file, shared across all agents).
+The agent regenerates its copy automatically at the start of each benchmark via
+`generate_prompt.py`.
 
 ## Wiping a run
 
-To delete one agent's results for a benchmark and start fresh:
-
 ```bash
 rm -rf llm_agents/results/opus47/waveform/
-mkdir  llm_agents/results/opus47/waveform/
-python llm_agents/generate_prompt.py opus47 waveform --write
 ```
+
+Then re-run the loop — the agent will regenerate the prompt and start fresh.
