@@ -1,46 +1,127 @@
 {
   "haiku": {
-    "waveform": null,
-    "remnant": null,
+    "waveform": {
+      "loss": 0.8878880117629999,
+      "model": "NN7_SVD_GPR_matern_eta_chi"
+    },
+    "remnant": {
+      "loss": 0.09017687074643194,
+      "model": "NN5_GPR_Matern_eta_chi"
+    },
     "dynamics": null,
     "ringdown": null,
     "validity": null,
     "analytic": null
   },
   "opus46": {
-    "waveform": null,
-    "remnant": null,
-    "dynamics": null,
-    "ringdown": null,
-    "validity": null,
-    "analytic": null
+    "waveform": {
+      "loss": 0.16255959591441482,
+      "model": "20_svd_rbf_interp_eta"
+    },
+    "remnant": {
+      "loss": 0.08987815542264548,
+      "model": "et_raw"
+    },
+    "dynamics": {
+      "loss": 0.00935239943753265,
+      "model": "svd_gpr_raw"
+    },
+    "ringdown": {
+      "loss": 1.1299381259098558e-05,
+      "model": "cubic_spline_raw"
+    },
+    "validity": {
+      "loss": 0.7220977686981352,
+      "model": "rf_raw"
+    },
+    "analytic": {
+      "loss": 0.1675373753024337,
+      "model": "pn_qnm_blend_eta"
+    }
   },
   "opus47": {
-    "waveform": null,
-    "remnant": null,
-    "dynamics": null,
-    "ringdown": null,
-    "validity": null,
-    "analytic": null
+    "waveform": {
+      "loss": 0.12532173976645483,
+      "model": "svd_knn_raw7"
+    },
+    "remnant": {
+      "loss": 0.08867782750310059,
+      "model": "mlp_multitask_eta_chieff"
+    },
+    "dynamics": {
+      "loss": 0.009844146894435886,
+      "model": "svd_bayes_ridge_log_omega"
+    },
+    "ringdown": {
+      "loss": 5.634280335774061e-06,
+      "model": "cubic_spline_per_mode"
+    },
+    "validity": {
+      "loss": 0.7220358460760729,
+      "model": "rf_raw4"
+    },
+    "analytic": {
+      "loss": 0.003790608612694543,
+      "model": "ap_svd_poly5_log_q"
+    }
   },
   "sonnet46": {
-    "waveform": null,
-    "remnant": null,
-    "dynamics": null,
-    "ringdown": null,
-    "validity": null,
-    "analytic": null
+    "waveform": {
+      "loss": 0.9564567009974957,
+      "model": "svd_rf_raw"
+    },
+    "remnant": {
+      "loss": 0.05378456498809155,
+      "model": "et_md"
+    },
+    "dynamics": {
+      "loss": 0.008308229905879072,
+      "model": "rbf_interp_raw"
+    },
+    "ringdown": {
+      "loss": 1.1299381259098556e-05,
+      "model": "spline_raw"
+    },
+    "validity": {
+      "loss": 0.5332012555668648,
+      "model": "rf_logq"
+    },
+    "analytic": {
+      "loss": 0.27208402287550043,
+      "model": "phenom_pysr_freq"
+    }
   },
   "gpt55_high": {
-    "waveform": null,
-    "remnant": null,
-    "dynamics": null,
-    "ringdown": null,
-    "validity": null,
-    "analytic": null
+    "waveform": {
+      "loss": 0.6602995415033234,
+      "model": "RBF-Interp (massdiff_spins)"
+    },
+    "remnant": {
+      "loss": 0.05635771666436307,
+      "model": "RandomForest (effective_spins)"
+    },
+    "dynamics": {
+      "loss": 0.011706230517977785,
+      "model": "RBF-Interp (trig_anomaly)"
+    },
+    "ringdown": {
+      "loss": 0.002236814341060417,
+      "model": "Cubic-Spline (raw_a)"
+    },
+    "validity": {
+      "loss": 0.5364999729543928,
+      "model": "RandomForest (effective_spins)"
+    },
+    "analytic": {
+      "loss": 0.725501180294634,
+      "model": "Symbolic-Phase (eta_power)"
+    }
   },
   "gpt54_mini": {
-    "waveform": null,
+    "waveform": {
+      "loss": 0.12532173976645483,
+      "model": "svd_knn_raw7"
+    },
     "remnant": null,
     "dynamics": null,
     "ringdown": null,
@@ -48,12 +129,30 @@
     "analytic": null
   },
   "gpt53_codex_high": {
-    "waveform": null,
-    "remnant": null,
-    "dynamics": null,
-    "ringdown": null,
-    "validity": null,
-    "analytic": null
+    "waveform": {
+      "loss": 0.6602995415033299,
+      "model": "RBF-Interp (massdiff_spins)"
+    },
+    "remnant": {
+      "loss": 0.05639618964111244,
+      "model": "RandomForest (effective_spins)"
+    },
+    "dynamics": {
+      "loss": 0.011706230517977815,
+      "model": "RBF-Interp (trig_anomaly)"
+    },
+    "ringdown": {
+      "loss": 0.002236814341060417,
+      "model": "Cubic-Spline (raw_a)"
+    },
+    "validity": {
+      "loss": 0.5360508247112381,
+      "model": "RandomForest (effective_spins)"
+    },
+    "analytic": {
+      "loss": 0.7255011802945823,
+      "model": "Symbolic-Phase (eta_power)"
+    }
   },
   "gpt52": {
     "waveform": null,

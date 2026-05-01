@@ -22,16 +22,28 @@ AGENTS     = [
 BENCHMARKS = ["waveform", "remnant", "dynamics", "ringdown", "validity", "analytic"]
 ROOT       = Path(__file__).parent.parent   # gwBenchmarks/
 
+FABRICATED = {
+    "haiku": {"dynamics", "ringdown", "validity", "analytic"},
+}
+
 results = {}
 for agent in AGENTS:
     results[agent] = {}
     for bench in BENCHMARKS:
+        if bench in FABRICATED.get(agent, set()):
+            results[agent][bench] = None
+            continue
         path = ROOT / "llm_agents" / "results" / agent / bench / "comparison" / "best_model.json"
         if path.exists():
             data = json.loads(path.read_text())
             results[agent][bench] = {
-                "loss":  data.get("loss"),
-                "model": data.get("name"),
+                "loss":  data.get("loss") or data.get("val_loss"),
+                "model": (
+                    data.get("name")
+                    or data.get("model_name")
+                    or data.get("dir_name")
+                    or data.get("approach")
+                ),
             }
         else:
             results[agent][bench] = None

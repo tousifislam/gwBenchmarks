@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="gwBenchmarks" width="200">
+</p>
+
 # gwBenchmarks
 
 Benchmark suite for evaluating LLM-based gravitational wave (GW) modelling using fully numeric, physically motivated metrics. All tasks avoid human scoring and rely on standard loss functions from GW astronomy.

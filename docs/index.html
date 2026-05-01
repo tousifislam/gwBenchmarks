@@ -3,26 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>gwBenchmarks — LLM Gravitational Wave Modelling Benchmark</title>
+<title>gwBenchmarks — Gravitational Wave Astronomy Benchmark Suite</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg:       #0b0d0f;
-    --surface:  #13161a;
-    --border:   #1f2428;
-    --accent:   #00c9a7;
-    --accent2:  #5e81f4;
-    --muted:    #6b7280;
-    --text:     #e4e7eb;
-    --text-dim: #9ca3af;
-    --haiku:    #f59e0b;
-    --sonnet:   #5e81f4;
-    --opus46:   #a78bfa;
-    --opus47:   #00c9a7;
-    --gpt55:    #14b8a6;
-    --gpt54:    #38bdf8;
-    --gpt53:    #22c55e;
-    --gpt52:    #f43f5e;
+    --bg:       #ffffff;
+    --surface:  #f8f9fa;
+    --border:   #e2e5e9;
+    --accent:   #0d7c66;
+    --accent2:  #3b5bdb;
+    --muted:    #868e96;
+    --text:     #1a1d21;
+    --text-dim: #495057;
+    --haiku:    #d97706;
+    --sonnet:   #3b5bdb;
+    --opus46:   #7c3aed;
+    --opus47:   #0d7c66;
+    --gpt55:    #0d9488;
+    --gpt54:    #0284c7;
+    --gpt53:    #16a34a;
+    --gpt52:    #e11d48;
+    --nr:       #9333ea;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -34,10 +35,9 @@
     min-height: 100vh;
   }
 
-  /* nav */
   nav {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(11,13,15,0.85);
+    background: rgba(255,255,255,0.9);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     padding: 0 2rem;
@@ -45,22 +45,21 @@
     display: flex; align-items: center; justify-content: space-between;
   }
   .nav-brand { display: flex; align-items: center; gap: 0.5rem; }
-  .nav-brand svg { color: var(--accent); }
+  .nav-brand img { height: 28px; width: auto; }
   .nav-brand span { font-size: 15px; font-weight: 600; letter-spacing: -0.02em; }
   .nav-brand em { color: var(--accent); font-style: normal; }
+  .hero-logo { width: 160px; height: auto; margin-bottom: 1.5rem; }
   .nav-links { display: flex; gap: 1.5rem; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; transition: color .15s; }
   .nav-links a:hover { color: var(--text); }
 
-  /* layout */
   main { max-width: 960px; margin: 0 auto; padding: 4rem 2rem 6rem; }
   section { margin-top: 4rem; }
 
-  /* hero */
   .hero { text-align: center; padding: 3rem 0 2rem; }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 0.4rem;
-    background: rgba(0,201,167,0.1); border: 1px solid rgba(0,201,167,0.3);
+    background: rgba(13,124,102,0.08); border: 1px solid rgba(13,124,102,0.25);
     color: var(--accent); border-radius: 999px;
     padding: 0.2rem 0.75rem; font-size: 11px; letter-spacing: 0.05em;
     margin-bottom: 1.5rem;
@@ -71,53 +70,60 @@
     line-height: 1.1; margin-bottom: 1.2rem;
   }
   .hero h1 em { color: var(--accent); font-style: normal; }
-  .hero p { color: var(--text-dim); max-width: 580px; margin: 0 auto 2rem; font-size: 14px; line-height: 1.8; }
+  .hero p { color: var(--text-dim); max-width: 640px; margin: 0 auto 1.5rem; font-size: 14px; line-height: 1.8; text-align: left; }
+  .investigators { color: var(--muted); font-size: 12px; margin-bottom: 2rem; }
+  .investigators strong { color: var(--text-dim); font-weight: 600; }
   .model-pills { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
   .pill { padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; border: 1px solid; }
-  .pill-haiku   { color: var(--haiku);  border-color: var(--haiku);  background: rgba(245,158,11,0.08); }
-  .pill-sonnet  { color: var(--sonnet); border-color: var(--sonnet); background: rgba(94,129,244,0.08); }
-  .pill-opus46  { color: var(--opus46); border-color: var(--opus46); background: rgba(167,139,250,0.08); }
-  .pill-opus47  { color: var(--opus47); border-color: var(--opus47); background: rgba(0,201,167,0.08); }
-  .pill-gpt55   { color: var(--gpt55); border-color: var(--gpt55); background: rgba(20,184,166,0.08); }
-  .pill-gpt54   { color: var(--gpt54); border-color: var(--gpt54); background: rgba(56,189,248,0.08); }
-  .pill-gpt53   { color: var(--gpt53); border-color: var(--gpt53); background: rgba(34,197,94,0.08); }
-  .pill-gpt52   { color: var(--gpt52); border-color: var(--gpt52); background: rgba(244,63,94,0.08); }
+  .pill-haiku   { color: var(--haiku);  border-color: var(--haiku);  background: rgba(217,119,6,0.06); }
+  .pill-sonnet  { color: var(--sonnet); border-color: var(--sonnet); background: rgba(59,91,219,0.06); }
+  .pill-opus46  { color: var(--opus46); border-color: var(--opus46); background: rgba(124,58,237,0.06); }
+  .pill-opus47  { color: var(--opus47); border-color: var(--opus47); background: rgba(13,124,102,0.06); }
+  .pill-gpt55   { color: var(--gpt55); border-color: var(--gpt55); background: rgba(13,148,136,0.06); }
+  .pill-gpt54   { color: var(--gpt54); border-color: var(--gpt54); background: rgba(2,132,199,0.06); }
+  .pill-gpt53   { color: var(--gpt53); border-color: var(--gpt53); background: rgba(22,163,74,0.06); }
+  .pill-gpt52   { color: var(--gpt52); border-color: var(--gpt52); background: rgba(225,29,72,0.06); }
 
-  /* section headers */
   .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
   .section-header h2 { font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
-  .section-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--accent); background: rgba(0,201,167,0.1); border: 1px solid rgba(0,201,167,0.25); padding: 0.15rem 0.5rem; border-radius: 4px; }
-  .note { font-size: 11px; color: var(--muted); background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-left: 3px solid var(--accent2); padding: 0.6rem 0.9rem; border-radius: 4px; margin-bottom: 1.5rem; }
+  .section-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--accent); background: rgba(13,124,102,0.08); border: 1px solid rgba(13,124,102,0.2); padding: 0.15rem 0.5rem; border-radius: 4px; }
+  .note { font-size: 11px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent2); padding: 0.6rem 0.9rem; border-radius: 4px; margin-bottom: 1.5rem; }
+
+  /* why section */
+  .why-text { color: var(--text-dim); font-size: 13px; line-height: 1.9; max-width: 780px; }
 
   /* leaderboard */
   .table-wrap { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  thead th { text-align: left; padding: 0.6rem 0.9rem; color: var(--muted); font-weight: 500; letter-spacing: 0.05em; font-size: 11px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  thead th { text-align: left; padding: 0.6rem 0.9rem; color: var(--muted); font-weight: 500; letter-spacing: 0.05em; font-size: 11px; border-bottom: 2px solid var(--border); white-space: nowrap; }
   tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
-  tbody tr:hover { background: rgba(255,255,255,0.025); }
+  tbody tr:hover { background: rgba(0,0,0,0.02); }
   tbody td { padding: 0.65rem 0.9rem; vertical-align: middle; }
   .rank { color: var(--muted); font-size: 11px; }
-  .model-name { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+  .model-name { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
   .model-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .best-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); background: rgba(0,201,167,0.1); border: 1px solid rgba(0,201,167,0.2); padding: 0.1rem 0.4rem; border-radius: 3px; margin-left: 0.4rem; }
+  .best-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); background: rgba(13,124,102,0.08); border: 1px solid rgba(13,124,102,0.2); padding: 0.1rem 0.4rem; border-radius: 3px; margin-left: 0.4rem; }
   .tbd { color: var(--muted); font-size: 11px; }
   .val-best { color: var(--accent); font-weight: 600; }
+  .nr-ref { color: var(--nr); font-weight: 600; font-style: italic; }
 
   /* benchmark grid */
   .bench-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
   .bench-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; transition: border-color .2s; }
-  .bench-card:hover { border-color: rgba(0,201,167,0.3); }
+  .bench-card:hover { border-color: rgba(13,124,102,0.4); }
   .bench-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
   .bench-name { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; }
-  .bench-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.05em; color: var(--muted); background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 0.1rem 0.45rem; border-radius: 3px; }
+  .bench-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.05em; color: var(--muted); background: rgba(0,0,0,0.04); border: 1px solid var(--border); padding: 0.1rem 0.45rem; border-radius: 3px; }
   .bench-desc { color: var(--text-dim); font-size: 11px; margin-bottom: 0.6rem; line-height: 1.6; }
   .bench-metric { font-size: 10px; color: var(--muted); margin-bottom: 1rem; font-style: italic; }
   .bench-bars { display: flex; flex-direction: column; gap: 0.45rem; }
   .bar-row { display: flex; align-items: center; gap: 0.5rem; }
-  .bar-label { width: 62px; font-size: 10px; color: var(--text-dim); flex-shrink: 0; }
-  .bar-track { flex: 1; height: 5px; background: rgba(255,255,255,0.06); border-radius: 99px; overflow: hidden; }
+  .bar-label { width: 72px; font-size: 10px; color: var(--text-dim); flex-shrink: 0; }
+  .bar-label-nr { width: 72px; font-size: 10px; color: var(--nr); flex-shrink: 0; font-weight: 600; }
+  .bar-track { flex: 1; height: 5px; background: rgba(0,0,0,0.06); border-radius: 99px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 99px; transition: width .6s ease; width: 0%; }
   .bar-val { font-size: 10px; color: var(--text-dim); width: 68px; text-align: right; flex-shrink: 0; }
+  .bar-val-nr { font-size: 10px; color: var(--nr); width: 68px; text-align: right; flex-shrink: 0; font-weight: 600; }
 
   /* radar */
   .radar-wrap { display: grid; grid-template-columns: 1fr 280px; gap: 2rem; align-items: center; }
@@ -128,13 +134,20 @@
   .legend-name { font-size: 12px; font-weight: 600; }
   .legend-note { font-size: 10px; color: var(--muted); line-height: 1.5; }
 
+  /* about benchmarks */
+  .about-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .about-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+  .about-card h3 { font-size: 13px; font-weight: 600; margin-bottom: 0.4rem; }
+  .about-card .about-io { font-size: 10px; color: var(--accent2); margin-bottom: 0.5rem; }
+  .about-card p { font-size: 12px; color: var(--text-dim); line-height: 1.7; }
+
   /* methods */
   .methods-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem; }
   .method-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; }
   .method-card h3 { font-size: 12px; font-weight: 600; margin-bottom: 0.3rem; }
   .method-card .output { color: var(--accent2); font-size: 10px; margin-bottom: 0.4rem; }
   .method-card .metric { color: var(--text-dim); font-size: 11px; line-height: 1.6; }
-  code { font-family: inherit; background: rgba(255,255,255,0.06); padding: 0.1em 0.35em; border-radius: 3px; font-size: 10px; }
+  code { font-family: inherit; background: rgba(0,0,0,0.05); padding: 0.1em 0.35em; border-radius: 3px; font-size: 10px; }
 
   footer { text-align: center; padding: 2rem; margin-top: 5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; line-height: 1.8; }
   footer a { color: var(--accent); text-decoration: none; }
@@ -149,16 +162,14 @@
 
 <nav>
   <div class="nav-brand">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-      <path d="M2 12h20"/>
-    </svg>
+    <img src="../logo.png" alt="gwBenchmarks">
     <span>gw<em>Benchmarks</em></span>
   </div>
   <div class="nav-links">
+    <a href="#why">why</a>
     <a href="#leaderboard">leaderboard</a>
-    <a href="#benchmarks">benchmarks</a>
-    <a href="#methods">methods</a>
+    <a href="#about-benchmarks">benchmarks</a>
+    <a href="#methods">metrics</a>
     <a href="https://github.com/tousifislam/gwBenchmarks">github</a>
   </div>
 </nav>
@@ -167,15 +178,26 @@
 
   <div class="hero">
     <div class="hero-badge">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-      GRAVITATIONAL WAVE MODELLING BENCHMARK
+      GRAVITATIONAL WAVE ASTRONOMY BENCHMARK SUITE
     </div>
     <h1>Can LLMs do <em>GW</em> physics?</h1>
     <p>
-      gwBenchmarks evaluates large language model agents on six gravitational wave
-      modelling tasks — from waveform surrogates to quasi-normal mode fitting —
-      using fully automated, physics-motivated metrics.
+      gwBenchmarks is a benchmark for large language model agents tackling long-horizon,
+      terminal-based astrophysical research problems.
+      Focused on gravitational waves from binary compact object mergers, it evaluates
+      models using fully automated, physics-driven, and quantitatively verifiable
+      metrics on state-of-the-art tasks — providing a direct measure of science readiness.
     </p>
+    <div class="investigators">
+      <strong>Investigators:</strong>
+      Tousif Islam (KITP, UC Santa Barbara) &middot;
+      Digvijay Wadekar (UT Austin) &middot;
+      Zihan Zhou (Princeton)
+      <br>
+      <strong>Contact:</strong>
+      <a href="mailto:tousifislam24@gmail.com" style="color:var(--accent);text-decoration:none">tousifislam24@gmail.com</a> &middot;
+      <a href="mailto:tousifislam@ucsb.edu" style="color:var(--accent);text-decoration:none">tousifislam@ucsb.edu</a>
+    </div>
     <div class="model-pills">
       <span class="pill pill-haiku">Haiku 4.5</span>
       <span class="pill pill-sonnet">Sonnet 4.6</span>
@@ -186,15 +208,43 @@
       <span class="pill pill-gpt53">GPT-5.3 Codex High</span>
       <span class="pill pill-gpt52">GPT-5.2</span>
     </div>
+    <img src="../logo.png" alt="gwBenchmarks logo" class="hero-logo" style="margin-top:2rem">
   </div>
+
+  <!-- WHY -->
+  <section id="why">
+    <div class="section-header">
+      <h2>Why gwBenchmarks</h2>
+      <span class="section-tag">MOTIVATION</span>
+    </div>
+    <div class="why-text">
+      Typical LLM benchmarks evaluate performance on toy problems or tasks where
+      success is measured by subjective, hard-to-verify metrics.
+      Gravitational wave astronomy provides an unusually clean alternative: the ground
+      truth is known in many cases from exact (but computationally expensive) numerical
+      solutions to Einstein's equations, so every benchmark score is quantitatively
+      verifiable and reproducible.
+      The field also sits at the intersection of high-performance computing, differential
+      equations, and statistical inference — precisely the kind of long-horizon scientific
+      research where we most need to understand what LLM agents can and cannot do.
+      gwBenchmarks turns this into a concrete test: give an agent training data from
+      numerical relativity simulations, and measure how close its autonomously-built
+      surrogate model comes to the physics.
+    </div>
+  </section>
 
   <!-- LEADERBOARD -->
   <section id="leaderboard">
     <div class="section-header">
       <h2>Leaderboard</h2>
-      <span class="section-tag">ALL BENCHMARKS · LOWER IS BETTER</span>
+      <span class="section-tag">ALL BENCHMARKS &middot; LOWER IS BETTER</span>
     </div>
-    <div class="note" id="leaderboard-note">Loading results…</div>
+    <div class="note">
+      Best model per agent per benchmark. Haiku dynamics / ringdown / validity / analytic excluded (fabricated results).
+      Where available, the NR Error row shows the numerical relativity truncation error — the irreducible floor
+      set by finite resolution in the ground-truth simulations. The best LLM-built models approach this floor on
+      several benchmarks.
+    </div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -218,7 +268,7 @@
   <section id="overview">
     <div class="section-header">
       <h2>Performance Profile</h2>
-      <span class="section-tag">NORMALISED · CLOSER TO CENTRE = BETTER</span>
+      <span class="section-tag">NORMALISED &middot; CLOSER TO CENTRE = BETTER</span>
     </div>
     <div class="radar-wrap">
       <div class="radar-canvas-wrap">
@@ -227,7 +277,7 @@
       <div class="radar-legend">
         <div class="legend-item">
           <div class="legend-swatch" style="background:var(--haiku)"></div>
-          <div><div class="legend-name">Haiku 4.5</div><div class="legend-note">claude-haiku-4-5-20251001<br>Fastest · Most cost-efficient</div></div>
+          <div><div class="legend-name">Haiku 4.5</div><div class="legend-note">claude-haiku-4-5-20251001<br>Fastest &middot; Most cost-efficient</div></div>
         </div>
         <div class="legend-item">
           <div class="legend-swatch" style="background:var(--sonnet)"></div>
@@ -239,19 +289,19 @@
         </div>
         <div class="legend-item">
           <div class="legend-swatch" style="background:var(--opus47)"></div>
-          <div><div class="legend-name">Opus 4.7</div><div class="legend-note">claude-opus-4-7<br>Most capable · Frontier</div></div>
+          <div><div class="legend-name">Opus 4.7</div><div class="legend-note">claude-opus-4-7<br>Most capable &middot; Frontier</div></div>
         </div>
         <div class="legend-item">
           <div class="legend-swatch" style="background:var(--gpt55)"></div>
-          <div><div class="legend-name">GPT-5.5 High</div><div class="legend-note">gpt-5.5<br>Codex · reasoning high</div></div>
+          <div><div class="legend-name">GPT-5.5 High</div><div class="legend-note">gpt-5.5<br>Codex &middot; reasoning high</div></div>
         </div>
         <div class="legend-item">
           <div class="legend-swatch" style="background:var(--gpt54)"></div>
-          <div><div class="legend-name">GPT-5.4 Mini</div><div class="legend-note">gpt-5.4-mini<br>Codex · compact model</div></div>
+          <div><div class="legend-name">GPT-5.4 Mini</div><div class="legend-note">gpt-5.4-mini<br>Codex &middot; compact model</div></div>
         </div>
         <div class="legend-item">
           <div class="legend-swatch" style="background:var(--gpt53)"></div>
-          <div><div class="legend-name">GPT-5.3 Codex High</div><div class="legend-note">gpt-5.3-codex<br>Codex · reasoning high</div></div>
+          <div><div class="legend-name">GPT-5.3 Codex High</div><div class="legend-note">gpt-5.3-codex<br>Codex &middot; reasoning high</div></div>
         </div>
         <div class="legend-item">
           <div class="legend-swatch" style="background:var(--gpt52)"></div>
@@ -261,7 +311,7 @@
     </div>
   </section>
 
-  <!-- BENCHMARKS -->
+  <!-- BENCHMARK RESULTS (bar charts) -->
   <section id="benchmarks">
     <div class="section-header">
       <h2>Benchmark Results</h2>
@@ -270,7 +320,89 @@
     <div class="bench-grid" id="bench-grid"></div>
   </section>
 
-  <!-- METHODS -->
+  <!-- ABOUT THE BENCHMARKS -->
+  <section id="about-benchmarks">
+    <div class="section-header">
+      <h2>About the Benchmarks</h2>
+      <span class="section-tag">BACKGROUND FOR NON-SPECIALISTS</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Waveform Bench</h3>
+        <div class="about-io">input: binary parameters (masses, spins) &rarr; output: gravitational wave strain h(t)</div>
+        <p>
+          When two black holes spiral together, they emit gravitational waves — ripples
+          in spacetime detected by observatories like LIGO. The waveform shape depends on
+          seven parameters (mass ratio and six spin components). Solving Einstein's equations
+          numerically for a single configuration takes thousands of CPU-hours, so the field
+          relies on fast surrogate models trained on a catalogue of numerical relativity (NR)
+          simulations. This benchmark asks the agent to build such a surrogate from 250
+          training waveforms spanning the spinning, precessing parameter space.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3>Remnant Bench</h3>
+        <div class="about-io">input: binary parameters &rarr; output: kick velocity |v<sub>k</sub>|</div>
+        <p>
+          After merger, the newly formed black hole recoils (receives a "kick") due to
+          asymmetric gravitational wave emission. Kick velocities can reach thousands of
+          km/s — fast enough to eject a black hole from its host galaxy. Predicting kick
+          magnitude from pre-merger parameters is a high-dimensional regression task with
+          complex spin–orbit coupling effects. The agent must learn this mapping from 300
+          NR simulations covering mass ratios 1–20 and arbitrary spin orientations.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3>Dynamics Bench</h3>
+        <div class="about-io">input: orbital parameters &rarr; output: PN frequency parameter x(t)</div>
+        <p>
+          Before merger, the two objects slowly inspiral over thousands of orbits. Their
+          orbital dynamics — the time evolution of frequency, eccentricity, and spin
+          precession — are described by post-Newtonian (PN) theory, a perturbative expansion
+          of general relativity valid at large separations. This benchmark focuses on eccentric,
+          spinning binaries where the dynamics are especially complex. The agent must model how
+          the orbital frequency parameter x(t) evolves over the full inspiral.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3>Ringdown Bench</h3>
+        <div class="about-io">input: remnant spin &rarr; output: quasi-normal mode frequencies</div>
+        <p>
+          After merger, the remnant black hole "rings down" like a struck bell, emitting
+          gravitational waves at characteristic quasi-normal mode (QNM) frequencies. Each mode
+          has a complex frequency: the real part sets the oscillation rate, the imaginary part
+          the damping time. These frequencies depend only on the remnant's mass and spin (the
+          "no-hair theorem"). The agent must learn the mapping from spin to QNM frequencies,
+          which is known to high precision from black hole perturbation theory.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3>Validity Bench</h3>
+        <div class="about-io">input: binary parameters &rarr; output: predicted surrogate mismatch</div>
+        <p>
+          Existing surrogate models (like NRHybSur3dq8) are trained on a finite region of
+          parameter space and degrade when extrapolated beyond it. Knowing where a model
+          breaks down is critical for gravitational wave data analysis — using an inaccurate
+          template can bias parameter estimates. This benchmark asks the agent to predict the
+          mismatch (error) of an existing surrogate as a function of the input parameters,
+          effectively learning the model's own validity boundary.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3>Analytic Bench</h3>
+        <div class="about-io">input: mass ratio q &rarr; output: closed-form h(t)</div>
+        <p>
+          The simplest case: non-spinning black holes parameterised by a single variable,
+          the mass ratio q. With only 20 training waveforms spanning q = 1–20, this benchmark
+          tests whether the agent can discover a compact, closed-form analytic expression for the
+          gravitational wave strain — the kind of symbolic model a physicist would write by hand.
+          It rewards interpretability and extrapolation, not just interpolation accuracy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
   <section id="methods">
     <div class="section-header">
       <h2>Metrics</h2>
@@ -279,33 +411,33 @@
     <div class="methods-grid">
       <div class="method-card">
         <h3>Waveform &amp; Analytic</h3>
-        <div class="output">output: Re(h₂₂), Im(h₂₂)</div>
-        <div class="metric">Mean frequency-domain mismatch over total masses [40, 80, 120, 160, 200] M☉ using <code>aLIGO ZeroDetHighPower</code> PSD, <code>f_low=15 Hz</code>, <code>f_high=990 Hz</code>, maximised over time and phase.</div>
+        <div class="output">output: Re(h&#x2082;&#x2082;), Im(h&#x2082;&#x2082;)</div>
+        <div class="metric">Mean frequency-domain mismatch over total masses [40, 80, 120, 160, 200] M&#x2609; using <code>aLIGO ZeroDetHighPower</code> PSD, <code>f_low=15 Hz</code>, <code>f_high=990 Hz</code>, maximised over time and phase.</div>
       </div>
       <div class="method-card">
         <h3>Remnant</h3>
-        <div class="output">output: kick velocity |v_k|</div>
+        <div class="output">output: kick velocity |v<sub>k</sub>|</div>
         <div class="metric">Normalised RMSE: <code>NRMSE(v_k) = RMSE / range(v_k*)</code>. Dimensionless and robust to the scale of kick velocities across the parameter space.</div>
       </div>
       <div class="method-card">
         <h3>Dynamics</h3>
         <div class="output">output: x(t)</div>
-        <div class="metric">Pointwise RMS relative error: <code>√(mean((x̂−x*)²/x*²))</code>. Weights all time steps equally in fractional terms, avoiding late-time bias from the monotonically growing x(t).</div>
+        <div class="metric">Pointwise RMS relative error: <code>&#x221A;(mean((x&#x0302;&#x2212;x*)&#x00B2;/x*&#x00B2;))</code>. Weights all time steps equally in fractional terms, avoiding late-time bias from the monotonically growing x(t).</div>
       </div>
       <div class="method-card">
         <h3>Ringdown</h3>
-        <div class="output">output: Re(ω), Im(ω)</div>
-        <div class="metric">Mean of per-mode relative errors: <code>(|ΔωR/ωR*| + |ΔωI/ωI*|) / 2</code>. Evaluated on the (ℓ=2, m=2) fundamental mode; best model tested on higher modes.</div>
+        <div class="output">output: Re(&#x03C9;), Im(&#x03C9;)</div>
+        <div class="metric">Mean of per-mode relative errors: <code>(|&#x0394;&#x03C9;<sub>R</sub>/&#x03C9;<sub>R</sub>*| + |&#x0394;&#x03C9;<sub>I</sub>/&#x03C9;<sub>I</sub>*|) / 2</code>. Evaluated on the (&#x2113;=2, m=2) fundamental mode.</div>
       </div>
       <div class="method-card">
         <h3>Validity</h3>
-        <div class="output">output: predicted mismatch M̂</div>
-        <div class="metric">RMSE in log₁₀ space: <code>RMSE(log₁₀ M̂, log₁₀ M*)</code>. Appropriate because mismatches span orders of magnitude (~10⁻⁷ to ~10⁻¹).</div>
+        <div class="output">output: predicted mismatch M&#x0302;</div>
+        <div class="metric">RMSE in log&#x2081;&#x2080; space: <code>RMSE(log&#x2081;&#x2080; M&#x0302;, log&#x2081;&#x2080; M*)</code>. Appropriate because mismatches span orders of magnitude (~1e-7 to ~1e-1).</div>
       </div>
       <div class="method-card">
         <h3>General rules</h3>
         <div class="output">no scoring penalty</div>
-        <div class="metric">All metrics are raw accuracy losses — no runtime penalty. Agents must try ≥ 20 modelling approaches across 4 categories. PySR and gplearn are mandatory.</div>
+        <div class="metric">All metrics are raw accuracy losses — no runtime penalty. Agents must try &#x2265; 20 modelling approaches across 4 categories. PySR and gplearn are mandatory.</div>
       </div>
     </div>
   </section>
@@ -313,48 +445,161 @@
 </main>
 
 <footer>
-  <div>gwBenchmarks · <a href="https://github.com/tousifislam/gwBenchmarks">github.com/tousifislam/gwBenchmarks</a></div>
-  <div style="margin-top:0.4rem">Benchmark suite for LLM gravitational wave modelling</div>
+  <div>gwBenchmarks &middot; <a href="https://github.com/tousifislam/gwBenchmarks">github.com/tousifislam/gwBenchmarks</a></div>
+  <div style="margin-top:0.4rem">Gravitational Wave Astronomy Benchmark Suite for LLM Agents</div>
 </footer>
 
 <script>
+// ── Inline data (no fetch required) ──
+const DATA = {
+  haiku:            { waveform: 8.88e-1, remnant: 9.02e-2, dynamics: null,    ringdown: null,    validity: null,    analytic: null    },
+  sonnet46:         { waveform: 9.56e-1, remnant: 5.38e-2, dynamics: 8.31e-3, ringdown: 1.13e-5, validity: 5.33e-1, analytic: 2.72e-1 },
+  opus46:           { waveform: 1.63e-1, remnant: 8.99e-2, dynamics: 9.35e-3, ringdown: 1.13e-5, validity: 7.22e-1, analytic: 1.68e-1 },
+  opus47:           { waveform: 1.25e-1, remnant: 8.87e-2, dynamics: 9.84e-3, ringdown: 5.63e-6, validity: 7.22e-1, analytic: 3.79e-3 },
+  gpt55_high:       { waveform: 6.60e-1, remnant: 5.64e-2, dynamics: 1.17e-2, ringdown: 2.24e-3, validity: 5.36e-1, analytic: 7.26e-1 },
+  gpt54_mini:       { waveform: 1.25e-1, remnant: null,    dynamics: null,    ringdown: null,    validity: null,    analytic: null    },
+  gpt53_codex_high: { waveform: 6.60e-1, remnant: 5.64e-2, dynamics: 1.17e-2, ringdown: 2.24e-3, validity: 5.36e-1, analytic: 7.26e-1 },
+  gpt52:            { waveform: null,    remnant: null,    dynamics: null,    ringdown: null,    validity: null,    analytic: null    },
+};
+
+// NR truncation errors (measured from dataset resolution convergence)
+const NR_ERRORS = {
+  waveform: 8.44e-4,
+  remnant:  3.18e-2,
+  analytic: 1.00e-3,
+};
+
 const AGENTS = [
-  { id: 'gpt55_high',       label: 'GPT-5.5 High',       color: '#14b8a6' },
-  { id: 'gpt54_mini',       label: 'GPT-5.4 Mini',       color: '#38bdf8' },
-  { id: 'gpt53_codex_high', label: 'GPT-5.3 Codex High', color: '#22c55e' },
-  { id: 'gpt52',            label: 'GPT-5.2',            color: '#f43f5e' },
-  { id: 'opus47',   label: 'Opus 4.7',   color: '#00c9a7' },
-  { id: 'opus46',   label: 'Opus 4.6',   color: '#a78bfa' },
-  { id: 'sonnet46', label: 'Sonnet 4.6', color: '#5e81f4' },
-  { id: 'haiku',    label: 'Haiku 4.5',  color: '#f59e0b' },
+  { id: 'opus47',           label: 'Opus 4.7',           color: '#0d7c66' },
+  { id: 'opus46',           label: 'Opus 4.6',           color: '#7c3aed' },
+  { id: 'sonnet46',         label: 'Sonnet 4.6',         color: '#3b5bdb' },
+  { id: 'gpt55_high',       label: 'GPT-5.5 High',       color: '#0d9488' },
+  { id: 'gpt53_codex_high', label: 'GPT-5.3 Codex High', color: '#16a34a' },
+  { id: 'gpt54_mini',       label: 'GPT-5.4 Mini',       color: '#0284c7' },
+  { id: 'haiku',            label: 'Haiku 4.5',          color: '#d97706' },
+  { id: 'gpt52',            label: 'GPT-5.2',            color: '#e11d48' },
 ];
 
 const BENCHES = [
-  { id: 'waveform', label: 'Waveform',  tag: 'h₂₂ surrogate',    desc: 'Co-precessing (2,2) mode from 7D spinning BBH binary parameters.',              metric: 'mean FD mismatch @ [40,80,120,160,200] M☉' },
-  { id: 'remnant',  label: 'Remnant',   tag: 'kick velocity',     desc: 'Kick velocity magnitude |v_k| from pre-merger binary parameters.',              metric: 'NRMSE(v_k)' },
-  { id: 'dynamics', label: 'Dynamics',  tag: 'orbital x(t)',      desc: 'Eccentric spinning BBH PN frequency parameter x(t) over full inspiral.',        metric: 'pointwise RMS relative error on x(t)' },
-  { id: 'ringdown', label: 'Ringdown',  tag: 'QNM frequencies',   desc: 'Kerr quasi-normal mode frequencies ω = ωR + iωI as a function of spin.',       metric: 'mean relative error on Re(ω) and Im(ω)' },
-  { id: 'validity', label: 'Validity',  tag: 'extrapolation',     desc: 'Predict NRHybSur3dq8 mismatch to detect when the surrogate extrapolates.',     metric: 'RMSE in log₁₀ space' },
-  { id: 'analytic', label: 'Analytic',  tag: 'closed-form h₂₂',  desc: 'Closed-form analytic surrogate for non-spinning BBH, q ∈ [1, 20].',             metric: 'mean FD mismatch @ [40,80,120,160,200] M☉' },
+  { id: 'waveform', label: 'Waveform',  tag: 'h22 surrogate',     desc: 'Co-precessing (2,2) mode from 7D spinning BBH parameters.',              metric: 'mean FD mismatch @ [40,80,120,160,200] Msun' },
+  { id: 'remnant',  label: 'Remnant',   tag: 'kick velocity',     desc: 'Kick velocity magnitude from pre-merger binary parameters.',              metric: 'NRMSE(v_k)' },
+  { id: 'dynamics', label: 'Dynamics',  tag: 'orbital x(t)',      desc: 'Eccentric spinning BBH PN frequency parameter x(t) over inspiral.',      metric: 'pointwise RMS relative error on x(t)' },
+  { id: 'ringdown', label: 'Ringdown',  tag: 'QNM frequencies',   desc: 'Kerr quasi-normal mode frequencies as a function of remnant spin.',      metric: 'mean relative error on Re/Im(omega)' },
+  { id: 'validity', label: 'Validity',  tag: 'extrapolation',     desc: 'Predict NRHybSur3dq8 mismatch to detect surrogate extrapolation.',      metric: 'RMSE in log10 space' },
+  { id: 'analytic', label: 'Analytic',  tag: 'closed-form h22',   desc: 'Closed-form analytic surrogate for non-spinning BBH, q in [1, 20].',    metric: 'mean FD mismatch @ [40,80,120,160,200] Msun' },
 ];
 
 function fmt(v) {
   if (v === null || v === undefined) return null;
-  if (v < 1e-3) return v.toExponential(2);
-  if (v < 0.1)  return v.toFixed(4);
-  return v.toFixed(3);
+  return v.toExponential(2);
 }
 
-// ── Radar chart (placeholder, updated once data loads) ──
+// ── Build leaderboard ──
+const tbody = document.getElementById('leaderboard-body');
+
+// NR reference row first
+const nrRow = document.createElement('tr');
+nrRow.innerHTML = `
+  <td class="rank" style="color:var(--nr)">ref</td>
+  <td><span class="model-name" style="color:var(--nr)"><span class="model-dot" style="background:var(--nr)"></span>NR Error</span></td>
+  ${BENCHES.map(b => {
+    const v = NR_ERRORS[b.id];
+    return v != null
+      ? `<td class="nr-ref">${fmt(v)}</td>`
+      : `<td class="tbd">—</td>`;
+  }).join('')}`;
+tbody.appendChild(nrRow);
+
+// Sort agents by average loss (lower is better)
+const ranked = AGENTS.map(a => {
+  const losses = BENCHES.map(b => DATA[a.id]?.[b.id]).filter(v => v !== null && v !== undefined);
+  const avg = losses.length ? losses.reduce((s, v) => s + v, 0) / losses.length : Infinity;
+  return { ...a, avg, count: losses.length };
+}).sort((a, b) => a.avg - b.avg);
+
+ranked.forEach((a, rank) => {
+  const tr = document.createElement('tr');
+  const bestTag = rank === 0 && a.avg < Infinity ? '<span class="best-badge">BEST</span>' : '';
+  tr.innerHTML = `
+    <td class="rank">${rank + 1}</td>
+    <td><span class="model-name"><span class="model-dot" style="background:${a.color}"></span>${a.label}${bestTag}</span></td>
+    ${BENCHES.map(b => {
+      const v = DATA[a.id]?.[b.id];
+      if (v === null || v === undefined) return '<td class="tbd">—</td>';
+      const nrv = NR_ERRORS[b.id];
+      const best = Math.min(...AGENTS.map(x => DATA[x.id]?.[b.id]).filter(x => x != null));
+      const cls = v === best ? 'val-best' : '';
+      return `<td class="${cls}">${fmt(v)}</td>`;
+    }).join('')}`;
+  tbody.appendChild(tr);
+});
+
+// ── Build benchmark cards ──
+const grid = document.getElementById('bench-grid');
+BENCHES.forEach(bench => {
+  const vals = AGENTS.map(a => DATA[a.id]?.[bench.id]).filter(v => v != null);
+  const nrv = NR_ERRORS[bench.id];
+  const allVals = nrv != null ? [...vals, nrv] : vals;
+  const worst = allVals.length ? Math.max(...allVals) : 1;
+
+  const card = document.createElement('div');
+  card.className = 'bench-card';
+
+  let barsHtml = '';
+
+  // NR reference bar (if available)
+  if (nrv != null) {
+    const w = (nrv / worst) * 100;
+    barsHtml += `
+      <div class="bar-row">
+        <span class="bar-label-nr">NR Error</span>
+        <div class="bar-track"><div class="bar-fill" style="background:var(--nr);width:${w}%"></div></div>
+        <span class="bar-val-nr">${fmt(nrv)}</span>
+      </div>`;
+  }
+
+  // Agent bars
+  AGENTS.forEach(a => {
+    const v = DATA[a.id]?.[bench.id];
+    const str = v != null ? fmt(v) : '—';
+    const w = v != null ? (v / worst) * 100 : 0;
+    barsHtml += `
+      <div class="bar-row">
+        <span class="bar-label">${a.label}</span>
+        <div class="bar-track"><div class="bar-fill" style="background:${a.color};width:${w}%"></div></div>
+        <span class="bar-val">${str}</span>
+      </div>`;
+  });
+
+  card.innerHTML = `
+    <div class="bench-card-header">
+      <span class="bench-name">${bench.label}</span>
+      <span class="bench-tag">${bench.tag}</span>
+    </div>
+    <div class="bench-desc">${bench.desc}</div>
+    <div class="bench-metric">${bench.metric}</div>
+    <div class="bench-bars">${barsHtml}</div>`;
+  grid.appendChild(card);
+});
+
+// ── Radar chart ──
+const radarAgents = AGENTS.filter(a => BENCHES.some(b => DATA[a.id]?.[b.id] != null));
 const radarChart = new Chart(document.getElementById('radarChart'), {
   type: 'radar',
   data: {
     labels: BENCHES.map(b => b.label),
-    datasets: AGENTS.map(a => ({
+    datasets: radarAgents.map(a => ({
       label: a.label,
-      data: [0,0,0,0,0,0],
+      data: BENCHES.map(bench => {
+        const vals = AGENTS.map(x => DATA[x.id]?.[bench.id]).filter(v => v != null);
+        if (!vals.length) return 0;
+        const best = Math.min(...vals), worst = Math.max(...vals);
+        const v = DATA[a.id]?.[bench.id];
+        if (v == null) return 0;
+        return worst === best ? 0 : (v - best) / (worst - best);
+      }),
       borderColor: a.color,
-      backgroundColor: a.color + '12',
+      backgroundColor: a.color + '15',
       pointBackgroundColor: a.color,
       borderWidth: 1.5,
     }))
@@ -365,16 +610,16 @@ const radarChart = new Chart(document.getElementById('radarChart'), {
       r: {
         min: 0, max: 1,
         ticks: { display: false },
-        grid:       { color: 'rgba(255,255,255,0.06)' },
-        angleLines: { color: 'rgba(255,255,255,0.06)' },
-        pointLabels: { color: '#9ca3af', font: { family: 'monospace', size: 11 } }
+        grid:       { color: 'rgba(0,0,0,0.08)' },
+        angleLines: { color: 'rgba(0,0,0,0.08)' },
+        pointLabels: { color: '#495057', font: { family: 'monospace', size: 11 } }
       }
     },
     plugins: {
       legend: { display: false },
       tooltip: {
-        backgroundColor: '#13161a', borderColor: '#1f2428', borderWidth: 1,
-        titleColor: '#e4e7eb', bodyColor: '#9ca3af',
+        backgroundColor: '#ffffff', borderColor: '#e2e5e9', borderWidth: 1,
+        titleColor: '#1a1d21', bodyColor: '#495057',
         titleFont: { family: 'monospace', size: 11 },
         bodyFont:  { family: 'monospace', size: 10 },
         callbacks: {
@@ -384,123 +629,6 @@ const radarChart = new Chart(document.getElementById('radarChart'), {
     }
   }
 });
-
-// ── Build benchmark cards (empty bars, filled after data loads) ──
-const grid = document.getElementById('bench-grid');
-BENCHES.forEach(bench => {
-  const card = document.createElement('div');
-  card.className = 'bench-card';
-  card.innerHTML = `
-    <div class="bench-card-header">
-      <span class="bench-name">${bench.label}</span>
-      <span class="bench-tag">${bench.tag}</span>
-    </div>
-    <div class="bench-desc">${bench.desc}</div>
-    <div class="bench-metric">${bench.metric}</div>
-    <div class="bench-bars" id="bars-${bench.id}">
-      ${AGENTS.map(a => `
-        <div class="bar-row">
-          <span class="bar-label">${a.label}</span>
-          <div class="bar-track"><div class="bar-fill" id="bar-${a.id}-${bench.id}" style="background:${a.color}"></div></div>
-          <span class="bar-val tbd" id="barval-${a.id}-${bench.id}">—</span>
-        </div>`).join('')}
-    </div>`;
-  grid.appendChild(card);
-});
-
-// ── Build leaderboard rows (placeholder) ──
-const tbody = document.getElementById('leaderboard-body');
-AGENTS.forEach((a, i) => {
-  const tr = document.createElement('tr');
-  tr.id = `row-${a.id}`;
-  tr.innerHTML = `
-    <td class="rank">${i + 1}</td>
-    <td><span class="model-name"><span class="model-dot" style="background:${a.color}"></span>${a.label}</span></td>
-    ${BENCHES.map(b => `<td class="tbd" id="cell-${a.id}-${b.id}">—</td>`).join('')}`;
-  tbody.appendChild(tr);
-});
-
-// ── Render data ──
-function render(data) {
-  // 1. Fill table cells and bars
-  BENCHES.forEach(bench => {
-    const vals = AGENTS.map(a => data[a.id]?.[bench.id]?.loss ?? null);
-    const defined = vals.filter(v => v !== null);
-    if (!defined.length) return;
-    const best = Math.min(...defined);
-    const worst = Math.max(...defined);
-    const range = worst - best || 1;
-
-    AGENTS.forEach((a, i) => {
-      const v = vals[i];
-      const cell = document.getElementById(`cell-${a.id}-${bench.id}`);
-      const bar  = document.getElementById(`bar-${a.id}-${bench.id}`);
-      const bval = document.getElementById(`barval-${a.id}-${bench.id}`);
-      if (v === null) return;
-      const str = fmt(v);
-      cell.textContent = str;
-      cell.className = (v === best) ? 'val-best' : '';
-      bval.textContent = str;
-      bval.className = 'bar-val';
-      // bar width: worst model = 100%, best model = proportionally less
-      bar.style.width = (worst > 0 ? (v / worst) * 100 : 0) + '%';
-    });
-  });
-
-  // 2. Re-rank leaderboard by number of best-in-benchmark wins, then avg normalised loss
-  const scores = AGENTS.map(a => {
-    const losses = BENCHES.map(b => data[a.id]?.[b.id]?.loss ?? null).filter(v => v !== null);
-    return { id: a.id, avg: losses.length ? losses.reduce((s, v) => s + v, 0) / losses.length : Infinity };
-  }).sort((a, b) => a.avg - b.avg);
-
-  scores.forEach((s, rank) => {
-    const row = document.getElementById(`row-${s.id}`);
-    if (!row) return;
-    const rankCell = row.cells[0];
-    rankCell.textContent = rank + 1;
-    const nameCell = row.cells[1];
-    // Remove old badge
-    nameCell.querySelector('.best-badge')?.remove();
-    if (rank === 0 && s.avg < Infinity) {
-      const badge = document.createElement('span');
-      badge.className = 'best-badge';
-      badge.textContent = 'BEST';
-      nameCell.querySelector('.model-name').appendChild(badge);
-    }
-    tbody.appendChild(row); // re-order DOM
-  });
-
-  // 3. Radar: normalise per-benchmark, 0=best, 1=worst (lower loss = closer to centre)
-  const radarData = AGENTS.map(a =>
-    BENCHES.map(bench => {
-      const vals = AGENTS.map(x => data[x.id]?.[bench.id]?.loss ?? null).filter(v => v !== null);
-      if (!vals.length) return 0;
-      const best = Math.min(...vals), worst = Math.max(...vals);
-      const v = data[a.id]?.[bench.id]?.loss ?? null;
-      if (v === null) return 0;
-      return worst === best ? 0 : (v - best) / (worst - best);
-    })
-  );
-  radarChart.data.datasets.forEach((ds, i) => { ds.data = radarData[i]; });
-  radarChart.update();
-}
-
-// ── Load results.json ──
-fetch('results.json')
-  .then(r => r.json())
-  .then(data => {
-    const hasAny = Object.values(data).some(agent =>
-      Object.values(agent).some(v => v && v.loss !== null)
-    );
-    document.getElementById('leaderboard-note').textContent = hasAny
-      ? 'Best model per agent per benchmark. Lower is better for all metrics.'
-      : 'Benchmark runs pending — results will appear here automatically once complete.';
-    render(data);
-  })
-  .catch(() => {
-    document.getElementById('leaderboard-note').textContent =
-      'Could not load results.json — run docs/update_results.py after benchmark completion.';
-  });
 </script>
 
 </body>
