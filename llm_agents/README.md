@@ -32,10 +32,10 @@ claude --dangerously-skip-permissions --model claude-opus-4-7
 ### Codex
 
 ```bash
-codex -C . -m gpt-5.5 -c model_reasoning_effort="high" -s workspace-write -a on-request
-codex -C . -m gpt-5.4-mini -s workspace-write -a on-request
-codex -C . -m gpt-5.3-codex -c model_reasoning_effort="high" -s workspace-write -a on-request
-codex -C . -m gpt-5.2 -s workspace-write -a on-request
+codex -C . -m gpt-5.5 -c model_reasoning_effort="high" -s workspace-write -a never
+codex -C . -m gpt-5.4-mini -s workspace-write -a never
+codex -C . -m gpt-5.3-codex -c model_reasoning_effort="high" -s workspace-write -a never
+codex -C . -m gpt-5.2 -s workspace-write -a never
 ```
 
 ## Step 2 - Launch The Benchmark Loop
@@ -90,10 +90,12 @@ You are the GPT-5.2 Codex agent for the gwBenchmarks suite. Your agent ID is 'gp
 
 ## Optional One-Shot Codex Commands
 
-For non-interactive runs, pass the same prompt to `codex exec`:
+For non-interactive automated runs, pass the same prompt to `codex exec`.
+The examples keep the sandbox at `workspace-write` and use `-a never` so the
+benchmark does not stop for approvals.
 
 ```bash
-codex exec -C . -m gpt-5.5 -c model_reasoning_effort="high" -s workspace-write -a on-request "You are the GPT-5.5 High Codex agent for the gwBenchmarks suite. Your agent ID is 'gpt55_high'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run \`python llm_agents/generate_prompt.py gpt55_high <benchmark> --write\` from the gwBenchmarks/ root to generate your task prompt, (2) read \`llm_agents/results/gpt55_high/<benchmark>/AGENT_PROMPT.md\` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE."
+codex exec -C . -m gpt-5.5 -c model_reasoning_effort="high" -s workspace-write -a never "You are the GPT-5.5 High Codex agent for the gwBenchmarks suite. Your agent ID is 'gpt55_high'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run \`python llm_agents/generate_prompt.py gpt55_high <benchmark> --write\` from the gwBenchmarks/ root to generate your task prompt, (2) read \`llm_agents/results/gpt55_high/<benchmark>/AGENT_PROMPT.md\` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE."
 ```
 
 ## What Gets Saved
