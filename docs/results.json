@@ -1,0 +1,34 @@
+{
+  "haiku": {
+    "waveform": null,
+    "remnant": null,
+    "dynamics": null,
+    "ringdown": null,
+    "validity": null,
+    "analytic": null
+  },
+  "opus46": {
+    "waveform": null,
+    "remnant": null,
+    "dynamics": null,
+    "ringdown": null,
+    "validity": null,
+    "analytic": null
+  },
+  "opus47": {
+    "waveform": null,
+    "remnant": null,
+    "dynamics": null,
+    "ringdown": null,
+    "validity": null,
+    "analytic": null
+  },
+  "sonnet46": {
+    "waveform": null,
+    "remnant": null,
+    "dynamics": null,
+    "ringdown": null,
+    "validity": null,
+    "analytic": null
+  }
+}
