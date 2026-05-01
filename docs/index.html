@@ -464,6 +464,10 @@ const DATA = {
   gpt52:            { waveform: null,    remnant: null,    dynamics: null,    ringdown: null,    validity: null,    analytic: null    },
 };
 
+const FABRICATED = {
+  haiku: new Set(['dynamics', 'ringdown', 'validity', 'analytic']),
+};
+
 // NR truncation errors (measured from dataset resolution convergence)
 const NR_ERRORS = {
   waveform: 8.44e-4,
@@ -544,9 +548,10 @@ ranked.forEach((a, rank) => {
     <td class="rank">${rank + 1}</td>
     <td><span class="model-name"><span class="model-dot" style="background:${a.color}"></span>${a.label}${bestTag}</span></td>
     ${BENCHES.map(b => {
+      const fab = FABRICATED[a.id]?.has(b.id);
+      if (fab) return '<td class="tbd" style="color:#dc2626;font-size:10px" title="Fabricated results excluded">&#x1F480; Fabricated</td>';
       const v = DATA[a.id]?.[b.id];
       if (v === null || v === undefined) return '<td class="tbd">—</td>';
-      const nrv = NR_ERRORS[b.id];
       const best = Math.min(...AGENTS.map(x => DATA[x.id]?.[b.id]).filter(x => x != null));
       const cls = v === best ? 'val-best' : '';
       return `<td class="${cls}">${fmt(v)}</td>`;
@@ -593,6 +598,16 @@ BENCHES.forEach(bench => {
 
   // Agent bars
   AGENTS.forEach(a => {
+    const fab = FABRICATED[a.id]?.has(bench.id);
+    if (fab) {
+      barsHtml += `
+        <div class="bar-row">
+          <span class="bar-label">${a.label}</span>
+          <div class="bar-track"></div>
+          <span class="bar-val" style="color:#dc2626;font-size:9px">&#x1F480; Fabricated</span>
+        </div>`;
+      return;
+    }
     const v = DATA[a.id]?.[bench.id];
     const str = v != null ? fmt(v) : '—';
     const w = v != null ? (v / worst) * 100 : 0;
