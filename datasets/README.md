@@ -5,11 +5,11 @@ Curated datasets for each benchmark. HDF5 data files are not tracked in git (too
 | Benchmark | Directory | Source |
 |-----------|-----------|--------|
 | Ringdown (QNM) | `ringdown/` | Cook & Zalutskiy (2014), [Zenodo 2650358](https://zenodo.org/records/2650358) |
-| Waveform | `waveform/` | TBD |
-| Remnant | `remnant/` | TBD |
-| Dynamics | `dynamics/` | TBD |
-| Analytic | `analytic/` | TBD |
-| Validity | `validity/` | TBD |
+| Waveform | `waveform/` | SXS catalog v3.0.0, coprecessing h22 from precessing BBH (250+250) |
+| Remnant | `remnant/` | SXS catalog v3.0.0, precessing BBH remnant properties (1000+1000) |
+| Dynamics | `dynamics/` | SEOBNRv5EHM eccentric orbital dynamics (250+250, LHS) |
+| Analytic | `analytic/` | SXS catalog v3.0.0, non-spinning BBH h22 (q = 1–20) |
+| Validity | `validity/` | SXS catalog + NRHybSur3dq8, aligned-spin mismatch |
 
 Each subdirectory contains:
 - `README.md` — data source, format, and coverage documentation

@@ -1,9 +1,6 @@
 name: ringdown
 description: "Quasi-normal mode frequency prediction"
 
-# Cost parameters
-t0: 0.00001     # 0.01 ms per query (in seconds)
-alpha: 0.03
 
 # Input parameter ranges
 parameters:

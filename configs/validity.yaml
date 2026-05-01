@@ -1,9 +1,6 @@
 name: validity
 description: "NRHybSur3dq8 extrapolation awareness and reliability prediction"
 
-# Cost parameters
-t0: 0.001       # 1 ms per point (in seconds)
-alpha: 0.05
 
 # Input parameter ranges (extends beyond training domain to test extrapolation)
 parameters:

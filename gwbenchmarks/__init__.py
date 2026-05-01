@@ -2,7 +2,7 @@
 
 __version__ = "0.1.0"
 
-from gwbenchmarks.scoring import compute_score
+from gwbenchmarks import plot_settings
 from gwbenchmarks.benchmarks import (
     WaveformBench,
     RemnantBench,

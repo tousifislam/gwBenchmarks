@@ -1,55 +1,6 @@
 """Physically meaningful metrics for gravitational wave benchmarks."""
 
 import numpy as np
-from scipy.integrate import trapezoid
-
-
-def mismatch(h_pred: np.ndarray, h_true: np.ndarray, dt: float = 1.0) -> float:
-    """Compute mismatch 1 - <h1|h2> / sqrt(<h1|h1> <h2|h2>) in time domain.
-
-    Parameters
-    ----------
-    h_pred : np.ndarray
-        Complex predicted waveform.
-    h_true : np.ndarray
-        Complex reference waveform.
-    dt : float
-        Time step for integration.
-
-    Returns
-    -------
-    float
-        Mismatch in [0, 1].
-    """
-    inner_12 = trapezoid(np.real(h_pred * np.conj(h_true)), dx=dt)
-    inner_11 = trapezoid(np.real(h_pred * np.conj(h_pred)), dx=dt)
-    inner_22 = trapezoid(np.real(h_true * np.conj(h_true)), dx=dt)
-
-    if inner_11 == 0 or inner_22 == 0:
-        return 1.0
-
-    overlap = inner_12 / np.sqrt(inner_11 * inner_22)
-    return float(np.clip(1.0 - overlap, 0.0, 1.0))
-
-
-def phase_rmse(h_pred: np.ndarray, h_true: np.ndarray) -> float:
-    """RMSE of the unwrapped phase difference between two complex waveforms."""
-    phi_pred = np.unwrap(np.angle(h_pred))
-    phi_true = np.unwrap(np.angle(h_true))
-    return float(np.sqrt(np.mean((phi_pred - phi_true) ** 2)))
-
-
-def log_amplitude_rmse(h_pred: np.ndarray, h_true: np.ndarray) -> float:
-    """RMSE of log-amplitude difference between two complex waveforms."""
-    amp_pred = np.abs(h_pred)
-    amp_true = np.abs(h_true)
-
-    mask = (amp_pred > 0) & (amp_true > 0)
-    if not np.any(mask):
-        return float("inf")
-
-    log_diff = np.log(amp_pred[mask]) - np.log(amp_true[mask])
-    return float(np.sqrt(np.mean(log_diff**2)))
 
 
 def rmse(pred: np.ndarray, true: np.ndarray) -> float:
@@ -67,12 +18,6 @@ def nrmse(pred: np.ndarray, true: np.ndarray) -> float:
     return rmse(pred, true) / val_range
 
 
-def circular_error(pred: np.ndarray, true: np.ndarray) -> float:
-    """Mean circular error: mean(1 - cos(pred - true))."""
-    diff = np.asarray(pred) - np.asarray(true)
-    return float(np.mean(1.0 - np.cos(diff)))
-
-
 def relative_error(pred: float, true: float) -> float:
     """Relative error |pred - true| / |true|."""
     if true == 0:
@@ -80,94 +25,78 @@ def relative_error(pred: float, true: float) -> float:
     return abs(pred - true) / abs(true)
 
 
-def expected_calibration_error(
-    predicted_probs: np.ndarray,
-    true_labels: np.ndarray,
-    n_bins: int = 10,
-) -> float:
-    """Expected calibration error for probability predictions.
+def rms_relative_error(pred: np.ndarray, true: np.ndarray) -> float:
+    """Pointwise RMS relative error: sqrt(mean((pred - true)^2 / true^2)).
 
-    For the validity benchmark: bin predictions by predicted mismatch,
-    compare mean predicted vs actual mismatch in each bin.
-
-    Parameters
-    ----------
-    predicted_probs : np.ndarray
-        Predicted probabilities / values.
-    true_labels : np.ndarray
-        True binary labels or values.
-    n_bins : int
-        Number of calibration bins.
-
-    Returns
-    -------
-    float
-        ECE value.
+    Treats every time step equally in fractional terms, avoiding the
+    late-time bias of the global L2 relative error when the signal grows
+    monotonically (e.g. the PN frequency parameter x(t)).
     """
-    predicted_probs = np.asarray(predicted_probs)
-    true_labels = np.asarray(true_labels)
-    bin_edges = np.linspace(0.0, 1.0, n_bins + 1)
-    ece = 0.0
-    n_total = len(predicted_probs)
-    if n_total == 0:
-        return 0.0
-
-    for i in range(n_bins):
-        mask = (predicted_probs >= bin_edges[i]) & (predicted_probs < bin_edges[i + 1])
-        if i == n_bins - 1:
-            mask = mask | (predicted_probs == bin_edges[i + 1])
-        n_bin = np.sum(mask)
-        if n_bin == 0:
-            continue
-        avg_pred = np.mean(predicted_probs[mask])
-        avg_true = np.mean(true_labels[mask])
-        ece += (n_bin / n_total) * abs(avg_pred - avg_true)
-
-    return float(ece)
+    pred = np.asarray(pred, dtype=float)
+    true = np.asarray(true, dtype=float)
+    mask = true != 0
+    if not np.any(mask):
+        return float("inf")
+    return float(np.sqrt(np.mean(((pred[mask] - true[mask]) / true[mask]) ** 2)))
 
 
 MSUN_SEC = 4.925491025543576e-06
 
+FD_MASSES_MSUN = [40.0, 80.0, 120.0, 160.0, 200.0]
+
 
 def frequency_domain_mismatch(
-    h_pred, h_ref, dt_geometric, mtot_msun, f_low=20.0
-):
-    """Compute frequency-domain mismatch using the aLIGO PSD.
+    h_pred,
+    h_ref,
+    dt_geometric: float,
+    mtot_msun: float,
+    f_low: float = 15.0,
+    f_high: float = 990.0,
+) -> float:
+    """Frequency-domain mismatch (1 - match) using the aLIGO PSD via PyCBC.
 
-    Converts geometric-unit waveforms to physical units using *mtot_msun*,
-    then delegates to PyCBC's ``match`` function with the
-    ``aLIGOZeroDetHighPower`` noise curve.
+    Converts geometric-unit waveforms to physical units, then computes the
+    PyCBC match (maximised over time shift and orbital phase).
 
     Parameters
     ----------
     h_pred : array_like
-        Predicted complex waveform (geometric units).
+        Predicted complex waveform in geometric units.
     h_ref : array_like
-        Reference complex waveform (geometric units).
+        Reference complex waveform in geometric units.
     dt_geometric : float
-        Time step in geometric units (units of M).
+        Time step in units of M (total mass).
     mtot_msun : float
-        Total mass in solar masses (for conversion to seconds).
+        Total mass in solar masses used for unit conversion.
     f_low : float
-        Low-frequency cutoff in Hz.
+        Low-frequency cutoff in Hz (default 15 Hz).
+    f_high : float
+        High-frequency cutoff in Hz (default 990 Hz).
 
     Returns
     -------
     float
-        Mismatch (1 - match). Returns ``np.nan`` if PyCBC is unavailable
-        or the match computation fails.
+        Mismatch in [0, 1].
+
+    Raises
+    ------
+    ImportError
+        If PyCBC is not installed.
     """
     try:
-        from pycbc.types import TimeSeries
         from pycbc.filter import match
         from pycbc.psd import aLIGOZeroDetHighPower
+        from pycbc.types import TimeSeries
     except ImportError:
-        return np.nan
+        raise ImportError(
+            "PyCBC is required for frequency-domain mismatch. "
+            "Install it with: pip install pycbc"
+        )
 
     dt_sec = dt_geometric * mtot_msun * MSUN_SEC
 
     hp_pred = TimeSeries(np.real(np.asarray(h_pred, dtype=np.float64)), delta_t=dt_sec)
-    hp_ref = TimeSeries(np.real(np.asarray(h_ref, dtype=np.float64)), delta_t=dt_sec)
+    hp_ref  = TimeSeries(np.real(np.asarray(h_ref,  dtype=np.float64)), delta_t=dt_sec)
 
     tlen = max(len(hp_pred), len(hp_ref))
     hp_pred.resize(tlen)
@@ -177,8 +106,52 @@ def frequency_domain_mismatch(
     flen = tlen // 2 + 1
     psd = aLIGOZeroDetHighPower(flen, delta_f, f_low)
 
-    try:
-        m, _ = match(hp_ref, hp_pred, psd=psd, low_frequency_cutoff=f_low)
-        return 1.0 - m
-    except Exception:
-        return np.nan
+    m, _ = match(
+        hp_ref, hp_pred, psd=psd,
+        low_frequency_cutoff=f_low,
+        high_frequency_cutoff=f_high,
+    )
+    return float(1.0 - m)
+
+
+def mean_fd_mismatch(
+    h_pred,
+    h_ref,
+    dt_geometric: float,
+    masses: list = FD_MASSES_MSUN,
+    f_low: float = 15.0,
+    f_high: float = 990.0,
+) -> float:
+    """Mean frequency-domain mismatch over a list of total masses.
+
+    Parameters
+    ----------
+    h_pred : array_like
+        Predicted complex waveform in geometric units.
+    h_ref : array_like
+        Reference complex waveform in geometric units.
+    dt_geometric : float
+        Time step in units of M (total mass).
+    masses : list of float
+        Total masses in solar masses at which to evaluate the mismatch.
+        Defaults to FD_MASSES_MSUN = [40, 80, 120, 160, 200] M_sun.
+    f_low : float
+        Low-frequency cutoff in Hz (default 15 Hz).
+    f_high : float
+        High-frequency cutoff in Hz (default 990 Hz).
+
+    Returns
+    -------
+    float
+        Arithmetic mean of per-mass mismatches, in [0, 1].
+
+    Raises
+    ------
+    ImportError
+        If PyCBC is not installed.
+    """
+    values = [
+        frequency_domain_mismatch(h_pred, h_ref, dt_geometric, m, f_low, f_high)
+        for m in masses
+    ]
+    return float(np.mean(values))

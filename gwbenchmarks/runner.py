@@ -1,8 +1,7 @@
 """Benchmark runner: evaluate one or more models across benchmarks."""
 
 import json
-import time
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List
 
@@ -58,10 +57,6 @@ class BenchmarkRunner:
         ----------
         results_map : dict
             Nested dict: results_map[benchmark_name][model_name] = (predictions, targets, runtime)
-
-        Returns
-        -------
-        list of RunResult
         """
         all_results = []
         for bench_name, model_results in results_map.items():
@@ -73,13 +68,12 @@ class BenchmarkRunner:
     @staticmethod
     def summary_table(results: List[RunResult]) -> str:
         """Format results as a text table."""
-        header = f"{'Model':<25} {'Benchmark':<15} {'Loss':>10} {'Score':>10} {'Runtime (s)':>12}"
+        header = f"{'Model':<25} {'Benchmark':<15} {'Loss':>12} {'Runtime (s)':>12}"
         lines = [header, "-" * len(header)]
         for r in sorted(results, key=lambda x: (x.benchmark_name, x.model_name)):
             lines.append(
                 f"{r.model_name:<25} {r.benchmark_name:<15} "
-                f"{r.result.loss:>10.6f} {r.result.score:>10.6f} "
-                f"{r.result.runtime:>12.4f}"
+                f"{r.result.loss:>12.6f} {r.result.runtime:>12.4f}"
             )
         return "\n".join(lines)
 
@@ -92,7 +86,6 @@ class BenchmarkRunner:
                 "model": r.model_name,
                 "benchmark": r.benchmark_name,
                 "loss": r.result.loss,
-                "score": r.result.score,
                 "runtime": r.result.runtime,
                 "loss_components": r.result.loss_components,
                 "n_samples": r.n_samples,

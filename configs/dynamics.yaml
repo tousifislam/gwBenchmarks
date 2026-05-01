@@ -1,9 +1,6 @@
 name: dynamics
-description: "Eccentric spinning orbital dynamics prediction"
+description: "Eccentric spinning orbital dynamics — x(t) prediction"
 
-# Cost parameters
-t0: 0.01        # 10 ms per trajectory (in seconds)
-alpha: 0.10
 
 # Input parameter ranges
 parameters:

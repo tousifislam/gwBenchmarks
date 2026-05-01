@@ -6,23 +6,19 @@ from typing import Dict
 import numpy as np
 
 from gwbenchmarks.benchmarks.base import Benchmark
-from gwbenchmarks.metrics import expected_calibration_error, rmse
+from gwbenchmarks.metrics import rmse
 
 
 class ValidityBench(Benchmark):
     """Evaluate extrapolation awareness and reliability prediction.
 
-    Inputs: q, chi1, chi2
+    Inputs:  q, chi1z, chi2z
     Outputs: predicted mismatch M_hat
 
-    Loss: L = RMSE(log M_hat, log M*) + ECE
-
-    Goal: assess whether the model knows when its predictions are unreliable.
+    Loss: log-space RMSE  E = RMSE(log M_hat, log M*)
     """
 
     name = "validity"
-    t0 = 0.001  # 1 ms per point
-    alpha = 0.05
 
     def compute_loss(
         self, predictions: Dict[str, np.ndarray], targets: Dict[str, np.ndarray]
@@ -32,13 +28,4 @@ class ValidityBench(Benchmark):
 
         eps = 1e-30
         log_rmse = rmse(np.log(m_hat + eps), np.log(m_true + eps))
-
-        m_max = np.max(m_true) if np.max(m_true) > 0 else 1.0
-        ece = expected_calibration_error(m_hat / m_max, m_true / m_max)
-
-        loss = log_rmse + ece
-        components = {
-            "log_rmse": log_rmse,
-            "ece": ece,
-        }
-        return loss, components
+        return log_rmse, {"log_rmse": log_rmse}

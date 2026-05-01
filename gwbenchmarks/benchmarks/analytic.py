@@ -6,49 +6,34 @@ from typing import Dict
 import numpy as np
 
 from gwbenchmarks.benchmarks.base import Benchmark
-from gwbenchmarks.metrics import mismatch as compute_mismatch
-from gwbenchmarks.metrics import rmse
+from gwbenchmarks.metrics import FD_MASSES_MSUN, frequency_domain_mismatch, mean_fd_mismatch
 
 
 class AnalyticBench(Benchmark):
     """Evaluate analytic surrogate waveform predictions for non-spinning BBH.
 
-    Inputs: q, time grid t_i
-    Outputs: analytic surrogate waveform
+    Inputs:  q, time grid t_i
+    Outputs: waveform h22(t_i)
 
-    Loss: L = mismatch + lambda * RMSE(coefficients)
-
-    Requirements:
-    - Correct equal-mass limit
-    - Smooth behavior in q
-    - Correct test-mass trend near q=20
-    - No unphysical oscillations
+    Loss: mean frequency-domain mismatch (aLIGO PSD) over
+          M_tot in {40, 80, 120, 160, 200} M_sun.
     """
 
     name = "analytic"
-    t0 = 0.001  # 1 ms per waveform
-    alpha = 0.10
-
-    def __init__(self, config_path: str | Path | None = None):
-        super().__init__(config_path)
-        self.lam = self.config.get("lambda", 1.0)
 
     def compute_loss(
         self, predictions: Dict[str, np.ndarray], targets: Dict[str, np.ndarray]
     ) -> tuple[float, Dict[str, float]]:
-        dt = targets.get("dt", np.array(1.0)).item()
-        h_pred = predictions["waveform"]
-        h_true = targets["waveform"]
+        dt = float(targets.get("dt", np.array(1.0)))
+        h_pred = np.asarray(predictions["waveform"])
+        h_true = np.asarray(targets["waveform"])
 
-        m = compute_mismatch(h_pred, h_true, dt=dt)
-
-        coeff_err = 0.0
-        if "coefficients" in predictions and "coefficients" in targets:
-            coeff_err = rmse(predictions["coefficients"], targets["coefficients"])
-
-        loss = m + self.lam * coeff_err
-        components = {
-            "mismatch": m,
-            "coefficient_rmse": coeff_err,
+        per_mass = {
+            f"mismatch_{int(m)}Msun": frequency_domain_mismatch(
+                h_pred, h_true, dt_geometric=dt, mtot_msun=m
+            )
+            for m in FD_MASSES_MSUN
         }
+        loss = float(np.mean(list(per_mass.values())))
+        components = {"mean_fd_mismatch": loss, **per_mass}
         return loss, components

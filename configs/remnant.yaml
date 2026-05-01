@@ -1,9 +1,6 @@
 name: remnant
-description: "Final mass, spin, and kick velocity prediction"
+description: "Kick velocity magnitude prediction"
 
-# Cost parameters
-t0: 0.0001      # 0.1 ms per point (in seconds)
-alpha: 0.05
 
 # Input parameter ranges
 parameters:

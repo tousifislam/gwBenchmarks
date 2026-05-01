@@ -1,12 +1,11 @@
 name: analytic
 description: "Analytic surrogate waveform for non-spinning BBH"
 
-# Cost parameters
-t0: 0.001       # 1 ms per waveform (in seconds)
-alpha: 0.10
 
-# Loss parameters
-lambda: 1.0     # weight on coefficient RMSE
+# Loss: mean frequency-domain mismatch (aLIGO PSD) over fd_masses_msun
+fd_masses_msun: [40.0, 80.0, 120.0, 160.0, 200.0]
+f_low_hz: 15.0
+f_high_hz: 990.0
 
 # Input parameter ranges
 parameters:
