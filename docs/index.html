@@ -85,6 +85,11 @@
   .pill-gpt54   { color: var(--gpt54); border-color: var(--gpt54); background: rgba(2,132,199,0.06); }
   .pill-gpt53   { color: var(--gpt53); border-color: var(--gpt53); background: rgba(22,163,74,0.06); }
   .pill-gpt52   { color: var(--gpt52); border-color: var(--gpt52); background: rgba(225,29,72,0.06); }
+  .pill-gemini31 { color: var(--gemini31); border-color: var(--gemini31); background: rgba(234,88,12,0.06); }
+  .pill-gemini3f { color: var(--gemini3f); border-color: var(--gemini3f); background: rgba(194,65,12,0.06); }
+  .model-pills-group { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
+  .model-pills-row { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; align-items: center; }
+  .model-pills-label { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; min-width: 52px; text-align: right; }
 
   .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
   .section-header h2 { font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
@@ -218,15 +223,26 @@
       <a href="mailto:tousifislam24@gmail.com" style="color:var(--accent);text-decoration:none">tousifislam24@gmail.com</a> &middot;
       <a href="mailto:tousifislam@ucsb.edu" style="color:var(--accent);text-decoration:none">tousifislam@ucsb.edu</a>
     </div>
-    <div class="model-pills">
-      <span class="pill pill-haiku">Haiku 4.5</span>
-      <span class="pill pill-sonnet">Sonnet 4.6</span>
-      <span class="pill pill-opus46">Opus 4.6</span>
-      <span class="pill pill-opus47">Opus 4.7</span>
-      <span class="pill pill-gpt55">GPT-5.5 High</span>
-      <span class="pill pill-gpt54">GPT-5.4 Mini</span>
-      <span class="pill pill-gpt53">GPT-5.3 Codex High</span>
-      <span class="pill pill-gpt52">GPT-5.2</span>
+    <div class="model-pills-group">
+      <div class="model-pills-row">
+        <span class="model-pills-label">CLAUDE</span>
+        <span class="pill pill-opus47">Opus 4.7</span>
+        <span class="pill pill-opus46">Opus 4.6</span>
+        <span class="pill pill-sonnet">Sonnet 4.6</span>
+        <span class="pill pill-haiku">Haiku 4.5</span>
+      </div>
+      <div class="model-pills-row">
+        <span class="model-pills-label">GPT</span>
+        <span class="pill pill-gpt55">GPT-5.5 High</span>
+        <span class="pill pill-gpt54">GPT-5.4 Mini</span>
+        <span class="pill pill-gpt53">GPT-5.3 Codex High</span>
+        <span class="pill pill-gpt52">GPT-5.2</span>
+      </div>
+      <div class="model-pills-row">
+        <span class="model-pills-label">GEMINI</span>
+        <span class="pill pill-gemini31">Gemini 3.1 Pro</span>
+        <span class="pill pill-gemini3f">Gemini 3 Flash</span>
+      </div>
     </div>
     <img src="../logo.png" alt="gwBenchmarks logo" class="hero-logo" style="margin-top:2rem">
   </div>
