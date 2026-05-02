@@ -1,8 +1,8 @@
 {
   "opus47": {
     "waveform": {
-      "loss": 0.12532173976645483,
-      "model": "svd_knn_raw7"
+      "loss": 0.1870566669010985,
+      "model": "svd_rf_raw7"
     },
     "remnant": {
       "loss": 0.08867782750310059,
@@ -53,8 +53,8 @@
   },
   "sonnet46": {
     "waveform": {
-      "loss": 0.9564567009974957,
-      "model": "svd_rf_raw"
+      "loss": 0.15846409175281861,
+      "model": "svd_et_md"
     },
     "remnant": {
       "loss": 0.05378456498809155,
@@ -79,8 +79,8 @@
   },
   "haiku": {
     "waveform": {
-      "loss": 0.8878880117629999,
-      "model": "NN7_SVD_GPR_matern_eta_chi"
+      "loss": 0.5829670645103763,
+      "model": "ridge_svd"
     },
     "remnant": {
       "loss": 0.09017687074643194,
@@ -93,8 +93,8 @@
   },
   "gpt55_high": {
     "waveform": {
-      "loss": 0.6602995415033234,
-      "model": "RBF-Interp (massdiff_spins)"
+      "loss": 0.1856129246046427,
+      "model": "KRR-RBF"
     },
     "remnant": {
       "loss": 0.05635771666436307,
@@ -113,14 +113,14 @@
       "model": "RandomForest (effective_spins)"
     },
     "analytic": {
-      "loss": 0.725501180294634,
-      "model": "Symbolic-Phase (eta_power)"
+      "loss": 0.2398420838135899,
+      "model": "PySR-Frequency"
     }
   },
   "gpt54_mini": {
     "waveform": {
-      "loss": 0.23186889939242325,
-      "model": "svd_gb_eff"
+      "loss": 0.40277270558588285,
+      "model": "ap_svd_gpr_peak"
     },
     "remnant": {
       "loss": 0.08867782750310059,
@@ -145,8 +145,8 @@
   },
   "gpt53_codex_high": {
     "waveform": {
-      "loss": 0.6602995415033299,
-      "model": "RBF-Interp (massdiff_spins)"
+      "loss": 0.18561292460464224,
+      "model": "KRR-RBF"
     },
     "remnant": {
       "loss": 0.05639618964111244,
@@ -165,8 +165,8 @@
       "model": "RandomForest (effective_spins)"
     },
     "analytic": {
-      "loss": 0.7255011802945823,
-      "model": "Symbolic-Phase (eta_power)"
+      "loss": 0.2398420838135899,
+      "model": "PySR-Frequency"
     }
   },
   "gpt52": {
@@ -226,10 +226,25 @@
       "loss": 0.21969296373142555,
       "model": "svd_gpr_raw"
     },
-    "remnant": null,
-    "dynamics": null,
-    "ringdown": null,
-    "validity": null,
-    "analytic": null
+    "remnant": {
+      "loss": 0.09308118549526011,
+      "model": "rf_raw"
+    },
+    "dynamics": {
+      "loss": 0.009825907507388197,
+      "model": "svd_poly2_raw"
+    },
+    "ringdown": {
+      "loss": 1.1299381259098558e-05,
+      "model": "spline_raw"
+    },
+    "validity": {
+      "loss": 0.7241678335237897,
+      "model": "cat_raw"
+    },
+    "analytic": {
+      "loss": 0.413900228599356,
+      "model": "damped_sin"
+    }
   }
 }

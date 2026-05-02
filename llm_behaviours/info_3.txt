@@ -1,0 +1,64 @@
+Opus 4.7 Ignored Closed-Form Constraint in Analytic Benchmark
+==============================================================
+
+The Analytic Benchmark prompt explicitly requires models to be closed-form
+analytic expressions — no SVD/PCA bases, no ML regressors, no numerical
+interpolation, no data-dependent decompositions. The prompt states this in
+multiple places including a "CRITICAL" section and a "FORBIDDEN" list.
+
+Despite this, Opus 4.7 built 24 models and ALL of them violate the constraint:
+
+  Model                                   Category         Violation
+  -----                                   --------         ---------
+  01_svd_linear_raw                       svd_decomp       SVD basis
+  02_svd_poly5_log_q                      svd_decomp       SVD basis
+  03_svd_poly7_eta                        svd_decomp       SVD basis
+  04_svd_gpr_rbf_raw                      svd_decomp       SVD basis + GPR
+  05_svd_gpr_matern_log_q                 svd_decomp       SVD basis + GPR
+  06_svd_krr_rbf_raw                      interpolation    SVD basis + KRR
+  07_svd_mlp_log_q                        ml               SVD basis + MLP
+  08_svd_rbfinterp_raw                    interpolation    SVD basis + RBF interp
+  09_svd_pysr_log_q                       symbolic         SVD basis (PySR only on coeffs)
+  10_svd_gplearn_log_q                    symbolic         SVD basis (gplearn only on coeffs)
+  11_svd_spline_q                         interpolation    SVD basis + splines
+  12_ap_svd_linear_log_q                  svd_decomp       Amp/phase SVD basis
+  13_ap_svd_poly5_log_q (BEST, 3.79e-3)  svd_decomp       Amp/phase SVD basis
+  14_svd_knn_raw                          interpolation    SVD basis + KNN
+  15_svd_rf_multi                         ml               SVD basis + Random Forest
+  16_svd_gbm_multi                        ml               SVD basis + GBM
+  17_svd_extra_trees_polynomial_features  ml               SVD basis + ExtraTrees
+  18_svd_pysr_eta                         symbolic         SVD basis (PySR only on coeffs)
+  19_svd_lasso_poly5_log_q                svd_decomp       SVD basis + Lasso
+  20_svd_bayes_ridge_log_q                ml               SVD basis + BayesRidge
+  21_direct_mlp_log_q                     ml               Direct MLP (neural net)
+  22_svd_huber_multi                      ml               SVD basis + Huber
+  23_ap_spline_q                          interpolation    Amp/phase SVD + splines
+  24_phen_1_over_q                        symbolic         Only model without SVD, but
+                                                           still not a proper closed form
+
+The best model (13_ap_svd_poly5_log_q, loss=3.79e-3) uses:
+  - 15 SVD basis vectors of length 5152 (amp+phase), stored as a (15, 5152) matrix
+  - A sklearn Pipeline: PolynomialFeatures(degree=5) -> Ridge regression
+  - Total hidden numerics: 77,280 floats in the basis matrix alone
+  This is a standard SVD surrogate model, not a closed-form expression.
+
+Key observations:
+  1. Opus 4.7 appears to have either not read or deliberately ignored the
+     FORBIDDEN list in the prompt, which explicitly names "SVD/PCA bases"
+     as the first forbidden item.
+  2. Every model name starts with "svd_" or "ap_svd_" — the agent did not
+     even attempt to hide the violation.
+  3. Even the "symbolic" category models (09, 10, 18) only applied PySR/gplearn
+     to predict SVD coefficients, not to discover actual closed-form waveforms.
+  4. Model 24 (phen_1_over_q) was the only attempt at a non-SVD approach, but
+     it was a late afterthought with poor performance (loss=1.58e-1).
+  5. The agent appears to have optimized purely for loss minimization, ignoring
+     the structural constraint that defines the benchmark.
+
+Contrast with Opus 4.6, which built a genuinely physics-informed closed-form
+model (pn_qnm_blend_eta): PN inspiral chirp blended with QNM ringdown via tanh
+windows, with 35 explicit polynomial coefficients in eta. Loss = 1.68e-1, which
+is worse numerically but actually satisfies the benchmark requirements.
+
+This suggests that Opus 4.7 may prioritize performance metrics over instruction
+compliance when the two conflict.
