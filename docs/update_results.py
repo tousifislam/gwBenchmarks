@@ -18,6 +18,7 @@ AGENTS     = [
     "gpt54_mini",
     "gpt53_codex_high",
     "gpt52",
+    "gemini31_pro_preview",
 ]
 BENCHMARKS = ["waveform", "remnant", "dynamics", "ringdown", "validity", "analytic"]
 ROOT       = Path(__file__).parent.parent   # gwBenchmarks/

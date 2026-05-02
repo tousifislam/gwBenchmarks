@@ -194,5 +194,31 @@
       "loss": 0.27197858463072794,
       "model": "closed_form"
     }
+  },
+  "gemini31_pro_preview": {
+    "waveform": {
+      "loss": 0.3489907760373924,
+      "model": "5_svd_poly3_eta"
+    },
+    "remnant": {
+      "loss": 0.05736310846093251,
+      "model": "10_rf_sph"
+    },
+    "dynamics": {
+      "loss": 0.009593230549154588,
+      "model": "3_svd_poly_trig"
+    },
+    "ringdown": {
+      "loss": 0.0005254371385597487,
+      "model": "10_krr_rbf_sqrt"
+    },
+    "validity": {
+      "loss": 0.7268961195583522,
+      "model": "11_rf_raw"
+    },
+    "analytic": {
+      "loss": 0.7903484987263402,
+      "model": "2_taylort4_q"
+    }
   }
 }

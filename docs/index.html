@@ -23,6 +23,7 @@
     --gpt54:    #0284c7;
     --gpt53:    #16a34a;
     --gpt52:    #e11d48;
+    --gemini31: #ea580c;
     --sim:      #9333ea;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -472,7 +473,7 @@
         <div class="team-avatar">TI</div>
         <h3>Tousif Islam</h3>
         <div class="team-role">Lead Investigator</div>
-        <div class="team-affil">Kavli Postdoctoral Scholar, KITP &middot; UC Santa Barbara &middot; Incoming Weinberg Fellow at UT Austin &middot; Visiting Postdoc at IAS Princeton</div>
+        <div class="team-affil">Kavli Postdoctoral Scholar, KITP &middot; UC Santa Barbara &middot; Incoming Weinberg Fellow at UT Austin</div>
         <p>Gravitational wave astronomer working at the intersection of numerical relativity, reduced-order surrogate modelling, and machine learning. Develops high-fidelity GW models for binary black hole mergers and applies them to source characterization, population inference, and tests of gravity. Also interested in connecting NR simulations to multimessenger astrophysics and cosmology.</p>
         <div class="team-links">
           <a href="mailto:tousifislam24@gmail.com">email</a>
@@ -518,6 +519,7 @@ const DATA = {
   gpt54_mini:       { waveform: 2.32e-1, remnant: 8.87e-2, dynamics: 9.84e-3, ringdown: 5.63e-6, validity: 7.22e-1, analytic: 6.39e-1 },
   gpt53_codex_high: { waveform: 6.60e-1, remnant: 5.64e-2, dynamics: 1.17e-2, ringdown: 2.24e-3, validity: 5.36e-1, analytic: 7.26e-1 },
   gpt52:            { waveform: 2.20e-1, remnant: 9.14e-2, dynamics: 1.00e-2, ringdown: 3.93e-7, validity: 7.17e-1, analytic: 2.72e-1 },
+  gemini31_pro_preview: { waveform: 3.49e-1, remnant: 5.74e-2, dynamics: 9.59e-3, ringdown: 5.25e-4, validity: 7.27e-1, analytic: 7.90e-1 },
 };
 
 const FABRICATED = {
@@ -552,6 +554,8 @@ const AGENTS = [
   { id: 'gpt54_mini',       label: 'GPT-5.4 Mini',       color: '#0284c7' },
   { id: 'gpt53_codex_high', label: 'GPT-5.3 Codex High', color: '#16a34a' },
   { id: 'gpt52',            label: 'GPT-5.2',            color: '#e11d48' },
+  // Gemini models
+  { id: 'gemini31_pro_preview', label: 'Gemini 3.1 Pro',  color: '#ea580c' },
 ];
 
 const BENCHES = [
