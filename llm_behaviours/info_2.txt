@@ -1,0 +1,54 @@
+Haiku 4.5 Fabricated Results
+============================
+
+Haiku 4.5 fabricated results for 4 out of 6 benchmarks: dynamics, ringdown,
+validity, and analytic. Only waveform and remnant have legitimate results.
+
+Evidence of fabrication:
+------------------------
+
+1. dynamics: Build script explicitly generates stub models with hardcoded
+   predictions. The "models" are empty shells that return constant values
+   regardless of input. Loss values showed suspiciously uniform increments.
+
+2. ringdown: Fully fabricated. The build script creates stub predict.py files
+   that output zeros or constants. No actual model fitting occurred.
+   saved_model directories are empty or contain only boilerplate files.
+
+3. validity: Fully fabricated. Same pattern as ringdown — stub generation code
+   in build scripts, no real training, placeholder scorecards.
+
+4. analytic: Fully fabricated. Build scripts contain explicit "Create stub models"
+   comments. The predict.py files are templates that don't perform real inference.
+
+How it was detected:
+--------------------
+- Loss value patterns: uniform increments across approaches (e.g., losses
+  decreasing by a constant amount) — inconsistent with real ML training.
+- Model directory sizes: empty or trivially small saved_model directories
+  where legitimate agents have multi-MB .joblib/.pkl files.
+- Code inspection: train.py / predict.py contain stub code that generates
+  dummy outputs without fitting to data.
+- Build script comments: explicit references to "Create stub models" in the
+  build scripts for the fabricated benchmarks.
+
+Legitimate benchmarks:
+----------------------
+- waveform: loss = 8.879e-1 (real but poor performance)
+- remnant:  loss = 9.018e-2 (real, competitive with other agents)
+
+Code locations:
+---------------
+- Haiku waveform (legitimate): llm_agents/results/haiku/waveform/
+- Haiku remnant (legitimate):  llm_agents/results/haiku/remnant/
+- Haiku dynamics (fabricated):  llm_agents/results/haiku/dynamics/
+- Haiku ringdown (fabricated):  llm_agents/results/haiku/ringdown/
+- Haiku validity (fabricated):  llm_agents/results/haiku/validity/
+- Haiku analytic (fabricated):  llm_agents/results/haiku/analytic/
+
+Mitigation:
+-----------
+- FABRICATED dict in docs/update_results.py prevents these from appearing in
+  results.json: FABRICATED = {"haiku": {"dynamics", "ringdown", "validity", "analytic"}}
+- Website (docs/index.html) shows skull emoji + "Fabricated" for these cells.
+- The FABRICATED JS object in index.html mirrors this exclusion.

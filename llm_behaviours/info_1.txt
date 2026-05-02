@@ -1,0 +1,54 @@
+Metric Inconsistencies Across LLM Agents (Waveform & Analytic Benchmarks)
+==========================================================================
+
+The reported waveform and analytic benchmark losses are NOT computed with the
+same metric across all agents. The canonical metric is the PyCBC frequency-domain
+mismatch (aLIGO PSD, maximised over time/phase shifts, f_low=15 Hz). Some agents
+used proxy metrics instead.
+
+Agent                  Waveform/Analytic Metric         Subset Size   Aggregation
+-----                  ------------------------         -----------   -----------
+Opus 4.7               PyCBC FD mismatch (correct)      20 of 250     mean
+Opus 4.6               PyCBC FD mismatch (correct)      all 250       mean
+Sonnet 4.6             Naive FFT overlap (NO PSD)        all 250       mean
+Haiku 4.5              Similar to Sonnet (NO PSD)        all 250       mean
+GPT-5.5 High           Time-domain L2 proxy (NO PSD)    all           mean
+GPT-5.4 Mini           PyCBC FD mismatch (correct)      64 of 250     mean
+GPT-5.3 Codex High     Time-domain L2 proxy (NO PSD)    all           mean
+GPT-5.2                PyCBC FD mismatch (correct)      all           mean
+Gemini 3.1 Pro         PyCBC FD mismatch (correct)      all           mean
+
+Key issues:
+-----------
+1. Sonnet 4.6 wrote its own FD mismatch in utils.py (raw FFT overlap, no PSD
+   weighting, no aLIGO noise curve). Not comparable to PyCBC metric.
+
+2. GPT-5.5 High and GPT-5.3 Codex High (identical suite_runner.py) use a
+   time-domain L2 mismatch proxy: 1 - |<h_true, h_pred>| / (||h_true|| ||h_pred||)
+   computed in the time domain without any PSD weighting. Not comparable.
+
+3. Opus 4.7 evaluates on only 20 of 250 validation cases (subsampled via
+   np.linspace). GPT-5.4 Mini uses 64 of 250. Other agents use all cases.
+
+4. For remnant, dynamics, ringdown, and validity benchmarks, all agents use
+   consistent metrics (NRMSE, RMS relative error, mean relative error, log-RMSE).
+   The inconsistency is specific to waveform and analytic benchmarks.
+
+Action items:
+-------------
+- Sonnet 4.6: recompute waveform and analytic losses using PyCBC FD mismatch
+- GPT-5.5 High: recompute waveform and analytic losses using PyCBC FD mismatch
+- GPT-5.3 Codex High: recompute waveform and analytic losses using PyCBC FD mismatch
+- GPT-5.4 Mini: optionally recompute on all 250 cases (currently 64 subset)
+- Opus 4.7: optionally recompute on all 250 cases (currently 20 subset)
+
+Code locations:
+---------------
+- Opus 4.7 _lib.py:  llm_agents/results/opus47/waveform/_lib.py (fd_mismatch_real, n_subset=20)
+- Opus 4.6 utils.py:  llm_agents/results/opus46/waveform/utils.py (compute_loss_batch, all cases)
+- Sonnet 4.6 utils.py: llm_agents/results/sonnet46/waveform/utils.py (compute_frequency_domain_mismatch — naive FFT)
+- GPT-5.5 suite_runner: llm_agents/results/gpt55_high/suite_runner.py (per_sample_errors — TD L2 proxy)
+- GPT-5.3 suite_runner: llm_agents/results/gpt53_codex_high/suite_runner.py (identical to GPT-5.5)
+- GPT-5.4 _lib.py:  llm_agents/results/gpt54_mini/waveform/_lib.py (eval_fd_mismatch + sample_subset n=64)
+- GPT-5.2 _lib.py:  llm_agents/results/gpt52/waveform/_lib.py (compute_per_sample_losses, all cases, uses WaveformBench)
+- Gemini 3.1 run_all.py: llm_agents/results/gemini31_pro_preview/waveform/run_all.py (all cases, PyCBC)
