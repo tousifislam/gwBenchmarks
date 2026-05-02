@@ -24,6 +24,7 @@
     --gpt53:    #16a34a;
     --gpt52:    #e11d48;
     --gemini31: #ea580c;
+    --gemini3f: #c2410c;
     --sim:      #9333ea;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -520,6 +521,7 @@ const DATA = {
   gpt53_codex_high: { waveform: 6.60e-1, remnant: 5.64e-2, dynamics: 1.17e-2, ringdown: 2.24e-3, validity: 5.36e-1, analytic: 7.26e-1 },
   gpt52:            { waveform: 2.20e-1, remnant: 9.14e-2, dynamics: 1.00e-2, ringdown: 3.93e-7, validity: 7.17e-1, analytic: 2.72e-1 },
   gemini31_pro_preview: { waveform: 3.49e-1, remnant: 5.74e-2, dynamics: 9.59e-3, ringdown: 5.25e-4, validity: 7.27e-1, analytic: 7.90e-1 },
+  gemini3_flash_preview: { waveform: 2.20e-1, remnant: null,    dynamics: null,    ringdown: null,    validity: null,    analytic: null    },
 };
 
 const FABRICATED = {
@@ -555,7 +557,8 @@ const AGENTS = [
   { id: 'gpt53_codex_high', label: 'GPT-5.3 Codex High', color: '#16a34a' },
   { id: 'gpt52',            label: 'GPT-5.2',            color: '#e11d48' },
   // Gemini models
-  { id: 'gemini31_pro_preview', label: 'Gemini 3.1 Pro',  color: '#ea580c' },
+  { id: 'gemini31_pro_preview', label: 'Gemini 3.1 Pro',   color: '#ea580c' },
+  { id: 'gemini3_flash_preview', label: 'Gemini 3 Flash',  color: '#c2410c' },
 ];
 
 const BENCHES = [

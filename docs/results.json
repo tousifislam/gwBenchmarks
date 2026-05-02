@@ -220,5 +220,16 @@
       "loss": 0.7903484987263402,
       "model": "2_taylort4_q"
     }
+  },
+  "gemini3_flash_preview": {
+    "waveform": {
+      "loss": 0.21969296373142555,
+      "model": "svd_gpr_raw"
+    },
+    "remnant": null,
+    "dynamics": null,
+    "ringdown": null,
+    "validity": null,
+    "analytic": null
   }
 }
