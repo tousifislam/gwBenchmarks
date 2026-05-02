@@ -23,3 +23,4 @@ llm_agents/results/**/models/
 llm_agents/results/**/saved_model/
 *.pkl
 *.joblib
+paper_by_ai/

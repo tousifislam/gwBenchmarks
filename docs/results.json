@@ -21,8 +21,8 @@
       "model": "rf_raw4"
     },
     "analytic": {
-      "loss": 0.003790608612694543,
-      "model": "ap_svd_poly5_log_q"
+      "loss": 0.0521565170374327,
+      "model": "phen_imr_cheb14_logq_p4"
     }
   },
   "opus46": {
