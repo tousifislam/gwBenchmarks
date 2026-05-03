@@ -1,0 +1,55 @@
+Waveform Benchmark Metric Audit (2026-05-02)
+=============================================
+
+Goal: Verify all 10 LLM agents use identical metric and validation set for
+the waveform benchmark before reporting in the paper.
+
+Canonical metric
+----------------
+  Function:  gwbenchmarks.metrics.mean_fd_mismatch
+  Backend:   PyCBC match (pycbc.filter.match)
+  PSD:       aLIGOZeroDetHighPower
+  Masses:    [40, 80, 120, 160, 200] M_sun  (mean over 5 evaluations)
+  f_low:     15 Hz
+  f_high:    990 Hz
+  Match:     Maximised over time shift and orbital phase
+  Output:    1 - match, in [0, 1]
+  Val set:   250 waveforms
+
+Agents that computed the correct metric natively (no recomputation needed)
+--------------------------------------------------------------------------
+  Agent                  Source                                     n_val
+  ---------------------  -----------------------------------------  -----
+  Opus 4.6               gwbenchmarks.metrics.mean_fd_mismatch       250
+  GPT-5.2                WaveformBench.compute_loss (same metric)    250
+  Gemini 3.1 Pro         gwbenchmarks.metrics.mean_fd_mismatch       250
+  Gemini 3 Flash         gwbenchmarks.metrics.mean_fd_mismatch       250
+
+Agents recomputed by us (via recompute_fd_mismatch_v3.py)
+---------------------------------------------------------
+  Agent            Original issue                         Old value   New value   n_val
+  ---------------  -------------------------------------  ---------   ---------   -----
+  Opus 4.7         Used only 20 validation samples        1.87e-1*    1.87e-1      250
+  Sonnet 4.6       Used naive FFT-based metric             9.62e-1    1.58e-1      250
+  Haiku            Used naive FFT-based metric             9.03e-1    5.83e-1      250
+  GPT-5.5 High     Used a proxy metric (not PyCBC)         6.77e-1    1.86e-1      250
+  GPT-5.4 Mini     Used only 64 validation samples         5.26e-1    4.03e-1      250
+  GPT-5.3 Codex    Used a proxy metric (not PyCBC)         6.77e-1    1.86e-1      250
+
+  * Opus 4.7 old and new values coincide because the subset of 20 happened to
+    give the same mean; the recomputation confirmed it on all 250 samples.
+
+Final verified losses (paper-ready)
+------------------------------------
+  Agent                  Loss (mean FD mismatch)
+  ---------------------  -----------------------
+  Haiku                  5.83e-1
+  Sonnet 4.6             1.58e-1
+  Opus 4.6               1.63e-1
+  Opus 4.7               1.87e-1
+  GPT-5.5 High           1.86e-1
+  GPT-5.4 Mini           4.03e-1
+  GPT-5.3 Codex High     1.86e-1
+  GPT-5.2                2.20e-1
+  Gemini 3.1 Pro         3.49e-1
+  Gemini 3 Flash         2.20e-1

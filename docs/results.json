@@ -113,8 +113,8 @@
       "model": "RandomForest (effective_spins)"
     },
     "analytic": {
-      "loss": 0.2398420838135899,
-      "model": "PySR-Frequency"
+      "loss": 0.35109237267813603,
+      "model": "Damped-Sinusoids"
     }
   },
   "gpt54_mini": {
@@ -165,8 +165,8 @@
       "model": "RandomForest (effective_spins)"
     },
     "analytic": {
-      "loss": 0.2398420838135899,
-      "model": "PySR-Frequency"
+      "loss": 0.35109237267813603,
+      "model": "Damped-Sinusoids"
     }
   },
   "gpt52": {
