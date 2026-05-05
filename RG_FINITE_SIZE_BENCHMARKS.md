@@ -40,8 +40,13 @@ implementation, old candidates, score files, or skill-specific hints.
 
 ## Stored Results
 
-This branch intentionally does not keep the full per-model candidate folders.
-Only a compact table of the current scores is stored in:
+This branch keeps the generated agent code and score files in:
+
+- `beyond_GR_bench/agent_outputs`
+
+Each model folder contains the candidate waveform implementation and the
+machine-readable score JSON for the RG and finite-size tasks. A compact score
+table is also stored in:
 
 - `beyond_GR_bench/results_summary.md`
 
