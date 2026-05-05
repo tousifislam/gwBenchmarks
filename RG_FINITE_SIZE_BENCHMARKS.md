@@ -1,0 +1,88 @@
+# RG and Finite-Size Waveform Benchmarks
+
+This branch adds two agentic waveform-generation benchmarks intended to
+complement the original `gwBenchmarks` waveform task.
+
+## Benchmarks
+
+- `benchmarks/rg_waveform_benchmark`: candidates implement an RG-tail modified
+  frequency-domain inspiral waveform.
+- `benchmarks/finite_size_waveform_benchmark`: candidates implement a
+  balance-law SPA waveform with finite-size corrections.
+
+Each benchmark compares a candidate `candidate_waveform.py` against the hidden
+project reference implementation in `src/rg_tail/waveform.py` or
+`src/finite_size/waveform.py`.
+
+## Scoring Convention
+
+Both scorers now use the same single-detector convention as the original
+`gwBenchmarks` waveform benchmark:
+
+- PSD: PyCBC `aLIGOZeroDetHighPower`
+- `f_low = 15 Hz`
+- `f_high = 990 Hz`
+- `df = 0.125 Hz`
+- Metric: optimized frequency-domain mismatch, maximized over time and phase
+
+The old multi-detector scores are not included in this branch.
+
+## Source Packets
+
+The no-skill benchmark prompts live in:
+
+- `benchmarks/rg_waveform_source_packet`
+- `benchmarks/finite_size_waveform_source_packet`
+
+These packets are what an agent should receive in a fresh workspace. They
+include a compact formula sheet and prompt, but not the reference
+implementation, old candidates, score files, or skill-specific hints.
+
+## Stored Results
+
+The current model outputs and score files live under:
+
+```text
+benchmarks/<model>/no_skills/RG/
+benchmarks/<model>/no_skills/finite_size/
+```
+
+The canonical score files are:
+
+```text
+score_level13.json
+score_finite_size.json
+```
+
+## Rerun One Candidate
+
+From the repository root:
+
+```bash
+python benchmarks/rg_waveform_benchmark/score_candidate.py \
+  --repo-root "$PWD" \
+  --candidate benchmarks/chatgpt_55_xhigh/no_skills/RG/candidate_waveform.py \
+  --label chatgpt_55_xhigh \
+  --output benchmarks/chatgpt_55_xhigh/no_skills/RG/score_level13.json \
+  --skip-bias
+
+python benchmarks/finite_size_waveform_benchmark/score_candidate.py \
+  --repo-root "$PWD" \
+  --candidate benchmarks/chatgpt_55_xhigh/no_skills/finite_size/candidate_waveform.py \
+  --label chatgpt_55_xhigh \
+  --output benchmarks/chatgpt_55_xhigh/no_skills/finite_size/score_finite_size.json \
+  --skip-bias
+```
+
+Use `--smoke` for a fast single-case check. The default full benchmark uses
+144 RG cases and 200 finite-size cases.
+
+## Physics Notes
+
+Detailed waveform notes are included in:
+
+- `docs/rg_tail`
+- `docs/finite_size`
+
+These notes document the waveform conventions and the approximations used by
+the reference implementations.

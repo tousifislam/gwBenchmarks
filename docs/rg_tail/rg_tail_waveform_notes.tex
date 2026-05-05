@@ -1,0 +1,912 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+
+\title{Notes on the Current RG-Tail Waveform Implementation}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Purpose}
+
+This note summarizes the current implementation in
+\texttt{src/rg\_tail/waveform.py}. It replaces the earlier separate summary,
+paper-audit, and \(h(f)\)-prescription notes.
+
+The goal is to describe, in one place:
+\begin{itemize}
+  \item what the current code implements,
+  \item which parts come directly from Section~IV of
+  \href{https://arxiv.org/abs/2602.08833}{arXiv:2602.08833},
+  \item which parts are repository-level modelling choices,
+  \item and what the main current caveats are.
+\end{itemize}
+
+\section{High-Level Picture}
+
+The core paper-based object is the factorized \((2,2)\) mode correction
+\begin{equation}
+  \hat h_{22}
+  =
+  \hat S_{\rm eff}^{(0)}\,
+  T_{22}^{\rm rad}\,
+  \rho_{22}^2\,
+  e^{i\delta_{22}},
+\end{equation}
+which is the Section~IV comparable-mass specialization of Eq.~(131) once the
+internal-tail bracket is omitted at 4PN.
+
+The current repository then turns this into a practical Fourier-domain
+balance-law template by using the dominant-mode flux implied by
+\(\hat h_{22}\) inside the adiabatic balance law. The core flux model is
+\begin{equation}
+  \mathcal F_{22}(x;\lambda_{\rm RG})
+  =
+  \frac{32}{5}\nu^2 x^5\,\left|\hat h_{22}(x;\lambda_{\rm RG})\right|^2,
+\end{equation}
+and the Fourier-domain waveform is built from the corresponding
+stationary-phase phase evolution.
+
+This distinction is important:
+\begin{itemize}
+  \item \(\hat h_{22}\) is the paper-facing factorized correction,
+  \item \(\mathcal F_{22}\) is the 22-only radiative flux implied by that
+  correction,
+  \item \(\tilde h(f)\) is the repository's data-analysis wrapper built from
+  this flux.
+\end{itemize}
+
+\section{What \texttt{waveform.py} Contains}
+
+The module is organized in four blocks:
+\begin{enumerate}
+  \item test-mass ingredients used for validation,
+  \item comparable-mass Section~IV ingredients,
+  \item the clean factorized correction \(\hat h_{22}\),
+  \item the 22-only balance-law flux and SPA phase helpers,
+  \item lightweight detector helpers.
+\end{enumerate}
+
+\subsection{Test-mass branch}
+
+The test-mass branch is kept mainly for reproducing the self-convergence
+checks discussed in the paper. It includes:
+\begin{itemize}
+  \item exact Schwarzschild \(E_{\rm circ}\) and \(p_\phi^{\rm circ}\),
+  \item the \(\hat \ell_2\) expansion,
+  \item test-mass \(\rho_{22}\), \(\delta_{22}\),
+  \item test-mass \(\tilde f_{22}\), \(\tilde \delta_{22}\).
+\end{itemize}
+
+These are not the main comparable-mass forecast model, but they are useful for
+checking that the resummed structure behaves as expected.
+
+\subsection{Comparable-mass Section~IV branch}
+
+For \(\nu > 0\), the module implements:
+\begin{itemize}
+  \item \(E_{\rm real}/M\) from Eq.~(145),
+  \item \(p_{\phi,{\rm circ}}/(\mu M)\) from Eq.~(146),
+  \item \(\gamma_{22}^{\rm univ}\) from Eq.~(137),
+  \item the radiative tail factor \(T_{22}^{\rm rad}\) from Eq.~(155),
+  \item \(\rho_{22}\) from Eq.~(157),
+  \item \(\delta_{22}\) from Eq.~(158).
+\end{itemize}
+
+The effective source is implemented through
+\begin{equation}
+  \hat H_{\rm eff}
+  =
+  \frac{(E_{\rm real}/M)^2 - 1}{2\nu} + 1,
+\end{equation}
+which is the Eq.~(132) relation solved for the even-parity source.
+
+\section{Explicit Current Model Formulas}
+
+This section collects the main formulas used by the current code in a single
+place.
+
+\subsection{Basic variables}
+
+For the dominant \((2,2)\) mode, the code uses
+\begin{equation}
+  x = (M\Omega)^{2/3},
+  \qquad
+  \omega = 2\Omega,
+  \qquad
+  f = \frac{\omega}{2\pi} = \frac{\Omega}{\pi},
+  \qquad
+  x_f = (\pi M f)^{2/3}.
+\end{equation}
+The symmetric mass ratio is \(\nu=\eta\).
+
+\subsection{Conservative circular-orbit sector}
+
+The current comparable-mass circular-orbit energy is
+\begin{equation}
+  \frac{E_{\rm real}}{M}
+  =
+  1 - \frac{\nu x}{2}
+  \left(
+    c_0 + c_1 x + c_2 x^2 + c_3 x^3 + c_4 x^4
+  \right),
+\end{equation}
+with
+\begin{align}
+  c_0 &= 1, \\
+  c_1 &= -\frac{3}{4} - \frac{\nu}{12}, \\
+  c_2 &= -\frac{27}{8} + \frac{19}{8}\nu - \frac{\nu^2}{24}, \\
+  c_3 &=
+  -\frac{675}{64}
+  + \left(\frac{34445}{576} - \frac{205\pi^2}{96}\right)\nu
+  - \frac{155}{96}\nu^2
+  - \frac{35}{5184}\nu^3, \\
+  c_4 &=
+  -\frac{3969}{128}
+  + \left(
+      -\frac{123671}{5760}
+      + \frac{9037\pi^2}{1536}
+      + \frac{896\gamma_E}{15}
+      + \frac{448}{15}\log(16x)
+    \right)\nu
+  + \left(
+      \frac{498449}{3456}
+      - \frac{3157\pi^2}{576}
+    \right)\nu^2
+  + \frac{301}{1728}\nu^3
+  + \frac{77}{31104}\nu^4.
+\end{align}
+
+The current circular angular momentum is
+\begin{equation}
+  \frac{p_{\phi,{\rm circ}}}{\mu M}
+  =
+  \frac{1}{\sqrt{x}}
+  \left(
+    d_0 + d_1 x + d_2 x^2 + d_3 x^3 + d_4 x^4
+  \right),
+\end{equation}
+with
+\begin{align}
+  d_0 &= 1, \\
+  d_1 &= \frac{3}{2} + \frac{\nu}{6}, \\
+  d_2 &= \frac{27}{8} - \frac{19}{8}\nu + \frac{\nu^2}{24}, \\
+  d_3 &=
+  \frac{135}{16}
+  + \left(
+      -\frac{6889}{144} + \frac{41\pi^2}{24}
+    \right)\nu
+  + \frac{31}{24}\nu^2
+  + \frac{7}{1296}\nu^3, \\
+  d_4 &=
+  \frac{2835}{128}
+  + \left(
+      \frac{98869}{5760}
+      - \frac{128\gamma_E}{3}
+      - \frac{6455\pi^2}{1536}
+      - \frac{64}{3}\log(16x)
+    \right)\nu
+  + \left(
+      \frac{356035}{3456}
+      - \frac{2255\pi^2}{576}
+    \right)\nu^2
+  - \frac{215}{1728}\nu^3
+  - \frac{55}{31104}\nu^4.
+\end{align}
+
+The effective source is
+\begin{equation}
+  \hat H_{\rm eff}
+  =
+  \frac{(E_{\rm real}/M)^2 - 1}{2\nu} + 1.
+\end{equation}
+
+\subsection{RG-tail sector}
+
+The auxiliary quantities entering the universal anomalous dimension are
+\begin{equation}
+  \hat k = \frac{E_{\rm real}}{M}\,m\Omega,
+  \qquad
+  J = \frac{p_{\phi,{\rm circ}}/(\mu M)}{(E_{\rm real}/M)^2},
+\end{equation}
+with \(m=2\) in the current model.
+
+The universal anomalous dimension is
+\begin{equation}
+  \gamma^{\rm univ}_{22}
+  =
+  -\frac{214}{105}\hat k^2
+  + \frac{2mJ}{3}\hat k^3
+  - \frac{3390466}{1157625}\hat k^4
+  + \frac{381863\,mJ}{99225}\hat k^5.
+\end{equation}
+
+The repository-level RG deformation is
+\begin{equation}
+  \hat{\hat \ell}_{22}
+  =
+  2 + \lambda_{\rm RG}\,\gamma^{\rm univ}_{22},
+\end{equation}
+with GR corresponding to \(\lambda_{\rm RG}=1\).
+
+The radiative-coordinate external tail factor is
+\begin{equation}
+  T_{22}
+  =
+  \exp\!\Big[
+    \log(120)
+    + (\hat{\hat \ell}_{22}-2)\log(2kr_\omega)
+    + 2i\hat k \log(4\phi_0)
+    + \log\Gamma(\hat{\hat \ell}_{22}-1-2i\hat k)
+    - \log\Gamma(2\hat{\hat \ell}_{22}+2)
+    + \pi \hat k
+    - \frac{i\pi}{2}(\hat{\hat \ell}_{22}-2)
+  \Big],
+\end{equation}
+where
+\begin{equation}
+  k = 2\Omega,
+  \qquad
+  r_\omega = \frac{1}{x},
+  \qquad
+  \phi_0 = \frac{e^{17/12-\gamma_E}}{4}.
+\end{equation}
+
+\subsection{Residual amplitude and residual phase}
+
+Define
+\begin{equation}
+  {\rm eulerlog}_2(x) = \gamma_E + \log(4\sqrt{x}).
+\end{equation}
+Then the current comparable-mass residual amplitude is
+\begin{equation}
+  \rho_{22}(x,\nu)
+  =
+  1 + r_1 x + r_2 x^2 + r_3 x^3 + r_4 x^4,
+\end{equation}
+with
+\begin{align}
+  r_1 &= -\frac{43}{42} + \frac{55}{84}\nu, \\
+  r_2 &= -\frac{20555}{10584} - \frac{33025}{21168}\nu + \frac{19583}{42336}\nu^2, \\
+  r_3 &=
+  -\frac{4296031}{4889808}
+  + \left(\frac{41\pi^2}{192} - \frac{48993925}{9779616}\right)\nu
+  - \frac{6292061}{3259872}\nu^2
+  + \frac{10620745}{39118464}\nu^3, \\
+  r_4 &=
+  \frac{9228174993589}{800950550400}
+  + \left(
+      -\frac{2487107795131}{145627372800}
+      + \frac{464}{35}{\rm eulerlog}_2(x)
+      - \frac{9953\pi^2}{21504}
+    \right)\nu \nonumber \\
+  &\quad
+  + \left(
+      \frac{10815863492353}{640760440320}
+      - \frac{3485\pi^2}{5376}
+    \right)\nu^2
+  - \frac{2088847783}{11650189824}\nu^3
+  + \frac{70134663541}{512608352256}\nu^4.
+\end{align}
+
+The current residual phase is
+\begin{equation}
+  \delta_{22}
+  =
+  -\frac{17}{3}y^{3/2}
+  - 24\nu\,y^{5/2}
+  + \left(
+      \frac{30995}{1134}\nu + \frac{962}{135}\nu^2
+    \right)y^{7/2}
+  - \frac{4976\pi}{105}\nu\,y^4,
+\end{equation}
+where
+\begin{equation}
+  y = \left( \frac{E_{\rm real}}{M} x^{3/2} \right)^{2/3}.
+\end{equation}
+
+The final Section~IV-inspired factorized correction is therefore
+\begin{equation}
+  \hat h_{22}
+  =
+  \hat H_{\rm eff}\,T_{22}\,\rho_{22}^2\,e^{i\delta_{22}}.
+\end{equation}
+
+\subsection{Flux, balance law, and SPA phase}
+
+Using the Newtonian mode
+\begin{equation}
+  h_{22}^N = -8\sqrt{\frac{\pi}{5}}\,\nu x\,e^{-2i\phi},
+\end{equation}
+the current 22-only flux is
+\begin{equation}
+  \mathcal F_{22}(x;\lambda_{\rm RG})
+  =
+  \frac{32}{5}\nu^2 x^5
+  \left|
+    \hat h_{22}(x;\lambda_{\rm RG})
+  \right|^2.
+\end{equation}
+
+The code uses the balance law
+\begin{equation}
+  \frac{dt}{dx}
+  =
+  -M\,
+  \frac{d(E_{\rm real}/M)/dx}{\mathcal F_{22}(x)},
+\end{equation}
+with
+\begin{equation}
+  \frac{d\Phi_{\rm GW}}{dx}
+  =
+  2\Omega \frac{dt}{dx}
+  =
+  2\frac{x^{3/2}}{M}\frac{dt}{dx}.
+\end{equation}
+
+If \(x_{\rm ref}\) is the reference endpoint used to anchor the integrals, the
+code constructs
+\begin{equation}
+  \Delta t(x)
+  = \int_x^{x_{\rm ref}} \frac{dt}{dx'}\,dx',
+  \qquad
+  \Delta \Phi_{\rm GW}(x)
+  = \int_x^{x_{\rm ref}} \frac{d\Phi_{\rm GW}}{dx'}\,dx',
+\end{equation}
+and then uses the SPA phase
+\begin{equation}
+  \Psi_{22,{\rm bal}}(f;\lambda_{\rm RG})
+  =
+  \Delta \Phi_{\rm GW}(x_f)
+  - 2\pi f\,\Delta t(x_f).
+\end{equation}
+
+The current default Fourier-domain waveform uses the same balance law for the
+SPA amplitude. The Newtonian restricted amplitude is
+\begin{equation}
+  A_N(f)
+  =
+  \sqrt{\frac{5}{24}}\,
+  \frac{\mathcal M^{5/6}}{d_L\,\pi^{2/3}}\,
+  f^{-7/6}.
+\end{equation}
+Because the time-domain mode amplitude contains
+\(|\hat h_{22}|\), while the inspiral rate contains
+\(\mathcal F_{22}\propto |\hat h_{22}|^2\), the explicit
+\(|\hat h_{22}|\) cancels in the stationary-phase amplitude:
+\begin{equation}
+  |\hat h_{22}|\,
+  \sqrt{\frac{\dot f_N}{\dot f}}
+  =
+  \sqrt{
+    \frac{d(E_{\rm real}/M)/dx}{d(E_N/M)/dx}
+  }
+  =
+  \sqrt{
+    -\frac{2}{\nu}\frac{d(E_{\rm real}/M)}{dx}
+  }.
+\end{equation}
+Thus the default detector-domain template is
+\begin{equation}
+  \tilde h(f)
+  =
+  A_N(f)\,
+  \sqrt{
+    -\frac{2}{\nu}\frac{d(E_{\rm real}/M)}{dx}\bigg|_{x_f}
+  }\,
+  \exp\!\left[
+    i\left(
+      2\pi f t_c - \phi_c - \frac{\pi}{4}
+      + \Psi_{22,{\rm bal}}(f;\lambda_{\rm RG})
+      + \arg \hat h_{22}(x_f)
+    \right)
+  \right],
+\end{equation}
+with
+\begin{equation}
+  x_f = (\pi M f)^{2/3}.
+\end{equation}
+The older project proxy,
+\(\tilde h_{\rm proxy}=A_N|\hat h_{22}|\exp(i\Psi)\), is retained in the code
+as \texttt{amplitude\_model="proxy"} for controlled comparisons.
+
+\subsection{Code-level \texttt{h\_of\_f} prescription}
+
+The current public waveform entry point is
+\texttt{h\_of\_f(f, Mc, eta, dL, tc, phic, lambda\_RG, ...)}. In terms of
+the physical masses, the code first converts
+\begin{equation}
+  M = \mathcal M_c\,\nu^{-3/5},
+  \qquad
+  d_L = d_L^{\rm Mpc}\,{\rm Mpc},
+  \qquad
+  M = M^{M_\odot}\,M_\odot,
+\end{equation}
+with \(G=c=1\). It then defines the Schwarzschild ISCO frequency
+\begin{equation}
+  f_{\rm ISCO}
+  =
+  \frac{1}{6^{3/2}\pi M},
+  \qquad
+  f_{\rm cut}
+  =
+  \alpha_{\rm cut}\,f_{\rm ISCO},
+\end{equation}
+where \(\alpha_{\rm cut}=\texttt{fmax\_over\_fisco}\). The waveform is set to
+zero outside the code band,
+\begin{equation}
+  \tilde h(f)=0,
+  \qquad
+  f<f_{\rm low}
+  \quad\hbox{or}\quad
+  f\ge f_{\rm cut}.
+\end{equation}
+
+Inside the band, the exact current default is
+\begin{equation}
+  \boxed{
+  \tilde h(f)
+  =
+  W(f)\,
+  A_{\rm bal}(f)\,
+  \exp\!\left[i\Psi_{\rm code}(f)\right]
+  },
+\end{equation}
+where the Fermi taper is
+\begin{equation}
+  W(f)
+  =
+  \frac{1}{
+    1+\exp\!\left[
+      \frac{f-f_{\rm ISCO}}
+      {\sigma_{\rm taper} f_{\rm ISCO}}
+    \right]
+  },
+  \qquad
+  \sigma_{\rm taper}
+  =
+  \texttt{sigma\_taper\_over\_fisco}.
+\end{equation}
+The code phase is
+\begin{equation}
+  \Psi_{\rm code}(f)
+  =
+  2\pi f t_c
+  - \phi_c
+  - \frac{\pi}{4}
+  + \Psi_{22,{\rm bal}}(f;\lambda_{\rm RG})
+  + \arg\hat h_{22}(x_f;\lambda_{\rm RG}),
+\end{equation}
+with \(x_f=(\pi M f)^{2/3}\). The default amplitude,
+\texttt{amplitude\_model="balance"}, is
+\begin{equation}
+  A_{\rm bal}(f)
+  =
+  A_N(f)
+  \sqrt{
+    \max\!\left[
+      -\frac{2}{\nu}\frac{d(E_{\rm real}/M)}{dx}\bigg|_{x_f},
+      0
+    \right]
+  }.
+\end{equation}
+The \(\max[\cdots,0]\) is a numerical guard in the code. For the current
+fiducial binaries and paper-facing frequency band, the physical branch has
+\(d(E_{\rm real}/M)/dx<0\).
+
+The optional amplitude choices are
+\begin{align}
+  A_{\rm proxy}(f;\lambda_{\rm RG})
+  &=
+  A_N(f)\,
+  \left|\hat h_{22}(x_f;\lambda_{\rm RG})\right|,
+  \\
+  A_{\rm proxy,phase\ only}(f)
+  &=
+  A_N(f)\,
+  \left|\hat h_{22}(x_f;\lambda_{\rm RG}=1)\right|,
+  \\
+  A_{\rm newtonian}(f)
+  &=
+  A_N(f).
+\end{align}
+Thus \texttt{phase\_only=True} only changes the old proxy amplitude; it does
+not change the current default balance-law amplitude, whose explicit
+\(\lambda_{\rm RG}\)-dependent magnitude cancels in the SPA construction.
+
+\section{Current Relation to arXiv:2602.08833}
+
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.38\textwidth}|}
+\hline
+\textbf{Paper item} & \textbf{Code function} & \textbf{Status} & \textbf{Current note} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Paper item} & \textbf{Code function} & \textbf{Status} & \textbf{Current note} \\
+\hline
+\endhead
+
+Eqs.~(85), (86) & \texttt{E\_circ\_test\_mass}, \texttt{p\_phi\_circ\_test\_mass} & Match & Implemented in exact Schwarzschild form. \\
+\hline
+
+Eq.~(175) & \texttt{ellhat\_test\_mass} & Match & The explicit test-mass \(\hat \ell_2\) coefficients are kept. \\
+\hline
+
+Eq.~(112) & \texttt{rho\_22\_test\_mass} & Match & The current code now keeps the test-mass series through \(x^{10}\). \\
+\hline
+
+Eq.~(113) & \texttt{ftilde\_22\_test\_mass} & Match & The current code now keeps the test-mass series through \(x^{10}\). \\
+\hline
+
+Eqs.~(114), (115) & \texttt{delta\_22\_test\_mass}, \texttt{deltatilde\_22\_test\_mass} & Match & Implemented as written in the paper. \\
+\hline
+
+Eq.~(145) & \texttt{energy\_real\_over\_M} & Match & Implemented at 4PN. \\
+\hline
+
+Eq.~(146) & \texttt{p\_phi\_circ\_over\_muM} & Match & Implemented at 4PN. \\
+\hline
+
+Eq.~(137) & \texttt{gamma\_univ\_22} & Match & Implemented with the paper's \(\hat k\) and \(J\) definitions. \\
+\hline
+
+Eq.~(155) & \texttt{tail\_factor\_T22} & Match up to intended 4PN use & The external radiative tail is implemented in log-space for numerical stability. \\
+\hline
+
+Eq.~(157) & \texttt{rho\_22} & Match & Implemented at 4PN. \\
+\hline
+
+Eq.~(158) & \texttt{delta\_22} & Match & Implemented at 4PN. \\
+\hline
+
+Eq.~(131), 4PN Section~IV use & \texttt{hhat\_22} & Match to intended 4PN model & The external-tail-only 4PN form is used, consistent with the Section~IV discussion below Eq.~(143). \\
+\hline
+
+Internal-tail bracket in Eq.~(131) & \texttt{include\_internal\_tail} option & Not implemented & The code now raises \texttt{NotImplementedError} instead of silently pretending to include it. \\
+\hline
+
+22-only flux \(\mathcal F_{22}\) & \texttt{flux\_22} & Repository choice consistent with standard multipolar flux construction & Built from \(h_{22}=h_{22}^N \hat h_{22}\) as \(\mathcal F_{22}=(32/5)\nu^2 x^5 |\hat h_{22}|^2\). \\
+\hline
+
+Balance-law phase & \texttt{\_spa\_phase\_from\_22\_flux} & Repository choice & The paper does not give a final SPA detector template, so the phase is built by integrating the 22-only flux with the GR conservative energy. \\
+\hline
+
+Detector-template \(\tilde h(f)\) & \texttt{h\_of\_f} & Repository choice & The final Fourier-domain waveform uses a balance-law SPA phase and, by default, the SPA amplitude correction implied by the same balance law. The older \(A_N|\hat h_{22}|\) proxy is still available as an option. \\
+\hline
+
+\end{longtable}
+
+\section{Comparison with the 4PN Standard \(H_{22}\) Mode}
+
+The current model is also useful to compare against the standard 4PN
+dominant-mode result in
+\href{https://arxiv.org/abs/2304.11185}{arXiv:2304.11185}. In that paper,
+Eq.~(11) gives the complex \((2,2)\) mode \(H_{22}\) through relative 4PN
+order, using the normalization
+\begin{equation}
+  h_+ - i h_\times
+  =
+  \frac{8Gm\nu x}{Rc^2}\sqrt{\frac{\pi}{5}}
+  \sum_{\ell m} H_{\ell m}e^{-im\psi}\,{}_{-2}Y_{\ell m}.
+\end{equation}
+With this normalization, the corresponding 22-mode flux is
+\begin{equation}
+  \mathcal F_{22}^{2304.11185}
+  =
+  \frac{32}{5}\nu^2x^5 |H_{22}|^2.
+\end{equation}
+
+For \(\lambda_{\rm RG}=1\), the current code agrees with
+Eq.~(11) through relative 3.5PN order. The first difference appears at
+relative 4PN:
+\begin{equation}
+  H_{22}^{2304.11185} - H_{22}^{\rm code}
+  =
+  \frac{16}{45}(\nu-1)
+  \left[
+    30\,{\rm eulerlog}_2(x)-137-15i\pi
+  \right]x^4,
+\end{equation}
+where
+\begin{equation}
+  {\rm eulerlog}_2(x)
+  =
+  \gamma_E+\ln(4\sqrt{x}).
+\end{equation}
+Equivalently, at the level of the 22-mode flux,
+\begin{equation}
+  \frac{
+    \mathcal F_{22}^{2304.11185}
+    -
+    \mathcal F_{22}^{\rm code}
+  }{
+    (32/5)\nu^2x^5
+  }
+  =
+  \frac{32}{45}(\nu-1)
+  \left[
+    30\,{\rm eulerlog}_2(x)-137
+  \right]x^4.
+\end{equation}
+
+This term has the logarithmic plus \(i\pi\) structure characteristic of
+hereditary radiative propagation effects. The companion derivation paper,
+\href{https://arxiv.org/abs/2304.11186}{arXiv:2304.11186}, identifies a new
+4PN ``tail-of-memory'' contribution in the radiative quadrupole moment, along
+with related tail-looking interactions. The current code should therefore be
+read as the Section~IV external-tail factorized model of arXiv:2602.08833, not
+as the exact standard 4PN \(H_{22}\) mode of arXiv:2304.11185.
+
+For now we do not add this 4PN difference to the waveform. If exact agreement
+with the standard 4PN \(H_{22}\) mode is desired later, one can multiply the
+current \(\hat h_{22}\) by
+\begin{equation}
+  1+
+  \frac{16}{45}(\nu-1)
+  \left[
+    30\,{\rm eulerlog}_2(x)-137-15i\pi
+  \right]x^4,
+\end{equation}
+or equivalently add the corresponding real flux correction above.
+
+\section{Current Beyond-GR Convention}
+
+The parameter \(\lambda_{\rm RG}\) is not part of the GR waveform in the paper.
+It is a repository-level deformation used for Fisher forecasts. The current
+convention is
+\begin{equation}
+  \hat{\hat \ell}_{22}
+  =
+  2 + \lambda_{\rm RG}\,\gamma^{\rm univ}_{22},
+\end{equation}
+with GR corresponding to \(\lambda_{\rm RG}=1\).
+
+The same scaling is applied in the test-mass branch by rescaling the running
+part \(\hat \ell_2 - 2\).
+
+\section{Current Flux and Fourier-Domain Prescription}
+
+The paper gives the radiative mode structure and the harmonic relation
+\(\omega = m \Omega\), but it does not give a final detector-template
+stationary-phase waveform. The current code therefore first constructs the
+dominant-mode flux from the standard multipolar flux formula,
+\begin{equation}
+  \mathcal F
+  =
+  \frac{1}{8\pi}\sum_{\ell=2}^{\infty}\sum_{m=1}^{\ell}
+  (m\Omega)^2 |h_{\ell m}|^2,
+\end{equation}
+truncated to the \((2,2)\) mode only:
+\begin{equation}
+  \mathcal F_{22}
+  =
+  \frac{1}{8\pi}(2\Omega)^2 |h_{22}|^2.
+\end{equation}
+
+With the Newtonian factorization
+\begin{equation}
+  h_{22}=h_{22}^N \hat h_{22},
+  \qquad
+  h_{22}^{N}=-8\sqrt{\frac{\pi}{5}}\,\nu x\,e^{-2i\phi},
+\end{equation}
+this becomes
+\begin{equation}
+  \mathcal F_{22}(x;\lambda_{\rm RG})
+  =
+  \frac{32}{5}\nu^2 x^5
+  \left|
+    \hat h_{22}(x;\lambda_{\rm RG})
+  \right|^2.
+\end{equation}
+
+Since
+\begin{equation}
+  \hat h_{22}
+  =
+  \hat H_{\rm eff}\,
+  T_{22}\,
+  \rho_{22}^2\,
+  e^{i\delta_{22}},
+\end{equation}
+the current code is therefore using
+\begin{equation}
+  \mathcal F_{22}(x;\lambda_{\rm RG})
+  =
+  \frac{32}{5}\nu^2 x^5\,
+  \hat H_{\rm eff}(x,\nu)^2\,
+  |T_{22}(x,\nu;\lambda_{\rm RG})|^2\,
+  \rho_{22}(x,\nu)^4.
+\end{equation}
+
+The SPA phase is then built from the adiabatic balance law
+\begin{equation}
+  \frac{dt}{dx}
+  =
+  -M\,
+  \frac{d(E_{\rm real}/M)/dx}{\mathcal F_{22}(x)},
+\end{equation}
+with the circular-orbit relation \(\Omega=x^{3/2}/M\). The Fourier-domain
+phase is assembled from the corresponding time-to-reference and
+gravitational-wave phase-to-reference integrals. The resulting default signal
+model for the \((2,2)\) mode is
+\begin{equation}
+  \tilde h(f)
+  =
+  A_N(f)\,
+  \sqrt{
+    -\frac{2}{\nu}\frac{d(E_{\rm real}/M)}{dx}\bigg|_{x_f}
+  }\,
+  \exp\!\left[
+    i\left(
+      2\pi f t_c - \phi_c - \frac{\pi}{4}
+      + \Psi_{22,{\rm bal}}(f;\lambda_{\rm RG})
+      + \arg \hat h_{22}(x_f)
+    \right)
+  \right],
+\end{equation}
+with
+\begin{equation}
+  x_f = (\pi M f)^{2/3}.
+\end{equation}
+Here
+\begin{equation}
+  A_N(f)
+  =
+  \sqrt{\frac{5}{24}}\,
+  \frac{\mathcal M^{5/6}}{d_L\,\pi^{2/3}}\,
+  f^{-7/6}.
+\end{equation}
+
+So the current default \(h(f)\) is:
+\begin{quote}
+restricted Newtonian SPA amplitude + conservative-energy SPA amplitude
+correction + 22-only balance-law SPA phase + complex Section~IV phase
+\(\arg\hat h_{22}(x_f)\).
+\end{quote}
+
+This should be viewed as:
+\begin{itemize}
+  \item paper-based in the construction of \(\hat h_{22}\),
+  \item more self-consistent than the older TaylorF2 wrapper because the phase
+  is now driven by the same 22-mode flux that carries the RG deformation,
+  \item still approximate because it uses only the \((2,2)\) mode and a
+  simplified detector-domain projection.
+\end{itemize}
+
+\subsection{Amplitude options}
+
+The code keeps the older project proxy for diagnostics:
+\begin{equation}
+  A_{\rm proxy}(f;\lambda_{\rm RG})
+  =
+  A_N(f)\,|\hat h_{22}(x_f;\lambda_{\rm RG})|.
+\end{equation}
+With \texttt{amplitude\_model="proxy"} and \texttt{phase\_only=True}, this
+proxy amplitude is frozen to its GR value,
+\begin{equation}
+  A_{\rm proxy,phase\ only}(f)
+  =
+  A_N(f)\,|\hat h_{22}(x_f;\lambda_{\rm RG}=1)|,
+\end{equation}
+while the phase still uses the requested \(\lambda_{\rm RG}\)-dependent
+22-only balance-law dynamics and the requested \(\arg \hat h_{22}(x_f)\).
+For the default \texttt{amplitude\_model="balance"}, the amplitude has no
+explicit \(\lambda_{\rm RG}\)-dependent magnitude after the SPA cancellation,
+so \texttt{phase\_only} does not change the default amplitude.
+
+\section{Practical Status}
+
+At the current point, the implementation is best described as:
+\begin{itemize}
+  \item a clean Section~IV-inspired \(\hat h_{22}\) implementation,
+  \item plus a practical 22-only balance-law SPA wrapper for Fisher work,
+  \item with the test-mass branch retained for local validation.
+\end{itemize}
+
+It is suitable for the current standalone RG-tail Fisher studies, but it is
+not yet a full EOB waveform model and it is not integrated into the main
+population/network forecast pipeline in the repository.
+
+\section{Current Paper-Facing Figures}
+
+For the systems paper, the RG-tail material should stay compact. The current
+recommended figure set is:
+\begin{itemize}
+  \item an expanded detector-and-network comparison plot of
+  \(\sigma(\lambda_{\rm RG})\), generated from
+  \texttt{results/rg\_tail\_forecast/summary/fisher\_results.json};
+  \item a Gaussian Fisher corner plot for the CE 40 km forecast, showing the
+  covariance among \(\mathcal M_c\), \(\eta\), \(d_L\), and
+  \(\lambda_{\rm RG}\).
+\end{itemize}
+
+The corresponding current files are:
+\begin{itemize}
+  \item \texttt{results/rg\_tail\_forecast/summary/sigma\_lambda\_rg.pdf},
+  \item \texttt{results/rg\_tail\_forecast/summary/rg\_tail\_corner\_ce40.pdf}.
+\end{itemize}
+
+The detector-and-network comparison figure is the cleanest headline output for
+the skill. In its current paper-facing version it includes:
+\begin{equation}
+  \text{aLIGO},\quad
+  \text{Voyager},\quad
+  \text{CE 20 km},\quad
+  \text{CE 40 km},\quad
+  \text{ET},\quad
+  \text{CE 40+20 km},\quad
+  \text{ET + CE 40 km},\quad
+  \text{ET + CE 40+20 km}.
+\end{equation}
+For the current GW150914-like fiducial source with
+\(f_{\max}=f_{\rm ISCO}\), the current comparison gives
+\begin{equation}
+  \sigma(\lambda_{\rm RG})
+  \approx
+  \begin{cases}
+    4.28\times 10^{-1}, & \text{aLIGO}, \\
+    2.14\times 10^{-2}, & \text{Voyager}, \\
+    3.58\times 10^{-3}, & \text{CE 20 km}, \\
+    5.29\times 10^{-4}, & \text{CE 40 km}, \\
+    6.00\times 10^{-3}, & \text{ET}, \\
+    5.02\times 10^{-4}, & \text{CE 40+20 km}, \\
+    5.25\times 10^{-4}, & \text{ET + CE 40 km}, \\
+    4.98\times 10^{-4}, & \text{ET + CE 40+20 km},
+  \end{cases}
+\end{equation}
+where the network points are reduced-network forecasts obtained by summing the
+independent Fisher matrices of the constituent detectors.
+In this reduced model, CE 40 km already carries most of the constraining power,
+so the network improvements are real but modest.
+
+The CE corner plot is useful because it shows that the present
+\(\lambda_{\rm RG}\) constraint is not only a one-number summary; it also
+reveals the dominant parameter degeneracies of the current skill-level model,
+especially the strong anticorrelation with \(\mathcal M_c\) and the milder
+correlations with \(\eta\) and \(d_L\).
+
+\section{Main Caveats}
+
+\begin{itemize}
+  \item The internal-tail factor in Eq.~(131) is still omitted.
+  \item The \(\lambda_{\rm NS}^{\rm inst}\) denominator is not part of the
+  current default tail implementation.
+  \item The final \(\tilde h(f)\) is still a repository-level stationary-phase
+  construction; arXiv:2602.08833 provides the mode ingredients, not a complete
+  detector-template prescription.
+  \item The flux keeps only the \((2,2)\) mode.
+  \item The conservative dynamics are still the GR circular-orbit energy from
+  Eq.~(145); the RG deformation currently enters the radiative sector only,
+  through the tail factor in \(\hat h_{22}\).
+  \item The network comparison is a reduced Fisher sum of constituent detector
+  information and does not yet include sky location, polarization, or
+  antenna-pattern geometry.
+  \item The SPA amplitude is now derived from the same 22-only balance law, but
+  the waveform still omits higher modes, spins, merger-ringdown, and detector
+  response geometry.
+  \item The whole RG-tail module remains a standalone research workflow rather
+  than a production waveform package.
+\end{itemize}
+
+\section{Bottom Line}
+
+The most concise current summary is:
+\begin{quote}
+\texttt{waveform.py} now implements a clean Section~IV external-tail
+\(\hat h_{22}\), derives the corresponding 22-only flux
+\(\mathcal F_{22}=(32/5)\nu^2 x^5 |\hat h_{22}|^2\), and uses that flux to
+build both the current Fourier-domain SPA phase and the default balance-law
+SPA amplitude for Fisher forecasts.
+\end{quote}
+
+That is the current up-to-date description of the code.
+
+\end{document}

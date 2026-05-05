@@ -1,0 +1,517 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+
+\title{Balance-Law Finite-Size SPA Waveform Notes}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Purpose}
+
+This note documents the finite-size waveform currently implemented in
+\texttt{src/finite\_size/waveform.py}.  The important update is that the
+stationary-phase approximation (SPA) is not constructed by differentiating a
+pre-written closed-form phase.  Instead, the code starts from the binding
+energy and flux structure given in Appendix~A of
+\href{https://arxiv.org/abs/2410.00294}{arXiv:2410.00294}, solves the
+balance-law chirp rate, and then builds both the Fourier phase and Fourier
+amplitude from that same chirp rate.
+
+The model is still an inspiral-only benchmark target.  It is not the full
+\texttt{IMRPhenomD+FiniteSize} implementation used in the paper.  The goal is a
+small, reproducible waveform that tests whether an agent can translate finite
+size theory content into a working forecast waveform.
+
+\section{Conventions}
+
+The code uses detector-frame masses.  The chirp mass \(M_c\) is input in solar
+masses, the luminosity distance \(d_L\) is input in Mpc, and the total mass is
+\begin{equation}
+  M = \frac{M_c}{\eta^{3/5}} .
+\end{equation}
+In seconds,
+\begin{equation}
+  M_{\rm sec} = M\,M_\odot,
+  \qquad
+  M_\odot = 4.925491025543576\times 10^{-6}\ {\rm s}.
+\end{equation}
+The PN velocity variable is
+\begin{equation}
+  v = (\pi M_{\rm sec} f)^{1/3}.
+\end{equation}
+The symmetric and antisymmetric spin combinations are
+\begin{equation}
+  \chi_s = \frac{\chi_1+\chi_2}{2},
+  \qquad
+  \chi_a = \frac{\chi_1-\chi_2}{2},
+  \qquad
+  \delta = \sqrt{1-4\eta}.
+\end{equation}
+
+The final Fourier-domain waveform convention is
+\begin{equation}
+  \tilde h(f) =
+  A(f)\exp[-i\psi(f)],
+  \qquad
+  \psi(f) =
+  2\pi f t_c-\phi_c-\frac{\pi}{4}+\psi_{\rm bal}(f).
+\end{equation}
+
+\section{Energy Balance to SPA}
+
+Appendix~A of arXiv:2410.00294 starts from the balance equation
+\begin{equation}
+  -{\cal F}_\infty(v)-\dot M(v) = \frac{d{\cal E}}{dt}.
+  \label{eq:energy-balance}
+\end{equation}
+Writing the binding energy as \({\cal E}=M\,e(v)\), with \(M\) constant over
+the inspiral benchmark, Eq.~\eqref{eq:energy-balance} gives
+\begin{equation}
+  \frac{dt}{dv}
+  =
+  -\,M_{\rm sec}\,
+  \frac{de/dv}{{\cal F}_\infty(v)+\dot M(v)} .
+  \label{eq:dt-dv}
+\end{equation}
+For the dominant \((\ell,m)=(2,2)\) mode, \(f=v^3/(\pi M_{\rm sec})\).  Hence
+\begin{equation}
+  \dot f
+  =
+  \frac{df}{dt}
+  =
+  \frac{3v^2}{\pi M_{\rm sec}}\left(\frac{dt}{dv}\right)^{-1}.
+  \label{eq:fdot}
+\end{equation}
+The gravitational-wave phase obeys
+\begin{equation}
+  \frac{d\Phi_{\rm GW}}{dv}
+  =
+  2\,\frac{v^3}{M_{\rm sec}}\,\frac{dt}{dv}.
+  \label{eq:dphi-dv}
+\end{equation}
+
+The code chooses a reference point \(v_{\rm ref}\) at the taper cutoff and
+integrates backwards from that point:
+\begin{align}
+  T(v)
+  &=
+  \int_v^{v_{\rm ref}} \frac{dt}{dv'}\,dv',
+  \\
+  \Delta\Phi_{\rm GW}(v)
+  &=
+  \int_v^{v_{\rm ref}}
+  2\,\frac{v'^3}{M_{\rm sec}}\frac{dt}{dv'}\,dv' .
+\end{align}
+Up to arbitrary constant and linear-in-frequency pieces, which are absorbed by
+\(\phi_c\) and \(t_c\), the intrinsic SPA phase is
+\begin{equation}
+  \psi_{\rm bal}(v)
+  =
+  \Delta\Phi_{\rm GW}(v)-2\pi f(v)\,T(v).
+  \label{eq:balance-phase}
+\end{equation}
+In the Newtonian limit,
+\begin{equation}
+  e(v)=-\frac{\eta v^2}{2},
+  \qquad
+  {\cal F}_\infty(v)=\frac{32}{5}\eta^2 v^{10},
+\end{equation}
+Eqs.~\eqref{eq:dt-dv}--\eqref{eq:balance-phase} recover the usual curvature
+\begin{equation}
+  \psi_{\rm bal}(f)
+  =
+  \frac{3}{128\eta}v^{-5}
+  + \hbox{constant}
+  + \hbox{linear in } f .
+\end{equation}
+
+\section{SPA Amplitude}
+
+The time-domain amplitude is kept at restricted Newtonian order, but the SPA
+Jacobian is computed from the same chirp rate as the phase.  The standard
+Newtonian TaylorF2 amplitude is
+\begin{equation}
+  A_N(f)
+  =
+  \sqrt{\frac{5}{24}}\,
+  \frac{M_{c,{\rm sec}}^{5/6}}{d_{L,{\rm sec}}\,\pi^{2/3}}\,
+  f^{-7/6}.
+\end{equation}
+The current balance-law amplitude is
+\begin{equation}
+  A(f)
+  =
+  A_N(f)
+  \left[
+    \frac{\dot f_N}{\dot f}
+  \right]^{1/2},
+  \qquad
+  \dot f_N =
+  \frac{96}{5\pi M_{\rm sec}^2}\eta v^{11}.
+  \label{eq:balance-amplitude}
+\end{equation}
+Thus the amplitude reduces exactly to \(A_N\) in the Newtonian limit and
+changes only through the finite-size correction to the chirp rate.
+
+\section{Binding Energy Used in the Code}
+
+The paper writes the binding energy as
+\begin{equation}
+  {\cal E}(v)
+  =
+  -\frac{M\eta v^2}{2}
+  \left[
+    {\cal E}_{\rm NS}
+    +{\cal E}_{\rm SO}v^3
+    +{\cal E}_{\rm SS}v^4
+    +{\cal E}_{\rm SSS}v^7
+    +{\cal E}_{\rm Love}v^{10}
+  \right].
+\end{equation}
+For the compact benchmark target, the point-particle baseline is kept at
+Newtonian order and the spin-induced finite-size pieces are retained:
+\begin{equation}
+  e(v)
+  =
+  -\frac{\eta v^2}{2}
+  \left[
+    1
+    +{\cal E}_{\rm SS}^{\rm SIM}(v)v^4
+    +{\cal E}_{\rm SSS}^{\rm SIM}v^7
+  \right].
+  \label{eq:energy-code}
+\end{equation}
+The quadratic-in-spin piece is
+\begin{align}
+{\cal E}_{\rm SS}^{\rm SIM}(v)
+&=
+\chi_a\chi_s
+\left(
+-\frac{\delta^2\kappa_a}{2}
+-\delta\kappa_s
+-\frac{\kappa_a}{2}
+\right)
+\nonumber\\
+&\quad
++\chi_s^2
+\left(
+-\frac{\delta^2\kappa_s}{4}
+-\frac{\delta\kappa_a}{2}
+-\frac{\kappa_s}{4}
+\right)
++\chi_a^2
+\left(
+-\frac{\delta\kappa_a}{2}
++\eta\kappa_s
+-\frac{\kappa_s}{2}
+\right)
+\nonumber\\
+&\quad
++v^2\Bigg[
+\chi_a^2
+\left(
+\frac{25\delta\eta\kappa_a}{12}
+-\frac{35\delta\kappa_a}{12}
+-\frac{5\eta^2\kappa_s}{6}
++\frac{95\eta\kappa_s}{12}
+-\frac{35\kappa_s}{12}
+\right)
+\nonumber\\
+&\qquad
++\chi_a\chi_s
+\left(
+\frac{25\delta\eta\kappa_s}{6}
+-\frac{35\delta\kappa_s}{6}
+-\frac{5\eta^2\kappa_a}{3}
++\frac{95\eta\kappa_a}{6}
+-\frac{35\kappa_a}{6}
+\right)
+\nonumber\\
+&\qquad
++\chi_s^2
+\left(
+\frac{25\delta\eta\kappa_a}{12}
+-\frac{35\delta\kappa_a}{12}
+-\frac{5\eta^2\kappa_s}{6}
++\frac{95\eta\kappa_s}{12}
+-\frac{35\kappa_s}{12}
+\right)
+\Bigg].
+\end{align}
+The cubic-in-spin piece is
+\begin{align}
+{\cal E}_{\rm SSS}^{\rm SIM}
+&=
+\chi_a\chi_s^2
+\left(
+-2\delta^2\eta\kappa_a
+-5\delta^2\kappa_a
++6\delta\eta\kappa_s
+-6\delta\kappa_s
+-\kappa_a
+\right)
+\nonumber\\
+&\quad
++\chi_s^3
+\left(
+-\delta^3\kappa_a
+-\delta^2\eta\kappa_s
+-\frac{9\delta^2\kappa_s}{4}
+-\delta\kappa_a
++\frac{\kappa_s}{4}
+\right)
+\nonumber\\
+&\quad
++\chi_a^2\chi_s
+\left(
+-6\delta\kappa_a
++4\eta^2\kappa_s
++12\eta\kappa_s
+-6\kappa_s
+\right)
+\nonumber\\
+&\quad
++\chi_a^3
+\left(
+-2\delta\eta\kappa_s
+-2\delta\kappa_s
++2\eta\kappa_a
+-2\kappa_a
+\right).
+\end{align}
+
+\section{Flux Used in the Code}
+
+The paper writes the flux at infinity as
+\begin{equation}
+  {\cal F}_\infty
+  =
+  \frac{32}{5}\eta^2v^{10}
+  \left[
+    {\cal F}_{\rm NS}
+    +{\cal F}_{\rm SO}v^3
+    +{\cal F}_{\rm SS}v^4
+    +{\cal F}_{\rm SSS}v^7
+    +{\cal F}_{\rm Love}v^{10}
+  \right].
+\end{equation}
+The benchmark implementation uses
+\begin{equation}
+  {\cal F}_\infty
+  =
+  \frac{32}{5}\eta^2v^{10}
+  \left[
+    1
+    +{\cal F}_{\rm SS}^{\rm SIM}(v)v^4
+    +{\cal F}_{\rm SSS}^{\rm SIM}v^7
+    +\frac{39}{8}\tilde\Lambda v^{10}
+  \right].
+  \label{eq:flux-code}
+\end{equation}
+The \(\tilde\Lambda\) term is an effective leading Love-number flux correction:
+with Newtonian binding energy, it reproduces the leading
+\(-39\tilde\Lambda v^{10}/2\) tidal phase term quoted in the paper.  A future
+production waveform should replace this with the full
+\({\cal E}_{\rm Love}\) and \({\cal F}_{\rm Love}\) formulae from
+Flanagan--Iyer--Will, as referenced in Appendix~A of the paper.
+
+The quadratic spin-induced flux is
+\begin{align}
+{\cal F}_{\rm SS}^{\rm SIM}(v)
+&=
+\chi_a\chi_s(\delta^2\kappa_a+2\delta\kappa_s+\kappa_a)
++\chi_a^2(\delta\kappa_a-2\eta\kappa_s+\kappa_s)
+\nonumber\\
+&\quad
++\chi_s^2(\delta\kappa_a-2\eta\kappa_s+\kappa_s)
+\nonumber\\
+&\quad
++v^2\Bigg[
+\chi_a^2
+\left(
+-\frac{127\delta\eta\kappa_a}{16}
++\frac{\delta\kappa_a}{14}
++\frac{43\eta^2\kappa_s}{4}
+-\frac{905\eta\kappa_s}{112}
++\frac{\kappa_s}{14}
+\right)
+\nonumber\\
+&\qquad
++\chi_a\chi_s
+\left(
+-\frac{127\delta\eta\kappa_s}{8}
++\frac{\delta\kappa_s}{7}
++\frac{43\eta^2\kappa_a}{2}
+-\frac{905\eta\kappa_a}{56}
++\frac{\kappa_a}{7}
+\right)
+\nonumber\\
+&\qquad
++\chi_s^2
+\left(
+-\frac{127\delta\eta\kappa_a}{16}
++\frac{\delta\kappa_a}{14}
++\frac{43\eta^2\kappa_s}{4}
+-\frac{905\eta\kappa_s}{112}
++\frac{\kappa_s}{14}
+\right)
+\Bigg]
+\nonumber\\
+&\quad
++v^3\Bigg[
+\chi_a^2(4\pi\delta\kappa_a-8\pi\eta\kappa_s+4\pi\kappa_s)
+\nonumber\\
+&\qquad
++\chi_a\chi_s(8\pi\delta\kappa_s-16\pi\eta\kappa_a+8\pi\kappa_a)
+\nonumber\\
+&\qquad
++\chi_s^2(4\pi\delta\kappa_a-8\pi\eta\kappa_s+4\pi\kappa_s)
+\Bigg].
+\end{align}
+The cubic spin-induced flux is
+\begin{align}
+{\cal F}_{\rm SSS}^{\rm SIM}
+&=
+\chi_a\chi_s^2
+\left(
+\frac{13}{3}\delta^2\eta\kappa_a
++\frac{27}{16}\delta^2\kappa_a
++\frac{4}{3}\delta\eta\kappa_s
++\frac{15}{8}\delta\kappa_s
++\frac{3}{16}\kappa_a
+\right)
+\nonumber\\
+&\quad
++\chi_a^2\chi_s
+\left(
+\frac{95}{12}\delta\eta\kappa_a
++\frac{15}{8}\delta\kappa_a
+-\frac{26}{3}\eta^2\kappa_s
++\frac{25}{6}\eta\kappa_s
++\frac{15}{8}\kappa_s
+\right)
+\nonumber\\
+&\quad
++\chi_s^3
+\left(
+-\frac{7}{4}\delta\eta\kappa_a
++\frac{5}{8}\delta\kappa_a
+-\frac{26}{3}\eta^2\kappa_s
+-3\eta\kappa_s
++\frac{5}{8}\kappa_s
+\right)
+\nonumber\\
+&\quad
++\chi_a^3
+\left(
+\frac{29}{6}\delta\eta\kappa_s
++\frac{5}{8}\delta\kappa_s
++\frac{43}{12}\eta\kappa_a
++\frac{5}{8}\kappa_a
+\right).
+\end{align}
+
+The absorbed flux is
+\begin{align}
+\dot M(v)
+&=
+\frac{1}{2}
+\left(
+9\bar{\cal H}_1^E\eta^2\chi_a
++9{\cal H}_1^E\eta^2\chi_s
+\right)v^{15}
+\nonumber\\
+&\quad
++\frac{1}{2}\Bigg[
+\left(
+9{\cal H}_1^B\eta^2
++\frac{45}{2}{\cal H}_1^E\eta^2
++\frac{9}{2}\bar{\cal H}_1^E\delta\eta^2
+-27{\cal H}_1^E\eta^3
+\right)\chi_s
+\nonumber\\
+&\qquad
++\left(
+9\bar{\cal H}_1^B\eta^2
++\frac{45}{2}\bar{\cal H}_1^E\eta^2
++\frac{9}{2}{\cal H}_1^E\delta\eta^2
+-27\bar{\cal H}_1^E\eta^3
+\right)\chi_a
+\Bigg]v^{17}
+\nonumber\\
+&\quad
++18{\cal H}_0\eta^2v^{18}.
+  \label{eq:mdot-code}
+\end{align}
+Appendix~A prints \(9{\cal H}_0\eta^2v^{18}\).  The code default doubles that
+term to implement the BBH electric--magnetic duality convention used by the
+benchmark.  Setting \texttt{h0\_dual=False} restores the electric-only
+coefficient.
+
+\section{Frequency Band and Taper}
+
+The waveform is inspiral-only.  The cutoff is
+\begin{equation}
+  f_{\rm ISCO}=\frac{1}{6^{3/2}\pi M_{\rm sec}},
+  \qquad
+  f_{\rm cut}=q_{\rm max}f_{\rm ISCO},
+\end{equation}
+where \(q_{\rm max}=\texttt{fmax\_over\_fisco}\), with default \(q_{\rm max}=1\).
+The waveform is exactly zero for \(f<f_{\rm low}\) or \(f\ge f_{\rm cut}\).
+Inside the band the taper is
+\begin{equation}
+  W(f)
+  =
+  \frac{1}{1+\exp[(f-f_{\rm cut})/\sigma]},
+  \qquad
+  \sigma=
+  \texttt{sigma\_taper\_over\_fisco}\,f_{\rm ISCO}.
+\end{equation}
+The default is \(\texttt{sigma\_taper\_over\_fisco}=0.01\).
+
+\section{Code API}
+
+The benchmark-facing function is
+\begin{verbatim}
+h_of_f(
+    f, Mc, eta, dL,
+    chi1=0.0, chi2=0.0,
+    tc=0.0, phic=0.0,
+    kappa_s=1.0, kappa_a=0.0,
+    H0=0.0, Lambda_tilde=0.0,
+    H1E=0.0, H1B=0.0,
+    H1E_bar=0.0, H1B_bar=0.0,
+    f_low=20.0,
+    fmax_over_fisco=1.0,
+    sigma_taper_over_fisco=0.01,
+    phase_only=False,
+    h0_dual=True,
+)
+\end{verbatim}
+It returns a complex NumPy array with the same shape as the input frequency
+array.  If \texttt{phase\_only=True}, the code returns
+\(W(f)\exp[-i\psi(f)]\) inside the band and zero outside it.
+
+\section{Current Caveats}
+
+\begin{itemize}
+  \item The point-particle baseline in the balance-law dynamics is Newtonian.
+  Higher-PN point-particle terms can be added later by replacing the
+  \({\cal E}_{\rm NS}\), \({\cal E}_{\rm SO}\), \({\cal F}_{\rm NS}\), and
+  \({\cal F}_{\rm SO}\) blocks.
+  \item The Love-number sector is represented by the leading effective flux
+  term in Eq.~\eqref{eq:flux-code}.  This keeps the benchmark compact, but it
+  is not the full Flanagan--Iyer--Will tidal energy and flux model.
+  \item The cutoff is \(f_{\rm ISCO}\)-based, not the paper's
+  \(f_{22}^{\rm tape}=0.35f_{22}^{\rm peak}\) prescription.
+  \item The implementation is intended for benchmark reproducibility and
+  forecasting experiments, not final astrophysical inference.
+\end{itemize}
+
+\end{document}
