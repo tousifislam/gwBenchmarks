@@ -5,9 +5,9 @@ complement the original `gwBenchmarks` waveform task.
 
 ## Benchmarks
 
-- `benchmarks/rg_waveform_benchmark`: candidates implement an RG-tail modified
+- `beyond_GR_bench/rg_waveform_benchmark`: candidates implement an RG-tail modified
   frequency-domain inspiral waveform.
-- `benchmarks/finite_size_waveform_benchmark`: candidates implement a
+- `beyond_GR_bench/finite_size_waveform_benchmark`: candidates implement a
   balance-law SPA waveform with finite-size corrections.
 
 Each benchmark compares a candidate `candidate_waveform.py` against the hidden
@@ -31,8 +31,8 @@ The old multi-detector scores are not included in this branch.
 
 The no-skill benchmark prompts live in:
 
-- `benchmarks/rg_waveform_source_packet`
-- `benchmarks/finite_size_waveform_source_packet`
+- `beyond_GR_bench/rg_waveform_source_packet`
+- `beyond_GR_bench/finite_size_waveform_source_packet`
 
 These packets are what an agent should receive in a fresh workspace. They
 include a compact formula sheet and prompt, but not the reference
@@ -43,21 +43,21 @@ implementation, old candidates, score files, or skill-specific hints.
 This branch intentionally does not keep the full per-model candidate folders.
 Only a compact table of the current scores is stored in:
 
-- `benchmarks/results_summary.md`
+- `beyond_GR_bench/results_summary.md`
 
 ## Rerun One Candidate
 
 From the repository root:
 
 ```bash
-python benchmarks/rg_waveform_benchmark/score_candidate.py \
+python beyond_GR_bench/rg_waveform_benchmark/score_candidate.py \
   --repo-root "$PWD" \
   --candidate /path/to/candidate_waveform.py \
   --label model_name \
   --output /path/to/score_level13.json \
   --skip-bias
 
-python benchmarks/finite_size_waveform_benchmark/score_candidate.py \
+python beyond_GR_bench/finite_size_waveform_benchmark/score_candidate.py \
   --repo-root "$PWD" \
   --candidate /path/to/candidate_waveform.py \
   --label model_name \

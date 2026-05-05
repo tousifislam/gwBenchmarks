@@ -6,7 +6,7 @@ finite-size balance-law SPA benchmark.
 Example:
 
 ```bash
-python benchmarks/finite_size_waveform_benchmark/score_candidate.py \
+python beyond_GR_bench/finite_size_waveform_benchmark/score_candidate.py \
   --repo-root /path/to/repo \
   --candidate /path/to/candidate_waveform.py \
   --label model_name \

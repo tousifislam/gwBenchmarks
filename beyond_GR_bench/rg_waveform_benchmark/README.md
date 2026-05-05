@@ -5,7 +5,7 @@ This folder contains the reproducible scorer for RG-tail waveform candidates.
 Example:
 
 ```bash
-python benchmarks/rg_waveform_benchmark/score_candidate.py \
+python beyond_GR_bench/rg_waveform_benchmark/score_candidate.py \
   --repo-root /path/to/repo \
   --candidate /path/to/candidate_waveform.py \
   --label model_name \
