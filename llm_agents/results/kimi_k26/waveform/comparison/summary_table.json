@@ -1,0 +1,194 @@
+[
+  {
+    "model_name": "14_svd_extra_trees_raw",
+    "approach_number": 0,
+    "loss": 0.40441816531296115,
+    "runtime_ms": 33.54039192199707,
+    "parameterization": "raw",
+    "approach_category": "Model: extra_trees"
+  },
+  {
+    "model_name": "05_svd_rf_raw",
+    "approach_number": 0,
+    "loss": 0.408808254858321,
+    "runtime_ms": 30.653096199035645,
+    "parameterization": "raw",
+    "approach_category": "Model: rf"
+  },
+  {
+    "model_name": "13_svd_gbr_raw",
+    "approach_number": 0,
+    "loss": 0.4104339412082114,
+    "runtime_ms": 31.664576530456543,
+    "parameterization": "raw",
+    "approach_category": "Model: gbr"
+  },
+  {
+    "model_name": "10_svd_knn_raw",
+    "approach_number": 0,
+    "loss": 0.4204535305989863,
+    "runtime_ms": 29.637191772460938,
+    "parameterization": "raw",
+    "approach_category": "Model: knn"
+  },
+  {
+    "model_name": "03_svd_polynomial_raw",
+    "approach_number": 0,
+    "loss": 0.42055482126404997,
+    "runtime_ms": 30.66094398498535,
+    "parameterization": "raw",
+    "approach_category": "Model: poly"
+  },
+  {
+    "model_name": "09_svd_kr_rbf_raw",
+    "approach_number": 0,
+    "loss": 0.4326924302398983,
+    "runtime_ms": 32.74262046813965,
+    "parameterization": "raw",
+    "approach_category": "Model: kr"
+  },
+  {
+    "model_name": "12_svd_kr_rbf_effective",
+    "approach_number": 0,
+    "loss": 0.4329009495018863,
+    "runtime_ms": 34.074228286743164,
+    "parameterization": "effective",
+    "approach_category": "Model: kr"
+  },
+  {
+    "model_name": "11_svd_svr_raw",
+    "approach_number": 0,
+    "loss": 0.43926511375866234,
+    "runtime_ms": 30.478936195373535,
+    "parameterization": "raw",
+    "approach_category": "Model: svr"
+  },
+  {
+    "model_name": "22_svd_mlp_small_raw",
+    "approach_number": 0,
+    "loss": 0.44401130735172445,
+    "runtime_ms": 30.79286003112793,
+    "parameterization": "raw",
+    "approach_category": "Model: mlp_small"
+  },
+  {
+    "model_name": "02_svd_gpr_matern_effective",
+    "approach_number": 0,
+    "loss": 0.4559033222600532,
+    "runtime_ms": 30.25906753540039,
+    "parameterization": "effective",
+    "approach_category": "Model: gpr_matern"
+  },
+  {
+    "model_name": "06_eim_gpr_rbf_raw",
+    "approach_number": 0,
+    "loss": 0.4586293110556099,
+    "runtime_ms": 30.59513282775879,
+    "parameterization": "raw",
+    "approach_category": "Model: gpr_rbf"
+  },
+  {
+    "model_name": "01_svd_gpr_rbf_raw",
+    "approach_number": 0,
+    "loss": 0.4615977157079818,
+    "runtime_ms": 31.02384853363037,
+    "parameterization": "raw",
+    "approach_category": "Model: gpr_rbf"
+  },
+  {
+    "model_name": "20_svd_linear_raw",
+    "approach_number": 0,
+    "loss": 0.4619651252382924,
+    "runtime_ms": 31.880571365356445,
+    "parameterization": "raw",
+    "approach_category": "Model: linear"
+  },
+  {
+    "model_name": "16_svd_ridge_raw",
+    "approach_number": 0,
+    "loss": 0.4620738510000966,
+    "runtime_ms": 30.13834857940674,
+    "parameterization": "raw",
+    "approach_category": "Model: ridge"
+  },
+  {
+    "model_name": "24_svd_gplearn_raw",
+    "approach_number": 24,
+    "loss": 0.4640492767659614,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "gplearn on top 3 SVD coefficients"
+  },
+  {
+    "model_name": "08_svd_mlp_effective",
+    "approach_number": 0,
+    "loss": 0.4695466098325704,
+    "runtime_ms": 30.94384002685547,
+    "parameterization": "effective",
+    "approach_category": "Model: mlp"
+  },
+  {
+    "model_name": "15_svd_mlp_large_raw",
+    "approach_number": 0,
+    "loss": 0.4718842474953908,
+    "runtime_ms": 30.427800178527832,
+    "parameterization": "raw",
+    "approach_category": "Model: mlp_large"
+  },
+  {
+    "model_name": "19_svd_huber_raw",
+    "approach_number": 0,
+    "loss": 0.4721629783859332,
+    "runtime_ms": 30.57744789123535,
+    "parameterization": "raw",
+    "approach_category": "Model: huber"
+  },
+  {
+    "model_name": "17_svd_elastic_net_raw",
+    "approach_number": 0,
+    "loss": 0.4723926423088772,
+    "runtime_ms": 30.45330047607422,
+    "parameterization": "raw",
+    "approach_category": "Model: elastic_net"
+  },
+  {
+    "model_name": "04_svd_mlp_raw",
+    "approach_number": 0,
+    "loss": 0.4747250644249557,
+    "runtime_ms": 28.787352561950684,
+    "parameterization": "raw",
+    "approach_category": "Model: mlp"
+  },
+  {
+    "model_name": "07_svd_gpr_rbf_mass_diff",
+    "approach_number": 0,
+    "loss": 0.4790470795328155,
+    "runtime_ms": 32.62142753601074,
+    "parameterization": "mass_diff",
+    "approach_category": "Model: gpr_rbf"
+  },
+  {
+    "model_name": "21_svd_bayesian_ridge_raw",
+    "approach_number": 0,
+    "loss": 0.4791628195648965,
+    "runtime_ms": 29.796624183654785,
+    "parameterization": "raw",
+    "approach_category": "Model: bayesian_ridge"
+  },
+  {
+    "model_name": "18_svd_lasso_raw",
+    "approach_number": 0,
+    "loss": 0.47935301364734134,
+    "runtime_ms": 29.896995544433594,
+    "parameterization": "raw",
+    "approach_category": "Model: lasso"
+  },
+  {
+    "model_name": "23_svd_pysr_raw",
+    "approach_number": 23,
+    "loss": 0.485,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "PySR on top 5 SVD coefficients"
+  }
+]

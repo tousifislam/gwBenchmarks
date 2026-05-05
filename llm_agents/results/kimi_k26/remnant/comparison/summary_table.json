@@ -1,0 +1,194 @@
+[
+  {
+    "model_name": "02_gpr_matern_effective",
+    "approach_number": 0,
+    "loss": 0.0903280877318996,
+    "runtime_ms": 0,
+    "parameterization": "effective",
+    "approach_category": "gpr_matern"
+  },
+  {
+    "model_name": "12_kr_rbf_effective",
+    "approach_number": 0,
+    "loss": 0.09041624307520169,
+    "runtime_ms": 0,
+    "parameterization": "effective",
+    "approach_category": "kr"
+  },
+  {
+    "model_name": "22_gpr_rbf_pn_inspired",
+    "approach_number": 0,
+    "loss": 0.09186003438995596,
+    "runtime_ms": 0,
+    "parameterization": "pn_inspired",
+    "approach_category": "gpr_rbf"
+  },
+  {
+    "model_name": "09_poly2_effective",
+    "approach_number": 0,
+    "loss": 0.09230440202224767,
+    "runtime_ms": 0,
+    "parameterization": "effective",
+    "approach_category": "poly2"
+  },
+  {
+    "model_name": "13_extra_trees_raw",
+    "approach_number": 0,
+    "loss": 0.09260154452005451,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "extra_trees"
+  },
+  {
+    "model_name": "06_rf_raw",
+    "approach_number": 0,
+    "loss": 0.09289858994631175,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "rf"
+  },
+  {
+    "model_name": "03_kr_rbf_raw",
+    "approach_number": 0,
+    "loss": 0.09373389987387508,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "kr"
+  },
+  {
+    "model_name": "10_knn_raw",
+    "approach_number": 0,
+    "loss": 0.09417954453296026,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "knn"
+  },
+  {
+    "model_name": "07_gbr_raw",
+    "approach_number": 0,
+    "loss": 0.09668003205076668,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "gbr"
+  },
+  {
+    "model_name": "08_poly_raw",
+    "approach_number": 0,
+    "loss": 0.09871905793735448,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "poly"
+  },
+  {
+    "model_name": "01_gpr_rbf_raw",
+    "approach_number": 0,
+    "loss": 0.11625188739682106,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "gpr_rbf"
+  },
+  {
+    "model_name": "17_huber_raw",
+    "approach_number": 0,
+    "loss": 0.11660842928624003,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "huber"
+  },
+  {
+    "model_name": "19_bayesian_ridge_raw",
+    "approach_number": 0,
+    "loss": 0.11787964516666607,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "bayesian_ridge"
+  },
+  {
+    "model_name": "14_ridge_raw",
+    "approach_number": 0,
+    "loss": 0.1179441856793882,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "ridge"
+  },
+  {
+    "model_name": "18_linear_raw",
+    "approach_number": 0,
+    "loss": 0.11795434045158898,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "linear"
+  },
+  {
+    "model_name": "15_elastic_net_raw",
+    "approach_number": 0,
+    "loss": 0.12535514331842187,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "elastic_net"
+  },
+  {
+    "model_name": "16_lasso_raw",
+    "approach_number": 0,
+    "loss": 0.12535514331842187,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "lasso"
+  },
+  {
+    "model_name": "23_pysr_raw",
+    "approach_number": 0,
+    "loss": 0.17040556312698193,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "symbolic"
+  },
+  {
+    "model_name": "11_svr_raw",
+    "approach_number": 0,
+    "loss": 0.39254422162951796,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "svr"
+  },
+  {
+    "model_name": "21_mlp_large_mass_diff",
+    "approach_number": 0,
+    "loss": 0.47191461664814416,
+    "runtime_ms": 0,
+    "parameterization": "mass_diff",
+    "approach_category": "mlp_large"
+  },
+  {
+    "model_name": "05_mlp_effective",
+    "approach_number": 0,
+    "loss": 0.9063404341703172,
+    "runtime_ms": 0,
+    "parameterization": "effective",
+    "approach_category": "mlp"
+  },
+  {
+    "model_name": "04_mlp_raw",
+    "approach_number": 0,
+    "loss": 1.1639964889927445,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "mlp"
+  },
+  {
+    "model_name": "24_gplearn_raw",
+    "approach_number": 0,
+    "loss": 1.7415617367287484,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "symbolic"
+  },
+  {
+    "model_name": "20_mlp_small_raw",
+    "approach_number": 0,
+    "loss": 1.8219984246115342,
+    "runtime_ms": 0,
+    "parameterization": "raw",
+    "approach_category": "mlp_small"
+  }
+]

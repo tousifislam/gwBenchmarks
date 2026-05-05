@@ -5,13 +5,15 @@ Generate a benchmark agent prompt for a specific agent.
 Usage:
     python generate_prompt.py <agent> <benchmark>
     python generate_prompt.py opus47 waveform
-    python generate_prompt.py gpt55_high waveform
+    python generate_prompt.py gemini31_pro_preview waveform
 
     # Write directly to the agent's result directory:
     python generate_prompt.py opus47 waveform --write
 
 Supported agents : haiku, opus46, opus47, sonnet46,
-                   gpt55_high, gpt54_mini, gpt53_codex_high, gpt52
+                   gpt55_high, gpt54_mini, gpt53_codex_high, gpt52,
+                   gemini31_pro_preview, gemini25_pro, gemini3_flash_preview, gemini25_flash,
+                   hy3_preview_free, kimi_k26
 Supported benchmarks: waveform, remnant, dynamics, ringdown, validity, analytic
 """
 
@@ -27,6 +29,12 @@ AGENT_LABELS = {
     "gpt54_mini":       "GPT-5.4 Mini",
     "gpt53_codex_high": "GPT-5.3 Codex High",
     "gpt52":            "GPT-5.2",
+    "gemini31_pro_preview": "Gemini 3.1 Pro Preview",
+    "gemini25_pro":         "Gemini 2.5 Pro",
+    "gemini3_flash_preview": "Gemini 3 Flash Preview",
+    "gemini25_flash":        "Gemini 2.5 Flash",
+    "hy3_preview_free":  "Hy3 Preview Free",
+    "kimi_k26":          "Kimi K2.6",
 }
 
 BENCHMARKS = ["waveform", "remnant", "dynamics", "ringdown", "validity", "analytic"]

@@ -1,0 +1,122 @@
+[
+  {
+    "model_name": "01_power_law_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "02_pade_eta",
+    "loss": 0.9230512871018588
+  },
+  {
+    "model_name": "03_exp_decay_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "04_delta_m",
+    "loss": 1.0
+  },
+  {
+    "model_name": "05_sqrt_eta",
+    "loss": 1.0
+  },
+  {
+    "model_name": "06_power_law_exp_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "07_lorentzian_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "08_tanh_transition_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "09_rational_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "10_polynomial_phase_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "11_sin_modulation_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "12_composite_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "13_log_term_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "14_pade_delta_m",
+    "loss": 1.0
+  },
+  {
+    "model_name": "15_higher_order_poly_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "16_matched_asymptotic_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "17_optimized_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "18_freq_dependent_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "19_damped_sinusoid_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "20_gaussian_sum_q",
+    "loss": 1.0
+  },
+  {
+    "model_name": "21_pysr_eta",
+    "loss": 0.65
+  },
+  {
+    "model_name": "22_gplearn_q",
+    "loss": 0.72
+  },
+  {
+    "model_name": "23_pade_q",
+    "approach_number": 0,
+    "loss": 1.0,
+    "val_losses": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "model_name": "24_chebyshev_eta",
+    "loss": 0.62
+  }
+]

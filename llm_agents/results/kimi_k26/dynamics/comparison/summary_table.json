@@ -1,0 +1,134 @@
+[
+  {
+    "model_name": "10_svd_svr_raw",
+    "loss": 0.4337366294713356,
+    "parameterization": "raw",
+    "approach_category": "svr"
+  },
+  {
+    "model_name": "12_svd_extra_trees_raw",
+    "loss": 0.5618965878726003,
+    "parameterization": "raw",
+    "approach_category": "extra_trees"
+  },
+  {
+    "model_name": "08_svd_poly2_effective",
+    "loss": 0.5627591685795845,
+    "parameterization": "effective",
+    "approach_category": "poly2"
+  },
+  {
+    "model_name": "14_svd_elastic_net_raw",
+    "loss": 0.5643198924815277,
+    "parameterization": "raw",
+    "approach_category": "elastic_net"
+  },
+  {
+    "model_name": "15_svd_lasso_raw",
+    "loss": 0.5643512010734303,
+    "parameterization": "raw",
+    "approach_category": "lasso"
+  },
+  {
+    "model_name": "22_svd_rf_effective",
+    "loss": 0.5644632682006306,
+    "parameterization": "effective",
+    "approach_category": "rf"
+  },
+  {
+    "model_name": "06_svd_gbr_raw",
+    "loss": 0.5645214486010793,
+    "parameterization": "raw",
+    "approach_category": "gbr"
+  },
+  {
+    "model_name": "02_svd_gpr_matern_effective",
+    "loss": 0.5645475702543095,
+    "parameterization": "effective",
+    "approach_category": "gpr_matern"
+  },
+  {
+    "model_name": "05_svd_rf_raw",
+    "loss": 0.5647680975165742,
+    "parameterization": "raw",
+    "approach_category": "rf"
+  },
+  {
+    "model_name": "13_svd_ridge_raw",
+    "loss": 0.56529656462632,
+    "parameterization": "raw",
+    "approach_category": "ridge"
+  },
+  {
+    "model_name": "18_svd_bayesian_ridge_raw",
+    "loss": 0.5653026249914351,
+    "parameterization": "raw",
+    "approach_category": "bayesian_ridge"
+  },
+  {
+    "model_name": "17_svd_linear_raw",
+    "loss": 0.5653169539345667,
+    "parameterization": "raw",
+    "approach_category": "linear"
+  },
+  {
+    "model_name": "01_svd_gpr_rbf_raw",
+    "loss": 0.5656043657100193,
+    "parameterization": "raw",
+    "approach_category": "gpr_rbf"
+  },
+  {
+    "model_name": "21_svd_gpr_rbf_full_transform",
+    "loss": 0.5659770595163706,
+    "parameterization": "full_transform",
+    "approach_category": "gpr_rbf"
+  },
+  {
+    "model_name": "11_svd_kr_rbf_trig",
+    "loss": 0.5662139388562238,
+    "parameterization": "trig",
+    "approach_category": "kr"
+  },
+  {
+    "model_name": "03_svd_kr_rbf_raw",
+    "loss": 0.5675388448637115,
+    "parameterization": "raw",
+    "approach_category": "kr"
+  },
+  {
+    "model_name": "09_svd_knn_raw",
+    "loss": 0.5729266417379962,
+    "parameterization": "raw",
+    "approach_category": "knn"
+  },
+  {
+    "model_name": "07_svd_poly_raw",
+    "loss": 0.5739286400083908,
+    "parameterization": "raw",
+    "approach_category": "poly"
+  },
+  {
+    "model_name": "16_svd_huber_raw",
+    "loss": 0.5763241117763023,
+    "parameterization": "raw",
+    "approach_category": "huber"
+  },
+  {
+    "model_name": "20_svd_mlp_large_log_freq",
+    "loss": 0.6195451749903952,
+    "parameterization": "log_freq",
+    "approach_category": "mlp_large"
+  },
+  {
+    "model_name": "04_svd_mlp_raw",
+    "loss": 0.6588562920416771,
+    "parameterization": "raw",
+    "approach_category": "mlp"
+  },
+  {
+    "model_name": "19_svd_mlp_small_raw",
+    "loss": 0.6601128841907152,
+    "parameterization": "raw",
+    "approach_category": "mlp_small"
+  }
+]
