@@ -3,6 +3,10 @@
 This branch adds two agentic waveform-generation benchmarks intended to
 complement the original `gwBenchmarks` waveform task.
 
+The main summary of what is being tested is in:
+
+- `beyond_GR_bench/README.md`
+
 ## Benchmarks
 
 - `beyond_GR_bench/rg_waveform_benchmark`: candidates implement an RG-tail modified
