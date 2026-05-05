@@ -40,19 +40,10 @@ implementation, old candidates, score files, or skill-specific hints.
 
 ## Stored Results
 
-The current model outputs and score files live under:
+This branch intentionally does not keep the full per-model candidate folders.
+Only a compact table of the current scores is stored in:
 
-```text
-benchmarks/<model>/no_skills/RG/
-benchmarks/<model>/no_skills/finite_size/
-```
-
-The canonical score files are:
-
-```text
-score_level13.json
-score_finite_size.json
-```
+- `benchmarks/results_summary.md`
 
 ## Rerun One Candidate
 
@@ -61,16 +52,16 @@ From the repository root:
 ```bash
 python benchmarks/rg_waveform_benchmark/score_candidate.py \
   --repo-root "$PWD" \
-  --candidate benchmarks/chatgpt_55_xhigh/no_skills/RG/candidate_waveform.py \
-  --label chatgpt_55_xhigh \
-  --output benchmarks/chatgpt_55_xhigh/no_skills/RG/score_level13.json \
+  --candidate /path/to/candidate_waveform.py \
+  --label model_name \
+  --output /path/to/score_level13.json \
   --skip-bias
 
 python benchmarks/finite_size_waveform_benchmark/score_candidate.py \
   --repo-root "$PWD" \
-  --candidate benchmarks/chatgpt_55_xhigh/no_skills/finite_size/candidate_waveform.py \
-  --label chatgpt_55_xhigh \
-  --output benchmarks/chatgpt_55_xhigh/no_skills/finite_size/score_finite_size.json \
+  --candidate /path/to/candidate_waveform.py \
+  --label model_name \
+  --output /path/to/score_finite_size.json \
   --skip-bias
 ```
 

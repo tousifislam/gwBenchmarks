@@ -7,9 +7,9 @@ Example:
 
 ```bash
 python benchmarks/finite_size_waveform_benchmark/score_candidate.py \
-  --repo-root /path/to/gw-forecast-agent \
+  --repo-root /path/to/repo \
   --candidate /path/to/candidate_waveform.py \
-  --label model_name_source_packet \
+  --label model_name \
   --output /path/to/score_finite_size.json
 ```
 

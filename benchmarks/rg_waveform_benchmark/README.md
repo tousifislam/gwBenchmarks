@@ -7,9 +7,9 @@ Example:
 ```bash
 python benchmarks/rg_waveform_benchmark/score_candidate.py \
   --repo-root /path/to/repo \
-  --candidate /path/to/repo/benchmarks/chatgpt_52_xhigh/no_skills/RG/candidate_waveform.py \
-  --label chatgpt_52_xhigh_no_skills \
-  --output /path/to/repo/benchmarks/chatgpt_52_xhigh/no_skills/RG/score_level13.json
+  --candidate /path/to/candidate_waveform.py \
+  --label model_name \
+  --output /path/to/score_level13.json
 ```
 
 Use `--smoke` for a fast small-case check, and `--skip-bias` if you only want
