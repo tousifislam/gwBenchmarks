@@ -193,11 +193,34 @@ def make_full_reference_waveform(
     data: TemplateBankData,
     phi_ref: float | None = None,
 ) -> np.ndarray:
+    """Return the full-mode IMRPhenomXHM h_plus waveform normalized by A_ref."""
+
+    return make_reference_waveform(
+        params,
+        data,
+        phi_ref=phi_ref,
+        harmonic_modes=FULL_HM_MODES,
+    )
+
+
+def make_reference_waveform(
+    params: np.ndarray,
+    data: TemplateBankData,
+    phi_ref: float | None = None,
+    harmonic_modes: Iterable[tuple[int, int]] | None = FULL_HM_MODES,
+) -> np.ndarray:
+    """Return an IMRPhenomXHM h_plus waveform for a requested mode subset.
+
+    Agents may use smaller ``harmonic_modes`` lists as cheap proxies during
+    bank construction. Hidden evaluation calls the full-mode convention through
+    ``make_full_reference_waveform``.
+    """
+
     hplus_hcross = compute_hplus_hcross(
         data.frequencies_hz,
         parameter_dict_from_row(params, phi_ref=phi_ref),
         approximant="IMRPhenomXHM",
-        harmonic_modes=FULL_HM_MODES,
+        harmonic_modes=harmonic_modes,
     )
     return hplus_hcross[0] / data.amplitude_reference
 
@@ -206,10 +229,16 @@ def generate_normalized_waveforms(
     params_array: np.ndarray,
     data: TemplateBankData,
     phi_ref: float | None = None,
+    harmonic_modes: Iterable[tuple[int, int]] | None = FULL_HM_MODES,
 ) -> np.ndarray:
     rows = []
     for params in np.asarray(params_array):
-        waveform = make_full_reference_waveform(params, data, phi_ref=phi_ref)
+        waveform = make_reference_waveform(
+            params,
+            data,
+            phi_ref=phi_ref,
+            harmonic_modes=harmonic_modes,
+        )
         rows.append(normalize_waveform(waveform, data.weights))
     return np.asarray(rows, dtype=np.complex128)
 

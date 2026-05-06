@@ -67,6 +67,21 @@ The public dataset is hosted at:
 https://huggingface.co/datasets/GWagents/gwBenchmarks
 ```
 
+## Waveform Convention
+
+The hidden evaluator generates validation/test waveforms with IMRPhenomXHM,
+`h_plus`, and the full higher-mode set:
+
+```text
+[(2, 2), (2, 1), (3, 3), (3, 2), (4, 4),
+ (2, -2), (2, -1), (3, -3), (3, -2), (4, -4)]
+```
+
+During your own search, you may query any subset of these modes, or the full
+set, as a speed/accuracy tradeoff. The helper function
+`make_reference_waveform(..., harmonic_modes=...)` supports custom mode lists;
+`make_full_reference_waveform(...)` uses the final hidden-evaluation convention.
+
 ## Required Output
 
 Write all outputs directly under `llm_agents/results/{AGENT}/template_bank/`:

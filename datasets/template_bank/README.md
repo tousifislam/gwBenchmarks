@@ -55,6 +55,16 @@ parameters and generates full IMRPhenomXHM h-plus waveforms. The main score is
 the smallest submitted-bank prefix for which at least 50% of hidden test
 waveforms have best overlap at least 0.97.
 
+Hidden validation/test waveforms use the full higher-mode set:
+
+```text
+[(2, 2), (2, 1), (3, 3), (3, 2), (4, 4),
+ (2, -2), (2, -1), (3, -3), (3, -2), (4, -4)]
+```
+
+Agents may use any subset of these modes while constructing cheap public
+proxies, but final scoring uses the full set above.
+
 ## Regeneration
 
 The prototype data-generation notebook/script lives outside the merged package
