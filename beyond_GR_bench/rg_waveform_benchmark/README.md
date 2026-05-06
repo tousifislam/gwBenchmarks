@@ -1,6 +1,8 @@
 # RG Waveform Benchmark
 
 This folder contains the reproducible scorer for RG-tail waveform candidates.
+It also contains `plot_all_models_violin.py`, which regenerates
+`rg_waveform_all_models_violin.pdf/png` from the stored agent scores.
 
 Example:
 
@@ -19,3 +21,8 @@ By default the scorer uses 1000 deterministic source cases with the
 single-detector gwBenchmarks waveform convention: PyCBC
 `aLIGOZeroDetHighPower`, `f_low = 15 Hz`, `f_high = 990 Hz`, and
 `df = 0.125 Hz`. Use `--n-cases` to change the number of source cases.
+
+If a candidate has a documented pure Fourier-convention error, the raw score is
+kept as `score_level13.json` and the convention-normalized diagnostic rescore is
+stored separately as `score_level13_fourier_fixed.json`. The plotting script
+prefers the Fourier-fixed score when present and marks that model with a dagger.

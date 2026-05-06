@@ -54,6 +54,16 @@ table is also stored in:
 
 - `beyond_GR_bench/results_summary.md`
 
+The RG folder also includes the current paper-style violin plot:
+
+- `beyond_GR_bench/rg_waveform_benchmark/rg_waveform_all_models_violin.pdf`
+- `beyond_GR_bench/rg_waveform_benchmark/rg_waveform_all_models_violin.png`
+
+For candidates with a documented pure Fourier-convention mismatch, the raw
+agent output is kept unchanged and a separate
+`score_level13_fourier_fixed.json` diagnostic rescore is used in the summary
+plot.
+
 ## Rerun One Candidate
 
 From the repository root:

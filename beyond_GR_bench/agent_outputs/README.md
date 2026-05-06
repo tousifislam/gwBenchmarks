@@ -18,6 +18,12 @@ agent_outputs/<model>/no_skills/finite_size/
 Some folders may also include `error_diagnosis.md` when a manual failure
 diagnosis was written.
 
+When an RG candidate has a documented pure Fourier-convention mismatch, the
+folder may also include `candidate_waveform_fourier_fixed.py`,
+`score_level13_fourier_fixed.json`, and `fourier_convention_rescore.md`. These
+files preserve the raw agent output while recording the convention-normalized
+diagnostic score used in the summary plot.
+
 The score files use the single-detector convention described in the benchmark
 README files: PyCBC `aLIGOZeroDetHighPower`, `f_low = 15 Hz`,
 `f_high = 990 Hz`, and `df = 0.125 Hz`.
