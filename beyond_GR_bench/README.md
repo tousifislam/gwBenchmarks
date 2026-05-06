@@ -58,8 +58,9 @@ Files:
 
 ## Scoring
 
-Each candidate waveform is evaluated on deterministic source cases. For each
-case, the scorer computes the optimized frequency-domain mismatch
+Each candidate waveform is evaluated on 1000 deterministic source cases by
+default. For each case, the scorer computes the optimized frequency-domain
+mismatch
 
 ```text
 M = 1 - max_{tc, phic} <h_ref | h_cand>

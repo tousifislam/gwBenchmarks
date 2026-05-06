@@ -1,14 +1,16 @@
 # Stored Benchmark Score Summary
 
-These are the single-detector `gwbenchmarks_aligo` scores from the candidate runs that were used before trimming the branch. The full per-model candidate folders are intentionally not kept in this branch.
+These are the single-detector `gwbenchmarks_aligo` scores from the 1000-case candidate runs.
 
 | model | RG mean mismatch | RG median mismatch | finite-size mean mismatch | finite-size median mismatch |
 |---|---:|---:|---:|---:|
-| `chatgpt_52_xhigh` | 2.067e-06 | 6.492e-07 | 1.454e-04 | 1.285e-05 |
-| `chatgpt_53_codex_xhigh` | 3.810e-03 | 3.318e-03 | 1.533e-04 | 1.980e-05 |
-| `chatgpt_54_mini_xhigh` | 4.208e-03 | 3.813e-03 | 1.840e-04 | 8.957e-06 |
-| `chatgpt_55_xhigh` | 2.735e-07 | 1.277e-07 | 5.405e-04 | 3.105e-04 |
-| `claude_opus47_xhigh` | 7.087e-01 | 7.128e-01 | 5.351e-04 | 3.079e-04 |
-| `claude_sonnet46_xhigh` | 2.138e-01 | 1.946e-01 | 1.560e-04 | 4.060e-05 |
-| `gemini_31_flash` | 8.648e-06 | 3.979e-06 | 1.745e-04 | 5.888e-05 |
-| `gemini_31_pro` | 2.693e-07 | 1.264e-07 | 5.457e-04 | 4.284e-04 |
+| `Qwen_36` | 7.197e-01 | 7.179e-01 | - | - |
+| `chatgpt_52_xhigh` | 3.895e-06 | 2.158e-06 | 1.404e-04 | 1.150e-05 |
+| `chatgpt_53_codex_xhigh` | 3.881e-03 | 3.652e-03 | 1.499e-04 | 2.165e-05 |
+| `chatgpt_54_mini_xhigh` | 4.283e-03 | 4.094e-03 | 1.665e-04 | 8.150e-06 |
+| `chatgpt_55_xhigh` | 1.720e-07 | 9.637e-08 | 5.302e-04 | 2.899e-04 |
+| `claude_opus47_xhigh` | 6.949e-01 | 6.882e-01 | 5.252e-04 | 2.872e-04 |
+| `claude_sonnet46_xhigh` | 1.990e-01 | 1.846e-01 | 1.594e-04 | 4.840e-05 |
+| `gemini_31_flash` | 5.884e-06 | 3.051e-06 | 1.683e-04 | 5.446e-05 |
+| `gemini_31_pro` | 1.698e-07 | 9.557e-08 | 5.421e-04 | 4.139e-04 |
+| `kimi_K26` | 7.197e-01 | 7.179e-01 | - | - |

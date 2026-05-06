@@ -186,32 +186,53 @@ def bias_score(module, f, h_ref, h_cand, Sn, case, f_low, wf_kwargs):
         }
 
 
-def make_cases(smoke=False):
-    if smoke:
-        mcs = [12.0]
-        etas = [0.12]
-        dls = [200.0]
-        rgs = [0.8, 1.0]
-    else:
-        mcs = [12.0, 20.0, 28.3, 40.0]
-        etas = [0.12, 0.16, 0.22, 0.247]
-        dls = [200.0, 410.0, 1000.0]
-        rgs = [0.8, 1.0, 1.2]
+def _sample_cases(rng, n, prefix, ranges):
     cases = []
-    for Mc in mcs:
-        for eta in etas:
-            for dL in dls:
-                for rg in rgs:
-                    cases.append({
-                        "id": f"mc{Mc:g}_eta{eta:g}_dl{dL:g}_rg{rg:g}".replace('.', 'p'),
-                        "Mc": Mc,
-                        "eta": eta,
-                        "dL": dL,
-                        "lambda_RG": rg,
-                        "tc": 0.0,
-                        "phic": 0.0,
-                    })
+    for i in range(n):
+        case = {"id": f"{prefix}_{i:04d}"}
+        for key, (lo, hi) in ranges.items():
+            case[key] = float(rng.uniform(lo, hi))
+        case["tc"] = 0.0
+        case["phic"] = 0.0
+        cases.append(case)
     return cases
+
+
+def make_cases(smoke=False, n_cases=1000):
+    if smoke:
+        return [
+            {
+                "id": "smoke_rg_low",
+                "Mc": 12.0,
+                "eta": 0.12,
+                "dL": 200.0,
+                "lambda_RG": 0.8,
+                "tc": 0.0,
+                "phic": 0.0,
+            },
+            {
+                "id": "smoke_rg_gr",
+                "Mc": 12.0,
+                "eta": 0.12,
+                "dL": 200.0,
+                "lambda_RG": 1.0,
+                "tc": 0.0,
+                "phic": 0.0,
+            },
+        ]
+
+    rng = np.random.default_rng(260208833)
+    return _sample_cases(
+        rng,
+        n_cases,
+        "rg",
+        {
+            "Mc": (12.0, 40.0),
+            "eta": (0.12, 0.249),
+            "dL": (200.0, 1000.0),
+            "lambda_RG": (0.8, 1.2),
+        },
+    )
 
 
 def eval_case(ref, cand, detector, case, wf_kwargs, compute_bias=True):
@@ -289,6 +310,7 @@ def summarize(label, candidate, rows, smoke, wf_kwargs, detector_set):
         "detector_set": detector_set,
         "waveform_kwargs": wf_kwargs,
         "n_evaluations": len(rows),
+        "n_source_cases": len({r["case_id"] for r in rows}),
         "n_failed_evaluations": sum(r.get("status") != "ok" for r in rows),
         "n_bias_failures": sum(r.get("bias_status") == "failed" for r in rows),
         "mean_mismatch_opt": float(np.mean(mm)),
@@ -317,6 +339,7 @@ def main():
     ap.add_argument("--output", type=Path, required=True)
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--skip-bias", action="store_true")
+    ap.add_argument("--n-cases", type=int, default=1000)
     ap.add_argument(
         "--detector-set",
         choices=["network", "gwbenchmarks_aligo"],
@@ -344,7 +367,7 @@ def main():
             {"name": "CE_20km", "psd": "psd_CE_20km", "f_low": 5.0, "f_high": 2048.0, "df": 0.125},
             {"name": "CE_40km", "psd": "psd_CE_40km", "f_low": 5.0, "f_high": 2048.0, "df": 0.125},
         ]
-    cases = make_cases(smoke=args.smoke)
+    cases = make_cases(smoke=args.smoke, n_cases=args.n_cases)
     wf_kwargs = {"fmax_over_fisco": 1.0, "sigma_taper_over_fisco": 0.01, "phase_only": False}
     rows = []
     for det in detectors:

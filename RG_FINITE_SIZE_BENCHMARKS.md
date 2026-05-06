@@ -75,7 +75,7 @@ python beyond_GR_bench/finite_size_waveform_benchmark/score_candidate.py \
 ```
 
 Use `--smoke` for a fast single-case check. The default full benchmark uses
-144 RG cases and 200 finite-size cases.
+1000 deterministic source cases for each task.
 
 ## Physics Notes
 

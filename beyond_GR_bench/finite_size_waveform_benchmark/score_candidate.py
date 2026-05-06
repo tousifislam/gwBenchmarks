@@ -421,7 +421,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--smoke", action="store_true")
     parser.add_argument("--skip-bias", action="store_true")
-    parser.add_argument("--n-cases", type=int, default=200)
+    parser.add_argument("--n-cases", type=int, default=1000)
     parser.add_argument(
         "--detector-set",
         choices=["network", "gwbenchmarks_aligo"],

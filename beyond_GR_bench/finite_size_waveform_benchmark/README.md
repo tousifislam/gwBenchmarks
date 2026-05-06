@@ -6,17 +6,17 @@ finite-size balance-law SPA benchmark.
 Example:
 
 ```bash
-python beyond_GR_bench/finite_size_waveform_benchmark/score_candidate.py \
-  --repo-root /path/to/repo \
+python benchmarks/finite_size_waveform_benchmark/score_candidate.py \
+  --repo-root /path/to/gw-forecast-agent \
   --candidate /path/to/candidate_waveform.py \
-  --label model_name \
+  --label model_name_source_packet \
   --output /path/to/score_finite_size.json
 ```
 
 Use `--smoke` for a fast single-case check, or `--skip-bias` to compute only
 waveform mismatches.
 
-By default the scorer uses 200 deterministic source cases with the
+By default the scorer uses 1000 deterministic source cases with the
 single-detector gwBenchmarks waveform convention: PyCBC
 `aLIGOZeroDetHighPower`, `f_low = 15 Hz`, `f_high = 990 Hz`, and
 `df = 0.125 Hz`. Use `--n-cases` to change the number of source cases.
