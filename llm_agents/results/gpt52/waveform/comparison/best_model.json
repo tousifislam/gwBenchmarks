@@ -1,0 +1,32 @@
+{
+  "approach": "extratrees",
+  "display_name": "SVD+ExtraTrees (raw)",
+  "approach_number": 11,
+  "benchmark": "waveform",
+  "agent": "gpt52",
+  "category": "machine_learning",
+  "parameterization": "raw_7d",
+  "time_convention": "t0_at_peak",
+  "representation": "real_imag",
+  "loss": 0.2199241507170676,
+  "loss_components": {
+    "mean_fd_mismatch": 0.2199241507170676,
+    "mismatch_40Msun": 0.3589975630291218,
+    "mismatch_80Msun": 0.28172279806826417,
+    "mismatch_120Msun": 0.19983996345365737,
+    "mismatch_160Msun": 0.14689708577553387,
+    "mismatch_200Msun": 0.11216334325876094
+  },
+  "runtime_ms": 0.6599375000223517,
+  "n_train": 250,
+  "n_val": 250,
+  "n_params": 5607,
+  "notes": {
+    "fit_time_s": 0.22476279101101682,
+    "reasoned_optimization": {
+      "observed": "train_loss=9.054e-02, val_loss=2.199e-01",
+      "hypothesis": "",
+      "change": ""
+    }
+  }
+}

@@ -13,7 +13,7 @@
       "model": "svd_bayes_ridge_log_omega"
     },
     "ringdown": {
-      "loss": 5.634280335774061e-06,
+      "loss": 1.1299380738643953e-05,
       "model": "cubic_spline_per_mode"
     },
     "validity": {
@@ -57,7 +57,7 @@
       "model": "svd_et_md"
     },
     "remnant": {
-      "loss": 0.05378456498809155,
+      "loss": 0.09111614922221493,
       "model": "et_md"
     },
     "dynamics": {
@@ -69,7 +69,7 @@
       "model": "spline_raw"
     },
     "validity": {
-      "loss": 0.5332012555668648,
+      "loss": 0.7255311362271374,
       "model": "rf_logq"
     },
     "analytic": {
@@ -97,7 +97,7 @@
       "model": "KRR-RBF"
     },
     "remnant": {
-      "loss": 0.05635771666436307,
+      "loss": 0.09204398767113917,
       "model": "RandomForest (effective_spins)"
     },
     "dynamics": {
@@ -109,7 +109,7 @@
       "model": "Cubic-Spline (raw_a)"
     },
     "validity": {
-      "loss": 0.5364999729543928,
+      "loss": 0.7395193670951158,
       "model": "RandomForest (effective_spins)"
     },
     "analytic": {
@@ -131,7 +131,7 @@
       "model": "svd_bayes_ridge_log_omega"
     },
     "ringdown": {
-      "loss": 5.634280335774061e-06,
+      "loss": 1.1299380738643953e-05,
       "model": "cubic_spline_per_mode"
     },
     "validity": {
@@ -149,7 +149,7 @@
       "model": "KRR-RBF"
     },
     "remnant": {
-      "loss": 0.05639618964111244,
+      "loss": 0.09192580816323816,
       "model": "RandomForest (effective_spins)"
     },
     "dynamics": {
@@ -161,7 +161,7 @@
       "model": "Cubic-Spline (raw_a)"
     },
     "validity": {
-      "loss": 0.5360508247112381,
+      "loss": 0.7399099400149957,
       "model": "RandomForest (effective_spins)"
     },
     "analytic": {
@@ -201,7 +201,7 @@
       "model": "5_svd_poly3_eta"
     },
     "remnant": {
-      "loss": 0.05736310846093251,
+      "loss": 0.09093549116701265,
       "model": "10_rf_sph"
     },
     "dynamics": {
@@ -245,6 +245,32 @@
     "analytic": {
       "loss": 0.413900228599356,
       "model": "damped_sin"
+    }
+  },
+  "kimi_k26": {
+    "waveform": {
+      "loss": 0.40441816531296115,
+      "model": "14_svd_extra_trees_raw"
+    },
+    "remnant": {
+      "loss": 0.0903280877318996,
+      "model": "02_gpr_matern_effective"
+    },
+    "dynamics": {
+      "loss": 0.4337366294713356,
+      "model": "10_svd_svr_raw"
+    },
+    "ringdown": {
+      "loss": 0.00041799155864106715,
+      "model": "04_gpr_matern_log"
+    },
+    "validity": {
+      "loss": 0.7318300041583319,
+      "model": "05_rf_raw"
+    },
+    "analytic": {
+      "loss": 0.58,
+      "model": "23_pade_q"
     }
   }
 }

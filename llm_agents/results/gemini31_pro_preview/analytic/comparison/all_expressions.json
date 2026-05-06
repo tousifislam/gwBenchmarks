@@ -1,0 +1,122 @@
+[
+    {
+        "approach": "1_taylort4_eta",
+        "expression": "(0.0026 + 1.3566*eta + 0.8167*eta^2) * exp(-(t/50)^2) * exp(-I * (0.05*t + 0.05*eta*t^2/T))",
+        "complexity": 91,
+        "loss": 0.7949175624976279
+    },
+    {
+        "approach": "2_taylort4_q",
+        "expression": "(0.4163 + -0.0456*q_raw + 0.0015*q_raw^2) * exp(-(t/50)^2) * exp(-I * (0.05*t + 0.05*q_raw*t^2/T))",
+        "complexity": 98,
+        "loss": 0.7903484987263402
+    },
+    {
+        "approach": "3_taylort4_dm",
+        "expression": "(0.3954 + -0.0404*delta_m + -0.3614*delta_m^2) * exp(-(t/50)^2) * exp(-I * (0.05*t + 0.05*delta_m*t^2/T))",
+        "complexity": 105,
+        "loss": 0.7946797836055581
+    },
+    {
+        "approach": "4_pysr_amp_eta",
+        "expression": "eta/0.6869757",
+        "complexity": 13,
+        "loss": 0.8659503657157172
+    },
+    {
+        "approach": "5_pysr_amp_q",
+        "expression": "sin(sin(sin(sin(cos(1.3149567 - 1.2033064/q_raw))))) - 0.21928139",
+        "complexity": 65,
+        "loss": 0.8659503657157172
+    },
+    {
+        "approach": "6_pysr_amp_dm",
+        "expression": "sin(1.6644847 - delta_m) - 1*0.6366577",
+        "complexity": 38,
+        "loss": 0.8659503657157172
+    },
+    {
+        "approach": "7_pysr_real_eta",
+        "expression": "eta*eta*sin(t/sin(eta))",
+        "complexity": 23,
+        "loss": 0.8943856829766299
+    },
+    {
+        "approach": "8_pysr_real_q",
+        "expression": "cos(t*0.30199927)/(0.1784543*exp(q_raw/0.33785698))",
+        "complexity": 51,
+        "loss": 0.93534710636964
+    },
+    {
+        "approach": "9_pysr_real_dm",
+        "expression": "sin(sin(sin(t*0.34084353 - 2.426772/delta_m)*0.047241177))",
+        "complexity": 58,
+        "loss": 0.9386847326559095
+    },
+    {
+        "approach": "10_gplearn_amp_eta",
+        "expression": "div(div(eta, 0.858), 0.858)",
+        "complexity": 27,
+        "loss": 0.8659503657157172
+    },
+    {
+        "approach": "11_gplearn_amp_q",
+        "expression": "div(add(mul(sub(t, q_raw), div(-0.023, q_raw)), 0.635), add(div(q_raw, mul(q_raw, q_raw)), mul(0.692, q_raw)))",
+        "complexity": 110,
+        "loss": 0.847312828281497
+    },
+    {
+        "approach": "12_gplearn_amp_dm",
+        "expression": "div(mul(sub(0.988, delta_m), div(add(t, delta_m), add(t, t))), div(t, t))",
+        "complexity": 73,
+        "loss": 0.8659485248395953
+    },
+    {
+        "approach": "13_gplearn_real_eta",
+        "expression": "0.005",
+        "complexity": 5,
+        "loss": 0.8479938054203112
+    },
+    {
+        "approach": "14_gplearn_real_q",
+        "expression": "sub(q_raw, q_raw)",
+        "complexity": 17,
+        "loss": NaN
+    },
+    {
+        "approach": "15_gplearn_real_dm",
+        "expression": "sub(delta_m, delta_m)",
+        "complexity": 21,
+        "loss": NaN
+    },
+    {
+        "approach": "16_func_gaussian_eta",
+        "expression": "(0.0026 + 1.3566*eta + 0.8167*eta^2) * exp(-(t/50)^2) * exp(-I * (0.05*t + 0.05*eta*t^2/T))",
+        "complexity": 91,
+        "loss": 0.7949175624976279
+    },
+    {
+        "approach": "17_func_gaussian_q",
+        "expression": "(0.4163 + -0.0456*q_raw + 0.0015*q_raw^2) * exp(-(t/50)^2) * exp(-I * (0.05*t + 0.05*q_raw*t^2/T))",
+        "complexity": 98,
+        "loss": 0.7903484987263402
+    },
+    {
+        "approach": "18_func_gaussian_dm",
+        "expression": "(0.3954 + -0.0404*delta_m + -0.3614*delta_m^2) * exp(-(t/50)^2) * exp(-I * (0.05*t + 0.05*delta_m*t^2/T))",
+        "complexity": 105,
+        "loss": 0.7946797836055581
+    },
+    {
+        "approach": "19_composite_eta",
+        "expression": "(0.0026 + 1.3566*eta + 0.8167*eta^2) * exp(-(t/50)^2) * exp(-I * (0.05*t + 0.05*eta*t^2/T))",
+        "complexity": 91,
+        "loss": 0.7949175624976279
+    },
+    {
+        "approach": "20_composite_q",
+        "expression": "(0.4163 + -0.0456*q_raw + 0.0015*q_raw^2) * exp(-(t/50)^2) * exp(-I * (0.05*t + 0.05*q_raw*t^2/T))",
+        "complexity": 98,
+        "loss": 0.7903484987263402
+    }
+]

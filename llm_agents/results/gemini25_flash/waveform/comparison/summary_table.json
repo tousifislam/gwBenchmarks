@@ -1,0 +1,186 @@
+[
+    {
+        "model_name": "SVD_GPR_RBF_Raw",
+        "approach_number": 1,
+        "loss": 0.6190439908622616,
+        "runtime_ms": 1075.2367973327637,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_gpr"
+    },
+    {
+        "model_name": "SVD_GPR_Matern_EtaChiEff",
+        "approach_number": 2,
+        "loss": 0.6033284101496775,
+        "runtime_ms": 1049.2329597473145,
+        "parameterization": "eta_chieff",
+        "approach_category": "svd_gpr"
+    },
+    {
+        "model_name": "SVD_Polynomial_Raw",
+        "approach_number": 3,
+        "loss": 0.6436002883768814,
+        "runtime_ms": 1044.7921752929688,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_polynomial"
+    },
+    {
+        "model_name": "SVD_MLP_Raw",
+        "approach_number": 4,
+        "loss": 0.6288285192341794,
+        "runtime_ms": 1025.9783267974854,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_mlp"
+    },
+    {
+        "model_name": "SVD_RandomForest_Raw",
+        "approach_number": 5,
+        "loss": 0.6233331896215482,
+        "runtime_ms": 1271.298885345459,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_randomforest"
+    },
+    {
+        "model_name": "EIM_GPR_Raw",
+        "approach_number": 6,
+        "loss": 0.6246468161550406,
+        "runtime_ms": 1022.8128433227539,
+        "parameterization": "raw_7d",
+        "approach_category": "eim_gpr"
+    },
+    {
+        "model_name": "Autoencoder_MLP_Raw",
+        "approach_number": 8,
+        "loss": 0.6748619535730389,
+        "runtime_ms": 308.23516845703125,
+        "parameterization": "raw_7d",
+        "approach_category": "autoencoder_mlp"
+    },
+    {
+        "model_name": "AmpPhase_GPR_Raw",
+        "approach_number": 9,
+        "loss": 0.6308957696594263,
+        "runtime_ms": 1197.1900463104248,
+        "parameterization": "raw_7d",
+        "approach_category": "ampphase_gpr"
+    },
+    {
+        "model_name": "SVD_RBFInterpolator_Raw",
+        "approach_number": 10,
+        "loss": 0.6058515618087458,
+        "runtime_ms": 924.0000247955322,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_rbf_interp"
+    },
+    {
+        "model_name": "SVD_GPR_Matern_M1M2S1S2",
+        "approach_number": 12,
+        "loss": 0.6117232807931269,
+        "runtime_ms": 931.6918849945068,
+        "parameterization": "m1m2_s1zs2z",
+        "approach_category": "svd_gpr"
+    },
+    {
+        "model_name": "SVD_XGBoost_Raw",
+        "approach_number": 13,
+        "loss": 0.6367309148358646,
+        "runtime_ms": 170.86529731750488,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_xgboost"
+    },
+    {
+        "model_name": "SVD_SVR_Raw",
+        "approach_number": 14,
+        "loss": 0.6420493314514754,
+        "runtime_ms": 233.14666748046875,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_svr"
+    },
+    {
+        "model_name": "SVD_BayesianRidge_Raw",
+        "approach_number": 15,
+        "loss": 0.701523386658,
+        "runtime_ms": 917.1948432922363,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_bayesian_ridge"
+    },
+    {
+        "model_name": "SVD_Huber_Raw",
+        "approach_number": 16,
+        "loss": 0.6821888231447449,
+        "runtime_ms": 218.31083297729492,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_huber"
+    },
+    {
+        "model_name": "SVD_KNR_Raw",
+        "approach_number": 16,
+        "loss": 0.6076776488197279,
+        "runtime_ms": 422.0609664916992,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_knr"
+    },
+    {
+        "model_name": "SVD_Lasso_Raw",
+        "approach_number": 17,
+        "loss": 0.6787216063075202,
+        "runtime_ms": 217.89789199829102,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_lasso"
+    },
+    {
+        "model_name": "SVD_MLP_EtaChiEff",
+        "approach_number": 17,
+        "loss": 0.615275236564838,
+        "runtime_ms": 221.1761474609375,
+        "parameterization": "eta_chieff",
+        "approach_category": "svd_mlp"
+    },
+    {
+        "model_name": "SVD_LinearRegression_Raw",
+        "approach_number": 18,
+        "loss": 0.6737949571124552,
+        "runtime_ms": 913.1731986999512,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_linear_regression"
+    },
+    {
+        "model_name": "SVD_Ridge_Raw",
+        "approach_number": 19,
+        "loss": 0.6723313561264426,
+        "runtime_ms": 217.52095222473145,
+        "parameterization": "raw_7d",
+        "approach_category": "svd_ridge"
+    },
+    {
+        "model_name": "SVD_GPR_RBF_EtaChiEff",
+        "approach_number": 20,
+        "loss": 0.5996227614335041,
+        "runtime_ms": 934.8468780517578,
+        "parameterization": "eta_chieff",
+        "approach_category": "svd_gpr"
+    },
+    {
+        "model_name": "SVD_SVR_EtaChiEff",
+        "approach_number": 21,
+        "loss": 0.6694886990172138,
+        "runtime_ms": 233.22129249572754,
+        "parameterization": "eta_chieff",
+        "approach_category": "svd_svr"
+    },
+    {
+        "model_name": "SVD_KNR_EtaChiEff",
+        "approach_number": 21,
+        "loss": 0.6043925430632139,
+        "runtime_ms": 423.05874824523926,
+        "parameterization": "eta_chieff",
+        "approach_category": "svd_knr"
+    },
+    {
+        "model_name": "SVD_AnalyticalLinear_Eta",
+        "approach_number": 22,
+        "loss": 0.7069546232742805,
+        "runtime_ms": 923.9909648895264,
+        "parameterization": "eta",
+        "approach_category": "svd_analytical_linear_eta"
+    }
+]

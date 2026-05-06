@@ -1,0 +1,18 @@
+{
+  "approach": "svd_rbf_interp_eta",
+  "approach_number": 20,
+  "benchmark": "waveform",
+  "agent": "opus46",
+  "parameterization": "eta_chieff",
+  "time_convention": "t0_at_peak",
+  "loss": 0.16255959591441482,
+  "loss_components": {
+    "mean_mismatch": 0.16255959591441482
+  },
+  "runtime_ms": 0.34456443786621094,
+  "n_train": 250,
+  "n_val": 250,
+  "n_params": 20000,
+  "notes": "SVD(40)+RBF TPS eta",
+  "dir_name": "20_svd_rbf_interp_eta"
+}

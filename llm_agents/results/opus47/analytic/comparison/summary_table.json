@@ -1,0 +1,434 @@
+[
+  {
+    "approach_number": 3,
+    "approach": "phen_imr_cheb14_logq_p4",
+    "category": "physics_imr",
+    "parameterization": "log_q",
+    "loss": 0.0521565170374327,
+    "loss_components": {
+      "mismatch_40Msun": 0.05797970758020231,
+      "mismatch_80Msun": 0.050977919899552415,
+      "mismatch_120Msun": 0.04924549691981844,
+      "mismatch_160Msun": 0.0499265679350791,
+      "mismatch_200Msun": 0.05265289285251124
+    },
+    "n_params": 190,
+    "runtime_ms": 2.477686525145102,
+    "train_time_s": 0.0004890830023214221,
+    "notes": "IMR base + Chebyshev_13 residual; q-dep polynomial deg 4 in log_q."
+  },
+  {
+    "approach_number": 11,
+    "approach": "comp_seg_cheb88_eta_p3",
+    "category": "composite",
+    "parameterization": "eta",
+    "loss": 0.07125118183135157,
+    "loss_components": {
+      "mismatch_40Msun": 0.18856671778500017,
+      "mismatch_80Msun": 0.09358746794340381,
+      "mismatch_120Msun": 0.041827119483640735,
+      "mismatch_160Msun": 0.018116953116354067,
+      "mismatch_200Msun": 0.014157650828359038
+    },
+    "n_params": 184,
+    "runtime_ms": 2.5984206198093793,
+    "train_time_s": 0.000540749984793365,
+    "notes": "IMR base + segmented Chebyshev_8/8; poly deg 3 in eta; tanh blend at t=-200.0M."
+  },
+  {
+    "approach_number": 23,
+    "approach": "ompbasis_phase_imr_eta",
+    "category": "symbolic_regression",
+    "parameterization": "eta",
+    "loss": 0.0761131485447187,
+    "loss_components": {
+      "mismatch_40Msun": 0.1441900380384711,
+      "mismatch_80Msun": 0.07840739872643394,
+      "mismatch_120Msun": 0.05379239368583756,
+      "mismatch_160Msun": 0.04972918441877,
+      "mismatch_200Msun": 0.05444672785408092
+    },
+    "n_params": 160,
+    "runtime_ms": 2.6036984276115183,
+    "train_time_s": 0.0025042499764822423,
+    "notes": "greedy basis-function (OMP) symbolic regression on phase params, polynomial elsewhere."
+  },
+  {
+    "approach_number": 5,
+    "approach": "phen_imr_cheb14_q_p4",
+    "category": "physics_imr",
+    "parameterization": "q",
+    "loss": 0.07967325164712606,
+    "loss_components": {
+      "mismatch_40Msun": 0.12771439514622138,
+      "mismatch_80Msun": 0.0904772415801352,
+      "mismatch_120Msun": 0.06748812631038485,
+      "mismatch_160Msun": 0.05608726298533212,
+      "mismatch_200Msun": 0.0565992322135568
+    },
+    "n_params": 190,
+    "runtime_ms": 2.6220773801296238,
+    "train_time_s": 0.0005162089946679771,
+    "notes": "IMR base + Chebyshev_13 residual; q-dep polynomial deg 4 in q."
+  },
+  {
+    "approach_number": 8,
+    "approach": "phen_imr_cheb18_eta_p3",
+    "category": "physics_imr",
+    "parameterization": "eta",
+    "loss": 0.08066902828619493,
+    "loss_components": {
+      "mismatch_40Msun": 0.18869114297431425,
+      "mismatch_80Msun": 0.10071303328867755,
+      "mismatch_120Msun": 0.05332429475614023,
+      "mismatch_160Msun": 0.031604648828510204,
+      "mismatch_200Msun": 0.029012021583332374
+    },
+    "n_params": 192,
+    "runtime_ms": 2.6355000002132285,
+    "train_time_s": 0.000617917045019567,
+    "notes": "IMR base + Chebyshev_18 residual; q-dep polynomial deg 3 in eta."
+  },
+  {
+    "approach_number": 7,
+    "approach": "phen_imr_cheb16_eta_p3",
+    "category": "physics_imr",
+    "parameterization": "eta",
+    "loss": 0.08661299360018994,
+    "loss_components": {
+      "mismatch_40Msun": 0.186821135225418,
+      "mismatch_80Msun": 0.10670909881684115,
+      "mismatch_120Msun": 0.061097084242860526,
+      "mismatch_160Msun": 0.040468426769663945,
+      "mismatch_200Msun": 0.03796922294616608
+    },
+    "n_params": 176,
+    "runtime_ms": 2.665103191421146,
+    "train_time_s": 0.0005278749740682542,
+    "notes": "IMR base + Chebyshev_16 residual; q-dep polynomial deg 3 in eta."
+  },
+  {
+    "approach_number": 13,
+    "approach": "comp_seg_cheb88_logq_p3",
+    "category": "composite",
+    "parameterization": "log_q",
+    "loss": 0.09011447836998784,
+    "loss_components": {
+      "mismatch_40Msun": 0.2212515798131564,
+      "mismatch_80Msun": 0.11876269381052586,
+      "mismatch_120Msun": 0.06113933682767775,
+      "mismatch_160Msun": 0.028271920525257437,
+      "mismatch_200Msun": 0.02114686087332177
+    },
+    "n_params": 184,
+    "runtime_ms": 2.584801618165026,
+    "train_time_s": 0.0005494999932125211,
+    "notes": "IMR base + segmented Chebyshev_8/8; poly deg 3 in log_q; tanh blend at t=-200.0M."
+  },
+  {
+    "approach_number": 1,
+    "approach": "phen_imr_cheb14_eta_p4",
+    "category": "physics_imr",
+    "parameterization": "eta",
+    "loss": 0.10023351143738139,
+    "loss_components": {
+      "mismatch_40Msun": 0.1869542916250799,
+      "mismatch_80Msun": 0.11878846923012046,
+      "mismatch_120Msun": 0.07788740023770445,
+      "mismatch_160Msun": 0.059524125657263394,
+      "mismatch_200Msun": 0.058013270436738755
+    },
+    "n_params": 190,
+    "runtime_ms": 62.744047617473235,
+    "train_time_s": 0.0005280839977785945,
+    "notes": "IMR base + Chebyshev_13 residual; q-dep polynomial deg 4 in eta."
+  },
+  {
+    "approach_number": 10,
+    "approach": "phen_imr_cheb14_eta_p3",
+    "category": "physics_imr",
+    "parameterization": "eta",
+    "loss": 0.10068291879822291,
+    "loss_components": {
+      "mismatch_40Msun": 0.1887020536152581,
+      "mismatch_80Msun": 0.1169358216777139,
+      "mismatch_120Msun": 0.07717665260389123,
+      "mismatch_160Msun": 0.06015196248124523,
+      "mismatch_200Msun": 0.060448103613006086
+    },
+    "n_params": 160,
+    "runtime_ms": 2.639573380639333,
+    "train_time_s": 0.0004817500011995435,
+    "notes": "IMR base + Chebyshev_14 residual; q-dep polynomial deg 3 in eta."
+  },
+  {
+    "approach_number": 20,
+    "approach": "gplearn_amp_imr_eta",
+    "category": "symbolic_regression",
+    "parameterization": "eta",
+    "loss": 0.10281679729235182,
+    "loss_components": {
+      "mismatch_40Msun": 0.19458230188211123,
+      "mismatch_80Msun": 0.11717794477577743,
+      "mismatch_120Msun": 0.07900689845275563,
+      "mismatch_160Msun": 0.06183939176737872,
+      "mismatch_200Msun": 0.061477449583736125
+    },
+    "n_params": 164,
+    "runtime_ms": 47.14475990372843,
+    "train_time_s": 7.783213166985661,
+    "notes": "gplearn symbolic regression on amplitude params, polynomial elsewhere."
+  },
+  {
+    "approach_number": 22,
+    "approach": "gplearn_amp_imr_logq",
+    "category": "symbolic_regression",
+    "parameterization": "log_q",
+    "loss": 0.11986724033900557,
+    "loss_components": {
+      "mismatch_40Msun": 0.2327984492858957,
+      "mismatch_80Msun": 0.13944231664347773,
+      "mismatch_120Msun": 0.09272566534180789,
+      "mismatch_160Msun": 0.06830611359156011,
+      "mismatch_200Msun": 0.0660636568322866
+    },
+    "n_params": 157,
+    "runtime_ms": 2.5538610948604488,
+    "train_time_s": 6.978565916011576,
+    "notes": "gplearn symbolic regression on amplitude params, polynomial elsewhere."
+  },
+  {
+    "approach_number": 6,
+    "approach": "phen_imr_cheb12_eta_p4",
+    "category": "physics_imr",
+    "parameterization": "eta",
+    "loss": 0.1304793585853942,
+    "loss_components": {
+      "mismatch_40Msun": 0.189212020042376,
+      "mismatch_80Msun": 0.13295222228627374,
+      "mismatch_120Msun": 0.1102028674598147,
+      "mismatch_160Msun": 0.1056305283763901,
+      "mismatch_200Msun": 0.11439915476211651
+    },
+    "n_params": 180,
+    "runtime_ms": 2.5983769529765204,
+    "train_time_s": 0.0004949169815517962,
+    "notes": "IMR base + Chebyshev_12 residual; q-dep polynomial deg 4 in eta."
+  },
+  {
+    "approach_number": 2,
+    "approach": "phen_imr_cheb14_delta_p4",
+    "category": "physics_imr",
+    "parameterization": "delta",
+    "loss": 0.1384192285034339,
+    "loss_components": {
+      "mismatch_40Msun": 0.2660021831856418,
+      "mismatch_80Msun": 0.16428947794612178,
+      "mismatch_120Msun": 0.10328325412845334,
+      "mismatch_160Msun": 0.08043470785663011,
+      "mismatch_200Msun": 0.07808651940032262
+    },
+    "n_params": 190,
+    "runtime_ms": 2.477867093624636,
+    "train_time_s": 0.0005050420295447111,
+    "notes": "IMR base + Chebyshev_13 residual; q-dep polynomial deg 4 in delta."
+  },
+  {
+    "approach_number": 9,
+    "approach": "phen_imr_cheb10_eta_p4",
+    "category": "physics_imr",
+    "parameterization": "eta",
+    "loss": 0.1716053455417051,
+    "loss_components": {
+      "mismatch_40Msun": 0.20141282082371442,
+      "mismatch_80Msun": 0.1625501918869778,
+      "mismatch_120Msun": 0.15513562266484712,
+      "mismatch_160Msun": 0.16089073554570327,
+      "mismatch_200Msun": 0.17803735678728297
+    },
+    "n_params": 160,
+    "runtime_ms": 2.6163968556959714,
+    "train_time_s": 0.0004540829686447978,
+    "notes": "IMR base + Chebyshev_10 residual; q-dep polynomial deg 4 in eta."
+  },
+  {
+    "approach_number": 21,
+    "approach": "ompbasis_phase_imr_delta",
+    "category": "symbolic_regression",
+    "parameterization": "delta",
+    "loss": 0.18264300136040473,
+    "loss_components": {
+      "mismatch_40Msun": 0.3746328655607143,
+      "mismatch_80Msun": 0.22790892105717203,
+      "mismatch_120Msun": 0.13736219498054755,
+      "mismatch_160Msun": 0.09074277871791907,
+      "mismatch_200Msun": 0.08256824648567071
+    },
+    "n_params": 160,
+    "runtime_ms": 2.537452382966876,
+    "train_time_s": 0.002483207965269685,
+    "notes": "greedy basis-function (OMP) symbolic regression on phase params, polynomial elsewhere."
+  },
+  {
+    "approach_number": 24,
+    "approach": "phen_imr_pure_eta_p4",
+    "category": "physics_imr",
+    "parameterization": "eta",
+    "loss": 0.1998762307060645,
+    "loss_components": {
+      "mismatch_40Msun": 0.22826420301371678,
+      "mismatch_80Msun": 0.19619695799325743,
+      "mismatch_120Msun": 0.1838156775389322,
+      "mismatch_160Msun": 0.185160938038429,
+      "mismatch_200Msun": 0.2059433769459872
+    },
+    "n_params": 50,
+    "runtime_ms": 2.578011905175767,
+    "train_time_s": 0.0001580420066602528,
+    "notes": "Pure IMR base \u2014 PN inspiral + power-law decay amp; PN+RD phase. No Cheb residual."
+  },
+  {
+    "approach_number": 12,
+    "approach": "comp_seg_cheb88_delta_p3",
+    "category": "composite",
+    "parameterization": "delta",
+    "loss": 0.20528530383238416,
+    "loss_components": {
+      "mismatch_40Msun": 0.4551746765469337,
+      "mismatch_80Msun": 0.2924313633408277,
+      "mismatch_120Msun": 0.1583828468825277,
+      "mismatch_160Msun": 0.07607926567448518,
+      "mismatch_200Msun": 0.04435836671714662
+    },
+    "n_params": 184,
+    "runtime_ms": 2.585553569674847,
+    "train_time_s": 0.0005632090033032,
+    "notes": "IMR base + segmented Chebyshev_8/8; poly deg 3 in delta; tanh blend at t=-200.0M."
+  },
+  {
+    "approach_number": 4,
+    "approach": "phen_imr_cheb14_invq_p4",
+    "category": "physics_imr",
+    "parameterization": "inv_q",
+    "loss": 0.21382296625180733,
+    "loss_components": {
+      "mismatch_40Msun": 0.43967327276091,
+      "mismatch_80Msun": 0.2793356968623187,
+      "mismatch_120Msun": 0.1624829531452487,
+      "mismatch_160Msun": 0.10094580698625277,
+      "mismatch_200Msun": 0.0866771015043065
+    },
+    "n_params": 190,
+    "runtime_ms": 2.5937778104673184,
+    "train_time_s": 0.0005198330036364496,
+    "notes": "IMR base + Chebyshev_13 residual; q-dep polynomial deg 4 in inv_q."
+  },
+  {
+    "approach_number": 16,
+    "approach": "lorentz5_amp_eta_p4",
+    "category": "functional_form",
+    "parameterization": "eta",
+    "loss": 0.4105247842381761,
+    "loss_components": {
+      "mismatch_40Msun": 0.5276960695564513,
+      "mismatch_80Msun": 0.4100537882332346,
+      "mismatch_120Msun": 0.3595553163495463,
+      "mismatch_160Msun": 0.3626388681224536,
+      "mismatch_200Msun": 0.3926798789291948
+    },
+    "n_params": 100,
+    "runtime_ms": 3.4308333332384273,
+    "train_time_s": 0.0003311660257168114,
+    "notes": "Sum of 5 Lorentzians for amplitude + IMR phase."
+  },
+  {
+    "approach_number": 14,
+    "approach": "gauss5_amp_eta_p4",
+    "category": "functional_form",
+    "parameterization": "eta",
+    "loss": 0.433427093825113,
+    "loss_components": {
+      "mismatch_40Msun": 0.4893322463502779,
+      "mismatch_80Msun": 0.4793723850584532,
+      "mismatch_120Msun": 0.4221332298080837,
+      "mismatch_160Msun": 0.3969520732281702,
+      "mismatch_200Msun": 0.3793455346805803
+    },
+    "n_params": 100,
+    "runtime_ms": 2.659109096774565,
+    "train_time_s": 0.00029729196103289723,
+    "notes": "Sum of 5 Gaussians for amplitude + IMR phase."
+  },
+  {
+    "approach_number": 17,
+    "approach": "lorentz5_amp_delta_p4",
+    "category": "functional_form",
+    "parameterization": "delta",
+    "loss": 0.4494531488719037,
+    "loss_components": {
+      "mismatch_40Msun": 0.5737489647022936,
+      "mismatch_80Msun": 0.4705883426282507,
+      "mismatch_120Msun": 0.4079909493796143,
+      "mismatch_160Msun": 0.3852661138890215,
+      "mismatch_200Msun": 0.4096713737603382
+    },
+    "n_params": 100,
+    "runtime_ms": 3.139146808756604,
+    "train_time_s": 0.0007780830492265522,
+    "notes": "Sum of 5 Lorentzians for amplitude + IMR phase."
+  },
+  {
+    "approach_number": 15,
+    "approach": "gauss5_amp_delta_p4",
+    "category": "functional_form",
+    "parameterization": "delta",
+    "loss": 0.46411712998313687,
+    "loss_components": {
+      "mismatch_40Msun": 0.5471675321166701,
+      "mismatch_80Msun": 0.49367887733129273,
+      "mismatch_120Msun": 0.4322637761165344,
+      "mismatch_160Msun": 0.4188171086843577,
+      "mismatch_200Msun": 0.42865835566682914
+    },
+    "n_params": 100,
+    "runtime_ms": 2.6473273811418387,
+    "train_time_s": 0.0003143749781884253,
+    "notes": "Sum of 5 Gaussians for amplitude + IMR phase."
+  },
+  {
+    "approach_number": 18,
+    "approach": "dsin4_eta_p4",
+    "category": "functional_form",
+    "parameterization": "eta",
+    "loss": 0.6913981677943459,
+    "loss_components": {
+      "mismatch_40Msun": 0.7368444448607694,
+      "mismatch_80Msun": 0.6707102923438658,
+      "mismatch_120Msun": 0.6626632527262182,
+      "mismatch_160Msun": 0.6819757696240879,
+      "mismatch_200Msun": 0.7047970794167885
+    },
+    "n_params": 100,
+    "runtime_ms": 2.609226190196794,
+    "train_time_s": 0.00030587497167289257,
+    "notes": "Direct sum of 4 Gaussian-enveloped sinusoids \u2014 closed-form complex h22."
+  },
+  {
+    "approach_number": 19,
+    "approach": "dsin4_delta_p4",
+    "category": "functional_form",
+    "parameterization": "delta",
+    "loss": 0.7189134089227812,
+    "loss_components": {
+      "mismatch_40Msun": 0.7421921905671179,
+      "mismatch_80Msun": 0.6801882217542689,
+      "mismatch_120Msun": 0.6869433650030327,
+      "mismatch_160Msun": 0.7265632495770424,
+      "mismatch_200Msun": 0.7586800177124438
+    },
+    "n_params": 100,
+    "runtime_ms": 2.5976666670647406,
+    "train_time_s": 0.0003155409940518439,
+    "notes": "Direct sum of 4 Gaussian-enveloped sinusoids \u2014 closed-form complex h22."
+  }
+]

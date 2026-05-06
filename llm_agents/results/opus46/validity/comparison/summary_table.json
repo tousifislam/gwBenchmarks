@@ -1,0 +1,472 @@
+[
+  {
+    "approach": "rf_raw",
+    "approach_number": 20,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "ml",
+    "parameterization": "raw",
+    "loss": 0.7220977686981352,
+    "loss_train": 0.3755717372362471,
+    "loss_components": {
+      "log_rmse": 0.7220977686981352
+    },
+    "runtime_ms": 0.051090735515565366,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "rf_raw with raw parameterization"
+  },
+  {
+    "approach": "et_raw",
+    "approach_number": 22,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "ml",
+    "parameterization": "raw",
+    "loss": 0.7317216707472659,
+    "loss_train": 0.40018169499940737,
+    "loss_components": {
+      "log_rmse": 0.7317216707472659
+    },
+    "runtime_ms": 0.053305055652259264,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "et_raw with raw parameterization"
+  },
+  {
+    "approach": "bagging_logq",
+    "approach_number": 24,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "ml",
+    "parameterization": "logq",
+    "loss": 0.7318664425013635,
+    "loss_train": 0.35547352206453153,
+    "loss_components": {
+      "log_rmse": 0.7318664425013635
+    },
+    "runtime_ms": 0.02322124160883081,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "bagging_logq with logq parameterization"
+  },
+  {
+    "approach": "gpr_matern_logq",
+    "approach_number": 3,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "kernel",
+    "parameterization": "logq",
+    "loss": 0.7553194171016416,
+    "loss_train": 0.5519454163915122,
+    "loss_components": {
+      "log_rmse": 0.7553194171016416
+    },
+    "runtime_ms": 0.11600792862986789,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "gpr_matern_logq with logq parameterization"
+  },
+  {
+    "approach": "rbf_linear_logq",
+    "approach_number": 15,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "interpolation",
+    "parameterization": "logq",
+    "loss": 0.7674464258567943,
+    "loss_train": 0.1895401642620693,
+    "loss_components": {
+      "log_rmse": 0.7674464258567943
+    },
+    "runtime_ms": 0.07597908718895366,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "rbf_linear_logq with logq parameterization"
+  },
+  {
+    "approach": "gbr_eta",
+    "approach_number": 21,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.7853365372910586,
+    "loss_train": 0.053597398827370434,
+    "loss_components": {
+      "log_rmse": 0.7853365372910586
+    },
+    "runtime_ms": 0.005880384954787392,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "gbr_eta with eta_chieff parameterization"
+  },
+  {
+    "approach": "lasso_interact",
+    "approach_number": 10,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "symbolic",
+    "parameterization": "interact",
+    "loss": 0.7918316259163158,
+    "loss_train": 0.8105076398860213,
+    "loss_components": {
+      "log_rmse": 0.7918316259163158
+    },
+    "runtime_ms": 0.058977961843553695,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 84,
+    "notes": "lasso_interact with interact parameterization"
+  },
+  {
+    "approach": "ada_eta",
+    "approach_number": 23,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.7969080568522312,
+    "loss_train": 0.6444900839600431,
+    "loss_components": {
+      "log_rmse": 0.7969080568522312
+    },
+    "runtime_ms": 0.017902626639407403,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "ada_eta with eta_chieff parameterization"
+  },
+  {
+    "approach": "mlp_eta",
+    "approach_number": 19,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.7974978101106825,
+    "loss_train": 0.8166831289953386,
+    "loss_components": {
+      "log_rmse": 0.7974978101106825
+    },
+    "runtime_ms": 0.0017890493378384421,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "mlp_eta with eta_chieff parameterization"
+  },
+  {
+    "approach": "mlp_raw",
+    "approach_number": 18,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "ml",
+    "parameterization": "raw",
+    "loss": 0.7996312421028091,
+    "loss_train": 0.7882287676869852,
+    "loss_components": {
+      "log_rmse": 0.7996312421028091
+    },
+    "runtime_ms": 0.005910718107344843,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "mlp_raw with raw parameterization"
+  },
+  {
+    "approach": "knn5_raw",
+    "approach_number": 16,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "interpolation",
+    "parameterization": "raw",
+    "loss": 0.801237022181342,
+    "loss_train": 0.0,
+    "loss_components": {
+      "log_rmse": 0.801237022181342
+    },
+    "runtime_ms": 0.0018472889907487477,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "knn5_raw with raw parameterization"
+  },
+  {
+    "approach": "krr_raw",
+    "approach_number": 4,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "kernel",
+    "parameterization": "raw",
+    "loss": 0.8085445718583606,
+    "loss_train": 0.7430456844777517,
+    "loss_components": {
+      "log_rmse": 0.8085445718583606
+    },
+    "runtime_ms": 0.16715872378749702,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "krr_raw with raw parameterization"
+  },
+  {
+    "approach": "bayesian_ridge_eta",
+    "approach_number": 12,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.8093121002649513,
+    "loss_train": 0.8326030597217456,
+    "loss_components": {
+      "log_rmse": 0.8093121002649513
+    },
+    "runtime_ms": 0.0003561112110244712,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 70,
+    "notes": "bayesian_ridge_eta with eta_chieff parameterization"
+  },
+  {
+    "approach": "elasticnet_boundary",
+    "approach_number": 11,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "symbolic",
+    "parameterization": "boundary",
+    "loss": 0.8094122214807734,
+    "loss_train": 0.7455021188838044,
+    "loss_components": {
+      "log_rmse": 0.8094122214807734
+    },
+    "runtime_ms": 0.043687019639342795,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 120,
+    "notes": "elasticnet_boundary with boundary parameterization"
+  },
+  {
+    "approach": "knn10_eta",
+    "approach_number": 17,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "interpolation",
+    "parameterization": "eta_chieff",
+    "loss": 0.8101023968386677,
+    "loss_train": 0.0,
+    "loss_components": {
+      "log_rmse": 0.8101023968386677
+    },
+    "runtime_ms": 0.0021372739291979762,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "knn10_eta with eta_chieff parameterization"
+  },
+  {
+    "approach": "krr_interact",
+    "approach_number": 6,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "kernel",
+    "parameterization": "interact",
+    "loss": 0.8152232769117816,
+    "loss_train": 0.7562692139503827,
+    "loss_components": {
+      "log_rmse": 0.8152232769117816
+    },
+    "runtime_ms": 0.17995628085148546,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "krr_interact with interact parameterization"
+  },
+  {
+    "approach": "poly3_raw",
+    "approach_number": 7,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "loss": 0.8256133694785099,
+    "loss_train": 0.8117796079239258,
+    "loss_components": {
+      "log_rmse": 0.8256133694785099
+    },
+    "runtime_ms": 0.037386217190109136,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 35,
+    "notes": "poly3_raw with raw parameterization"
+  },
+  {
+    "approach": "svr_eta",
+    "approach_number": 5,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "kernel",
+    "parameterization": "eta_chieff",
+    "loss": 0.8489158270224509,
+    "loss_train": 0.7842155885412412,
+    "loss_components": {
+      "log_rmse": 0.8489158270224509
+    },
+    "runtime_ms": 0.016489101730230202,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 365,
+    "notes": "svr_eta with eta_chieff parameterization"
+  },
+  {
+    "approach": "rbf_tps_raw",
+    "approach_number": 13,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "interpolation",
+    "parameterization": "raw",
+    "loss": 0.8555138511088123,
+    "loss_train": 0.09660260736371698,
+    "loss_components": {
+      "log_rmse": 0.8555138511088123
+    },
+    "runtime_ms": 0.06253422064938921,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "rbf_tps_raw with raw parameterization"
+  },
+  {
+    "approach": "poly4_eta",
+    "approach_number": 8,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.8576183252810577,
+    "loss_train": 0.7553702593614579,
+    "loss_components": {
+      "log_rmse": 0.8576183252810577
+    },
+    "runtime_ms": 0.05507347844635864,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 70,
+    "notes": "poly4_eta with eta_chieff parameterization"
+  },
+  {
+    "approach": "pysr_eta",
+    "approach_number": 25,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.8787808615488256,
+    "loss_train": 0.940691575125616,
+    "loss_components": {
+      "log_rmse": 0.8787808615488256
+    },
+    "runtime_ms": 0.002562544728053435,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "expression": "-4.7658687 + 0.016878607/x3",
+    "notes": "PySR symbolic regression on eta_chieff params"
+  },
+  {
+    "approach": "gplearn_raw",
+    "approach_number": 26,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "loss": 0.9021875649051277,
+    "loss_train": 1.004213314412468,
+    "loss_components": {
+      "log_rmse": 0.9021875649051277
+    },
+    "runtime_ms": 0.00010191939259303435,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "expression": "sub(log(0.061), neg(-0.845))",
+    "notes": "gplearn symbolic regression on raw params"
+  },
+  {
+    "approach": "gpr_matern_eta",
+    "approach_number": 2,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "kernel",
+    "parameterization": "eta_chieff",
+    "loss": 0.902611543504835,
+    "loss_train": 0.12588006065832977,
+    "loss_components": {
+      "log_rmse": 0.902611543504835
+    },
+    "runtime_ms": 0.1409357134015809,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "gpr_matern_eta with eta_chieff parameterization"
+  },
+  {
+    "approach": "gpr_rbf_raw",
+    "approach_number": 1,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "kernel",
+    "parameterization": "raw",
+    "loss": 0.9026126757023855,
+    "loss_train": 0.30477631219119394,
+    "loss_components": {
+      "log_rmse": 0.9026126757023855
+    },
+    "runtime_ms": 0.04455940110689508,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "gpr_rbf_raw with raw parameterization"
+  },
+  {
+    "approach": "rbf_cubic_eta",
+    "approach_number": 14,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "interpolation",
+    "parameterization": "eta_chieff",
+    "loss": 0.9286862893317416,
+    "loss_train": 0.1764269357024068,
+    "loss_components": {
+      "log_rmse": 0.9286862893317416
+    },
+    "runtime_ms": 0.0517459316108063,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "rbf_cubic_eta with eta_chieff parameterization"
+  },
+  {
+    "approach": "poly5_logq",
+    "approach_number": 9,
+    "benchmark": "validity",
+    "agent": "opus46",
+    "category": "symbolic",
+    "parameterization": "logq",
+    "loss": 1.0568443591634455,
+    "loss_train": 0.6463675427169355,
+    "loss_components": {
+      "log_rmse": 1.0568443591634455
+    },
+    "runtime_ms": 0.040030661430067685,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 126,
+    "notes": "poly5_logq with logq parameterization"
+  }
+]

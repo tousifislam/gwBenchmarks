@@ -1,0 +1,200 @@
+[
+  {
+    "rank": 1,
+    "name": "phenom_pysr_freq",
+    "category": "symbolic",
+    "parameterization": "eta",
+    "val_loss": 0.27208402287550043,
+    "train_loss": 0.2786617033959605,
+    "runtime_ms": 10.012149810791016
+  },
+  {
+    "rank": 2,
+    "name": "phenom_ampcorr",
+    "category": "physics",
+    "parameterization": "eta",
+    "val_loss": 0.2959225396655168,
+    "train_loss": 0.3075707132269942,
+    "runtime_ms": 8.210897445678711
+  },
+  {
+    "rank": 3,
+    "name": "lorentz_peak",
+    "category": "functional",
+    "parameterization": "eta",
+    "val_loss": 0.45670772092726464,
+    "train_loss": 0.5287160021224024,
+    "runtime_ms": 6.19196891784668
+  },
+  {
+    "rank": 4,
+    "name": "powerlaw_delta",
+    "category": "functional",
+    "parameterization": "delta_m",
+    "val_loss": 0.47628191161618444,
+    "train_loss": 0.54786130942645,
+    "runtime_ms": 5.470037460327148
+  },
+  {
+    "rank": 5,
+    "name": "pysr_amp",
+    "category": "symbolic",
+    "parameterization": "eta",
+    "val_loss": 0.48026161623012015,
+    "train_loss": 0.5635130410574142,
+    "runtime_ms": 7.602930068969727
+  },
+  {
+    "rank": 6,
+    "name": "gauss3_amp",
+    "category": "functional",
+    "parameterization": "eta",
+    "val_loss": 0.5085127700224787,
+    "train_loss": 0.5650392995883989,
+    "runtime_ms": 5.134820938110352
+  },
+  {
+    "rank": 7,
+    "name": "gplearn_amp",
+    "category": "symbolic",
+    "parameterization": "eta",
+    "val_loss": 0.5191870983102499,
+    "train_loss": 0.5779340460700533,
+    "runtime_ms": 5.6629180908203125
+  },
+  {
+    "rank": 8,
+    "name": "pysr_freq",
+    "category": "symbolic",
+    "parameterization": "eta",
+    "val_loss": 0.5223040574667164,
+    "train_loss": 0.5291140122216932,
+    "runtime_ms": 8.975028991699219
+  },
+  {
+    "rank": 9,
+    "name": "imrphenom_style",
+    "category": "physics",
+    "parameterization": "eta",
+    "val_loss": 0.5592013025885041,
+    "train_loss": 0.5662425335234229,
+    "runtime_ms": 7.797002792358398
+  },
+  {
+    "rank": 10,
+    "name": "matched_3region",
+    "category": "matched",
+    "parameterization": "eta",
+    "val_loss": 0.5758493037189604,
+    "train_loss": 0.623179801514753,
+    "runtime_ms": 9.335994720458984
+  },
+  {
+    "rank": 11,
+    "name": "pn0_qnm_ampcorr",
+    "category": "physics",
+    "parameterization": "eta",
+    "val_loss": 0.576189882492884,
+    "train_loss": 0.640161544119812,
+    "runtime_ms": 5.568027496337891
+  },
+  {
+    "rank": 12,
+    "name": "pn_gauss_merger",
+    "category": "physics",
+    "parameterization": "eta",
+    "val_loss": 0.5829366633852417,
+    "train_loss": 0.5920903750681616,
+    "runtime_ms": 6.592988967895508
+  },
+  {
+    "rank": 13,
+    "name": "sigmoid_blend",
+    "category": "matched",
+    "parameterization": "eta",
+    "val_loss": 0.6271586689454264,
+    "train_loss": 0.6371058806285869,
+    "runtime_ms": 7.25102424621582
+  },
+  {
+    "rank": 14,
+    "name": "damp_sinusoid",
+    "category": "functional",
+    "parameterization": "eta",
+    "val_loss": 0.6281916624913927,
+    "train_loss": 0.6667065430557972,
+    "runtime_ms": 6.863832473754883
+  },
+  {
+    "rank": 15,
+    "name": "pn0_qnm",
+    "category": "physics",
+    "parameterization": "eta",
+    "val_loss": 0.6315405703385503,
+    "train_loss": 0.6672509772782325,
+    "runtime_ms": 5.316257476806641
+  },
+  {
+    "rank": 16,
+    "name": "gplearn_freq",
+    "category": "symbolic",
+    "parameterization": "eta",
+    "val_loss": 0.6388026227812007,
+    "train_loss": 0.6397429830502522,
+    "runtime_ms": 7.0018768310546875
+  },
+  {
+    "rank": 17,
+    "name": "pn2_qnm",
+    "category": "physics",
+    "parameterization": "eta",
+    "val_loss": 0.6497125026680128,
+    "train_loss": 0.6615851050131987,
+    "runtime_ms": 8.2550048828125
+  },
+  {
+    "rank": 18,
+    "name": "pn_qnm_composite",
+    "category": "matched",
+    "parameterization": "eta",
+    "val_loss": 0.6500748525728663,
+    "train_loss": 0.6685029746449211,
+    "runtime_ms": 8.026123046875
+  },
+  {
+    "rank": 19,
+    "name": "poly_q_direct",
+    "category": "physics",
+    "parameterization": "log_q",
+    "val_loss": 0.6574953898666585,
+    "train_loss": 0.6868918434705166,
+    "runtime_ms": 7.941246032714844
+  },
+  {
+    "rank": 20,
+    "name": "pn_full_corr",
+    "category": "physics",
+    "parameterization": "eta",
+    "val_loss": 0.6575704598733049,
+    "train_loss": 0.686877704867983,
+    "runtime_ms": 8.020877838134766
+  },
+  {
+    "rank": 21,
+    "name": "sqrteta_model",
+    "category": "physics",
+    "parameterization": "sqrt_eta",
+    "val_loss": 0.657574768532226,
+    "train_loss": 0.6868810195524123,
+    "runtime_ms": 7.964134216308594
+  },
+  {
+    "rank": 22,
+    "name": "pade_amp",
+    "category": "physics",
+    "parameterization": "eta",
+    "val_loss": 0.6938900799919511,
+    "train_loss": 0.7205492982944844,
+    "runtime_ms": 6.700038909912109
+  }
+]

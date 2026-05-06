@@ -1,0 +1,17 @@
+{
+    "approach": "svd_poly2_raw",
+    "approach_number": 3,
+    "benchmark": "dynamics",
+    "agent": "gemini3_flash_preview",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.009825907507388197,
+    "loss_components": {
+        "rms_relative_error_x": 0.009825907507388197
+    },
+    "runtime_ms": 0.0015077590942382812,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 100,
+    "notes": "SVD + Polynomial Regression (degree 2) on raw params."
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Cubic-Spline (raw_a)",
+  "directory": "10_cubic_spline",
+  "loss": 0.002236814341060417,
+  "train_loss": 0.0,
+  "runtime_ms": 0.0008513822997244962,
+  "category": "interp",
+  "category_label": "Interpolation",
+  "parameterization": "raw_a"
+}

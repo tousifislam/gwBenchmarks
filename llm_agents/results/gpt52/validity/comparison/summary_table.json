@@ -1,0 +1,492 @@
+[
+  {
+    "approach": "extratrees",
+    "display_name": "ExtraTrees (raw)",
+    "approach_number": 12,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_4d",
+    "loss": 0.7165766589041672,
+    "loss_components": {
+      "log_rmse": 0.7165766589041672
+    },
+    "runtime_ms": 0.26086917053434155,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.8065266250050627,
+      "reasoned_optimization": {
+        "observed": "train_rmse=8.250e-14, val_rmse=7.294e-01 -> val_rmse=7.166e-01",
+        "hypothesis": "Trees overfitting \u2192 cap max_depth.",
+        "change": "max_depth -> 12"
+      }
+    }
+  },
+  {
+    "approach": "rf",
+    "display_name": "RandomForest (raw)",
+    "approach_number": 11,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_4d",
+    "loss": 0.7209197932761964,
+    "loss_components": {
+      "log_rmse": 0.7209197932761964
+    },
+    "runtime_ms": 0.17529686008824116,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.9216386250336654,
+      "reasoned_optimization": {
+        "observed": "train_rmse=2.860e-01, val_rmse=7.231e-01 -> val_rmse=7.209e-01",
+        "hypothesis": "Trees overfitting \u2192 cap max_depth.",
+        "change": "max_depth -> 12"
+      }
+    }
+  },
+  {
+    "approach": "hgb",
+    "display_name": "HistGB (raw)",
+    "approach_number": 13,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_4d",
+    "loss": 0.7350100166136405,
+    "loss_components": {
+      "log_rmse": 0.7350100166136405
+    },
+    "runtime_ms": 0.05280958522945339,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 1.1706123749609105,
+      "reasoned_optimization": {
+        "observed": "train_rmse=2.427e-01, val_rmse=7.350e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "knn",
+    "display_name": "kNN (eff)",
+    "approach_number": 6,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "interpolation",
+    "parameterization": "effective_4d",
+    "loss": 0.7914707082423641,
+    "loss_components": {
+      "log_rmse": 0.7914707082423641
+    },
+    "runtime_ms": 0.0019863232467844895,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.0005272499984130263,
+      "reasoned_optimization": {
+        "observed": "train_rmse=0.000e+00, val_rmse=7.915e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "pysr",
+    "display_name": "PySR (log features)",
+    "approach_number": 19,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "log_4d",
+    "loss": 0.8005826377735167,
+    "loss_components": {
+      "log_rmse": 0.8005826377735167
+    },
+    "runtime_ms": 7.82442781552862e-05,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "equation": "sin(x1 - cos(x0*cos(sin(x0*(-2.470778))))) + cos(x3/0.41620368)*1.3137017 - 2.0936089"
+    }
+  },
+  {
+    "approach": "hgb",
+    "display_name": "HistGB (boundary-distance)",
+    "approach_number": 18,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "boundary_distance_6d",
+    "loss": 0.8029288686822091,
+    "loss_components": {
+      "log_rmse": 0.8029288686822091
+    },
+    "runtime_ms": 0.047994910860220896,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 1.284160291950684,
+      "reasoned_optimization": {
+        "observed": "train_rmse=2.432e-01, val_rmse=8.029e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "mlp",
+    "display_name": "MLP (log)",
+    "approach_number": 14,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "log_4d",
+    "loss": 0.8056582142365911,
+    "loss_components": {
+      "log_rmse": 0.8056582142365911
+    },
+    "runtime_ms": 0.00043914258792882656,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.11056237504817545,
+      "reasoned_optimization": {
+        "observed": "train_rmse=7.854e-01, val_rmse=8.057e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "Ridge (boundary-distance)",
+    "approach_number": 17,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "boundary_distance_6d",
+    "loss": 0.812343686236247,
+    "loss_components": {
+      "log_rmse": 0.812343686236247
+    },
+    "runtime_ms": 0.00023155214866912396,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.0006036669947206974,
+      "reasoned_optimization": {
+        "observed": "train_rmse=8.958e-01, val_rmse=8.123e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "Ridge (eff)",
+    "approach_number": 7,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "effective_4d",
+    "loss": 0.8146834843319097,
+    "loss_components": {
+      "log_rmse": 0.8146834843319097
+    },
+    "runtime_ms": 0.00022678119402957023,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.000605583016294986,
+      "reasoned_optimization": {
+        "observed": "train_rmse=9.031e-01, val_rmse=8.147e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "elasticnet",
+    "display_name": "ElasticNet (raw)",
+    "approach_number": 10,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "raw_4d",
+    "loss": 0.8149099297052427,
+    "loss_components": {
+      "log_rmse": 0.8149099297052427
+    },
+    "runtime_ms": 0.0002336717665707337,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.000687332998495549,
+      "reasoned_optimization": {
+        "observed": "train_rmse=9.052e-01, val_rmse=8.149e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "lasso",
+    "display_name": "Lasso (raw)",
+    "approach_number": 9,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "raw_4d",
+    "loss": 0.8149176330400413,
+    "loss_components": {
+      "log_rmse": 0.8149176330400413
+    },
+    "runtime_ms": 0.00023547324183712177,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.0006984579958952963,
+      "reasoned_optimization": {
+        "observed": "train_rmse=9.052e-01, val_rmse=8.149e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "poly_ridge",
+    "display_name": "Poly-3 Ridge (raw)",
+    "approach_number": 8,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "raw_4d",
+    "loss": 0.8267682095157036,
+    "loss_components": {
+      "log_rmse": 0.8267682095157036
+    },
+    "runtime_ms": 0.00042430037495137476,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.0008697500452399254,
+      "reasoned_optimization": {
+        "observed": "train_rmse=8.118e-01, val_rmse=8.268e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "gplearn",
+    "display_name": "gplearn (raw)",
+    "approach_number": 20,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "raw_4d",
+    "loss": 0.8521891185286132,
+    "loss_components": {
+      "log_rmse": 0.8521891185286132
+    },
+    "runtime_ms": 0.0003985368940533724,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "expression": "sub(sub(inv(log(inv(log(X3)))), sub(sub(inv(0.251), neg(sub(log(inv(log(X3))), -0.861))), neg(sub(log(inv(log(X3))), -0.965)))), mul(-0.390, X1))"
+    }
+  },
+  {
+    "approach": "svr_rbf",
+    "display_name": "SVR-RBF (raw)",
+    "approach_number": 4,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "raw_4d",
+    "loss": 0.8877300427579985,
+    "loss_components": {
+      "log_rmse": 0.8877300427579985
+    },
+    "runtime_ms": 0.008868427387896081,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.012267292011529207,
+      "reasoned_optimization": {
+        "observed": "train_rmse=7.479e-01, val_rmse=8.877e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "gpr_matern",
+    "display_name": "GPR-Matern-5/2 (eff)",
+    "approach_number": 2,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "effective_4d",
+    "loss": 0.8953205706329018,
+    "loss_components": {
+      "log_rmse": 0.8953205706329018
+    },
+    "runtime_ms": 0.0038173257932540873,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.23459837498376146,
+      "reasoned_optimization": {
+        "observed": "train_rmse=3.303e-02, val_rmse=8.953e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "gpr_rbf",
+    "display_name": "GPR-RBF (raw)",
+    "approach_number": 1,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "raw_4d",
+    "loss": 0.8968937524566347,
+    "loss_components": {
+      "log_rmse": 0.8968937524566347
+    },
+    "runtime_ms": 0.0036916870010054595,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.198626792000141,
+      "reasoned_optimization": {
+        "observed": "train_rmse=3.389e-02, val_rmse=8.969e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "svr_rbf",
+    "display_name": "SVR-RBF (log)",
+    "approach_number": 16,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "log_4d",
+    "loss": 0.906223213160424,
+    "loss_components": {
+      "log_rmse": 0.906223213160424
+    },
+    "runtime_ms": 0.009347539384429919,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.018626415985636413,
+      "reasoned_optimization": {
+        "observed": "train_rmse=7.488e-01, val_rmse=9.062e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "krr_rbf",
+    "display_name": "KRR-RBF (log)",
+    "approach_number": 3,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "log_4d",
+    "loss": 2.284506126291342,
+    "loss_components": {
+      "log_rmse": 2.284506126291342
+    },
+    "runtime_ms": 0.001997030642281734,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.01762195903575048,
+      "reasoned_optimization": {
+        "observed": "train_rmse=1.654e-01, val_rmse=4.262e+00 -> val_rmse=2.285e+00",
+        "hypothesis": "Validation error suggests overfitting \u2192 increase regularization (alpha).",
+        "change": "alpha -> 1.00e-05"
+      }
+    }
+  },
+  {
+    "approach": "krr_rbf",
+    "display_name": "KRR-RBF (interaction)",
+    "approach_number": 15,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "interaction_6d",
+    "loss": 2.83932974978007,
+    "loss_components": {
+      "log_rmse": 2.83932974978007
+    },
+    "runtime_ms": 0.001985368818878824,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.008202207973226905,
+      "reasoned_optimization": {
+        "observed": "train_rmse=1.799e-01, val_rmse=6.356e+00 -> val_rmse=2.839e+00",
+        "hypothesis": "Validation error suggests overfitting \u2192 increase regularization (alpha).",
+        "change": "alpha -> 1.00e-05"
+      }
+    }
+  },
+  {
+    "approach": "rbf_interp",
+    "display_name": "RBFInterp (TPS, raw)",
+    "approach_number": 5,
+    "benchmark": "validity",
+    "agent": "gpt52",
+    "category": "interpolation",
+    "parameterization": "raw_4d",
+    "loss": 19.721234829294644,
+    "loss_components": {
+      "log_rmse": 19.721234829294644
+    },
+    "runtime_ms": 0.25562171257899613,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 4.5803608372807503e-07,
+      "reasoned_optimization": {
+        "observed": "train_rmse=3.783e-06, val_rmse=1.972e+01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  }
+]

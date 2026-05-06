@@ -1,0 +1,102 @@
+[
+    {
+        "approach": "const_amp",
+        "expression": "",
+        "loss": NaN
+    },
+    {
+        "approach": "damped_sin",
+        "expression": "",
+        "loss": 0.413900228599356
+    },
+    {
+        "approach": "exp_a",
+        "expression": "",
+        "loss": 0.4769085550565877
+    },
+    {
+        "approach": "gaussian_a",
+        "expression": "",
+        "loss": 0.5955455825194643
+    },
+    {
+        "approach": "gplearn_t_eta",
+        "expression": "A(t, eta) = mul(X1, 0.307), Phi(t, eta) = sub(add(div(div(sub(mul(mul(sub(X1, div(-0.493, X0)), mul(mul(-0.314, X1), -0.424)), mul(X0, -0.664)), div(div(X0, X1), mul(X1, -0.569))), mul(sub(0.944, X0), mul(sub(0.948, X1), mul(X0, -0.664)))), div(div(-0.410, X1), add(X0, add(-0.165, X0)))), mul(add(sub(div(mul(X1, -0.569), mul(0.006, 0.499)), add(div(X1, div(sub(0.948, X1), sub(0.944, X0))), 0.008)), -0.004), div(X0, X0))), div(X1, div(div(-0.410, X1), add(X0, 0.146))))",
+        "loss": 0.7324967074631539
+    },
+    {
+        "approach": "linear_all",
+        "expression": "",
+        "loss": 0.9013982384987448
+    },
+    {
+        "approach": "log_poly_q",
+        "expression": "",
+        "loss": 0.6855089650042471
+    },
+    {
+        "approach": "omega_poly_q",
+        "expression": "",
+        "loss": 0.7002513112402196
+    },
+    {
+        "approach": "phenom_simple",
+        "expression": "A(t) = a/(1+((t-b)/c)^2), phi(t) = p0+p1*t+p2*t^2",
+        "loss": 0.5960760077393411
+    },
+    {
+        "approach": "pn_like",
+        "expression": "",
+        "loss": 0.45787840129049423
+    },
+    {
+        "approach": "poly10_eta",
+        "expression": "",
+        "loss": 0.6167484691251653
+    },
+    {
+        "approach": "poly12_eta",
+        "expression": "",
+        "loss": 0.6834582167287794
+    },
+    {
+        "approach": "poly15_deltam",
+        "expression": "",
+        "loss": 0.6713777626262964
+    },
+    {
+        "approach": "poly20_q",
+        "expression": "",
+        "loss": 0.626388244222848
+    },
+    {
+        "approach": "poly3_deltam",
+        "expression": "",
+        "loss": 0.6313770677137287
+    },
+    {
+        "approach": "poly5_q",
+        "expression": "",
+        "loss": 0.5926951632242156
+    },
+    {
+        "approach": "poly5_sqrteta",
+        "expression": "",
+        "loss": 0.5926951632242156
+    },
+    {
+        "approach": "poly7_sqrteta",
+        "expression": "",
+        "loss": 0.6197269603981344
+    },
+    {
+        "approach": "pure_sin",
+        "expression": "",
+        "loss": 0.8797230758754522
+    },
+    {
+        "approach": "tanh_merger",
+        "expression": "",
+        "loss": 0.9436275827997059
+    }
+]

@@ -1,0 +1,18 @@
+{
+  "approach": "mlp_multitask_eta_chieff",
+  "approach_number": 15,
+  "benchmark": "remnant",
+  "agent": "gpt54_mini",
+  "category": "ml",
+  "parameterization": "eta_chieff",
+  "loss": 0.08867782750310059,
+  "loss_components": {
+    "nrmse_v_k": 0.08867782750310059
+  },
+  "runtime_ms": 0.001279666495975107,
+  "n_train": 1000,
+  "n_val": 1000,
+  "n_params": 9475,
+  "train_time_s": 1.1857919692993164,
+  "notes": "Multi-task MLP jointly predicts Mf, chif, vf; here we report vf NRMSE."
+}

@@ -1,0 +1,26 @@
+{
+  "approach": "spline",
+  "display_name": "CubicSpline (sqrt(1-a^2))",
+  "approach_number": 8,
+  "benchmark": "ringdown",
+  "agent": "gpt52",
+  "parameterization": "sqrt_irreducible",
+  "mode": "l2/m+2/n0",
+  "loss": 3.9327163560389704e-07,
+  "loss_components": {
+    "rel_error_omega_real": 7.27405049158955e-07,
+    "rel_error_omega_imag": 5.913822204883896e-08
+  },
+  "runtime_ms": 4.370628001971658e-05,
+  "n_train": 531,
+  "n_val": 531,
+  "n_params": 0,
+  "notes": {
+    "fit_time_s": 0.23799162497743964,
+    "reasoned_optimization": {
+      "observed": "val_loss=3.933e-07",
+      "hypothesis": "",
+      "change": ""
+    }
+  }
+}

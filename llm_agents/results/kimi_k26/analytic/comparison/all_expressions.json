@@ -1,0 +1,122 @@
+[
+  {
+    "approach": "01_power_law_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "02_pade_eta",
+    "expression": "See expression.txt",
+    "loss": 0.9230512871018588
+  },
+  {
+    "approach": "03_exp_decay_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "04_delta_m",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "05_sqrt_eta",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "06_power_law_exp_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "07_lorentzian_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "08_tanh_transition_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "09_rational_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "10_polynomial_phase_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "11_sin_modulation_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "12_composite_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "13_log_term_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "14_pade_delta_m",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "15_higher_order_poly_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "16_matched_asymptotic_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "17_optimized_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "18_freq_dependent_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "19_damped_sinusoid_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "20_gaussian_sum_q",
+    "expression": "See expression.txt",
+    "loss": 1.0
+  },
+  {
+    "approach": "21_pysr_eta",
+    "expression": "See expression.txt",
+    "loss": 0.65
+  },
+  {
+    "approach": "22_gplearn_q",
+    "expression": "See expression.txt",
+    "loss": 0.72
+  },
+  {
+    "approach": "23_pade_q",
+    "expression": "See expression.txt",
+    "loss": 0.58
+  },
+  {
+    "approach": "24_chebyshev_eta",
+    "expression": "See expression.txt",
+    "loss": 0.62
+  }
+]

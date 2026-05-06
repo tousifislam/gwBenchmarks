@@ -1,0 +1,494 @@
+[
+  {
+    "approach": "extratrees",
+    "display_name": "ExtraTrees (raw)",
+    "approach_number": 9,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_7d",
+    "loss": 0.09140929368888882,
+    "loss_components": {
+      "nrmse_v_k": 0.09140929368888882
+    },
+    "runtime_ms": 0.059555042011197656,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=1.790e-08, val_nrmse=9.141e-02",
+        "hypothesis": "Trees overfitting \u2192 cap max_depth.",
+        "change": "max_depth -> 12"
+      }
+    }
+  },
+  {
+    "approach": "pysr",
+    "display_name": "PySR (eff)",
+    "approach_number": 19,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "effective_spins_7d",
+    "loss": 0.09260804951190948,
+    "loss_components": {
+      "nrmse_v_k": 0.09260804951190948
+    },
+    "runtime_ms": 4.545802948996425e-05,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "equation": "0.0063041486*x0*x3*(x0 + x5)**x1*((39.13169*sqrt(x2))**x0 + (x3 + x5)**x1)",
+      "error_floor_delta_vk_median": NaN
+    }
+  },
+  {
+    "approach": "rf",
+    "display_name": "RandomForest (raw)",
+    "approach_number": 8,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_7d",
+    "loss": 0.09281402815858322,
+    "loss_components": {
+      "nrmse_v_k": 0.09281402815858322
+    },
+    "runtime_ms": 0.05919724999694154,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=3.727e-02, val_nrmse=9.281e-02",
+        "hypothesis": "Trees overfitting \u2192 cap max_depth.",
+        "change": "max_depth -> 12"
+      }
+    }
+  },
+  {
+    "approach": "knn",
+    "display_name": "kNN (eff)",
+    "approach_number": 6,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "interpolation",
+    "parameterization": "effective_spins_7d",
+    "loss": 0.09512613070221329,
+    "loss_components": {
+      "nrmse_v_k": 0.09512613070221329
+    },
+    "runtime_ms": 0.004145750019233674,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=0.000e+00, val_nrmse=9.513e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "hgb",
+    "display_name": "HistGB (eff)",
+    "approach_number": 18,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "effective_spins_7d",
+    "loss": 0.09815300189433786,
+    "loss_components": {
+      "nrmse_v_k": 0.09815300189433786
+    },
+    "runtime_ms": 0.01524762500775978,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=4.392e-02, val_nrmse=9.815e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "poly_ridge",
+    "display_name": "Poly-3 Ridge (raw)",
+    "approach_number": 12,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "raw_7d",
+    "loss": 0.09875859995117936,
+    "loss_components": {
+      "nrmse_v_k": 0.09875859995117936
+    },
+    "runtime_ms": 0.0005261659971438348,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=8.377e-02, val_nrmse=9.876e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "krr_rbf",
+    "display_name": "KRR (RBF, raw, alpha=1e-2)",
+    "approach_number": 15,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "raw_7d",
+    "loss": 0.10016781859276752,
+    "loss_components": {
+      "nrmse_v_k": 0.10016781859276752
+    },
+    "runtime_ms": 0.005201500025577843,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=2.778e-02, val_nrmse=1.136e-01",
+        "hypothesis": "Validation error suggests overfitting \u2192 increase regularization (alpha).",
+        "change": "alpha -> 1.00e-01"
+      }
+    }
+  },
+  {
+    "approach": "poly_ridge",
+    "display_name": "Poly-5 Ridge (pn)",
+    "approach_number": 13,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "pn_products_5d",
+    "loss": 0.10230545937435025,
+    "loss_components": {
+      "nrmse_v_k": 0.10230545937435025
+    },
+    "runtime_ms": 0.0008387920097447932,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=1.015e-01, val_nrmse=1.023e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "krr_rbf",
+    "display_name": "KRR (RBF, pn)",
+    "approach_number": 3,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "pn_products_5d",
+    "loss": 0.10309601051283028,
+    "loss_components": {
+      "nrmse_v_k": 0.10309601051283028
+    },
+    "runtime_ms": 0.00458624999737367,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=9.856e-02, val_nrmse=1.031e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "hgb",
+    "display_name": "HistGB (pn)",
+    "approach_number": 10,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "pn_products_5d",
+    "loss": 0.10430170487742853,
+    "loss_components": {
+      "nrmse_v_k": 0.10430170487742853
+    },
+    "runtime_ms": 0.010872790997382253,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=4.780e-02, val_nrmse=1.043e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "Ridge (massdiff+chia)",
+    "approach_number": 11,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "massdiff_chia_5d",
+    "loss": 0.10783939686406037,
+    "loss_components": {
+      "nrmse_v_k": 0.10783939686406037
+    },
+    "runtime_ms": 0.00010254204971715808,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=1.178e-01, val_nrmse=1.078e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "Ridge (spherical)",
+    "approach_number": 14,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "spherical_spins_7d",
+    "loss": 0.10901795617740209,
+    "loss_components": {
+      "nrmse_v_k": 0.10901795617740209
+    },
+    "runtime_ms": 0.00010745902545750141,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=1.193e-01, val_nrmse=1.090e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "svr_rbf",
+    "display_name": "SVR (RBF, pn)",
+    "approach_number": 16,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "pn_products_5d",
+    "loss": 0.10972204763427311,
+    "loss_components": {
+      "nrmse_v_k": 0.10972204763427311
+    },
+    "runtime_ms": 0.02551508299075067,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=1.008e-01, val_nrmse=1.097e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "gpr_matern",
+    "display_name": "GPR (Matern-5/2, eff)",
+    "approach_number": 2,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "effective_spins_7d",
+    "loss": 0.1154701255510968,
+    "loss_components": {
+      "nrmse_v_k": 0.1154701255510968
+    },
+    "runtime_ms": 0.016683207999449223,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=3.299e-06, val_nrmse=1.155e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "gpr_rbf",
+    "display_name": "GPR (RBF, raw)",
+    "approach_number": 1,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "raw_7d",
+    "loss": 0.11625188837832359,
+    "loss_components": {
+      "nrmse_v_k": 0.11625188837832359
+    },
+    "runtime_ms": 0.012145375018008053,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=6.022e-04, val_nrmse=1.163e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "svr_rbf",
+    "display_name": "SVR (RBF, raw)",
+    "approach_number": 4,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "kernel/gp",
+    "parameterization": "raw_7d",
+    "loss": 0.12348104376122082,
+    "loss_components": {
+      "nrmse_v_k": 0.12348104376122082
+    },
+    "runtime_ms": 0.018370292033068836,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=2.216e-02, val_nrmse=1.235e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "rbf_interp",
+    "display_name": "RBFInterpolator (eff)",
+    "approach_number": 5,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "interpolation",
+    "parameterization": "effective_spins_7d",
+    "loss": 0.1255128643102858,
+    "loss_components": {
+      "nrmse_v_k": 0.1255128643102858
+    },
+    "runtime_ms": 0.25297937501454726,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=6.545e-06, val_nrmse=1.255e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "mlp",
+    "display_name": "MLP (eff)",
+    "approach_number": 7,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "effective_spins_7d",
+    "loss": 0.6789421447040576,
+    "loss_components": {
+      "nrmse_v_k": 0.6789421447040576
+    },
+    "runtime_ms": 0.0004687500186264515,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=2.969e-01, val_nrmse=6.789e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "gplearn",
+    "display_name": "gplearn (raw)",
+    "approach_number": 20,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "raw_7d",
+    "loss": 0.8047819137573242,
+    "loss_components": {
+      "nrmse_v_k": 0.8047819137573242
+    },
+    "runtime_ms": 8.150003850460052e-05,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "expression": "-0.009",
+      "error_floor_delta_vk_median": NaN
+    }
+  },
+  {
+    "approach": "mlp",
+    "display_name": "MLP (raw)",
+    "approach_number": 17,
+    "benchmark": "remnant",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_7d",
+    "loss": 0.9063346833108862,
+    "loss_components": {
+      "nrmse_v_k": 0.9063346833108862
+    },
+    "runtime_ms": 0.0008548329933546484,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": {
+      "error_floor_delta_vk_median": NaN,
+      "reasoned_optimization": {
+        "observed": "train_nrmse=4.055e-01, val_nrmse=9.063e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  }
+]

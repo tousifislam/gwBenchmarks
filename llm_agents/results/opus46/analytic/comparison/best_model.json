@@ -1,0 +1,22 @@
+{
+  "approach": "pn_qnm_blend_eta",
+  "approach_number": 13,
+  "benchmark": "analytic",
+  "agent": "opus46",
+  "category": "matched",
+  "parameterization": "eta",
+  "loss": 0.1675373753024337,
+  "loss_train": 0.21579931336916483,
+  "loss_components": {
+    "mismatch_40Msun": 0.1675373753024337,
+    "mismatch_80Msun": 0.1675373753024337,
+    "mismatch_120Msun": 0.1675373753024337,
+    "mismatch_160Msun": 0.1675373753024337,
+    "mismatch_200Msun": 0.1675373753024337
+  },
+  "runtime_ms": 52.58056594104302,
+  "n_train": 20,
+  "n_val": 21,
+  "n_params": 35,
+  "notes": "power_exp amp + pn_tanh freq, eta param, deg 4"
+}

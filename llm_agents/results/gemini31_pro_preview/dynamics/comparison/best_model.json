@@ -1,0 +1,18 @@
+{
+    "approach": "3_svd_poly_trig",
+    "approach_number": 3,
+    "benchmark": "dynamics",
+    "agent": "gemini31_pro_preview",
+    "parameterization": "trig_anomaly",
+    "time_convention": "tau_in_[0,1]",
+    "category": "SVD",
+    "loss": 0.009593230549154588,
+    "loss_components": {
+        "rms_relative_error_x": 0.009593230549154588
+    },
+    "runtime_ms": 0.0021638870239257812,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": "Generated automatically"
+}

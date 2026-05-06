@@ -1,0 +1,16 @@
+{
+    "approach": "rf_raw",
+    "approach_number": 5,
+    "benchmark": "remnant",
+    "agent": "gemini3_flash_preview",
+    "parameterization": "raw",
+    "loss": 0.09308118549526011,
+    "loss_components": {
+        "nrmse_v_k": 0.09308118549526011
+    },
+    "runtime_ms": 0.00908803939819336,
+    "n_train": 10000,
+    "n_val": 2000,
+    "n_params": 100,
+    "notes": "Random Forest on raw params."
+}

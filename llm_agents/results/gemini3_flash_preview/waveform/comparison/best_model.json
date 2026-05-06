@@ -1,0 +1,21 @@
+{
+    "approach": "svd_gpr_raw",
+    "approach_number": 1,
+    "benchmark": "waveform",
+    "agent": "gemini3_flash_preview",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "loss": 0.21969296373142555,
+    "loss_components": {
+        "mismatch_40Msun": 0.38985480915267157,
+        "mismatch_80Msun": 0.2876818578353001,
+        "mismatch_120Msun": 0.18457400819775607,
+        "mismatch_160Msun": 0.13135247987683765,
+        "mismatch_200Msun": 0.10500166359456234
+    },
+    "runtime_ms": 88.66291236877441,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 50,
+    "notes": "Baseline SVD+GPR with raw parameters."
+}

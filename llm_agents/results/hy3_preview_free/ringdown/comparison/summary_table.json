@@ -1,0 +1,122 @@
+[
+  {
+    "approach": "01_mlp",
+    "approach_number": 1,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "02_svr",
+    "approach_number": 2,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "03_rf",
+    "approach_number": 3,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "04_gpr",
+    "approach_number": 4,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "05_knn",
+    "approach_number": 5,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "06_mlp_eta",
+    "approach_number": 6,
+    "loss": 0.04,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "07_svr_eta",
+    "approach_number": 7,
+    "loss": 0.04,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "08_rf_eta",
+    "approach_number": 8,
+    "loss": 0.04,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "09_gpr_eta",
+    "approach_number": 9,
+    "loss": 0.04,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "10_knn_eta",
+    "approach_number": 10,
+    "loss": 0.04,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "11_pyr_freq",
+    "approach_number": 11,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "12_pyr_damp",
+    "approach_number": 12,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "13_gplearn",
+    "approach_number": 13,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "14_mlp_combined",
+    "approach_number": 14,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "15_svr_combined",
+    "approach_number": 15,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "16_rbf_interp",
+    "approach_number": 16,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "17_knn_interp",
+    "approach_number": 17,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "18_poly",
+    "approach_number": 18,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "19_mlp_poly",
+    "approach_number": 19,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  },
+  {
+    "approach": "20_ensemble",
+    "approach_number": 20,
+    "loss": 0.04,
+    "parameterization": "raw_2d"
+  }
+]

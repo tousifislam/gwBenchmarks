@@ -40,6 +40,7 @@ results/
 | GPT-5.4 Mini | gpt-5.4-mini | `gpt54_mini/` | — |
 | GPT-5.3 Codex High | gpt-5.3-codex, reasoning high | `gpt53_codex_high/` | — |
 | GPT-5.2 | gpt-5.2 | `gpt52/` | — |
+| Hy3 Preview Free | opencode/hy3-preview-free | `hy3_preview_free/` | — |
 
 ## Per-approach outputs
 

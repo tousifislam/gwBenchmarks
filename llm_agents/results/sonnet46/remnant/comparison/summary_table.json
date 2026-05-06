@@ -1,0 +1,218 @@
+[
+  {
+    "rank": 1,
+    "name": "et_md",
+    "category": "ml",
+    "parameterization": "md",
+    "val_loss": 0.05378456498809155,
+    "train_loss": 0.020586420270425166,
+    "runtime_ms": 0.026454925537109375
+  },
+  {
+    "rank": 2,
+    "name": "rbf_interp_eff",
+    "category": "interpolation",
+    "parameterization": "eff",
+    "val_loss": 0.05524113766311137,
+    "train_loss": 0.028287067249516802,
+    "runtime_ms": 0.013763904571533203
+  },
+  {
+    "rank": 3,
+    "name": "gbr_eff",
+    "category": "ml",
+    "parameterization": "eff",
+    "val_loss": 0.05579824467928389,
+    "train_loss": 0.029588910066350792,
+    "runtime_ms": 0.002177000045776367
+  },
+  {
+    "rank": 4,
+    "name": "gpr_matern_eff",
+    "category": "kernel_gp",
+    "parameterization": "eff",
+    "val_loss": 0.05625367736817942,
+    "train_loss": 0.04361204385478629,
+    "runtime_ms": 0.03387093544006348
+  },
+  {
+    "rank": 5,
+    "name": "rf_raw",
+    "category": "ml",
+    "parameterization": "raw",
+    "val_loss": 0.0575190410621726,
+    "train_loss": 0.02627762570119953,
+    "runtime_ms": 0.02758312225341797
+  },
+  {
+    "rank": 6,
+    "name": "poly3_eff",
+    "category": "symbolic",
+    "parameterization": "eff",
+    "val_loss": 0.05784550466105249,
+    "train_loss": 0.05447935967541045,
+    "runtime_ms": 0.020318984985351562
+  },
+  {
+    "rank": 7,
+    "name": "knn5_raw",
+    "category": "interpolation",
+    "parameterization": "raw",
+    "val_loss": 0.058204946725427635,
+    "train_loss": 0.0,
+    "runtime_ms": 0.005088090896606445
+  },
+  {
+    "rank": 8,
+    "name": "poly4_md",
+    "category": "symbolic",
+    "parameterization": "md",
+    "val_loss": 0.05854933522187032,
+    "train_loss": 0.04939526966233278,
+    "runtime_ms": 0.017331838607788086
+  },
+  {
+    "rank": 9,
+    "name": "krr_poly_md",
+    "category": "kernel_gp",
+    "parameterization": "md",
+    "val_loss": 0.05866943845339154,
+    "train_loss": 0.0528044019325385,
+    "runtime_ms": 0.10733413696289062
+  },
+  {
+    "rank": 10,
+    "name": "rbf_interp_raw",
+    "category": "interpolation",
+    "parameterization": "raw",
+    "val_loss": 0.06082351573598433,
+    "train_loss": 0.021251884924269136,
+    "runtime_ms": 0.039916038513183594
+  },
+  {
+    "rank": 11,
+    "name": "knn10_sph",
+    "category": "interpolation",
+    "parameterization": "sph",
+    "val_loss": 0.06568921468819468,
+    "train_loss": 0.0,
+    "runtime_ms": 0.006237030029296875
+  },
+  {
+    "rank": 12,
+    "name": "poly2_raw",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "val_loss": 0.07195009967204803,
+    "train_loss": 0.07076468247512059,
+    "runtime_ms": 0.0004260540008544922
+  },
+  {
+    "rank": 13,
+    "name": "gpr_rbf_raw",
+    "category": "kernel_gp",
+    "parameterization": "raw",
+    "val_loss": 0.07227381403813012,
+    "train_loss": 0.00038151051234397914,
+    "runtime_ms": 0.03735184669494629
+  },
+  {
+    "rank": 14,
+    "name": "gpr_rbf_sph",
+    "category": "kernel_gp",
+    "parameterization": "sph",
+    "val_loss": 0.07714202445063086,
+    "train_loss": 0.0003936786088530611,
+    "runtime_ms": 0.03346109390258789
+  },
+  {
+    "rank": 15,
+    "name": "gpr_matern_md",
+    "category": "kernel_gp",
+    "parameterization": "md",
+    "val_loss": 0.07754980484519666,
+    "train_loss": 5.881993376961043e-05,
+    "runtime_ms": 0.0356290340423584
+  },
+  {
+    "rank": 16,
+    "name": "krr_eff",
+    "category": "kernel_gp",
+    "parameterization": "eff",
+    "val_loss": 0.09040539348187789,
+    "train_loss": 0.018291654423865676,
+    "runtime_ms": 0.07840299606323242
+  },
+  {
+    "rank": 17,
+    "name": "svr_eff",
+    "category": "kernel_gp",
+    "parameterization": "eff",
+    "val_loss": 0.0909361178869309,
+    "train_loss": 0.035606869717896374,
+    "runtime_ms": 0.02260303497314453
+  },
+  {
+    "rank": 18,
+    "name": "pysr_raw",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "val_loss": 0.11668162498832868,
+    "train_loss": 0.12046777072482043,
+    "runtime_ms": 0.001953125
+  },
+  {
+    "rank": 19,
+    "name": "pysr_eff",
+    "category": "symbolic",
+    "parameterization": "eff",
+    "val_loss": 0.12233624784915463,
+    "train_loss": 0.12788534997947568,
+    "runtime_ms": 0.0014770030975341797
+  },
+  {
+    "rank": 20,
+    "name": "mlp_large_eff",
+    "category": "ml",
+    "parameterization": "eff",
+    "val_loss": 0.2702894945641177,
+    "train_loss": 0.24904747411436548,
+    "runtime_ms": 0.02838134765625
+  },
+  {
+    "rank": 21,
+    "name": "gplearn_eff",
+    "category": "symbolic",
+    "parameterization": "eff",
+    "val_loss": 0.3087129675651761,
+    "train_loss": 0.313714038069514,
+    "runtime_ms": 0.00010395050048828125
+  },
+  {
+    "rank": 22,
+    "name": "mlp_md",
+    "category": "ml",
+    "parameterization": "md",
+    "val_loss": 0.5165281254253252,
+    "train_loss": 0.1938798874659106,
+    "runtime_ms": 0.0007078647613525391
+  },
+  {
+    "rank": 23,
+    "name": "mlp_raw",
+    "category": "ml",
+    "parameterization": "raw",
+    "val_loss": 0.5405819718889793,
+    "train_loss": 0.10869934745841499,
+    "runtime_ms": 0.00261688232421875
+  },
+  {
+    "rank": 24,
+    "name": "gplearn_raw",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "val_loss": 1.3262863431656369,
+    "train_loss": 1.3310124932181981,
+    "runtime_ms": 0.00014495849609375
+  }
+]

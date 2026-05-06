@@ -1,0 +1,436 @@
+[
+  {
+    "approach": "rf_raw4",
+    "approach_number": 3,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "raw4",
+    "loss": 0.722035846076073,
+    "loss_components": {
+      "log_rmse": 0.722035846076073
+    },
+    "runtime_ms": 0.06722879639599216,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 9600,
+    "train_time_s": 0.15137386322021484,
+    "notes": "Random Forest 300 trees, raw features."
+  },
+  {
+    "approach": "extra_trees_log_q",
+    "approach_number": 12,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "log_q",
+    "loss": 0.7384885299221575,
+    "loss_components": {
+      "log_rmse": 0.7384885299221575
+    },
+    "runtime_ms": 0.06398839057593798,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 9600,
+    "train_time_s": 0.2503979206085205,
+    "notes": "ExtraTrees with log(q) reparam."
+  },
+  {
+    "approach": "stacked_gbm_gpr_eta_chieff",
+    "approach_number": 18,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.7630655971941716,
+    "loss_components": {
+      "log_rmse": 0.7630655971941716
+    },
+    "runtime_ms": 0.06752533969379317,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 6793,
+    "train_time_s": 0.2739131450653076,
+    "notes": "Stacked GBM + GPR-on-residuals."
+  },
+  {
+    "approach": "rf_interaction_tuned",
+    "approach_number": 24,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "interaction",
+    "loss": 0.7666272539826725,
+    "loss_components": {
+      "log_rmse": 0.7666272539826725
+    },
+    "runtime_ms": 0.10088194397446384,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 16000,
+    "train_time_s": 0.370434045791626,
+    "notes": "Tuned RF with interaction features (deeper, sqrt features)."
+  },
+  {
+    "approach": "gbm_eta_chieff",
+    "approach_number": 4,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.7781964443064608,
+    "loss_components": {
+      "log_rmse": 0.7781964443064608
+    },
+    "runtime_ms": 0.002425837149232171,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 9600,
+    "train_time_s": 0.10061383247375488,
+    "notes": "GBM (sklearn fallback)."
+  },
+  {
+    "approach": "gbm_boundary_features",
+    "approach_number": 17,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "boundary",
+    "loss": 0.7868871023626557,
+    "loss_components": {
+      "log_rmse": 0.7868871023626557
+    },
+    "runtime_ms": 0.0033202391821635134,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 9600,
+    "train_time_s": 0.30642104148864746,
+    "notes": "GBM with NRHybSur3dq8 boundary distance features (q-8, |chi|-0.8 clipped)."
+  },
+  {
+    "approach": "hgbr_interaction",
+    "approach_number": 10,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "interaction",
+    "loss": 0.7948189690045692,
+    "loss_components": {
+      "log_rmse": 0.7948189690045692
+    },
+    "runtime_ms": 0.028844889307882798,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 9600,
+    "train_time_s": 0.7312710285186768,
+    "notes": "HistGradientBoosting with interaction features."
+  },
+  {
+    "approach": "mlp_deep_ensemble_boundary",
+    "approach_number": 11,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "boundary",
+    "loss": 0.8016738322026301,
+    "loss_components": {
+      "log_rmse": 0.8016738322026301
+    },
+    "runtime_ms": 0.012182941409681021,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 127040,
+    "train_time_s": 7.109062194824219,
+    "notes": "Deep ensemble of 5 MLPs with boundary-distance features."
+  },
+  {
+    "approach": "poly2_raw4",
+    "approach_number": 23,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "symbolic",
+    "parameterization": "raw4",
+    "loss": 0.8138508421087931,
+    "loss_components": {
+      "log_rmse": 0.8138508421087931
+    },
+    "runtime_ms": 0.0002569974869319046,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 15,
+    "train_time_s": 0.0006399154663085938,
+    "notes": "Polynomial deg-2 ridge baseline (raw features)."
+  },
+  {
+    "approach": "poly3_eta_chieff",
+    "approach_number": 7,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.8218943483926039,
+    "loss_components": {
+      "log_rmse": 0.8218943483926039
+    },
+    "runtime_ms": 0.00224655340650799,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 35,
+    "train_time_s": 0.11011099815368652,
+    "notes": "Polynomial deg-3 ridge."
+  },
+  {
+    "approach": "mlp_eta_chieff",
+    "approach_number": 5,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.8272613180526006,
+    "loss_components": {
+      "log_rmse": 0.8272613180526006
+    },
+    "runtime_ms": 0.011501324442440392,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 4545,
+    "train_time_s": 0.05230903625488281,
+    "notes": "MLP 64-64."
+  },
+  {
+    "approach": "lasso_poly3_interaction",
+    "approach_number": 16,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "symbolic",
+    "parameterization": "interaction",
+    "loss": 0.8475642756179754,
+    "loss_components": {
+      "log_rmse": 0.8475642756179754
+    },
+    "runtime_ms": 0.06610299995270943,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 83,
+    "train_time_s": 0.2620511054992676,
+    "notes": "Lasso poly-3 with interaction features."
+  },
+  {
+    "approach": "bayes_ridge_poly2_eta",
+    "approach_number": 20,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.8731604911352852,
+    "loss_components": {
+      "log_rmse": 0.8731604911352852
+    },
+    "runtime_ms": 0.00025100765202393515,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 14,
+    "train_time_s": 0.0008778572082519531,
+    "notes": "Bayesian Ridge poly-2."
+  },
+  {
+    "approach": "mlp_deep_interaction",
+    "approach_number": 21,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "interaction",
+    "loss": 0.8733566162797239,
+    "loss_components": {
+      "log_rmse": 0.8733566162797239
+    },
+    "runtime_ms": 0.0016385178098279709,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 45057,
+    "train_time_s": 2.8317952156066895,
+    "notes": "Deep MLP with interaction features."
+  },
+  {
+    "approach": "pysr_eta_chieff",
+    "approach_number": 8,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.8787807443085358,
+    "loss_components": {
+      "log_rmse": 0.8787807443085358
+    },
+    "runtime_ms": 0.002327184420927373,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 20,
+    "train_time_s": 12.460667848587036,
+    "notes": "PySR symbolic regression on log10(mm).",
+    "pysr_expressions_file": "/Users/tousifislam/Research/projects/nr_projects/gwBenchmarks/llm_agents/results/gpt54_mini/validity/models/08_pysr_eta_chieff/saved_model/expressions.json"
+  },
+  {
+    "approach": "pysr_log_q",
+    "approach_number": 19,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "symbolic",
+    "parameterization": "log_q",
+    "loss": 0.8793804989449688,
+    "loss_components": {
+      "log_rmse": 0.8793804989449688
+    },
+    "runtime_ms": 0.002197624683621844,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 18,
+    "train_time_s": 1.7670891284942627,
+    "notes": "PySR (log_q reparameterization, second symbolic run)."
+  },
+  {
+    "approach": "svr_rbf_eta_chieff",
+    "approach_number": 15,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "kernel_gp",
+    "parameterization": "eta_chieff",
+    "loss": 0.8948008802783551,
+    "loss_components": {
+      "log_rmse": 0.8948008802783551
+    },
+    "runtime_ms": 0.023788963142384326,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 393,
+    "train_time_s": 0.002724885940551758,
+    "notes": "SVR RBF."
+  },
+  {
+    "approach": "gpr_matern_eta_chieff",
+    "approach_number": 2,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "kernel_gp",
+    "parameterization": "eta_chieff",
+    "loss": 0.8981300275268637,
+    "loss_components": {
+      "log_rmse": 0.8981300275268637
+    },
+    "runtime_ms": 0.05250598984396052,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 10,
+    "train_time_s": 0.42484307289123535,
+    "notes": "GPR Matern-5/2 with eta+chi_eff reparam."
+  },
+  {
+    "approach": "gpr_rbf_raw4",
+    "approach_number": 1,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "kernel_gp",
+    "parameterization": "raw4",
+    "loss": 0.8981553615523522,
+    "loss_components": {
+      "log_rmse": 0.8981553615523522
+    },
+    "runtime_ms": 0.05032098222625828,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 10,
+    "train_time_s": 0.1360938549041748,
+    "notes": "GPR RBF baseline."
+  },
+  {
+    "approach": "gpr_compound_boundary",
+    "approach_number": 22,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "kernel_gp",
+    "parameterization": "boundary",
+    "loss": 0.9009834040151308,
+    "loss_components": {
+      "log_rmse": 0.9009834040151308
+    },
+    "runtime_ms": 0.0409255725208376,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 10,
+    "train_time_s": 0.40016674995422363,
+    "notes": "GPR with compound RBF*Matern kernel + boundary features."
+  },
+  {
+    "approach": "gplearn_eta_chieff",
+    "approach_number": 9,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.9028652976202249,
+    "loss_components": {
+      "log_rmse": 0.9028652976202249
+    },
+    "runtime_ms": 9.860051914329141e-05,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 20,
+    "train_time_s": 11.893041133880615,
+    "notes": "gplearn SymbolicRegressor.",
+    "gplearn_expressions_file": "/Users/tousifislam/Research/projects/nr_projects/gwBenchmarks/llm_agents/results/gpt54_mini/validity/models/09_gplearn_eta_chieff/saved_model/expressions.json"
+  },
+  {
+    "approach": "krr_rbf_raw4",
+    "approach_number": 6,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "kernel_gp",
+    "parameterization": "raw4",
+    "loss": 0.9040467090344908,
+    "loss_components": {
+      "log_rmse": 0.9040467090344908
+    },
+    "runtime_ms": 0.19026086644954393,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 393,
+    "train_time_s": 0.2701287269592285,
+    "notes": "Kernel Ridge RBF."
+  },
+  {
+    "approach": "knn_eta_chieff",
+    "approach_number": 14,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "interpolation",
+    "parameterization": "eta_chieff",
+    "loss": 0.9278082402280051,
+    "loss_components": {
+      "log_rmse": 0.9278082402280051
+    },
+    "runtime_ms": 0.0012518027732172465,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 393,
+    "train_time_s": 0.00033211708068847656,
+    "notes": "KNN k=5 distance-weighted."
+  },
+  {
+    "approach": "rbf_interp_raw4",
+    "approach_number": 13,
+    "benchmark": "validity",
+    "agent": "gpt54_mini",
+    "category": "interpolation",
+    "parameterization": "raw4",
+    "loss": 0.9280810120104517,
+    "loss_components": {
+      "log_rmse": 0.9280810120104517
+    },
+    "runtime_ms": 0.20970419847878033,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 393,
+    "train_time_s": 0.02280402183532715,
+    "notes": "Thin-plate-spline RBF interpolation."
+  }
+]

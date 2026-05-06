@@ -1,0 +1,194 @@
+[
+    {
+        "model_name": "GPR_RBF_Raw",
+        "approach_number": 1,
+        "loss": 0.15642021031530978,
+        "runtime_ms": 742.988109588623,
+        "parameterization": "raw_7d",
+        "approach_category": "gpr_rbf"
+    },
+    {
+        "model_name": "GPR_Matern_EtaChiEff",
+        "approach_number": 2,
+        "loss": 0.29069040024940224,
+        "runtime_ms": 824.0010738372803,
+        "parameterization": "eta_chieff",
+        "approach_category": "gpr_matern"
+    },
+    {
+        "model_name": "KRR_Raw",
+        "approach_number": 3,
+        "loss": 0.09379732830345049,
+        "runtime_ms": 107.35893249511719,
+        "parameterization": "raw_7d",
+        "approach_category": "krr"
+    },
+    {
+        "model_name": "SVR_Raw",
+        "approach_number": 4,
+        "loss": 0.39254422162951796,
+        "runtime_ms": 101.70912742614746,
+        "parameterization": "raw_7d",
+        "approach_category": "svr"
+    },
+    {
+        "model_name": "MLP_Raw",
+        "approach_number": 5,
+        "loss": 3.024256445684931,
+        "runtime_ms": 78.31764221191406,
+        "parameterization": "raw_7d",
+        "approach_category": "mlp"
+    },
+    {
+        "model_name": "MTMLP_Raw",
+        "approach_number": 6,
+        "loss": 0.11092234589772111,
+        "runtime_ms": 77.81600952148438,
+        "parameterization": "raw_7d",
+        "approach_category": "mtmlp"
+    },
+    {
+        "model_name": "RandomForest_Raw",
+        "approach_number": 7,
+        "loss": 0.09310649649427859,
+        "runtime_ms": 227.9500961303711,
+        "parameterization": "raw_7d",
+        "approach_category": "random_forest"
+    },
+    {
+        "model_name": "XGBoost_Raw",
+        "approach_number": 8,
+        "loss": 0.09726353109879475,
+        "runtime_ms": 2.232074737548828,
+        "parameterization": "raw_7d",
+        "approach_category": "xgboost"
+    },
+    {
+        "model_name": "LightGBM_Raw",
+        "approach_number": 9,
+        "loss": 0.09309737029275512,
+        "runtime_ms": 27.048826217651367,
+        "parameterization": "raw_7d",
+        "approach_category": "lightgbm"
+    },
+    {
+        "model_name": "Polynomial_Raw",
+        "approach_number": 10,
+        "loss": 0.09961391754580493,
+        "runtime_ms": 952.5580406188965,
+        "parameterization": "raw_7d",
+        "approach_category": "polynomial_regression"
+    },
+    {
+        "model_name": "PhenomFit_Poly_q_Chieff",
+        "approach_number": 12,
+        "loss": 0.11644022363600519,
+        "runtime_ms": 961.0340595245361,
+        "parameterization": "q_chieff",
+        "approach_category": "phenom_fit_poly"
+    },
+    {
+        "model_name": "RBFInterp_Raw",
+        "approach_number": 13,
+        "loss": 0.10654878394986729,
+        "runtime_ms": 8.280038833618164,
+        "parameterization": "raw_7d",
+        "approach_category": "rbf_interpolation"
+    },
+    {
+        "model_name": "NNInterp_Raw",
+        "approach_number": 14,
+        "loss": 0.14113520368949434,
+        "runtime_ms": 25.059938430786133,
+        "parameterization": "raw_7d",
+        "approach_category": "nearest_neighbor_interpolation"
+    },
+    {
+        "model_name": "GPR_RBF_M1M2S1S2",
+        "approach_number": 15,
+        "loss": 0.2318187984289185,
+        "runtime_ms": 740.7360076904297,
+        "parameterization": "m1m2_s1zs2z",
+        "approach_category": "gpr_rbf"
+    },
+    {
+        "model_name": "GPR_Matern_M1M2S1S2",
+        "approach_number": 16,
+        "loss": 0.1888232212866843,
+        "runtime_ms": 737.7259731292725,
+        "parameterization": "m1m2_s1zs2z",
+        "approach_category": "gpr_matern"
+    },
+    {
+        "model_name": "NNInterp_EtaChiEff",
+        "approach_number": 17,
+        "loss": 0.1461266624799408,
+        "runtime_ms": 146.54803276062012,
+        "parameterization": "eta_chieff",
+        "approach_category": "nearest_neighbor_interpolation"
+    },
+    {
+        "model_name": "KRR_EtaChiEff",
+        "approach_number": 17,
+        "loss": 0.11574198077596734,
+        "runtime_ms": 107.7277660369873,
+        "parameterization": "eta_chieff",
+        "approach_category": "krr"
+    },
+    {
+        "model_name": "MLP_M1M2S1S2",
+        "approach_number": 18,
+        "loss": 2.1427606324258144,
+        "runtime_ms": 60.12392044067383,
+        "parameterization": "m1m2_s1zs2z",
+        "approach_category": "mlp"
+    },
+    {
+        "model_name": "KRR_M1M2S1S2",
+        "approach_number": 18,
+        "loss": 0.11469724886963753,
+        "runtime_ms": 105.59821128845215,
+        "parameterization": "m1m2_s1zs2z",
+        "approach_category": "krr"
+    },
+    {
+        "model_name": "RandomForest_EtaChiEff",
+        "approach_number": 19,
+        "loss": 0.1159930635322803,
+        "runtime_ms": 206.39586448669434,
+        "parameterization": "eta_chieff",
+        "approach_category": "random_forest"
+    },
+    {
+        "model_name": "RandomForest_M1M2S1S2",
+        "approach_number": 19,
+        "loss": 0.11254110194780205,
+        "runtime_ms": 209.5320224761963,
+        "parameterization": "m1m2_s1zs2z",
+        "approach_category": "random_forest"
+    },
+    {
+        "model_name": "XGBoost_EtaChiEff",
+        "approach_number": 20,
+        "loss": 0.11852985102399245,
+        "runtime_ms": 3.464937210083008,
+        "parameterization": "eta_chieff",
+        "approach_category": "xgboost"
+    },
+    {
+        "model_name": "LightGBM_M1M2S1S2",
+        "approach_number": 21,
+        "loss": 0.1166810859639794,
+        "runtime_ms": 24.262189865112305,
+        "parameterization": "m1m2_s1zs2z",
+        "approach_category": "lightgbm"
+    },
+    {
+        "model_name": "LightGBM_EtaChiEff",
+        "approach_number": 21,
+        "loss": 0.12105487399256964,
+        "runtime_ms": 33.47516059875488,
+        "parameterization": "eta_chieff",
+        "approach_category": "lightgbm"
+    }
+]

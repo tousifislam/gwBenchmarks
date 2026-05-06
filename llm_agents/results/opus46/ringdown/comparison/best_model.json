@@ -1,0 +1,18 @@
+{
+  "approach": "cubic_spline_raw",
+  "approach_number": 11,
+  "benchmark": "ringdown",
+  "agent": "opus46",
+  "mode": "l2/m+2/n0",
+  "parameterization": "raw",
+  "loss": 1.1299381259098558e-05,
+  "loss_components": {
+    "mre_omega_real": 8.349458640291404e-08,
+    "mre_omega_imag": 2.25152679317942e-05
+  },
+  "runtime_ms": 8.845284384747234e-05,
+  "n_train": 531,
+  "n_val": 531,
+  "n_params": 2124,
+  "notes": "Cubic spline interpolation, raw spin (sorted)"
+}

@@ -1,0 +1,17 @@
+{
+    "approach": "spline_raw",
+    "approach_number": 3,
+    "benchmark": "ringdown",
+    "agent": "gemini3_flash_preview",
+    "parameterization": "raw",
+    "mode": "l2_m2_n0",
+    "loss": 1.1299381259098558e-05,
+    "loss_components": {
+        "rms_relative_error_combined": 1.1299381259098558e-05
+    },
+    "runtime_ms": 0.0005652900020505974,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 20,
+    "notes": "Cubic spline interpolation on raw spin."
+}

@@ -1,0 +1,10 @@
+{
+  "name": "RBF-Interp (trig_anomaly)",
+  "directory": "12_rbf_interp",
+  "loss": 0.011706230517977785,
+  "train_loss": 6.690380893752887e-08,
+  "runtime_ms": 0.0023123358841985464,
+  "category": "kernel",
+  "category_label": "Interpolation/kernel",
+  "parameterization": "trig_anomaly"
+}

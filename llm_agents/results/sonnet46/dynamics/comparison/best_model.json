@@ -1,0 +1,9 @@
+{
+  "rank": 1,
+  "name": "rbf_interp_raw",
+  "category": "kernel_interp",
+  "parameterization": "raw",
+  "val_loss": 0.008308229905879072,
+  "train_loss": 0.0068611339970938035,
+  "runtime_ms": 27.348995208740234
+}

@@ -1,0 +1,436 @@
+[
+  {
+    "approach": "mlp_multitask_eta_chieff",
+    "approach_number": 15,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.08867782750310059,
+    "loss_components": {
+      "nrmse_v_k": 0.08867782750310059
+    },
+    "runtime_ms": 0.01282662499579601,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 9475,
+    "train_time_s": 6.8216938972473145,
+    "notes": "Multi-task MLP jointly predicts Mf, chif, vf; here we report vf NRMSE."
+  },
+  {
+    "approach": "gpr_matern_eta_chieff",
+    "approach_number": 2,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "eta_chieff",
+    "loss": 0.08954600736182622,
+    "loss_components": {
+      "nrmse_v_k": 0.08954600736182622
+    },
+    "runtime_ms": 0.049214541490073316,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 9,
+    "train_time_s": 8.030755043029785,
+    "notes": "GPR Matern-5/2 with eta+chi_eff reparameterization."
+  },
+  {
+    "approach": "bayes_ridge_poly2_eta",
+    "approach_number": 23,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.08975734938179054,
+    "loss_components": {
+      "nrmse_v_k": 0.08975734938179054
+    },
+    "runtime_ms": 0.014523166508297436,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 35,
+    "train_time_s": 0.5078861713409424,
+    "notes": "Bayesian Ridge regression with poly-2 features."
+  },
+  {
+    "approach": "poly3_eta_chieff",
+    "approach_number": 8,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.09042939562035943,
+    "loss_components": {
+      "nrmse_v_k": 0.09042939562035943
+    },
+    "runtime_ms": 0.028623562495340593,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 119,
+    "train_time_s": 0.04202604293823242,
+    "notes": "Polynomial degree-3 regression."
+  },
+  {
+    "approach": "lasso_poly3_pn_products",
+    "approach_number": 16,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "pn_products",
+    "loss": 0.09079310659255485,
+    "loss_components": {
+      "nrmse_v_k": 0.09079310659255485
+    },
+    "runtime_ms": 0.027031833000364713,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 55,
+    "train_time_s": 0.020927906036376953,
+    "notes": "Lasso poly-3 on PN-inspired products: eta, chi_eff, eta*chi_eff, delta*chi_a, chi_p."
+  },
+  {
+    "approach": "gpr_rbf_pn_products",
+    "approach_number": 21,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "pn_products",
+    "loss": 0.0910659317938124,
+    "loss_components": {
+      "nrmse_v_k": 0.0910659317938124
+    },
+    "runtime_ms": 0.056572333502117544,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 6,
+    "train_time_s": 4.482614040374756,
+    "notes": "GPR RBF on PN-inspired product features (5D)."
+  },
+  {
+    "approach": "gbm_eta_chieff",
+    "approach_number": 7,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.09133732056620893,
+    "loss_components": {
+      "nrmse_v_k": 0.09133732056620893
+    },
+    "runtime_ms": 0.0027961250016232952,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 9600,
+    "train_time_s": 0.4211850166320801,
+    "notes": "Sklearn GradientBoosting fallback (XGBoost not available)."
+  },
+  {
+    "approach": "stacked_gbm_gpr_eta_chieff",
+    "approach_number": 20,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.09154892703098533,
+    "loss_components": {
+      "nrmse_v_k": 0.09154892703098533
+    },
+    "runtime_ms": 0.05046258350193966,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 10600,
+    "train_time_s": 3.2052550315856934,
+    "notes": "Stacked ensemble: GBM trained, then GPR fit residuals."
+  },
+  {
+    "approach": "krr_polynomial_delta_chia",
+    "approach_number": 18,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "delta_chia",
+    "loss": 0.09199939655238208,
+    "loss_components": {
+      "nrmse_v_k": 0.09199939655238208
+    },
+    "runtime_ms": 0.09704964549746364,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "train_time_s": 0.3707461357116699,
+    "notes": "KernelRidge with polynomial degree-4 kernel on delta_m+chi_a parameterization."
+  },
+  {
+    "approach": "rf_raw7",
+    "approach_number": 6,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "raw7",
+    "loss": 0.09282863929723642,
+    "loss_components": {
+      "nrmse_v_k": 0.09282863929723642
+    },
+    "runtime_ms": 0.029530520507250912,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 9600,
+    "train_time_s": 0.23784494400024414,
+    "notes": "Random forest 300 trees, depth 15."
+  },
+  {
+    "approach": "extra_trees_spherical",
+    "approach_number": 13,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "spherical",
+    "loss": 0.09474404156236416,
+    "loss_components": {
+      "nrmse_v_k": 0.09474404156236416
+    },
+    "runtime_ms": 0.0524138335022144,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 12800,
+    "train_time_s": 0.2850050926208496,
+    "notes": "ExtraTrees on spherical spin parameterization."
+  },
+  {
+    "approach": "knn_raw7",
+    "approach_number": 12,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "interpolation",
+    "parameterization": "raw7",
+    "loss": 0.0951809889403705,
+    "loss_components": {
+      "nrmse_v_k": 0.0951809889403705
+    },
+    "runtime_ms": 0.014535791502567008,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 7000,
+    "train_time_s": 0.0008137226104736328,
+    "notes": "KNN k=5 with distance weighting."
+  },
+  {
+    "approach": "hgbr_eta_chieff",
+    "approach_number": 19,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.09526639810035924,
+    "loss_components": {
+      "nrmse_v_k": 0.09526639810035924
+    },
+    "runtime_ms": 0.019280354492366314,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 12800,
+    "train_time_s": 1.5523548126220703,
+    "notes": "HistGradientBoosting (400 trees) \u2014 sklearn fallback for LightGBM."
+  },
+  {
+    "approach": "pysr_eta_chieff",
+    "approach_number": 9,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.09745106506321861,
+    "loss_components": {
+      "nrmse_v_k": 0.09745106506321861
+    },
+    "runtime_ms": 0.0009096875000977889,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 10,
+    "train_time_s": 14.910461902618408,
+    "notes": "PySR symbolic regression on eta+chi_eff parameterization.",
+    "pysr_expressions_file": "/Users/tousifislam/Research/projects/nr_projects/gwBenchmarks/llm_agents/results/opus47/remnant/models/09_pysr_eta_chieff/saved_model/expressions.json"
+  },
+  {
+    "approach": "phen_lousto_zlochower",
+    "approach_number": 17,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw7",
+    "loss": 0.09807147055009464,
+    "loss_components": {
+      "nrmse_v_k": 0.09807147055009464
+    },
+    "runtime_ms": 2.902100095525384e-05,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 8,
+    "train_time_s": 0.0019800662994384766,
+    "notes": "Lousto-Zlochower-inspired phenomenological features: eta^2*delta, eta^2*chi_a, etc."
+  },
+  {
+    "approach": "rbf_interp_raw7",
+    "approach_number": 11,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "interpolation",
+    "parameterization": "raw7",
+    "loss": 0.09970329524581005,
+    "loss_components": {
+      "nrmse_v_k": 0.09970329524581005
+    },
+    "runtime_ms": 0.04848464600217994,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "train_time_s": 0.09598898887634277,
+    "notes": "Thin-plate-spline RBF interpolation."
+  },
+  {
+    "approach": "pysr_raw7",
+    "approach_number": 22,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw7",
+    "loss": 0.12506812662432995,
+    "loss_components": {
+      "nrmse_v_k": 0.12506812662432995
+    },
+    "runtime_ms": 0.0008944165019784123,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 10,
+    "train_time_s": 2.343907117843628,
+    "notes": "PySR with raw 7D parameters as input (second reparameterization)."
+  },
+  {
+    "approach": "gpr_rbf_raw7",
+    "approach_number": 1,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "raw7",
+    "loss": 0.12524723993037942,
+    "loss_components": {
+      "nrmse_v_k": 0.12524723993037942
+    },
+    "runtime_ms": 0.01601210399530828,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 9,
+    "train_time_s": 1.7012982368469238,
+    "notes": "Gaussian Process Regression with RBF + White noise."
+  },
+  {
+    "approach": "krr_rbf_raw7",
+    "approach_number": 3,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "raw7",
+    "loss": 0.13815974566590528,
+    "loss_components": {
+      "nrmse_v_k": 0.13815974566590528
+    },
+    "runtime_ms": 0.08184408349916339,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "train_time_s": 0.3634169101715088,
+    "notes": "Kernel ridge regression with RBF kernel on raw 7D parameters."
+  },
+  {
+    "approach": "svr_rbf_eta_chieff",
+    "approach_number": 4,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "eta_chieff",
+    "loss": 0.39254422162951796,
+    "loss_components": {
+      "nrmse_v_k": 0.39254422162951796
+    },
+    "runtime_ms": 9.931249951478094e-05,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "train_time_s": 0.0008561611175537109,
+    "notes": "Support Vector Regression with RBF kernel."
+  },
+  {
+    "approach": "mlp_deep_pn_products",
+    "approach_number": 24,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "pn_products",
+    "loss": 0.42357537121971794,
+    "loss_components": {
+      "nrmse_v_k": 0.42357537121971794
+    },
+    "runtime_ms": 0.025408708504983224,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 44801,
+    "train_time_s": 2.384857177734375,
+    "notes": "Deeper MLP 256-128-64-32 on PN-product features."
+  },
+  {
+    "approach": "gplearn_eta_chieff",
+    "approach_number": 10,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 1.1437940189649958,
+    "loss_components": {
+      "nrmse_v_k": 1.1437940189649958
+    },
+    "runtime_ms": 2.6041510864160955e-05,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 20,
+    "train_time_s": 11.564200401306152,
+    "notes": "gplearn SymbolicRegressor on eta+chi_eff.",
+    "gplearn_expressions_file": "/Users/tousifislam/Research/projects/nr_projects/gwBenchmarks/llm_agents/results/opus47/remnant/models/10_gplearn_eta_chieff/saved_model/expressions.json"
+  },
+  {
+    "approach": "mlp_deep_spherical",
+    "approach_number": 14,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "spherical",
+    "loss": 1.3947506990010436,
+    "loss_components": {
+      "nrmse_v_k": 1.3947506990010436
+    },
+    "runtime_ms": 0.01345008349744603,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 25857,
+    "train_time_s": 1.2109348773956299,
+    "notes": "Deeper MLP 128-128-64 on spherical reparam."
+  },
+  {
+    "approach": "mlp_eta_chieff",
+    "approach_number": 5,
+    "benchmark": "remnant",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 1.7662128140124307,
+    "loss_components": {
+      "nrmse_v_k": 1.7662128140124307
+    },
+    "runtime_ms": 0.006362270505633205,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 4737,
+    "train_time_s": 1.378065824508667,
+    "notes": "MLP with 64-64 tanh layers."
+  }
+]

@@ -11,6 +11,7 @@ from gwbenchmarks.benchmarks import (
     AnalyticBench,
     ValidityBench,
     TemplateBankBench,
+    NewPhysicsBench,
 )
 from gwbenchmarks.models.registry import MODELS, get_model
 from gwbenchmarks.runner import BenchmarkRunner

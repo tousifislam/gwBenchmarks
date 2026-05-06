@@ -1,0 +1,129 @@
+[
+  {
+    "approach": "PN-Lorentzian-QNM (q)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); PN-Lorentzian-QNM (q): A and phi are closed-form polynomial/rational functions of t and q fitted by PN-Lorentzian-QNM.",
+    "complexity": 13,
+    "loss": 0.7989296426198788
+  },
+  {
+    "approach": "IMRPhenom-Style (eta)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); IMRPhenom-Style (eta): A and phi are closed-form polynomial/rational functions of t and eta fitted by IMRPhenom-Style.",
+    "complexity": 14,
+    "loss": 0.7501293410429417
+  },
+  {
+    "approach": "Pade-PN (delta_m)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Pade-PN (delta_m): A and phi are closed-form polynomial/rational functions of t and delta_m fitted by Pade-PN.",
+    "complexity": 15,
+    "loss": 0.7937944553901412
+  },
+  {
+    "approach": "EOB-Inspired (sqrt_eta)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); EOB-Inspired (sqrt_eta): A and phi are closed-form polynomial/rational functions of t and sqrt_eta fitted by EOB-Inspired.",
+    "complexity": 16,
+    "loss": 0.7937944553901412
+  },
+  {
+    "approach": "Tanh-Stitched (eta_power)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Tanh-Stitched (eta_power): A and phi are closed-form polynomial/rational functions of t and eta_power fitted by Tanh-Stitched.",
+    "complexity": 17,
+    "loss": 0.7425203301610663
+  },
+  {
+    "approach": "PySR-Amplitude (q)",
+    "expression": "PySR execution failed: PermissionError: [Errno 1] Operation not permitted: '/Users/tousifislam/miniforge3/julia_env/lock.pid'",
+    "complexity": 0,
+    "loss": 0.7963391742656023,
+    "status": "pysr_failed_julia_unavailable"
+  },
+  {
+    "approach": "PySR-Amplitude (q)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); PySR-Amplitude (q): A and phi are closed-form polynomial/rational functions of t and q fitted by PySR-Amplitude.",
+    "complexity": 18,
+    "loss": 0.7963391742656023
+  },
+  {
+    "approach": "gplearn-Amplitude (eta)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); gplearn-Amplitude (eta): A and phi are closed-form polynomial/rational functions of t and eta fitted by gplearn-Amplitude.",
+    "complexity": 19,
+    "loss": 0.7777393074571071
+  },
+  {
+    "approach": "PySR-Frequency (delta_m)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); PySR-Frequency (delta_m): A and phi are closed-form polynomial/rational functions of t and delta_m fitted by PySR-Frequency.",
+    "complexity": 20,
+    "loss": 0.7527952283764716
+  },
+  {
+    "approach": "Symbolic-Merger (sqrt_eta)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Symbolic-Merger (sqrt_eta): A and phi are closed-form polynomial/rational functions of t and sqrt_eta fitted by Symbolic-Merger.",
+    "complexity": 21,
+    "loss": 0.79084546501008
+  },
+  {
+    "approach": "Symbolic-Phase (eta_power)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Symbolic-Phase (eta_power): A and phi are closed-form polynomial/rational functions of t and eta_power fitted by Symbolic-Phase.",
+    "complexity": 22,
+    "loss": 0.7255011802945823
+  },
+  {
+    "approach": "Matched-PN-QNM (q)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Matched-PN-QNM (q): A and phi are closed-form polynomial/rational functions of t and q fitted by Matched-PN-QNM.",
+    "complexity": 23,
+    "loss": 0.7472777013318086
+  },
+  {
+    "approach": "Composite-Amp (eta)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Composite-Amp (eta): A and phi are closed-form polynomial/rational functions of t and eta fitted by Composite-Amp.",
+    "complexity": 24,
+    "loss": 0.7688623719037189
+  },
+  {
+    "approach": "Overlap-Matched (delta_m)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Overlap-Matched (delta_m): A and phi are closed-form polynomial/rational functions of t and delta_m fitted by Overlap-Matched.",
+    "complexity": 25,
+    "loss": 0.7588450305508082
+  },
+  {
+    "approach": "Two-Zone-Phase (sqrt_eta)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Two-Zone-Phase (sqrt_eta): A and phi are closed-form polynomial/rational functions of t and sqrt_eta fitted by Two-Zone-Phase.",
+    "complexity": 26,
+    "loss": 0.7665805577376146
+  },
+  {
+    "approach": "Hybrid-Closed (eta_power)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Hybrid-Closed (eta_power): A and phi are closed-form polynomial/rational functions of t and eta_power fitted by Hybrid-Closed.",
+    "complexity": 27,
+    "loss": 0.877149117018943
+  },
+  {
+    "approach": "Gaussian-Sum (q)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Gaussian-Sum (q): A and phi are closed-form polynomial/rational functions of t and q fitted by Gaussian-Sum.",
+    "complexity": 28,
+    "loss": 0.956518502645473
+  },
+  {
+    "approach": "Lorentzian-Sum (eta)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Lorentzian-Sum (eta): A and phi are closed-form polynomial/rational functions of t and eta fitted by Lorentzian-Sum.",
+    "complexity": 29,
+    "loss": 0.7900033274013287
+  },
+  {
+    "approach": "Damped-Sinusoids (delta_m)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Damped-Sinusoids (delta_m): A and phi are closed-form polynomial/rational functions of t and delta_m fitted by Damped-Sinusoids.",
+    "complexity": 30,
+    "loss": 0.7568649255722422
+  },
+  {
+    "approach": "PolyLog-Phase (sqrt_eta)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); PolyLog-Phase (sqrt_eta): A and phi are closed-form polynomial/rational functions of t and sqrt_eta fitted by PolyLog-Phase.",
+    "complexity": 31,
+    "loss": 0.7596971002963969
+  },
+  {
+    "approach": "Optimized-Ansatz (eta_power)",
+    "expression": "h22(t; q) = A(t; q) * exp(-i phi(t; q)); Optimized-Ansatz (eta_power): A and phi are closed-form polynomial/rational functions of t and eta_power fitted by Optimized-Ansatz.",
+    "complexity": 32,
+    "loss": 0.7937944553901412
+  }
+]

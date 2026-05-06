@@ -1,0 +1,83 @@
+# Ringdown Bench — Changelog (gpt52)
+
+Date: 2026-05-01
+
+## Approaches
+
+- 01. Poly-10 (raw) — category=analytical/classical, method=poly, params=raw_a, loss=2.12199
+  - observed: val_loss=9.794e-01 -> 2.122e+00
+  - hypothesis: High-degree polynomial likely oscillating near a→1 → reduce degree.
+  - change: degree -> 6
+- 02. Poly-15 (-log(1-a)) — category=analytical/classical, method=poly, params=log_compact, loss=0.0028861
+  - observed: val_loss=8.176e-03 -> 2.886e-03
+  - hypothesis: High-degree polynomial likely oscillating near a→1 → reduce degree.
+  - change: degree -> 11
+- 03. Chebyshev-25 (2a-1) — category=analytical/classical, method=chebyshev, params=cheb_mapped, loss=0.32952
+  - observed: val_loss=3.295e-01
+  - hypothesis: N/A
+  - change: N/A
+- 04. Chebyshev-35 (2a-1) — category=analytical/classical, method=chebyshev, params=cheb_mapped, loss=0.238121
+  - observed: val_loss=2.381e-01
+  - hypothesis: N/A
+  - change: N/A
+- 05. Rational [5,5] (log) — category=analytical/classical, method=rational, params=log_compact, loss=0.000368032
+  - observed: val_loss=3.680e-04
+  - hypothesis: N/A
+  - change: N/A
+- 06. Rational [7,7] (raw) — category=analytical/classical, method=rational, params=raw_a, loss=5.26963e+11
+  - observed: val_loss=5.270e+11
+  - hypothesis: N/A
+  - change: N/A
+- 07. CubicSpline (raw) — category=interpolation, method=spline, params=raw_a, loss=2.66097e-05
+  - observed: val_loss=2.661e-05
+  - hypothesis: N/A
+  - change: N/A
+- 08. CubicSpline (sqrt(1-a^2)) — category=interpolation, method=spline, params=sqrt_irreducible, loss=3.93272e-07
+  - observed: val_loss=3.933e-07
+  - hypothesis: N/A
+  - change: N/A
+- 09. RBFInterp (TPS, raw) — category=interpolation, method=rbf_interp, params=raw_a, loss=0.000924937
+  - observed: val_loss=9.249e-04
+  - hypothesis: N/A
+  - change: N/A
+- 10. RBFInterp (cubic, log) — category=interpolation, method=rbf_interp, params=log_compact, loss=6.33793e-06
+  - observed: val_loss=6.338e-06
+  - hypothesis: N/A
+  - change: N/A
+- 11. GPR-RBF (raw) — category=machine_learning, method=gpr_rbf, params=raw_a, loss=0.412179
+  - observed: val_loss=4.122e-01
+  - hypothesis: N/A
+  - change: N/A
+- 12. KRR-RBF (raw) — category=machine_learning, method=krr_rbf, params=raw_a, loss=0.653497
+  - observed: val_loss=6.535e-01
+  - hypothesis: N/A
+  - change: N/A
+- 13. SVR-RBF (log) — category=machine_learning, method=svr_rbf, params=log_compact, loss=0.0419283
+  - observed: val_loss=4.193e-02
+  - hypothesis: N/A
+  - change: N/A
+- 14. MLP (log) — category=machine_learning, method=mlp, params=log_compact, loss=0.493027
+  - observed: val_loss=4.930e-01
+  - hypothesis: N/A
+  - change: N/A
+- 15. RandomForest (raw) — category=machine_learning, method=rf, params=raw_a, loss=0.00415326
+  - observed: val_loss=4.153e-03
+  - hypothesis: N/A
+  - change: N/A
+- 16. HistGB (raw) — category=machine_learning, method=hgb, params=raw_a, loss=0.0871761
+  - observed: val_loss=8.718e-02
+  - hypothesis: N/A
+  - change: N/A
+- 17. Poly-12 (compactified) — category=analytical/classical, method=poly, params=compactified, loss=729408
+  - observed: val_loss=6.146e+07 -> 7.294e+05
+  - hypothesis: High-degree polynomial likely oscillating near a→1 → reduce degree.
+  - change: degree -> 8
+- 18. Rational [9,9] (cheb) — category=analytical/classical, method=rational, params=cheb_mapped, loss=1.43763e+09
+  - observed: val_loss=1.438e+09
+  - hypothesis: N/A
+  - change: N/A
+- 19. PySR (log) — category=symbolic regression, method=pysr, params=log_compact, loss=0.00406046
+  - notes: expressions saved in `models/19_pysr_log/saved_model/`
+- 20. gplearn (raw) — category=symbolic regression, method=gplearn, params=raw_a, loss=20.5098
+  - notes: expressions saved in `models/20_gplearn_raw/saved_model/`
+

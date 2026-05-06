@@ -15,10 +15,22 @@ Run each LLM agent through the gwBenchmarks tasks and store its work under
 | `gpt54_mini` | GPT-5.4 Mini | Codex | `gpt-5.4-mini` | default |
 | `gpt53_codex_high` | GPT-5.3 Codex High | Codex | `gpt-5.3-codex` | high |
 | `gpt52` | GPT-5.2 | Codex | `gpt-5.2` | default |
+| `hy3_preview_free` | Hy3 Preview Free | OpenCode | `opencode/hy3-preview-free` | default |
+| `kimi_k26` | Kimi K2.6 | OpenCode | `opencode-go/kimi-k2.6` | default |
+| `deepseek_v4_pro_max` | DeepSeek V4 Pro Max | OpenCode | `opencode-go/deepseek-v4-pro` | default |
 
 ## Step 1 - Start The Agent
 
 Open a terminal in the `gwBenchmarks/` root.
+
+### Gemini CLI
+
+```bash
+gemini --approval-mode=yolo --skip-trust --model gemini-3.1-pro-preview
+gemini --approval-mode=yolo --skip-trust --model gemini-2.5-pro
+gemini --approval-mode=yolo --skip-trust --model gemini-3-flash-preview
+gemini --approval-mode=yolo --skip-trust --model gemini-2.5-flash
+```
 
 ### Claude Code
 
@@ -36,6 +48,14 @@ codex -C . -m gpt-5.5 -c model_reasoning_effort="high" -s workspace-write -a nev
 codex -C . -m gpt-5.4-mini -s workspace-write -a never
 codex -C . -m gpt-5.3-codex -c model_reasoning_effort="high" -s workspace-write -a never
 codex -C . -m gpt-5.2 -s workspace-write -a never
+```
+
+### OpenCode CLI
+
+```bash
+opencode
+opencode --model opencode-go/kimi-k2.6
+opencode --model opencode-go/deepseek-v4-pro
 ```
 
 ## Step 2 - Launch The Benchmark Loop
@@ -87,6 +107,43 @@ You are the GPT-5.3 Codex High agent for the gwBenchmarks suite. Your agent ID i
 #### GPT-5.2
 ```text
 You are the GPT-5.2 Codex agent for the gwBenchmarks suite. Your agent ID is 'gpt52'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py gpt52 <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read `llm_agents/results/gpt52/<benchmark>/AGENT_PROMPT.md` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE.
+```
+
+### OpenCode Prompts
+
+#### Hy3 Preview Free
+```text
+You are the Hy3 Preview Free agent for the gwBenchmarks suite. Your agent ID is 'hy3_preview_free'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py hy3_preview_free <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read `llm_agents/results/hy3_preview_free/<benchmark>/AGENT_PROMPT.md` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE.
+```
+
+#### Kimi K2.6
+```text
+You are the Kimi K2.6 agent for the gwBenchmarks suite. Your agent ID is 'kimi_k26'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py kimi_k26 <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read `llm_agents/results/kimi_k26/<benchmark>/AGENT_PROMPT.md` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE.
+```
+
+#### DeepSeek V4 Pro Max
+```text
+You are the DeepSeek V4 Pro Max agent for the gwBenchmarks suite. Your agent ID is 'deepseek_v4_pro_max'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py deepseek_v4_pro_max <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read `llm_agents/results/deepseek_v4_pro_max/<benchmark>/AGENT_PROMPT.md` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE.
+```
+
+#### Gemini 3.1 Pro Preview
+```text
+You are the Gemini 3.1 Pro Preview agent for the gwBenchmarks suite. Your agent ID is 'gemini31_pro_preview'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py gemini31_pro_preview <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read `llm_agents/results/gemini31_pro_preview/<benchmark>/AGENT_PROMPT.md` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE.
+```
+
+#### Gemini 2.5 Pro
+```text
+You are the Gemini 2.5 Pro agent for the gwBenchmarks suite. Your agent ID is 'gemini25_pro'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py gemini25_pro <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read `llm_agents/results/gemini25_pro/<benchmark>/AGENT_PROMPT.md` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE.
+```
+
+#### Gemini 3 Flash Preview
+```text
+You are the Gemini 3 Flash Preview agent for the gwBenchmarks suite. Your agent ID is 'gemini3_flash_preview'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py gemini3_flash_preview <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read `llm_agents/results/gemini3_flash_preview/<benchmark>/AGENT_PROMPT.md` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE.
+```
+
+#### Gemini 2.5 Flash
+```text
+You are the Gemini 2.5 Flash agent for the gwBenchmarks suite. Your agent ID is 'gemini25_flash'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py gemini25_flash <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read `llm_agents/results/gemini25_flash/<benchmark>/AGENT_PROMPT.md` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE.
 ```
 
 ## Optional One-Shot Codex Commands
@@ -154,6 +211,60 @@ python llm_agents/evaluate_template_bank.py --agent gpt55_high
 
 This benchmark expects public data in `datasets/template_bank/`. Hidden-test
 evaluation additionally requires `bank_wf_params_test.npy`.
+
+## Wiping A Run
+
+```bash
+rm -rf llm_agents/results/gpt55_high/waveform/
+```
+
+Then re-run the loop. The agent will regenerate the prompt and start fresh.
+GENT_PROMPT.md\` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE."
+```
+
+## What Gets Saved
+
+Each agent writes results into `llm_agents/results/<agent>/<benchmark>/`:
+
+```text
+llm_agents/results/gpt55_high/waveform/
+|-- AGENT_PROMPT.md              # generated automatically in step (1)
+|-- CHANGELOG.md                 # updated after every approach
+|-- models/
+|   |-- 01_svd_gpr_raw/
+|   |   |-- train.py
+|   |   |-- predict.py
+|   |   |-- saved_model/         # gitignored (pkl, joblib, etc.)
+|   |   `-- scorecard.json
+|   `-- ...
+`-- comparison/
+    |-- error_data.json
+    |-- summary_table.json
+    |-- best_model.json
+    |-- progress.{png,pdf}
+    |-- loss_only_comparison.{png,pdf}
+    `-- error_histograms.{png,pdf}
+```
+
+Model binaries (`saved_model/`, `*.pkl`, `*.joblib`) are gitignored.
+Scripts, scorecards, plots, and JSON summaries are committed.
+
+## Updating A Prompt
+
+Edit `llm_agents/agent_prompts/<benchmark>.md` (one file, shared across all agents).
+The agent regenerates its copy automatically at the start of each benchmark via
+`generate_prompt.py`.
+
+## Wiping A Run
+
+```bash
+rm -rf llm_agents/results/gpt55_high/waveform/
+```
+
+Then re-run the loop. The agent will regenerate the prompt and start fresh.
+file, shared across all agents).
+The agent regenerates its copy automatically at the start of each benchmark via
+`generate_prompt.py`.
 
 ## Wiping A Run
 

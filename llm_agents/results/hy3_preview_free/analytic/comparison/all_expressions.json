@@ -1,0 +1,122 @@
+[
+  {
+    "approach": "01_pn_lorentzian_qnm",
+    "expression": "Closed-form expression for h22(t; q) - Approach 1: PN+Lorentzian+QNM\n\nh22(t; q) = A(t; q) * exp(j * phi(t; q))\n\nwhere:\n\neta = q / (1 + q)^2\n\nAmplitude:\nA(t; q) = {\n    A_peak(eta) / (1 + (t/Gamma(eta))^2)    for t < 0 (inspiral/merger)\n    A_rd(eta) * exp(-t/tau_rd(eta))          for t >= 0 (ringdown)\n}\n\nA_peak(eta) = 1.6001 * eta - 0.0125\nGamma(eta) = 2.8577  (constant, eta dependence not significant)\nA_rd(eta) = linear fit from data\ntau_rd(eta) = linear fit from data\n\nPhase:\nphi(t; q) = phi0 + 2*pi*f0*t    for t < 0\nphi(t; q) = phi0                 for t >= 0\n\nParameters (fitted):\n- A_peak(eta) = 1.6001 * eta - 0.0125\n- Gamma(eta) = 2.8577\n- f0 = 0.1 (reference frequency)\n\nThis is a simplified physics-informed model with:\n- Lorentzian for inspiral/merger amplitude\n- Exponential ringdown\n- Constant frequency in phase (simplified)\n\nNote: This is a very simplified model. Better approaches will follow.",
+    "loss": 0.639878,
+    "parameterization": "q"
+  },
+  {
+    "approach": "04_pysr_amplitude_q",
+    "expression": "0.39293975 / ((x0 ^ 0.335125) ^ log(log(((x0 * x0) + (((x0 - (0.01340707 / 0.16778867)) - 1.4386455) / exp(x0))) - -1.7833921)))",
+    "loss": null,
+    "parameterization": null
+  },
+  {
+    "approach": "05_lorentzian_q",
+    "expression": "Approach: 05_lorentzian_q\nParameterization: q\nMean mismatch: 0.597706",
+    "loss": 0.5977060092837098,
+    "parameterization": "q"
+  },
+  {
+    "approach": "06_gaussian_sum_eta",
+    "expression": "Approach: 06_gaussian_sum_eta\nParameterization: eta\nMean mismatch: 0.515193",
+    "loss": 0.5151928256207429,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "07_tanh_transition_eta",
+    "expression": "Approach: 07_tanh_transition_eta\nParameterization: eta\nMean mismatch: nan",
+    "loss": NaN,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "08_damped_sinusoid_q",
+    "expression": "Approach: 08_damped_sinusoid_q\nParameterization: q\nMean mismatch: 0.636110",
+    "loss": 0.636109638094625,
+    "parameterization": "q"
+  },
+  {
+    "approach": "09_powerlaw_exp_delta",
+    "expression": "Approach: 09_powerlaw_exp_delta\nParameterization: delta_m\nMean mismatch: 0.473503",
+    "loss": 0.4735034112575755,
+    "parameterization": "delta_m"
+  },
+  {
+    "approach": "10_rational_eta",
+    "expression": "Approach: 10_rational_eta\nParameterization: eta\nMean mismatch: 0.614673",
+    "loss": 0.614673077088535,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "11_sigmoid_eta",
+    "expression": "Approach: 11_sigmoid_eta\nParameterization: eta\nMean mismatch: nan",
+    "loss": NaN,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "12_composite_bump_q",
+    "expression": "Approach: 12_composite_bump_q\nParameterization: q\nMean mismatch: 0.571675",
+    "loss": 0.5716752251953373,
+    "parameterization": "q"
+  },
+  {
+    "approach": "13_freq_based_eta",
+    "expression": "Approach: 13_freq_based_eta\nParameterization: eta\nMean mismatch: 0.844278",
+    "loss": 0.844278290103121,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "14_delta_m_param",
+    "expression": "Approach: 14_delta_m_param\nParameterization: delta_m\nMean mismatch: 0.661739",
+    "loss": 0.6617394270557592,
+    "parameterization": "delta_m"
+  },
+  {
+    "approach": "15_sqrt_eta_param",
+    "expression": "Approach: 15_sqrt_eta_param\nParameterization: sqrt_eta\nMean mismatch: 0.650161",
+    "loss": 0.6501610196694092,
+    "parameterization": "sqrt_eta"
+  },
+  {
+    "approach": "16_pn_qnm_eta",
+    "expression": "Approach: 16_pn_qnm_eta\nParameterization: eta\nMean mismatch: 0.690415",
+    "loss": 0.6904152008652417,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "17_modified_lorentzian_q",
+    "expression": "Approach: 17_modified_lorentzian_q\nParameterization: q\nMean mismatch: 0.693482",
+    "loss": 0.6934823840758427,
+    "parameterization": "q"
+  },
+  {
+    "approach": "18_exp_inspiral_eta",
+    "expression": "Approach: 18_exp_inspiral_eta\nParameterization: eta\nMean mismatch: 0.594267",
+    "loss": 0.594267291237974,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "19_imrphenom_style_eta",
+    "expression": "Approach: 19_imrphenom_style_eta\nParameterization: eta\nMean mismatch: nan",
+    "loss": NaN,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "20_pade_eta",
+    "expression": "Approach: 20_pade_eta\nParameterization: eta\nMean mismatch: 0.458592",
+    "loss": 0.4585917128957394,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "21_gplearn_amplitude",
+    "expression": "0.4 * eta",
+    "loss": null,
+    "parameterization": null
+  },
+  {
+    "approach": "22_pysr_full_h22",
+    "expression": "(log(1.7812465) / ((x1 / sqrt(x0)) + (sqrt(x0) * 0.6582867))) - (-0.04668989 * 0.9040128)",
+    "loss": null,
+    "parameterization": null
+  }
+]

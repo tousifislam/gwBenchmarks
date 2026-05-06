@@ -1,0 +1,18 @@
+{
+  "approach": "rf_raw",
+  "approach_number": 20,
+  "benchmark": "validity",
+  "agent": "opus46",
+  "category": "ml",
+  "parameterization": "raw",
+  "loss": 0.7220977686981352,
+  "loss_train": 0.3755717372362471,
+  "loss_components": {
+    "log_rmse": 0.7220977686981352
+  },
+  "runtime_ms": 0.051090735515565366,
+  "n_train": 393,
+  "n_val": 393,
+  "n_params": 100,
+  "notes": "rf_raw with raw parameterization"
+}

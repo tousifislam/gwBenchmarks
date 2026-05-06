@@ -1,0 +1,9 @@
+{
+    "model_name": "RBFInterp_Raw",
+    "approach_number": 6,
+    "loss": 0.07238635057447243,
+    "runtime_ms": 0.5459785461425781,
+    "parameterization": "raw_6d",
+    "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.0724.",
+    "per_sample_loss": []
+}

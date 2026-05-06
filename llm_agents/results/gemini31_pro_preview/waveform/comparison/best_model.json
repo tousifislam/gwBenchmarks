@@ -1,0 +1,16 @@
+{
+    "approach": "5_svd_poly3_eta",
+    "approach_number": 5,
+    "benchmark": "waveform",
+    "agent": "gemini31_pro_preview",
+    "parameterization": "eta_chi_eff_chi_p",
+    "time_convention": "t0_at_peak",
+    "category": "SVD",
+    "loss": 0.3489907760373924,
+    "loss_components": {},
+    "runtime_ms": 0.1414318084716797,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": "Generated automatically"
+}

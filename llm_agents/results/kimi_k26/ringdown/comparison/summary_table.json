@@ -1,0 +1,134 @@
+[
+  {
+    "model_name": "04_gpr_matern_log",
+    "loss": 0.00041799155864106715,
+    "parameterization": "log",
+    "approach_category": "gpr_matern"
+  },
+  {
+    "model_name": "22_rf_log",
+    "loss": 0.0018597591228924819,
+    "parameterization": "log",
+    "approach_category": "rf"
+  },
+  {
+    "model_name": "09_knn_raw",
+    "loss": 0.008494996079113453,
+    "parameterization": "raw",
+    "approach_category": "knn"
+  },
+  {
+    "model_name": "07_rf_raw",
+    "loss": 0.011371484718119012,
+    "parameterization": "raw",
+    "approach_category": "rf"
+  },
+  {
+    "model_name": "08_gbr_raw",
+    "loss": 0.015039888516892454,
+    "parameterization": "raw",
+    "approach_category": "gbr"
+  },
+  {
+    "model_name": "12_extra_trees_raw",
+    "loss": 0.01884995891486331,
+    "parameterization": "raw",
+    "approach_category": "extra_trees"
+  },
+  {
+    "model_name": "03_gpr_rbf_raw",
+    "loss": 0.3302094950908471,
+    "parameterization": "raw",
+    "approach_category": "gpr_rbf"
+  },
+  {
+    "model_name": "19_mlp_small_sqrt",
+    "loss": 0.536726371837178,
+    "parameterization": "sqrt",
+    "approach_category": "mlp_small"
+  },
+  {
+    "model_name": "21_poly10_cheb",
+    "loss": 2.067882509063441,
+    "parameterization": "cheb",
+    "approach_category": "poly"
+  },
+  {
+    "model_name": "06_mlp_raw",
+    "loss": 3.264638781959702,
+    "parameterization": "raw",
+    "approach_category": "mlp"
+  },
+  {
+    "model_name": "11_poly10_sqrt",
+    "loss": 3.5386033344164733,
+    "parameterization": "sqrt",
+    "approach_category": "poly"
+  },
+  {
+    "model_name": "01_poly10_raw",
+    "loss": 3.5975935153179135,
+    "parameterization": "raw",
+    "approach_category": "poly"
+  },
+  {
+    "model_name": "05_kr_rbf_raw",
+    "loss": 9.690244354925081,
+    "parameterization": "raw",
+    "approach_category": "kr"
+  },
+  {
+    "model_name": "10_svr_raw",
+    "loss": 12.368204199525769,
+    "parameterization": "raw",
+    "approach_category": "svr"
+  },
+  {
+    "model_name": "17_linear_raw",
+    "loss": 14.162969702590276,
+    "parameterization": "raw",
+    "approach_category": "linear"
+  },
+  {
+    "model_name": "18_bayesian_ridge_raw",
+    "loss": 14.174879029572356,
+    "parameterization": "raw",
+    "approach_category": "bayesian_ridge"
+  },
+  {
+    "model_name": "13_ridge_raw",
+    "loss": 14.292931746098276,
+    "parameterization": "raw",
+    "approach_category": "ridge"
+  },
+  {
+    "model_name": "16_huber_raw",
+    "loss": 18.80140708297334,
+    "parameterization": "raw",
+    "approach_category": "huber"
+  },
+  {
+    "model_name": "20_gpr_rbf_compact",
+    "loss": 20.670435535045776,
+    "parameterization": "compact",
+    "approach_category": "gpr_rbf"
+  },
+  {
+    "model_name": "14_elastic_net_raw",
+    "loss": 20.83065892000662,
+    "parameterization": "raw",
+    "approach_category": "elastic_net"
+  },
+  {
+    "model_name": "15_lasso_raw",
+    "loss": 20.83065892000662,
+    "parameterization": "raw",
+    "approach_category": "lasso"
+  },
+  {
+    "model_name": "02_poly15_log",
+    "loss": 24.247597252679714,
+    "parameterization": "log",
+    "approach_category": "poly15"
+  }
+]

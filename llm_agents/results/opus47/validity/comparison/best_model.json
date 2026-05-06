@@ -1,0 +1,18 @@
+{
+  "approach": "rf_raw4",
+  "approach_number": 3,
+  "benchmark": "validity",
+  "agent": "opus47",
+  "category": "ml",
+  "parameterization": "raw4",
+  "loss": 0.7220358460760729,
+  "loss_components": {
+    "log_rmse": 0.7220358460760729
+  },
+  "runtime_ms": 0.08050980662977981,
+  "n_train": 393,
+  "n_val": 393,
+  "n_params": 9600,
+  "train_time_s": 0.15364885330200195,
+  "notes": "Random Forest 300 trees, raw features."
+}

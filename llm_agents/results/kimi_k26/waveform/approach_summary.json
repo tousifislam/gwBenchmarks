@@ -1,0 +1,134 @@
+[
+  {
+    "name": "01_svd_gpr_rbf_raw",
+    "loss": 0.4615977157079818,
+    "category": "svd_decomposition",
+    "ptype": "raw"
+  },
+  {
+    "name": "02_svd_gpr_matern_effective",
+    "loss": 0.4559033222600532,
+    "category": "svd_decomposition",
+    "ptype": "effective"
+  },
+  {
+    "name": "03_svd_polynomial_raw",
+    "loss": 0.42055482126404997,
+    "category": "svd_decomposition",
+    "ptype": "raw"
+  },
+  {
+    "name": "04_svd_mlp_raw",
+    "loss": 0.4747250644249557,
+    "category": "svd_decomposition",
+    "ptype": "raw"
+  },
+  {
+    "name": "05_svd_rf_raw",
+    "loss": 0.408808254858321,
+    "category": "svd_decomposition",
+    "ptype": "raw"
+  },
+  {
+    "name": "06_eim_gpr_rbf_raw",
+    "loss": 0.4586293110556099,
+    "category": "svd_decomposition",
+    "ptype": "raw"
+  },
+  {
+    "name": "07_svd_gpr_rbf_mass_diff",
+    "loss": 0.4790470795328155,
+    "category": "svd_decomposition",
+    "ptype": "mass_diff"
+  },
+  {
+    "name": "08_svd_mlp_effective",
+    "loss": 0.4695466098325704,
+    "category": "svd_decomposition",
+    "ptype": "effective"
+  },
+  {
+    "name": "09_svd_kr_rbf_raw",
+    "loss": 0.4326924302398983,
+    "category": "interpolation_kernel",
+    "ptype": "raw"
+  },
+  {
+    "name": "10_svd_knn_raw",
+    "loss": 0.4204535305989863,
+    "category": "interpolation_kernel",
+    "ptype": "raw"
+  },
+  {
+    "name": "11_svd_svr_raw",
+    "loss": 0.43926511375866234,
+    "category": "interpolation_kernel",
+    "ptype": "raw"
+  },
+  {
+    "name": "12_svd_kr_rbf_effective",
+    "loss": 0.4329009495018863,
+    "category": "interpolation_kernel",
+    "ptype": "effective"
+  },
+  {
+    "name": "13_svd_gbr_raw",
+    "loss": 0.4104339412082114,
+    "category": "machine_learning",
+    "ptype": "raw"
+  },
+  {
+    "name": "14_svd_extra_trees_raw",
+    "loss": 0.40441816531296115,
+    "category": "machine_learning",
+    "ptype": "raw"
+  },
+  {
+    "name": "15_svd_mlp_large_raw",
+    "loss": 0.4718842474953908,
+    "category": "machine_learning",
+    "ptype": "raw"
+  },
+  {
+    "name": "16_svd_ridge_raw",
+    "loss": 0.4620738510000966,
+    "category": "machine_learning",
+    "ptype": "raw"
+  },
+  {
+    "name": "17_svd_elastic_net_raw",
+    "loss": 0.4723926423088772,
+    "category": "machine_learning",
+    "ptype": "raw"
+  },
+  {
+    "name": "18_svd_lasso_raw",
+    "loss": 0.47935301364734134,
+    "category": "machine_learning",
+    "ptype": "raw"
+  },
+  {
+    "name": "19_svd_huber_raw",
+    "loss": 0.4721629783859332,
+    "category": "machine_learning",
+    "ptype": "raw"
+  },
+  {
+    "name": "20_svd_linear_raw",
+    "loss": 0.4619651252382924,
+    "category": "machine_learning",
+    "ptype": "raw"
+  },
+  {
+    "name": "21_svd_bayesian_ridge_raw",
+    "loss": 0.4791628195648965,
+    "category": "machine_learning",
+    "ptype": "raw"
+  },
+  {
+    "name": "22_svd_mlp_small_raw",
+    "loss": 0.44401130735172445,
+    "category": "machine_learning",
+    "ptype": "raw"
+  }
+]

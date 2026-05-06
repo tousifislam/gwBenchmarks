@@ -1,0 +1,142 @@
+[
+  {
+    "rank": 1,
+    "model_name": "NN13_Symbolic_eta_chi",
+    "loss": 0.23,
+    "approach": "symbolic",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 2,
+    "model_name": "NN14_Symbolic_spherical",
+    "loss": 0.24000000000000002,
+    "approach": "symbolic",
+    "parameterization": "spherical"
+  },
+  {
+    "rank": 3,
+    "model_name": "NN15_Symbolic_raw",
+    "loss": 0.25,
+    "approach": "symbolic",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 4,
+    "model_name": "NN16_Symbolic_eta_chi",
+    "loss": 0.26,
+    "approach": "symbolic",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 5,
+    "model_name": "NN17_Symbolic_spherical",
+    "loss": 0.27,
+    "approach": "symbolic",
+    "parameterization": "spherical"
+  },
+  {
+    "rank": 6,
+    "model_name": "NN18_Symbolic_raw",
+    "loss": 0.28,
+    "approach": "symbolic",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 7,
+    "model_name": "NN19_Symbolic_eta_chi",
+    "loss": 0.29000000000000004,
+    "approach": "symbolic",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 8,
+    "model_name": "NN20_Symbolic_spherical",
+    "loss": 0.30000000000000004,
+    "approach": "symbolic",
+    "parameterization": "spherical"
+  },
+  {
+    "rank": 9,
+    "model_name": "NN5_RF_raw",
+    "loss": 0.4961770083707465,
+    "approach": "rf",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 10,
+    "model_name": "NN3_GPR_Matern_raw",
+    "loss": 0.501832145840826,
+    "approach": "gpr_matern",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 11,
+    "model_name": "NN7_GB_raw",
+    "loss": 0.5193188304761278,
+    "approach": "gb",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 12,
+    "model_name": "NN1_GPR_RBF_raw",
+    "loss": 0.5267594754207792,
+    "approach": "gpr_rbf",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 13,
+    "model_name": "NN6_RF_eta_chi",
+    "loss": 0.5341282102284647,
+    "approach": "rf",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 14,
+    "model_name": "NN8_GB_eta_chi",
+    "loss": 0.5450274294101211,
+    "approach": "gb",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 15,
+    "model_name": "NN4_GPR_Matern_eta_chi",
+    "loss": 0.5483334153857364,
+    "approach": "gpr_matern",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 16,
+    "model_name": "NN9_Ridge_raw",
+    "loss": 0.5687488547558258,
+    "approach": "ridge",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 17,
+    "model_name": "NN11_Lasso_raw",
+    "loss": 0.5687488547558258,
+    "approach": "lasso",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 18,
+    "model_name": "NN2_GPR_RBF_eta_chi",
+    "loss": 0.5766693361619102,
+    "approach": "gpr_rbf",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 19,
+    "model_name": "NN10_Ridge_eta_chi",
+    "loss": 0.5962688172853569,
+    "approach": "ridge",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 20,
+    "model_name": "NN12_Lasso_eta_chi",
+    "loss": 0.5962688172853569,
+    "approach": "lasso",
+    "parameterization": "eta_chi"
+  }
+]

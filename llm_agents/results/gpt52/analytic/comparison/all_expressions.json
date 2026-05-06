@@ -1,0 +1,386 @@
+[
+  {
+    "approach": "IMR stitch exp (x=q, deg=1)",
+    "expression": "# IMR stitch exp (x=q, deg=1)\n\nx(q) = q\ntransition_w = 25\namp_kind = exp_stitch\n\nlog_a0(q) = (3.316258524558e-01)*x(q)^1 + (-2.456145934465e+01)\nlog_tau_grow(q) = (1.281949160948e-01)*x(q)^1 + (5.750996480382e+00)\nlog_tau_decay(q) = (6.937531446304e-03)*x(q)^1 + (2.067390280469e+00)\nphi0(q) = (-3.945202072190e+00)*x(q)^1 + (2.352791658401e+01)\nomega0(q) = (3.015324323080e-03)*x(q)^1 + (1.951312903468e+00)\nomega1(q) = (1.146855643507e-07)*x(q)^1 + (-3.980723927194e-07)\nomega2(q) = (1.569034938609e-02)*x(q)^1 + (1.623227561727e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 14,
+    "loss": 0.5598772959744855
+  },
+  {
+    "approach": "IMR stitch exp (x=q, deg=2)",
+    "expression": "# IMR stitch exp (x=q, deg=2)\n\nx(q) = q\ntransition_w = 25\namp_kind = exp_stitch\n\nlog_a0(q) = (1.905107257677e-02)*x(q)^2 + (-3.393726700975e-02)*x(q)^1 + (-2.335327120410e+01)\nlog_tau_grow(q) = (3.675522957571e-03)*x(q)^2 + (5.766683256450e-02)*x(q)^1 + (5.984092188235e+00)\nlog_tau_decay(q) = (2.573043354954e-04)*x(q)^2 + (2.000225415023e-03)*x(q)^1 + (2.083708104329e+00)\nphi0(q) = (2.185252669261e-01)*x(q)^2 + (-8.138392662255e+00)*x(q)^1 + (3.738643477747e+01)\nomega0(q) = (-1.909816107679e-04)*x(q)^2 + (6.679991134438e-03)*x(q)^1 + (1.939201159300e+00)\nomega1(q) = (-1.525336883897e-08)*x(q)^2 + (4.073761240377e-07)*x(q)^1 + (-1.365416318390e-06)\nomega2(q) = (-9.248543509111e-04)*x(q)^2 + (3.343699541916e-02)*x(q)^1 + (1.564574798005e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 21,
+    "loss": 0.5608101525541345
+  },
+  {
+    "approach": "IMR stitch exp (x=eta, deg=1)",
+    "expression": "# IMR stitch exp (x=eta, deg=1)\n\nx(q) = eta = q/(1+q)^2\ntransition_w = 25\namp_kind = exp_stitch\n\nlog_a0(q) = (-1.821478754082e+01)*x(q)^1 + (-1.979335904301e+01)\nlog_tau_grow(q) = (-1.002235163513e+01)*x(q)^1 + (7.987644718433e+00)\nlog_tau_decay(q) = (-4.140778693489e-01)*x(q)^1 + (2.171497103350e+00)\nphi0(q) = (3.386321196299e+02)*x(q)^1 + (-4.929014983091e+01)\nomega0(q) = (-2.751577331906e-01)*x(q)^1 + (2.009124593046e+00)\nomega1(q) = (-1.188483506731e-05)*x(q)^1 + (1.988093556771e-06)\nomega2(q) = (-1.366800221184e+00)*x(q)^1 + (1.915474672004e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 14,
+    "loss": 0.5709387302490869
+  },
+  {
+    "approach": "IMR stitch exp (x=eta, deg=2)",
+    "expression": "# IMR stitch exp (x=eta, deg=2)\n\nx(q) = eta = q/(1+q)^2\ntransition_w = 25\namp_kind = exp_stitch\n\nlog_a0(q) = (3.581241988000e+02)*x(q)^2 + (-1.249578060544e+02)*x(q)^1 + (-1.318868337250e+01)\nlog_tau_grow(q) = (4.479021527318e+01)*x(q)^2 + (-2.337258821269e+01)*x(q)^1 + (8.813684528316e+00)\nlog_tau_decay(q) = (6.419359578831e+00)*x(q)^2 + (-2.327441503151e+00)*x(q)^1 + (2.289885607038e+00)\nphi0(q) = (-3.459612500741e+02)*x(q)^2 + (4.417498319917e+02)*x(q)^1 + (-5.567051133387e+01)\nomega0(q) = (3.367197508786e-01)*x(q)^2 + (-3.755209108881e-01)*x(q)^1 + (2.015334518971e+00)\nomega1(q) = (-4.655907558291e-05)*x(q)^2 + (1.992630581687e-06)*x(q)^1 + (1.129431688140e-06)\nomega2(q) = (1.578302644128e+00)*x(q)^2 + (-1.837231398208e+00)*x(q)^1 + (1.944582386896e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 21,
+    "loss": 0.5645351521193863
+  },
+  {
+    "approach": "IMR stitch exp (x=delta_m, deg=1)",
+    "expression": "# IMR stitch exp (x=delta_m, deg=1)\n\nx(q) = delta_m = (q-1)/(q+1)\ntransition_w = 25\namp_kind = exp_stitch\n\nlog_a0(q) = (3.592151957172e+00)*x(q)^1 + (-2.451913499714e+01)\nlog_tau_grow(q) = (1.689116390700e+00)*x(q)^1 + (5.573126483320e+00)\nlog_tau_decay(q) = (8.656254516685e-02)*x(q)^1 + (2.060897511443e+00)\nphi0(q) = (-8.191217856242e+01)*x(q)^1 + (4.834608041417e+01)\nomega0(q) = (5.686660203258e-02)*x(q)^1 + (1.936053601000e+00)\nomega1(q) = (2.994983282293e-06)*x(q)^1 + (-1.516258215287e-06)\nomega2(q) = (3.213339614938e-01)*x(q)^1 + (1.527391441232e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 14,
+    "loss": 0.5613733047972588
+  },
+  {
+    "approach": "IMR stitch exp (x=delta_m, deg=2)",
+    "expression": "# IMR stitch exp (x=delta_m, deg=2)\n\nx(q) = delta_m = (q-1)/(q+1)\ntransition_w = 25\namp_kind = exp_stitch\n\nlog_a0(q) = (1.722675063469e+01)*x(q)^2 + (-1.326407545839e+01)*x(q)^1 + (-2.175659770177e+01)\nlog_tau_grow(q) = (1.369618626019e+01)*x(q)^2 + (-1.171248413301e+01)*x(q)^1 + (7.769491088024e+00)\nlog_tau_decay(q) = (3.196825179293e-01)*x(q)^2 + (-2.262440506484e-01)*x(q)^1 + (2.112162831130e+00)\nphi0(q) = (-9.823173614451e+01)*x(q)^2 + (1.420673085879e+01)*x(q)^1 + (3.259332236696e+01)\nomega0(q) = (2.220408069508e-01)*x(q)^2 + (-1.603984189146e-01)*x(q)^1 + (1.971660780979e+00)\nomega1(q) = (1.684519427921e-06)*x(q)^2 + (1.346695502135e-06)*x(q)^1 + (-1.246123246535e-06)\nomega2(q) = (5.327142874671e-01)*x(q)^2 + (-1.999223896014e-01)*x(q)^1 + (1.612819222600e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 21,
+    "loss": 0.5692560727857605
+  },
+  {
+    "approach": "Composite stitch sharp (x=q, deg=1)",
+    "expression": "# Composite stitch sharp (x=q, deg=1)\n\nx(q) = q\ntransition_w = 10\namp_kind = exp_stitch_sharp\n\nlog_a0(q) = (-1.046239169971e-01)*x(q)^1 + (-9.472178269995e-01)\nlog_tau_grow(q) = (2.028632927018e-02)*x(q)^1 + (3.999132716469e+00)\nlog_tau_decay(q) = (-9.128159005642e-03)*x(q)^1 + (3.051434843427e+00)\nphi0(q) = (1.543224507334e-01)*x(q)^1 + (-8.849959155836e-01)\nomega0(q) = (-2.690092719596e-03)*x(q)^1 + (3.531399425940e-01)\nomega1(q) = (-3.316810773388e-23)*x(q)^1 + (1.000000000000e-06)\nomega2(q) = (-1.294462178719e-03)*x(q)^1 + (1.798206912457e-01)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 14,
+    "loss": 0.27197858463072794
+  },
+  {
+    "approach": "Composite stitch sharp (x=q, deg=2)",
+    "expression": "# Composite stitch sharp (x=q, deg=2)\n\nx(q) = q\ntransition_w = 10\namp_kind = exp_stitch_sharp\n\nlog_a0(q) = (4.842536867729e-03)*x(q)^2 + (-1.975453457702e-01)*x(q)^1 + (-6.401119887231e-01)\nlog_tau_grow(q) = (1.446227414177e-03)*x(q)^2 + (-7.464727939462e-03)*x(q)^1 + (4.090850114705e+00)\nlog_tau_decay(q) = (2.519625206286e-03)*x(q)^2 + (-5.747620064907e-02)*x(q)^1 + (3.211225389634e+00)\nphi0(q) = (-1.955507903991e-03)*x(q)^2 + (1.918458797499e-01)*x(q)^1 + (-1.009011056927e+00)\nomega0(q) = (2.032647180787e-04)*x(q)^2 + (-6.590454975773e-03)*x(q)^1 + (3.660306615173e-01)\nomega1(q) = (-9.573496986250e-24)*x(q)^2 + (2.228629995444e-22)*x(q)^1 + (1.000000000000e-06)\nomega2(q) = (7.132011436143e-05)*x(q)^2 + (-2.662994232835e-03)*x(q)^1 + (1.843436972868e-01)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 21,
+    "loss": 0.27202591761538003
+  },
+  {
+    "approach": "Composite stitch sharp (x=eta, deg=1)",
+    "expression": "# Composite stitch sharp (x=eta, deg=1)\n\nx(q) = eta = q/(1+q)^2\ntransition_w = 10\namp_kind = exp_stitch_sharp\n\nlog_a0(q) = (8.524938461504e+00)*x(q)^1 + (-2.818202197822e+00)\nlog_tau_grow(q) = (-1.314515895810e+00)*x(q)^1 + (4.317241853052e+00)\nlog_tau_decay(q) = (1.020875171490e+00)*x(q)^1 + (2.851623751007e+00)\nphi0(q) = (-1.145258052026e+01)*x(q)^1 + (1.726673313841e+00)\nomega0(q) = (2.569952550113e-01)*x(q)^1 + (3.000438673876e-01)\nomega1(q) = (6.551045416545e-22)*x(q)^1 + (1.000000000000e-06)\nomega2(q) = (1.285565109865e-01)*x(q)^1 + (1.536254749441e-01)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 14,
+    "loss": 0.27234439479178874
+  },
+  {
+    "approach": "Composite stitch sharp (x=eta, deg=2)",
+    "expression": "# Composite stitch sharp (x=eta, deg=2)\n\nx(q) = eta = q/(1+q)^2\ntransition_w = 10\namp_kind = exp_stitch_sharp\n\nlog_a0(q) = (-3.369992806401e+01)*x(q)^2 + (1.856958793589e+01)*x(q)^1 + (-3.439710310728e+00)\nlog_tau_grow(q) = (6.151586871231e+00)*x(q)^2 + (-3.148066807711e+00)*x(q)^1 + (4.430691980911e+00)\nlog_tau_decay(q) = (-3.848009871089e+00)*x(q)^2 + (2.167818579074e+00)*x(q)^1 + (2.780657149865e+00)\nphi0(q) = (9.562207584820e+01)*x(q)^2 + (-3.995383524354e+01)*x(q)^1 + (3.490175473242e+00)\nomega0(q) = (1.169095986246e+00)*x(q)^2 + (-9.146719159835e-02)*x(q)^1 + (3.216048226168e-01)\nomega1(q) = (-1.552402409379e-20)*x(q)^2 + (3.106616114316e-21)*x(q)^1 + (1.000000000000e-06)\nomega2(q) = (1.161582958064e+00)*x(q)^2 + (-2.176665915381e-01)*x(q)^1 + (1.750478717777e-01)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 21,
+    "loss": 0.27276308955761563
+  },
+  {
+    "approach": "Composite stitch sharp (x=delta_m, deg=1)",
+    "expression": "# Composite stitch sharp (x=delta_m, deg=1)\n\nx(q) = delta_m = (q-1)/(q+1)\ntransition_w = 10\namp_kind = exp_stitch_sharp\n\nlog_a0(q) = (-1.988574437707e+00)*x(q)^1 + (-4.077732404627e-01)\nlog_tau_grow(q) = (3.184031571402e-01)*x(q)^1 + (3.937953625600e+00)\nlog_tau_decay(q) = (-2.291049408667e-01)*x(q)^1 + (3.134440168156e+00)\nphi0(q) = (2.391519993971e+00)*x(q)^1 + (-1.330594337412e+00)\nomega0(q) = (-6.693924809952e-02)*x(q)^1 + (3.772278776755e-01)\nomega1(q) = (4.135025587886e-22)*x(q)^1 + (1.000000000000e-06)\nomega2(q) = (-3.542326804408e-02)*x(q)^1 + (1.934879392933e-01)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 14,
+    "loss": 0.27223941968616777
+  },
+  {
+    "approach": "Composite stitch sharp (x=delta_m, deg=2)",
+    "expression": "# Composite stitch sharp (x=delta_m, deg=2)\n\nx(q) = delta_m = (q-1)/(q+1)\ntransition_w = 10\namp_kind = exp_stitch_sharp\n\nlog_a0(q) = (-3.552039602407e+00)*x(q)^2 + (1.487065780053e+00)*x(q)^1 + (-9.773897679414e-01)\nlog_tau_grow(q) = (3.749637515321e-01)*x(q)^2 + (-4.849565056011e-02)*x(q)^1 + (3.998084022213e+00)\nlog_tau_decay(q) = (-5.578756033509e-01)*x(q)^2 + (3.167715415350e-01)*x(q)^1 + (3.044977437016e+00)\nphi0(q) = (8.880384516282e+00)*x(q)^2 + (-6.297859919770e+00)*x(q)^1 + (9.349276663165e-02)\nomega0(q) = (-4.488673890548e-03)*x(q)^2 + (-6.254711928208e-02)*x(q)^1 + (3.765080594525e-01)\nomega1(q) = (6.731930361266e-22)*x(q)^2 + (4.813156959829e-23)*x(q)^1 + (1.000000000000e-06)\nomega2(q) = (2.619862228663e-02)*x(q)^2 + (-6.105839474920e-02)*x(q)^1 + (1.976892348649e-01)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 21,
+    "loss": 0.27227671830431616
+  },
+  {
+    "approach": "Gauss-mod stitch (x=q, deg=1)",
+    "expression": "# Gauss-mod stitch (x=q, deg=1)\n\nx(q) = q\ntransition_w = 25\namp_kind = gauss_mod\n\nlog_a0(q) = (2.022622296048e-01)*x(q)^1 + (-2.256282725370e+01)\nlog_tau_grow(q) = (-6.075080448842e-02)*x(q)^1 + (7.013512070831e+00)\nlog_tau_decay(q) = (-1.481630209691e-02)*x(q)^1 + (1.949849518704e+00)\nphi0(q) = (9.983967698127e-02)*x(q)^1 + (1.821176594766e+01)\nomega0(q) = (2.671841565533e-02)*x(q)^1 + (1.559125251950e+00)\nomega1(q) = (3.250819850520e-08)*x(q)^1 + (5.868018786923e-07)\nomega2(q) = (2.007561703134e-02)*x(q)^1 + (1.375014400170e+00)\nlog_sigma(q) = (-3.270704182400e-02)*x(q)^1 + (4.510181072836e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nA(t) = A(t) * exp(-0.5*(t/exp(log_sigma(q)))^2)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 16,
+    "loss": 0.6430999404788624
+  },
+  {
+    "approach": "Gauss-mod stitch (x=q, deg=2)",
+    "expression": "# Gauss-mod stitch (x=q, deg=2)\n\nx(q) = q\ntransition_w = 25\namp_kind = gauss_mod\n\nlog_a0(q) = (-8.749114676472e-03)*x(q)^2 + (3.701453574866e-01)*x(q)^1 + (-2.311768192394e+01)\nlog_tau_grow(q) = (-3.262954093990e-02)*x(q)^2 + (5.653639050456e-01)*x(q)^1 + (4.944199477735e+00)\nlog_tau_decay(q) = (2.847680325113e-03)*x(q)^2 + (-6.945925716906e-02)*x(q)^1 + (2.130444788761e+00)\nphi0(q) = (-2.452988844990e-02)*x(q)^2 + (5.705335187978e-01)*x(q)^1 + (1.665612018574e+01)\nomega0(q) = (-1.739657363982e-03)*x(q)^2 + (6.009997830570e-02)*x(q)^1 + (1.448799001955e+00)\nomega1(q) = (-3.596487393365e-09)*x(q)^2 + (1.015197014187e-07)*x(q)^1 + (3.587184782023e-07)\nomega2(q) = (-3.106694126998e-04)*x(q)^2 + (2.603692336574e-02)*x(q)^1 + (1.355312249620e+00)\nlog_sigma(q) = (5.202824556506e-03)*x(q)^2 + (-1.325418814239e-01)*x(q)^1 + (4.840135772299e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nA(t) = A(t) * exp(-0.5*(t/exp(log_sigma(q)))^2)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 24,
+    "loss": 0.6477373924665231
+  },
+  {
+    "approach": "Gauss-mod stitch (x=eta, deg=1)",
+    "expression": "# Gauss-mod stitch (x=eta, deg=1)\n\nx(q) = eta = q/(1+q)^2\ntransition_w = 25\namp_kind = gauss_mod\n\nlog_a0(q) = (-1.310087093671e+01)*x(q)^1 + (-1.939186597047e+01)\nlog_tau_grow(q) = (-2.778877217122e+00)*x(q)^1 + (6.947215973032e+00)\nlog_tau_decay(q) = (1.820609767777e+00)*x(q)^1 + (1.603937007030e+00)\nphi0(q) = (-2.084672228734e+01)*x(q)^1 + (2.167493774215e+01)\nomega0(q) = (-2.062539181692e+00)*x(q)^1 + (2.021813938147e+00)\nomega1(q) = (-3.021791093012e-06)*x(q)^1 + (1.217370444044e-06)\nomega2(q) = (-1.202766164605e+00)*x(q)^1 + (1.676872156396e+00)\nlog_sigma(q) = (3.627519335612e+00)*x(q)^1 + (3.798247917972e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nA(t) = A(t) * exp(-0.5*(t/exp(log_sigma(q)))^2)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 16,
+    "loss": 0.6503503498145254
+  },
+  {
+    "approach": "Gauss-mod stitch (x=eta, deg=2)",
+    "expression": "# Gauss-mod stitch (x=eta, deg=2)\n\nx(q) = eta = q/(1+q)^2\ntransition_w = 25\namp_kind = gauss_mod\n\nlog_a0(q) = (1.842225291583e+02)*x(q)^2 + (-6.801050537764e+01)*x(q)^1 + (-1.599435733976e+01)\nlog_tau_grow(q) = (-2.058577700265e+02)*x(q)^2 + (5.857938852066e+01)*x(q)^1 + (3.150701216883e+00)\nlog_tau_decay(q) = (-3.494806417512e-01)*x(q)^2 + (1.924776475131e+00)*x(q)^1 + (1.597491739439e+00)\nphi0(q) = (-2.048047076768e+02)*x(q)^2 + (4.019766615794e+01)*x(q)^1 + (1.789784400056e+01)\nomega0(q) = (3.629624518654e+01)*x(q)^2 + (-1.288105070619e+01)*x(q)^1 + (2.691204413064e+00)\nomega1(q) = (6.433088156859e-06)*x(q)^2 + (-4.939246686708e-06)*x(q)^1 + (1.336012135888e-06)\nomega2(q) = (3.734770008264e+01)*x(q)^2 + (-1.233467586163e+01)*x(q)^1 + (2.365654000549e+00)\nlog_sigma(q) = (-5.644094932415e+00)*x(q)^2 + (5.309806463602e+00)*x(q)^1 + (3.694157167872e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nA(t) = A(t) * exp(-0.5*(t/exp(log_sigma(q)))^2)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 24,
+    "loss": 0.652734297736726
+  },
+  {
+    "approach": "Gauss-mod stitch (x=delta_m, deg=1)",
+    "expression": "# Gauss-mod stitch (x=delta_m, deg=1)\n\nx(q) = delta_m = (q-1)/(q+1)\ntransition_w = 25\namp_kind = gauss_mod\n\nlog_a0(q) = (3.034316523711e+00)*x(q)^1 + (-2.308213842100e+01)\nlog_tau_grow(q) = (6.275792727063e-01)*x(q)^1 + (6.174825810885e+00)\nlog_tau_decay(q) = (-3.267269825969e-01)*x(q)^1 + (2.055401989659e+00)\nphi0(q) = (3.943674724972e+00)*x(q)^1 + (1.637458785637e+01)\nomega0(q) = (3.246167692718e-01)*x(q)^1 + (1.539781752592e+00)\nomega1(q) = (7.385738081283e-07)*x(q)^1 + (3.411808043447e-07)\nomega2(q) = (1.702724463996e-01)*x(q)^1 + (1.408073700051e+00)\nlog_sigma(q) = (-6.814292338128e-01)*x(q)^1 + (4.717450754681e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nA(t) = A(t) * exp(-0.5*(t/exp(log_sigma(q)))^2)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 16,
+    "loss": 0.6519131081345226
+  },
+  {
+    "approach": "Gauss-mod stitch (x=delta_m, deg=2)",
+    "expression": "# Gauss-mod stitch (x=delta_m, deg=2)\n\nx(q) = delta_m = (q-1)/(q+1)\ntransition_w = 25\namp_kind = gauss_mod\n\nlog_a0(q) = (5.776599411820e+00)*x(q)^2 + (-2.618036345330e+00)*x(q)^1 + (-2.215578430733e+01)\nlog_tau_grow(q) = (1.460701155699e+00)*x(q)^2 + (-8.017042520142e-01)*x(q)^1 + (6.409068559595e+00)\nlog_tau_decay(q) = (-2.196091784084e+00)*x(q)^2 + (1.822129950609e+00)*x(q)^1 + (1.703229627834e+00)\nphi0(q) = (2.217426325593e+01)*x(q)^2 + (-1.775365126185e+01)*x(q)^1 + (1.993052423351e+01)\nomega0(q) = (3.156008525527e+00)*x(q)^2 + (-2.763510444029e+00)*x(q)^1 + (2.045889459214e+00)\nomega1(q) = (7.646244855187e-07)*x(q)^2 + (-9.604678269288e-09)*x(q)^1 + (4.637984530813e-07)\nomega2(q) = (2.119639494365e+00)*x(q)^2 + (-1.903776578498e+00)*x(q)^1 + (1.747985926105e+00)\nlog_sigma(q) = (-3.929050634504e+00)*x(q)^2 + (3.163113038082e+00)*x(q)^1 + (4.087375522075e+00)\n\ns(t) = 0.5*(1 + tanh(t/transition_w))\nA_insp(t) = exp(log_a0(q)) * exp(t / exp(log_tau_grow(q)))\nA_rd(t)   = exp(log_a0(q)) * exp(-t / exp(log_tau_decay(q)))\nA(t) = (1-s(t))*A_insp(t) + s(t)*A_rd(t)\nA(t) = A(t) * exp(-0.5*(t/exp(log_sigma(q)))^2)\nlogcosh(z) = log(exp(z)+exp(-z)) - log(2)\nphi(t) = phi0(q) + omega0(q)*t + 0.5*omega1(q)*t^2 + omega2(q)*transition_w*logcosh(t/transition_w)\nh22(t;q) = A(t) * exp(-i*phi(t))\n",
+    "complexity": 24,
+    "loss": 0.6422230337850854
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "# PySR closed form\n\nInputs: x0=t/1000, x1=eta=q/(1+q)^2\n\nh_real(t,q) = sin(sin((-sin(x0) + tanh(x1))/(-0.010433351))/(-x0 + x1 + 0.10932041))*(-0.017140191)\nh_imag(t,q) = x1**2*sqrt(exp(x0))*sin(117.977775533231*exp(x0)*sin(1.1045804/x1))\nh22(t,q) = h_real + i*h_imag\n",
+    "complexity": 0,
+    "loss": 0.6239107167339091
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "0.000281972430000000",
+    "complexity": 1.0,
+    "loss": 0.0047915564
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(x0)*(-0.001365908)",
+    "complexity": 4.0,
+    "loss": 0.0047911177
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "-1.250923e-5/(x1 - 0.14173788)",
+    "complexity": 5.0,
+    "loss": 0.0047908504
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(x0/(-0.009537151))*0.0029403719",
+    "complexity": 6.0,
+    "loss": 0.0047872635
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(tanh(x0)/(-0.009537151))*0.0029403719",
+    "complexity": 7.0,
+    "loss": 0.0047858986
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "cos(x0/((-0.077619895)*x1))*(-0.0055817794)",
+    "complexity": 8.0,
+    "loss": 0.0047764042
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin((x0 + 1.2060894)/((-0.07177436)*x1))*(-0.007686668)",
+    "complexity": 10.0,
+    "loss": 0.0047657387
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin((x0 + 1.2056335)/((-0.071894035)*tanh(x1)))*(-0.007811352)",
+    "complexity": 11.0,
+    "loss": 0.0047654686
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "-0.007811432*sin(sin((x0 + 1.2056335)/((-0.071894035)*tanh(x1))))",
+    "complexity": 12.0,
+    "loss": 0.0047649983
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "0.000288925340000000",
+    "complexity": 1.0,
+    "loss": 0.0047915564
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(x0)*(-0.0013659687)",
+    "complexity": 4.0,
+    "loss": 0.0047911177
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "tanh(sin(x0))*(-0.0017179395)",
+    "complexity": 5.0,
+    "loss": 0.0047910786
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(x0/(-0.010796971))*(-0.0036388726)",
+    "complexity": 6.0,
+    "loss": 0.0047841435
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin((-x0 + x1)/(-0.010556898))*(-0.007975385)",
+    "complexity": 8.0,
+    "loss": 0.0047518644
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "-0.010471115*sin((x1 - sin(x0))/(-0.010471115))",
+    "complexity": 9.0,
+    "loss": 0.0047507477
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "-0.010470541*sin(95.5008134281784*x0 - 95.5008134281784*tanh(log(x1)))",
+    "complexity": 10.0,
+    "loss": 0.0047424687
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "-0.010471115*sin(95.5008134281784*sin(x0) - 95.5008134281784*tanh(log(x1)))",
+    "complexity": 11.0,
+    "loss": 0.0047315033
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "0.028130518*sin(95.2559942930229*sin(x0) - 95.2559942930229*tanh(log(x1)))/log(x1)",
+    "complexity": 14.0,
+    "loss": 0.004711912
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(sin((-x0 + tanh(x1))/(-0.01043923))/(-x0 + x1 + x1))*(-0.015017876)",
+    "complexity": 16.0,
+    "loss": 0.004707362
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(sin((-sin(x0) + tanh(x1))/(-0.010433351))/(-x0 + x1 + 0.10932041))*(-0.017140191)",
+    "complexity": 17.0,
+    "loss": 0.0046865274
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "-6.86876800000000e-5",
+    "complexity": 1.0,
+    "loss": 0.0047216974
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "x0*(-0.00011851527)",
+    "complexity": 3.0,
+    "loss": 0.0047216215
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "cos(x0)*(-0.0004908458)",
+    "complexity": 4.0,
+    "loss": 0.0047215284
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(x0/(-0.010171334))*0.004038213",
+    "complexity": 6.0,
+    "loss": 0.0047138636
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(tanh(x0)/0.009895092)*(-0.0046534985)",
+    "complexity": 7.0,
+    "loss": 0.0047083297
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(tanh(-x0 + x1)/0.00958999)*(-0.0093092015)",
+    "complexity": 9.0,
+    "loss": 0.0046844957
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "-6.86876800000000e-5",
+    "complexity": 1.0,
+    "loss": 0.0047216974
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "x0*(-0.00011851981)",
+    "complexity": 3.0,
+    "loss": 0.0047216215
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "cos(x0)*(-0.0004908345)",
+    "complexity": 4.0,
+    "loss": 0.0047215284
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "3.133952e-8/(x0 + x1)",
+    "complexity": 5.0,
+    "loss": 0.0047207233
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "-0.00040784504/sin(5.2928615/x1)",
+    "complexity": 6.0,
+    "loss": 0.0047188574
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "-0.00040303206/tanh(sin(5.2928534/x1))",
+    "complexity": 7.0,
+    "loss": 0.0047188355
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(x0/((-0.06605754)*x1))*0.0050218715",
+    "complexity": 8.0,
+    "loss": 0.004708978
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(sin(x0)/((-0.06605754*x1)))*0.0050218715",
+    "complexity": 9.0,
+    "loss": 0.0047043636
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin((x0 + 0.5094849)/((x1*(-0.08663197))))*(-0.008136596)",
+    "complexity": 10.0,
+    "loss": 0.0046928567
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin((x0 + 0.5094849)/((x1*sin(-0.08663197))))*(-0.008136416)",
+    "complexity": 11.0,
+    "loss": 0.004692319
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "sin(exp(x0)*sin(1.1045226/x1)/((-0.023564296)*0.37191603))*0.007128907",
+    "complexity": 14.0,
+    "loss": 0.004688203
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "x1*x1*sin(exp(x0)*sin(1.1045804/x1)/((-0.023509288)*(-0.3605457)))",
+    "complexity": 16.0,
+    "loss": 0.0045554065
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "x1*x1*sin(sin(exp(x0)*sin(1.1045804/x1)/((-0.023509288)*(-0.3605457))))",
+    "complexity": 17.0,
+    "loss": 0.0045396844
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "x1*sin(exp(x0)*sin(1.1045804/x1)/((-0.023509288)*(-0.3605457)))*x1*0.8070996",
+    "complexity": 18.0,
+    "loss": 0.004534116
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "x1*x1*exp(x0)*sin(exp(x0)*sin(1.1045804/x1)/((-0.023509288)*(-0.3605457)))",
+    "complexity": 19.0,
+    "loss": 0.004465445
+  },
+  {
+    "approach": "PySR (t/1000, eta)",
+    "expression": "x1**2*sqrt(exp(x0))*sin(117.977775533231*exp(x0)*sin(1.1045804/x1))",
+    "complexity": 20.0,
+    "loss": 0.0044483365
+  },
+  {
+    "approach": "gplearn (t/1000, eta)",
+    "expression": "# gplearn closed form\n\nInputs: x0=t/1000, x1=eta=q/(1+q)^2\n\nh_real(t,q) = 0.001\nh_imag(t,q) = -0.000\nh22(t,q) = h_real + i*h_imag\n",
+    "complexity": 0,
+    "loss": 0.8396000473395279
+  },
+  {
+    "approach": "gplearn (t/1000, eta)",
+    "expression": "0.001",
+    "complexity": null,
+    "loss": null
+  },
+  {
+    "approach": "gplearn (t/1000, eta)",
+    "expression": "-0.000",
+    "complexity": null,
+    "loss": null
+  }
+]

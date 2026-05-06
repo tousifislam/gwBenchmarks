@@ -1,0 +1,420 @@
+[
+    {
+        "approach": "10_rf_sph",
+        "approach_number": 10,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "spherical",
+        "category": "ML",
+        "loss": 0.05736310846093251,
+        "loss_components": {
+            "nrmse_Mf": 0.02199726336132843,
+            "nrmse_chif": 0.024228180142950806,
+            "nrmse_v_k": 0.05736310846093251
+        },
+        "runtime_ms": 0.016988039016723633,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "3_krr_pn",
+        "approach_number": 3,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "pn_inspired",
+        "category": "Kernel",
+        "loss": 0.05766473354560755,
+        "loss_components": {
+            "nrmse_Mf": 0.1491334701204745,
+            "nrmse_chif": 0.03200052814857955,
+            "nrmse_v_k": 0.05766473354560755
+        },
+        "runtime_ms": 0.013025999069213867,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "12_knn_raw",
+        "approach_number": 12,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_7d",
+        "category": "Interpolation",
+        "loss": 0.05817861668949924,
+        "loss_components": {
+            "nrmse_Mf": 0.03430400775170935,
+            "nrmse_chif": 0.043200763932167936,
+            "nrmse_v_k": 0.05817861668949924
+        },
+        "runtime_ms": 0.004728794097900391,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "14_knn_pn",
+        "approach_number": 14,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "pn_inspired",
+        "category": "Interpolation",
+        "loss": 0.058702184780989514,
+        "loss_components": {
+            "nrmse_Mf": 0.01158361319600307,
+            "nrmse_chif": 0.024561050196175827,
+            "nrmse_v_k": 0.058702184780989514
+        },
+        "runtime_ms": 0.0016891956329345703,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "13_knn_eta",
+        "approach_number": 13,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_chi_p",
+        "category": "Interpolation",
+        "loss": 0.05898729771710634,
+        "loss_components": {
+            "nrmse_Mf": 0.018485240264223716,
+            "nrmse_chif": 0.02689358417058122,
+            "nrmse_v_k": 0.05898729771710634
+        },
+        "runtime_ms": 0.0026051998138427734,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "8_rf_pn",
+        "approach_number": 8,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "pn_inspired",
+        "category": "ML",
+        "loss": 0.05989462572642535,
+        "loss_components": {
+            "nrmse_Mf": 0.01648450525428898,
+            "nrmse_chif": 0.024551875672029325,
+            "nrmse_v_k": 0.05989462572642535
+        },
+        "runtime_ms": 0.008690834045410156,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "15_knn_dm",
+        "approach_number": 15,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "delta_m_chi_a",
+        "category": "Interpolation",
+        "loss": 0.06007502573960268,
+        "loss_components": {
+            "nrmse_Mf": 0.017513166694724157,
+            "nrmse_chif": 0.02362211329160029,
+            "nrmse_v_k": 0.06007502573960268
+        },
+        "runtime_ms": 0.002663850784301758,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "5_gpr_rbf_white_sph",
+        "approach_number": 5,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "spherical",
+        "category": "Kernel",
+        "loss": 0.063405279778359,
+        "loss_components": {
+            "nrmse_Mf": 0.013991215337541876,
+            "nrmse_chif": 0.025150328564887053,
+            "nrmse_v_k": 0.063405279778359
+        },
+        "runtime_ms": 0.01223301887512207,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "9_gb_dm",
+        "approach_number": 9,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "delta_m_chi_a",
+        "category": "ML",
+        "loss": 0.06377702300439426,
+        "loss_components": {
+            "nrmse_Mf": 0.00976257341250868,
+            "nrmse_chif": 0.025670024369965384,
+            "nrmse_v_k": 0.06377702300439426
+        },
+        "runtime_ms": 0.002794981002807617,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "16_poly2_ridge_raw",
+        "approach_number": 16,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_7d",
+        "category": "Interpolation",
+        "loss": 0.07189025557833292,
+        "loss_components": {
+            "nrmse_Mf": 0.022566205687882004,
+            "nrmse_chif": 0.057172192024059,
+            "nrmse_v_k": 0.07189025557833292
+        },
+        "runtime_ms": 0.00045418739318847656,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "2_gpr_matern_eta",
+        "approach_number": 2,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_chi_p",
+        "category": "Kernel",
+        "loss": 0.08124220411948319,
+        "loss_components": {
+            "nrmse_Mf": 0.09765376489239705,
+            "nrmse_chif": 0.13308103270043423,
+            "nrmse_v_k": 0.08124220411948319
+        },
+        "runtime_ms": 0.012870311737060547,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "1_gpr_rbf_raw",
+        "approach_number": 1,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_7d",
+        "category": "Kernel",
+        "loss": 0.092965027167456,
+        "loss_components": {
+            "nrmse_Mf": 0.12185064990163642,
+            "nrmse_chif": 0.16361266193075824,
+            "nrmse_v_k": 0.092965027167456
+        },
+        "runtime_ms": 0.011193275451660156,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "21_pysr_pn",
+        "approach_number": 21,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "pn_inspired",
+        "category": "Symbolic",
+        "loss": 0.09906768194594029,
+        "loss_components": {
+            "nrmse_Mf": 0.01912698199400599,
+            "nrmse_chif": 0.08406183147058825,
+            "nrmse_v_k": 0.09906768194594029
+        },
+        "runtime_ms": 0.006715059280395508,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "20_pysr_eta",
+        "approach_number": 20,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_chi_p",
+        "category": "Symbolic",
+        "loss": 0.09932273042376885,
+        "loss_components": {
+            "nrmse_Mf": 0.03023193260916887,
+            "nrmse_chif": 0.11422869362086792,
+            "nrmse_v_k": 0.09932273042376885
+        },
+        "runtime_ms": 0.00503993034362793,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "19_pysr_raw",
+        "approach_number": 19,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_7d",
+        "category": "Symbolic",
+        "loss": 0.1056477928547391,
+        "loss_components": {
+            "nrmse_Mf": 0.06498724852920183,
+            "nrmse_chif": 0.1548310662159341,
+            "nrmse_v_k": 0.1056477928547391
+        },
+        "runtime_ms": 0.00569915771484375,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "4_svr_dm",
+        "approach_number": 4,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "delta_m_chi_a",
+        "category": "Kernel",
+        "loss": 0.37715200468890386,
+        "loss_components": {
+            "nrmse_Mf": 0.22472501526227898,
+            "nrmse_chif": 0.04893608991797985,
+            "nrmse_v_k": 0.37715200468890386
+        },
+        "runtime_ms": 0.0014238357543945312,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "11_mlp_deep_raw",
+        "approach_number": 11,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_7d",
+        "category": "ML",
+        "loss": 1.0985555985488205,
+        "loss_components": {
+            "nrmse_Mf": 0.22197821722306096,
+            "nrmse_chif": 0.04130691367303816,
+            "nrmse_v_k": 1.0985555985488205
+        },
+        "runtime_ms": 0.0007407665252685547,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "7_mlp_eta",
+        "approach_number": 7,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_chi_p",
+        "category": "ML",
+        "loss": 1.14506260619451,
+        "loss_components": {
+            "nrmse_Mf": 0.26582365927640633,
+            "nrmse_chif": 0.030617465078877467,
+            "nrmse_v_k": 1.14506260619451
+        },
+        "runtime_ms": 0.0005221366882324219,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "6_mlp_raw",
+        "approach_number": 6,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_7d",
+        "category": "ML",
+        "loss": 1.9456973994107771,
+        "loss_components": {
+            "nrmse_Mf": 0.41375474034372495,
+            "nrmse_chif": 0.05600932183232421,
+            "nrmse_v_k": 1.9456973994107771
+        },
+        "runtime_ms": 0.0003771781921386719,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "18_gplearn_eta",
+        "approach_number": 18,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_chi_p",
+        "category": "Symbolic",
+        "loss": 15.329390222882298,
+        "loss_components": {
+            "nrmse_Mf": 321.3439942502894,
+            "nrmse_chif": 0.10926155816175,
+            "nrmse_v_k": 15.329390222882298
+        },
+        "runtime_ms": 0.00021409988403320312,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "22_gplearn_pn",
+        "approach_number": 22,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "pn_inspired",
+        "category": "Symbolic",
+        "loss": 15.329390222882298,
+        "loss_components": {
+            "nrmse_Mf": 0.14498814089332543,
+            "nrmse_chif": 0.0961127518372559,
+            "nrmse_v_k": 15.329390222882298
+        },
+        "runtime_ms": 0.00020813941955566406,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "17_gplearn_raw",
+        "approach_number": 17,
+        "benchmark": "remnant",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_7d",
+        "category": "Symbolic",
+        "loss": 19.495343847276693,
+        "loss_components": {
+            "nrmse_Mf": 0.12192903731299694,
+            "nrmse_chif": 0.23498280396331672,
+            "nrmse_v_k": 19.495343847276693
+        },
+        "runtime_ms": 0.00033593177795410156,
+        "n_train": 1000,
+        "n_val": 1000,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    }
+]
