@@ -1,5 +1,21 @@
 # Template Bank Benchmark Dataset
 
+Template banks are a core computational object in gravitational-wave searches:
+they discretize a continuous compact-binary parameter space into a finite set
+of waveform templates, so that incoming or simulated signals can be matched
+against a manageable bank rather than an intractable continuum. This benchmark
+tests whether an agent can design such a bank under an explicitly numerical
+coverage objective, balancing physical waveform fidelity against the practical
+cost of overlap evaluations.
+
+The task gives the agent a public pool of binary-black-hole parameters and asks
+it to construct an ordered bank of templates. The hidden evaluator measures how
+well prefixes of this ordered bank cover an unseen test distribution using
+IMRPhenomXHM frequency-domain waveforms. The primary score is the smallest
+prefix length whose best-template overlaps reach match at least 0.97 for 50% of
+hidden test waveforms, so better submissions achieve the target with fewer
+templates and fewer overlap calculations.
+
 The Template Bank Bench asks agents to construct an ordered bank of
 frequency-domain gravitational-wave templates. Each submitted template row is
 
