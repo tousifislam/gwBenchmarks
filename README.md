@@ -63,7 +63,8 @@ Benchmark suite for evaluating LLM-based gravitational wave (GW) modelling using
 | **Input** | public pool of `[m1, m2, s1z, s2z]` waveform parameters |
 | **Output** | ordered bank rows `[m1, m2, s1z, s2z, phi_ref]` |
 | **Loss** | Smallest bank prefix reaching 50% hidden-test coverage at match ≥ 0.97 |
-### 7. New Physics Bench (RG-tail inspiral)
+
+### 8. New Physics Bench (RG-tail inspiral)
 
 | | |
 |---|---|
@@ -81,7 +82,7 @@ The FD mismatch is computed via PyCBC using the aLIGO `aLIGOZeroDetHighPower` PS
 mismatch = 1 - max_{t,phi} <h_pred, h_ref> / sqrt(<h_pred, h_pred> <h_ref, h_ref>)
 ```
 
-with `f_low = 15 Hz`, `f_high = 990 Hz`. PyCBC is required for the waveform, analytic, and new physics benchmarks.
+with `f_low = 15 Hz`, `f_high = 990 Hz`. PyCBC is required for the waveform, analytic, template bank, and new physics benchmarks.
 
 ## Datasets
 
@@ -145,10 +146,8 @@ gwBenchmarks/
 │       ├── ringdown.py
 │       ├── analytic.py
 │       ├── validity.py
-│       └── template_bank.py
-├── configs/                # YAML configs per benchmark
-└── datasets/               # READMEs, scripts, plots (binary data hosted on Hugging Face)
+│       ├── template_bank.py
 │       └── new_physics.py
 ├── configs/                    # YAML configs per benchmark
-└── datasets/                   # READMEs, scripts, plots (HDF5 files hosted separately)
+└── datasets/                   # READMEs, scripts, plots (binary data hosted on Hugging Face)
 ```
