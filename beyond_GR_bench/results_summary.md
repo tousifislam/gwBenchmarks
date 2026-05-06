@@ -4,7 +4,6 @@ These are the single-detector `gwbenchmarks_aligo` scores from the 1000-case can
 
 | model | RG mean mismatch | RG median mismatch | finite-size mean mismatch | finite-size median mismatch |
 |---|---:|---:|---:|---:|
-| `Qwen_36` | 7.197e-01 | 7.179e-01 | - | - |
 | `chatgpt_52_xhigh` | 3.895e-06 | 2.158e-06 | 1.404e-04 | 1.150e-05 |
 | `chatgpt_53_codex_xhigh` | 3.881e-03 | 3.652e-03 | 1.499e-04 | 2.165e-05 |
 | `chatgpt_54_mini_xhigh` | 4.283e-03 | 4.094e-03 | 1.665e-04 | 8.150e-06 |

@@ -15,10 +15,13 @@ agent_outputs/<model>/no_skills/finite_size/
 `-- score_finite_size.json
 ```
 
+Some folders may also include `error_diagnosis.md` when a manual failure
+diagnosis was written.
+
 The score files use the single-detector convention described in the benchmark
 README files: PyCBC `aLIGOZeroDetHighPower`, `f_low = 15 Hz`,
 `f_high = 990 Hz`, and `df = 0.125 Hz`.
 
-Only generated code and machine-readable scores are kept here. Longer
-diagnostic notes, exploratory plots, and intermediate artifacts are omitted to
-keep the branch reviewable.
+Only generated code, machine-readable scores, and selected concise diagnoses
+are kept here. Exploratory plots and intermediate artifacts are omitted to keep
+the branch reviewable.
