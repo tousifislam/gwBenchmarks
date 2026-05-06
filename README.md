@@ -76,7 +76,13 @@ with `f_low = 15 Hz`, `f_high = 990 Hz`. PyCBC is required for the waveform and 
 
 ## Datasets
 
-HDF5 dataset files are **not** stored in this repository due to size. Each benchmark directory under `datasets/` contains:
+Binary dataset files are **not** stored in this repository due to size. They are hosted at:
+
+```text
+https://huggingface.co/datasets/GWagents/gwBenchmarks
+```
+
+Each benchmark directory under `datasets/` contains:
 - `README.md` — dataset description, parameter ranges, train/val split
 - `scripts/` — curation and plotting scripts
 - `plots/` — reference plots of the dataset
@@ -130,5 +136,5 @@ gwBenchmarks/
 │       ├── validity.py
 │       └── template_bank.py
 ├── configs/                # YAML configs per benchmark
-└── datasets/               # READMEs, scripts, plots (HDF5 files hosted separately)
+└── datasets/               # READMEs, scripts, plots (binary data hosted on Hugging Face)
 ```

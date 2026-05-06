@@ -1,6 +1,12 @@
 # Datasets
 
-Curated datasets for each benchmark. HDF5 data files are not tracked in git (too large); use the curation scripts to regenerate from source.
+Curated datasets for each benchmark. Binary data files are not tracked in git;
+download released artifacts from Hugging Face or use the curation scripts to
+regenerate them from source:
+
+```text
+https://huggingface.co/datasets/GWagents/gwBenchmarks
+```
 
 | Benchmark | Directory | Source |
 |-----------|-----------|--------|
@@ -16,3 +22,6 @@ Each subdirectory contains:
 - `README.md` — data source, format, and coverage documentation
 - `scripts/` — curation scripts to download and process raw data
 - `*.h5`, `*.npy` — curated benchmark data (gitignored)
+
+The Hugging Face repository mirrors this directory convention, with one
+top-level folder per benchmark.
