@@ -11,6 +11,8 @@ build/
 htmlcov/
 *.h5
 *.hdf5
+*.npy
+*.npz
 .DS_Store
 .env
 *.swp

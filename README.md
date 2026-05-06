@@ -56,6 +56,13 @@ Benchmark suite for evaluating LLM-based gravitational wave (GW) modelling using
 | **Output** | predicted mismatch M̂ |
 | **Loss** | RMSE(log M̂, log M*) |
 
+### 7. Template Bank Bench (Frequency-domain template coverage)
+
+| | |
+|---|---|
+| **Input** | public pool of `[m1, m2, s1z, s2z]` waveform parameters |
+| **Output** | ordered bank rows `[m1, m2, s1z, s2z, phi_ref]` |
+| **Loss** | Smallest bank prefix reaching 50% hidden-test coverage at match ≥ 0.97 |
 ### 7. New Physics Bench (RG-tail inspiral)
 
 | | |
@@ -78,7 +85,13 @@ with `f_low = 15 Hz`, `f_high = 990 Hz`. PyCBC is required for the waveform, ana
 
 ## Datasets
 
-HDF5 dataset files are **not** stored in this repository due to size. Each benchmark directory under `datasets/` contains:
+Binary dataset files are **not** stored in this repository due to size. They are hosted at:
+
+```text
+https://huggingface.co/datasets/GWagents/gwBenchmarks
+```
+
+Each benchmark directory under `datasets/` contains:
 - `README.md` — dataset description, parameter ranges, train/val split
 - `scripts/` — curation and plotting scripts
 - `plots/` — reference plots of the dataset
@@ -91,6 +104,7 @@ HDF5 dataset files are **not** stored in this repository due to size. Each bench
 | ringdown | `ringdown_training.h5` | `ringdown_validation.h5` |
 | analytic | `analytic_training.h5` | `analytic_validation.h5` |
 | validity | `validity_training.h5` | `validity_validation.h5` |
+| template_bank | `bank_wf_params.npy` (+ grid/weights) | `bank_wf_params_test.npy` |
 | new_physics | — (formula-driven) | Reference in `gwbenchmarks/rg_tail_reference.py` |
 
 ## Rules
@@ -131,6 +145,9 @@ gwBenchmarks/
 │       ├── ringdown.py
 │       ├── analytic.py
 │       ├── validity.py
+│       └── template_bank.py
+├── configs/                # YAML configs per benchmark
+└── datasets/               # READMEs, scripts, plots (binary data hosted on Hugging Face)
 │       └── new_physics.py
 ├── configs/                    # YAML configs per benchmark
 └── datasets/                   # READMEs, scripts, plots (HDF5 files hosted separately)

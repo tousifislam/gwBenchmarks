@@ -1,0 +1,20 @@
+name: template_bank
+description: "Ordered frequency-domain waveform template-bank construction"
+
+# Main target: median hidden-test match >= threshold.
+threshold: 0.97
+target_coverage: 0.5
+
+parameters:
+  template_row: [m1, m2, s1z, s2z, phi_ref]
+  public_parameter_row: [m1, m2, s1z, s2z]
+
+dataset:
+  public_dir: datasets/template_bank
+  public_files:
+    - f_amp.npy
+    - Aref_weights.npy
+    - bank_wf_params.npy
+  hidden_files:
+    - bank_wf_params_test.npy
+    - calpha_grid_params.npy

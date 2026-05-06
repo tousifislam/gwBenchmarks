@@ -10,6 +10,7 @@ from gwbenchmarks.benchmarks import (
     RingdownBench,
     AnalyticBench,
     ValidityBench,
+    TemplateBankBench,
     NewPhysicsBench,
 )
 from gwbenchmarks.models.registry import MODELS, get_model

@@ -6,6 +6,7 @@ from gwbenchmarks.benchmarks.dynamics import DynamicsBench
 from gwbenchmarks.benchmarks.ringdown import RingdownBench
 from gwbenchmarks.benchmarks.analytic import AnalyticBench
 from gwbenchmarks.benchmarks.validity import ValidityBench
+from gwbenchmarks.benchmarks.template_bank import TemplateBankBench
 from gwbenchmarks.benchmarks.new_physics import NewPhysicsBench
 
 __all__ = [
@@ -15,5 +16,6 @@ __all__ = [
     "RingdownBench",
     "AnalyticBench",
     "ValidityBench",
+    "TemplateBankBench",
     "NewPhysicsBench",
 ]
