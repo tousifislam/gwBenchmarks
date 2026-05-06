@@ -1,6 +1,6 @@
 # LLM Agent Benchmark Runner
 
-Run each LLM agent through the six gwBenchmarks tasks and store its work under
+Run each LLM agent through the gwBenchmarks tasks and store its work under
 `llm_agents/results/<agent>/<benchmark>/`.
 
 ## Supported Agents
@@ -42,7 +42,8 @@ codex -C . -m gpt-5.2 -s workspace-write -a never
 
 Paste the command or prompt for the agent you launched. Each agent runs all six
 benchmarks in this order: waveform, remnant, dynamics, ringdown, validity,
-analytic.
+analytic. Template-bank runs are launched separately because they produce an
+ordered bank submission rather than a standard surrogate model directory.
 
 ### Claude Code Prompts
 
@@ -130,6 +131,29 @@ Scripts, scorecards, plots, and JSON summaries are committed.
 Edit `llm_agents/agent_prompts/<benchmark>.md` (one file, shared across all agents).
 The agent regenerates its copy automatically at the start of each benchmark via
 `generate_prompt.py`.
+
+## Template Bank Bench
+
+Generate a template-bank prompt for one agent:
+
+```bash
+python llm_agents/generate_prompt.py gpt55_high template_bank --write
+```
+
+The agent writes its submission to:
+
+```text
+llm_agents/results/gpt55_high/template_bank/
+```
+
+Evaluate it with:
+
+```bash
+python llm_agents/evaluate_template_bank.py --agent gpt55_high
+```
+
+This benchmark expects public data in `datasets/template_bank/`. Hidden-test
+evaluation additionally requires `bank_wf_params_test.npy`.
 
 ## Wiping A Run
 

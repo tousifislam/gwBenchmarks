@@ -56,6 +56,14 @@ Benchmark suite for evaluating LLM-based gravitational wave (GW) modelling using
 | **Output** | predicted mismatch M̂ |
 | **Loss** | RMSE(log M̂, log M*) |
 
+### 7. Template Bank Bench (Frequency-domain template coverage)
+
+| | |
+|---|---|
+| **Input** | public pool of `[m1, m2, s1z, s2z]` waveform parameters |
+| **Output** | ordered bank rows `[m1, m2, s1z, s2z, phi_ref]` |
+| **Loss** | Smallest bank prefix reaching 50% hidden-test coverage at match ≥ 0.97 |
+
 ## Frequency-domain mismatch
 
 The FD mismatch is computed via PyCBC using the aLIGO `aLIGOZeroDetHighPower` PSD, maximized over time and phase shifts:
@@ -81,6 +89,7 @@ HDF5 dataset files are **not** stored in this repository due to size. Each bench
 | ringdown | `ringdown_training.h5` | `ringdown_validation.h5` |
 | analytic | `analytic_training.h5` | `analytic_validation.h5` |
 | validity | `validity_training.h5` | `validity_validation.h5` |
+| template_bank | `bank_wf_params.npy` (+ grid/weights) | `bank_wf_params_test.npy` |
 
 ## Rules
 
@@ -118,7 +127,8 @@ gwBenchmarks/
 │       ├── dynamics.py
 │       ├── ringdown.py
 │       ├── analytic.py
-│       └── validity.py
+│       ├── validity.py
+│       └── template_bank.py
 ├── configs/                # YAML configs per benchmark
 └── datasets/               # READMEs, scripts, plots (HDF5 files hosted separately)
 ```

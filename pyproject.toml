@@ -31,7 +31,8 @@ anthropic = ["anthropic>=0.40"]
 openai = ["openai>=1.50"]
 llm = ["anthropic>=0.40", "openai>=1.50"]
 pycbc = ["pycbc>=2.3"]
-all = ["anthropic>=0.40", "openai>=1.50", "pycbc>=2.3"]
+template_bank = ["lalsuite"]
+all = ["anthropic>=0.40", "openai>=1.50", "pycbc>=2.3", "lalsuite"]
 dev = [
     "pytest>=7.0",
     "pytest-cov",

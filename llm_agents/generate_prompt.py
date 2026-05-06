@@ -12,7 +12,7 @@ Usage:
 
 Supported agents : haiku, opus46, opus47, sonnet46,
                    gpt55_high, gpt54_mini, gpt53_codex_high, gpt52
-Supported benchmarks: waveform, remnant, dynamics, ringdown, validity, analytic
+Supported benchmarks: waveform, remnant, dynamics, ringdown, validity, analytic, template_bank
 """
 
 import sys
@@ -29,7 +29,15 @@ AGENT_LABELS = {
     "gpt52":            "GPT-5.2",
 }
 
-BENCHMARKS = ["waveform", "remnant", "dynamics", "ringdown", "validity", "analytic"]
+BENCHMARKS = [
+    "waveform",
+    "remnant",
+    "dynamics",
+    "ringdown",
+    "validity",
+    "analytic",
+    "template_bank",
+]
 
 
 def generate(agent: str, benchmark: str) -> str:
