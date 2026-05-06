@@ -178,7 +178,8 @@
   @media (max-width: 700px) { .team-grid { grid-template-columns: 1fr; } }
   .team-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem; text-align: center; transition: border-color .2s; }
   .team-card:hover { border-color: rgba(13,124,102,0.4); }
-  .team-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+  .team-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.02em; overflow: hidden; }
+  .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .team-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 0.25rem; }
   .team-card .team-role { font-size: 11px; color: var(--accent); font-weight: 500; margin-bottom: 0.6rem; }
   .team-card .team-affil { font-size: 11px; color: var(--muted); margin-bottom: 0.75rem; }
@@ -273,7 +274,7 @@
         <span class="pill pill-gemini3f">Gemini 3 Flash</span>
       </div>
       <div class="model-pills-row">
-        <span class="model-pills-label">KIMI</span>
+        <span class="model-pills-label">OTHERS</span>
         <span class="pill pill-kimi">Kimi K2.6</span>
       </div>
     </div>
@@ -532,7 +533,7 @@
     </div>
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-avatar">TI</div>
+        <div class="team-avatar"><img src="photo_tousif.jpg" alt="Tousif Islam"></div>
         <h3>Tousif Islam</h3>
         <div class="team-role">Lead Investigator</div>
         <div class="team-affil">Kavli Postdoctoral Scholar, KITP &middot; UC Santa Barbara &middot; Incoming Weinberg Fellow at UT Austin</div>
@@ -543,7 +544,7 @@
         </div>
       </div>
       <div class="team-card">
-        <div class="team-avatar">DW</div>
+        <div class="team-avatar"><img src="photo_digvijay.jpg" alt="Digvijay Wadekar"></div>
         <h3>Digvijay Wadekar</h3>
         <div class="team-role">Investigator</div>
         <div class="team-affil">Assistant Professor, UT Austin &middot; Previously JHU &amp; IAS</div>
@@ -552,7 +553,7 @@
         </div>
       </div>
       <div class="team-card">
-        <div class="team-avatar">ZZ</div>
+        <div class="team-avatar"><img src="photo_zihan.jpg" alt="Zihan Zhou"></div>
         <h3>Zihan Zhou</h3>
         <div class="team-role">Investigator</div>
         <div class="team-affil">Graduate Student, Princeton University</div>
