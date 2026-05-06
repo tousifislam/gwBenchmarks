@@ -1,0 +1,218 @@
+[
+  {
+    "rank": 1,
+    "name": "rbf_interp_raw",
+    "category": "kernel_interp",
+    "parameterization": "raw",
+    "val_loss": 0.008308229905879072,
+    "train_loss": 0.0068611339970938035,
+    "runtime_ms": 27.348995208740234
+  },
+  {
+    "rank": 2,
+    "name": "svd_poly2_raw",
+    "category": "svd_decomp",
+    "parameterization": "raw",
+    "val_loss": 0.008445047444377032,
+    "train_loss": 0.007887084832670406,
+    "runtime_ms": 0.1971721649169922
+  },
+  {
+    "rank": 3,
+    "name": "svd_poly2_trig",
+    "category": "svd_decomp",
+    "parameterization": "trig",
+    "val_loss": 0.00850506627545354,
+    "train_loss": 0.007838640886075554,
+    "runtime_ms": 0.22292137145996094
+  },
+  {
+    "rank": 4,
+    "name": "svd_gpr_trig",
+    "category": "svd_decomp",
+    "parameterization": "trig",
+    "val_loss": 0.008970339232041703,
+    "train_loss": 0.00894375249597548,
+    "runtime_ms": 7.5740814208984375
+  },
+  {
+    "rank": 5,
+    "name": "svd_gpr_rbf_raw",
+    "category": "svd_decomp",
+    "parameterization": "raw",
+    "val_loss": 0.009008302598865219,
+    "train_loss": 0.009028203737661769,
+    "runtime_ms": 21.603822708129883
+  },
+  {
+    "rank": 6,
+    "name": "eim_gpr_raw",
+    "category": "svd_decomp",
+    "parameterization": "raw",
+    "val_loss": 0.009061646763342082,
+    "train_loss": 0.00875745366827072,
+    "runtime_ms": 25.871992111206055
+  },
+  {
+    "rank": 7,
+    "name": "svd_et_trig",
+    "category": "ml",
+    "parameterization": "trig",
+    "val_loss": 0.010079438756659176,
+    "train_loss": 0.005561990206040744,
+    "runtime_ms": 13.556241989135742
+  },
+  {
+    "rank": 8,
+    "name": "svd_gbr_eff",
+    "category": "ml",
+    "parameterization": "eff",
+    "val_loss": 0.010298441481895005,
+    "train_loss": 0.007194098183951855,
+    "runtime_ms": 676.055908203125
+  },
+  {
+    "rank": 9,
+    "name": "svd_gpr_matern_eff",
+    "category": "svd_decomp",
+    "parameterization": "eff",
+    "val_loss": 0.0106779126404572,
+    "train_loss": 0.010693704413309621,
+    "runtime_ms": 10.454177856445312
+  },
+  {
+    "rank": 10,
+    "name": "rbf_interp_eff",
+    "category": "kernel_interp",
+    "parameterization": "eff",
+    "val_loss": 0.011391156768377602,
+    "train_loss": 0.007545509355026399,
+    "runtime_ms": 7.376909255981445
+  },
+  {
+    "rank": 11,
+    "name": "svd_rf_trig",
+    "category": "ml",
+    "parameterization": "trig",
+    "val_loss": 0.01158953270644539,
+    "train_loss": 0.00839756650938414,
+    "runtime_ms": 13.875007629394531
+  },
+  {
+    "rank": 12,
+    "name": "svd_poly3_eff",
+    "category": "svd_decomp",
+    "parameterization": "eff",
+    "val_loss": 0.011626863678886476,
+    "train_loss": 0.008568262640161218,
+    "runtime_ms": 21.898984909057617
+  },
+  {
+    "rank": 13,
+    "name": "svd_rf_raw",
+    "category": "ml",
+    "parameterization": "raw",
+    "val_loss": 0.011627553478289622,
+    "train_loss": 0.006994934859007367,
+    "runtime_ms": 14.233112335205078
+  },
+  {
+    "rank": 14,
+    "name": "knn_raw",
+    "category": "kernel_interp",
+    "parameterization": "raw",
+    "val_loss": 0.013289997229950178,
+    "train_loss": 0.005562245934688891,
+    "runtime_ms": 0.4229545593261719
+  },
+  {
+    "rank": 15,
+    "name": "svd_gpr_lf",
+    "category": "svd_decomp",
+    "parameterization": "lf",
+    "val_loss": 0.015410605842858405,
+    "train_loss": 0.00677450511981592,
+    "runtime_ms": 12.314081192016602
+  },
+  {
+    "rank": 16,
+    "name": "knn10_eff",
+    "category": "kernel_interp",
+    "parameterization": "eff",
+    "val_loss": 0.017564455568103647,
+    "train_loss": 0.005562245934688891,
+    "runtime_ms": 0.6270408630371094
+  },
+  {
+    "rank": 17,
+    "name": "pysr_svd_raw",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "val_loss": 0.024692159749610094,
+    "train_loss": 0.024163558118562755,
+    "runtime_ms": 5.394935607910156
+  },
+  {
+    "rank": 18,
+    "name": "pysr_svd_eff",
+    "category": "symbolic",
+    "parameterization": "eff",
+    "val_loss": 0.02733194128222228,
+    "train_loss": 0.028232181326155795,
+    "runtime_ms": 28.423309326171875
+  },
+  {
+    "rank": 19,
+    "name": "gplearn_svd_raw",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "val_loss": 0.031239485816501662,
+    "train_loss": 0.0315087895631014,
+    "runtime_ms": 0.3147125244140625
+  },
+  {
+    "rank": 20,
+    "name": "svd_mlp_raw",
+    "category": "ml",
+    "parameterization": "raw",
+    "val_loss": 0.03262186173806859,
+    "train_loss": 0.019934131065428438,
+    "runtime_ms": 0.1239776611328125
+  },
+  {
+    "rank": 21,
+    "name": "gplearn_svd_eff",
+    "category": "symbolic",
+    "parameterization": "eff",
+    "val_loss": 0.03266629363092674,
+    "train_loss": 0.03335483307055599,
+    "runtime_ms": 0.5183219909667969
+  },
+  {
+    "rank": 22,
+    "name": "svd_mlp_lf",
+    "category": "ml",
+    "parameterization": "lf",
+    "val_loss": 0.03314568372286733,
+    "train_loss": 0.02252932710279011,
+    "runtime_ms": 0.24771690368652344
+  },
+  {
+    "rank": 23,
+    "name": "svd_mlp_large_eff",
+    "category": "ml",
+    "parameterization": "eff",
+    "val_loss": 0.037091888559579934,
+    "train_loss": 0.03516467995654365,
+    "runtime_ms": 0.15783309936523438
+  },
+  {
+    "rank": 24,
+    "name": "krr_eff",
+    "category": "kernel_interp",
+    "parameterization": "eff",
+    "val_loss": 0.1187143297047355,
+    "train_loss": 0.0066658799078193704,
+    "runtime_ms": 31.508922576904297
+  }
+]

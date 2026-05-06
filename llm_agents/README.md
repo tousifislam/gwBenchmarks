@@ -17,6 +17,7 @@ Run each LLM agent through the six gwBenchmarks tasks and store its work under
 | `gpt52` | GPT-5.2 | Codex | `gpt-5.2` | default |
 | `hy3_preview_free` | Hy3 Preview Free | OpenCode | `opencode/hy3-preview-free` | default |
 | `kimi_k26` | Kimi K2.6 | OpenCode | `opencode-go/kimi-k2.6` | default |
+| `deepseek_v4_pro_max` | DeepSeek V4 Pro Max | OpenCode | `opencode-go/deepseek-v4-pro` | default |
 
 ## Step 1 - Start The Agent
 
@@ -54,6 +55,7 @@ codex -C . -m gpt-5.2 -s workspace-write -a never
 ```bash
 opencode
 opencode --model opencode-go/kimi-k2.6
+opencode --model opencode-go/deepseek-v4-pro
 ```
 
 ## Step 2 - Launch The Benchmark Loop
@@ -116,6 +118,11 @@ You are the Hy3 Preview Free agent for the gwBenchmarks suite. Your agent ID is 
 #### Kimi K2.6
 ```text
 You are the Kimi K2.6 agent for the gwBenchmarks suite. Your agent ID is 'kimi_k26'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py kimi_k26 <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read `llm_agents/results/kimi_k26/<benchmark>/AGENT_PROMPT.md` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE.
+```
+
+#### DeepSeek V4 Pro Max
+```text
+You are the DeepSeek V4 Pro Max agent for the gwBenchmarks suite. Your agent ID is 'deepseek_v4_pro_max'. Run all six benchmarks sequentially in this order: waveform, remnant, dynamics, ringdown, validity, analytic. For each benchmark: (1) run `python llm_agents/generate_prompt.py deepseek_v4_pro_max <benchmark> --write` from the gwBenchmarks/ root to generate your task prompt, (2) read `llm_agents/results/deepseek_v4_pro_max/<benchmark>/AGENT_PROMPT.md` carefully, (3) execute every task described in it, (4) do not stop until the benchmark completion string is printed, and (5) only then move on to the next benchmark. Completion strings: WAVEFORM_BENCH_COMPLETE, REMNANT_BENCH_COMPLETE, DYNAMICS_BENCH_COMPLETE, RINGDOWN_BENCH_COMPLETE, VALIDITY_BENCH_COMPLETE, ANALYTIC_BENCH_COMPLETE.
 ```
 
 #### Gemini 3.1 Pro Preview

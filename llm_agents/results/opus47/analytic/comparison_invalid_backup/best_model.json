@@ -1,0 +1,24 @@
+{
+  "approach": "ap_svd_poly5_log_q",
+  "approach_number": 13,
+  "benchmark": "analytic",
+  "agent": "opus47",
+  "category": "svd_decomp",
+  "parameterization": "log_q",
+  "time_convention": "t0_at_peak",
+  "loss": 0.003790608612694543,
+  "loss_proxy_l2": 0.01945809076344806,
+  "loss_components": {
+    "mismatch_40Msun": 0.009288694520348386,
+    "mismatch_80Msun": 0.0028457498337659485,
+    "mismatch_120Msun": 0.001838131967019916,
+    "mismatch_160Msun": 0.002231079307902609,
+    "mismatch_200Msun": 0.002749387434435858
+  },
+  "runtime_ms": 0.004019317069522492,
+  "n_train": 20,
+  "n_val": 21,
+  "n_params": 90,
+  "train_time_s": 0.0006220340728759766,
+  "notes": "Amp/phase SVD + polynomial deg-5 ridge."
+}

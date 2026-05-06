@@ -1,0 +1,19 @@
+{
+    "approach": "10_krr_rbf_sqrt",
+    "approach_number": 10,
+    "benchmark": "ringdown",
+    "agent": "gemini31_pro_preview",
+    "parameterization": "sqrt_irred",
+    "mode": "l2_m2_n0",
+    "category": "Interpolation",
+    "loss": 0.0005254371385597487,
+    "loss_components": {
+        "rel_error_omega_real": 0.0009539687444736874,
+        "rel_error_omega_imag": 9.690553264580997e-05
+    },
+    "runtime_ms": 0.00522949376797721,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": "Generated automatically"
+}

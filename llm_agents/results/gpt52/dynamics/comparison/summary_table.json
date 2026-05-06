@@ -1,0 +1,503 @@
+[
+  {
+    "approach": "gpr_rbf",
+    "display_name": "SVD+GPR (RBF, raw, tau)",
+    "approach_number": 2,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.010031634570708676,
+    "loss_components": {
+      "rms_relative_error_x": 0.010031634570708676
+    },
+    "runtime_ms": 0.08078166795894504,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=8.288e-03, val_loss=1.003e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "rbf_interp",
+    "display_name": "SVD+RBFInterpolator (eff, tau)",
+    "approach_number": 6,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "interpolation/kernel",
+    "parameterization": "eff_loge0_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.010420553803398373,
+    "loss_components": {
+      "rms_relative_error_x": 0.010420553803398373
+    },
+    "runtime_ms": 0.6465598319191486,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=7.644e-03, val_loss=1.042e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "poly_ridge",
+    "display_name": "SVD+Poly-3 Ridge (raw, tau)",
+    "approach_number": 4,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.010825674412382124,
+    "loss_components": {
+      "rms_relative_error_x": 0.010825674412382124
+    },
+    "runtime_ms": 0.02464666380546987,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=8.638e-03, val_loss=1.115e-02",
+        "hypothesis": "Validation loss suggests overfitting \u2192 increase regularization (alpha).",
+        "change": "alpha -> 1.00e-02"
+      }
+    }
+  },
+  {
+    "approach": "gpr_matern",
+    "display_name": "SVD+GPR (Matern, eff, tau)",
+    "approach_number": 3,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "eff_loge0_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.011234898966909075,
+    "loss_components": {
+      "rms_relative_error_x": 0.011234898966909075
+    },
+    "runtime_ms": 0.0322063360363245,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=8.341e-03, val_loss=1.123e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "hgb",
+    "display_name": "SVD+HistGB (eff, tau)",
+    "approach_number": 12,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "eff_loge0_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.011747485688607586,
+    "loss_components": {
+      "rms_relative_error_x": 0.011747485688607586
+    },
+    "runtime_ms": 2.2365763320121914,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=7.151e-03, val_loss=1.175e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "svr_rbf",
+    "display_name": "SVD+SVR (raw, tau)",
+    "approach_number": 13,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "interpolation/kernel",
+    "parameterization": "raw_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.01187271843607189,
+    "loss_components": {
+      "rms_relative_error_x": 0.01187271843607189
+    },
+    "runtime_ms": 0.0691186678595841,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=8.228e-03, val_loss=1.187e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "krr_rbf",
+    "display_name": "SVD+KRR (trig, tau)",
+    "approach_number": 5,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "interpolation/kernel",
+    "parameterization": "trig_anomaly_7d",
+    "time_convention": "normalized_time",
+    "loss": 0.01217308422319368,
+    "loss_components": {
+      "rms_relative_error_x": 0.01217308422319368
+    },
+    "runtime_ms": 0.039357836125418544,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=6.861e-03, val_loss=1.346e-02",
+        "hypothesis": "Validation loss suggests overfitting \u2192 increase regularization (alpha).",
+        "change": "alpha -> 1.00e-02"
+      }
+    }
+  },
+  {
+    "approach": "extratrees",
+    "display_name": "SVD+ExtraTrees (raw, tau)",
+    "approach_number": 11,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.0127661714931169,
+    "loss_components": {
+      "rms_relative_error_x": 0.0127661714931169
+    },
+    "runtime_ms": 0.24813299998641014,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=6.850e-03, val_loss=1.277e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "pysr",
+    "display_name": "PySR (SVD coeffs, eff)",
+    "approach_number": 19,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "symbolic/physics-informed",
+    "parameterization": "eff_loge0_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.012902444871931843,
+    "loss_components": {
+      "rms_relative_error_x": 0.012902444871931843
+    },
+    "runtime_ms": 0.0003649999853223562,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "equations": [
+        "x1*0.10819739 - 2.196985*x5*(-(x0 - x3 + sin(x0)) - 36.132988) - 0.80847955 - 0.18511252/x3",
+        "sin(-0.17538969 + 0.66135633/((x3*(-33.01318)/exp(x2/0.5839573))**exp(sin(x0 + x1) - 1.2200265)))*cos(x1)",
+        "sin((x0*0.0022087244 - x5 + (x2 + exp(x0 + x0 + x3)*cos(x3))*0.00049987267 + 0.0075420756)*173.69554)"
+      ]
+    }
+  },
+  {
+    "approach": "gpr_rbf",
+    "display_name": "SVD+GPR (RBF, raw, t_end)",
+    "approach_number": 18,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_6d",
+    "time_convention": "t0_at_end",
+    "loss": 0.012988940928244713,
+    "loss_components": {
+      "rms_relative_error_x": 0.012988940928244713
+    },
+    "runtime_ms": 0.025339999934658408,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=7.862e-03, val_loss=1.299e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "lasso",
+    "display_name": "SVD+Lasso (raw, tau)",
+    "approach_number": 14,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.013484252743655206,
+    "loss_components": {
+      "rms_relative_error_x": 0.013484252743655206
+    },
+    "runtime_ms": 0.011846000095829368,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=1.343e-02, val_loss=1.348e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "elasticnet",
+    "display_name": "SVD+ElasticNet (raw, tau)",
+    "approach_number": 15,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.013489777380626502,
+    "loss_components": {
+      "rms_relative_error_x": 0.013489777380626502
+    },
+    "runtime_ms": 0.011540499981492758,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=1.343e-02, val_loss=1.349e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "SVD+Ridge (raw, tau)",
+    "approach_number": 1,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.013500429473590626,
+    "loss_components": {
+      "rms_relative_error_x": 0.013500429473590626
+    },
+    "runtime_ms": 0.012921667890623212,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=1.344e-02, val_loss=1.350e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "rf",
+    "display_name": "SVD+RandomForest (raw, tau)",
+    "approach_number": 10,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.015075666222490881,
+    "loss_components": {
+      "rms_relative_error_x": 0.015075666222490881
+    },
+    "runtime_ms": 0.18389649991877377,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=8.796e-03, val_loss=1.508e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "mlp",
+    "display_name": "SVD+MLP (eff, tau)",
+    "approach_number": 9,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "eff_loge0_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.01803103995785566,
+    "loss_components": {
+      "rms_relative_error_x": 0.01803103995785566
+    },
+    "runtime_ms": 0.06338016805239022,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=1.413e-02, val_loss=1.803e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "SVD+Ridge (raw, t_end)",
+    "approach_number": 17,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_6d",
+    "time_convention": "t0_at_end",
+    "loss": 0.019401598348178634,
+    "loss_components": {
+      "rms_relative_error_x": 0.019401598348178634
+    },
+    "runtime_ms": 0.011266999877989292,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=1.859e-02, val_loss=1.940e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "knn",
+    "display_name": "SVD+kNN (eff, tau)",
+    "approach_number": 7,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "interpolation/kernel",
+    "parameterization": "eff_loge0_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.020457379763849436,
+    "loss_components": {
+      "rms_relative_error_x": 0.020457379763849436
+    },
+    "runtime_ms": 0.08624049997888505,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=6.850e-03, val_loss=2.046e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "SVD+Ridge (fully, tau)",
+    "approach_number": 16,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "fully_transformed_7d",
+    "time_convention": "normalized_time",
+    "loss": 0.021292035555122255,
+    "loss_components": {
+      "rms_relative_error_x": 0.021292035555122255
+    },
+    "runtime_ms": 0.01140399998985231,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=2.102e-02, val_loss=2.129e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "eim_krr_rbf",
+    "display_name": "EIM+KRR (raw, tau)",
+    "approach_number": 8,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.033913710333487855,
+    "loss_components": {
+      "rms_relative_error_x": 0.033913710333487855
+    },
+    "runtime_ms": 0.06235800008289516,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "reasoned_optimization": {
+        "observed": "train_loss=9.085e-03, val_loss=3.246e-02",
+        "hypothesis": "Validation loss suggests overfitting \u2192 increase regularization (alpha).",
+        "change": "alpha -> 1.00e-02"
+      }
+    }
+  },
+  {
+    "approach": "gplearn",
+    "display_name": "gplearn (SVD coeffs, raw)",
+    "approach_number": 20,
+    "benchmark": "dynamics",
+    "agent": "gpt52",
+    "category": "symbolic/physics-informed",
+    "parameterization": "raw_6d",
+    "time_convention": "normalized_time",
+    "loss": 0.03797387929245984,
+    "loss_components": {
+      "rms_relative_error_x": 0.03797387929245984
+    },
+    "runtime_ms": 0.0,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "expressions": [
+        "mul(X5, X5)",
+        "-0.005",
+        "mul(X5, X5)",
+        "neg(neg(mul(sub(X4, X4), neg(X3))))"
+      ]
+    }
+  }
+]

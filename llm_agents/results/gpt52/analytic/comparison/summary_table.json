@@ -1,0 +1,578 @@
+[
+  {
+    "approach": "closed_form",
+    "display_name": "Composite stitch sharp (x=q, deg=1)",
+    "approach_number": 7,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "matched asymptotic / composite",
+    "parameterization": "q",
+    "loss": 0.27197858463072794,
+    "loss_components": {
+      "mean_fd_mismatch": 0.2719785846307279,
+      "mismatch_40Msun": 0.5751845428942929,
+      "mismatch_80Msun": 0.35590339587974396,
+      "mismatch_120Msun": 0.2014077821604065,
+      "mismatch_160Msun": 0.12862089933758677,
+      "mismatch_200Msun": 0.09877630288160914
+    },
+    "runtime_ms": 2.646055262696198e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 14,
+    "n_terms": 14,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch_sharp",
+      "poly_degree": 1,
+      "transition_w": 10.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Composite stitch sharp (x=q, deg=2)",
+    "approach_number": 8,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "matched asymptotic / composite",
+    "parameterization": "q",
+    "loss": 0.27202591761538003,
+    "loss_components": {
+      "mean_fd_mismatch": 0.27202591761538003,
+      "mismatch_40Msun": 0.5760323038472107,
+      "mismatch_80Msun": 0.3566750040038295,
+      "mismatch_120Msun": 0.20183059978299064,
+      "mismatch_160Msun": 0.12827459453118503,
+      "mismatch_200Msun": 0.09731708591168438
+    },
+    "runtime_ms": 2.6991280545825713e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 21,
+    "n_terms": 21,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch_sharp",
+      "poly_degree": 2,
+      "transition_w": 10.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Composite stitch sharp (x=delta_m, deg=1)",
+    "approach_number": 11,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "matched asymptotic / composite",
+    "parameterization": "delta_m",
+    "loss": 0.27223941968616777,
+    "loss_components": {
+      "mean_fd_mismatch": 0.27223941968616777,
+      "mismatch_40Msun": 0.576155579777206,
+      "mismatch_80Msun": 0.35677170237739503,
+      "mismatch_120Msun": 0.20192050625831479,
+      "mismatch_160Msun": 0.12851643374931335,
+      "mismatch_200Msun": 0.09783287626861001
+    },
+    "runtime_ms": 2.70123168797374e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 14,
+    "n_terms": 14,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch_sharp",
+      "poly_degree": 1,
+      "transition_w": 10.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Composite stitch sharp (x=delta_m, deg=2)",
+    "approach_number": 12,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "matched asymptotic / composite",
+    "parameterization": "delta_m",
+    "loss": 0.27227671830431616,
+    "loss_components": {
+      "mean_fd_mismatch": 0.27227671830431616,
+      "mismatch_40Msun": 0.5762584813294447,
+      "mismatch_80Msun": 0.3569055028258032,
+      "mismatch_120Msun": 0.20196631309059712,
+      "mismatch_160Msun": 0.12848074005784144,
+      "mismatch_200Msun": 0.09777255421789426
+    },
+    "runtime_ms": 2.7858780474181685e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 21,
+    "n_terms": 21,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch_sharp",
+      "poly_degree": 2,
+      "transition_w": 10.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Composite stitch sharp (x=eta, deg=1)",
+    "approach_number": 9,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "matched asymptotic / composite",
+    "parameterization": "eta",
+    "loss": 0.27234439479178874,
+    "loss_components": {
+      "mean_fd_mismatch": 0.27234439479178874,
+      "mismatch_40Msun": 0.5761848653968583,
+      "mismatch_80Msun": 0.35688867796765117,
+      "mismatch_120Msun": 0.2020228130995786,
+      "mismatch_160Msun": 0.1286207642357731,
+      "mismatch_200Msun": 0.09800485325908277
+    },
+    "runtime_ms": 2.643706617164651e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 14,
+    "n_terms": 14,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch_sharp",
+      "poly_degree": 1,
+      "transition_w": 10.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Composite stitch sharp (x=eta, deg=2)",
+    "approach_number": 10,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "matched asymptotic / composite",
+    "parameterization": "eta",
+    "loss": 0.27276308955761563,
+    "loss_components": {
+      "mean_fd_mismatch": 0.27276308955761563,
+      "mismatch_40Msun": 0.5766182835383362,
+      "mismatch_80Msun": 0.35741000566004716,
+      "mismatch_120Msun": 0.2025089312284913,
+      "mismatch_160Msun": 0.12901255249672758,
+      "mismatch_200Msun": 0.09826567486447615
+    },
+    "runtime_ms": 2.6522645319837214e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 21,
+    "n_terms": 21,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch_sharp",
+      "poly_degree": 2,
+      "transition_w": 10.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "IMR stitch exp (x=q, deg=1)",
+    "approach_number": 1,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "physics-informed closed forms",
+    "parameterization": "q",
+    "loss": 0.5598772959744855,
+    "loss_components": {
+      "mean_fd_mismatch": 0.5598772959744855,
+      "mismatch_40Msun": 0.7269010552195672,
+      "mismatch_80Msun": 0.5985549165994857,
+      "mismatch_120Msun": 0.5094567312601037,
+      "mismatch_160Msun": 0.48092319693855706,
+      "mismatch_200Msun": 0.48355057985471445
+    },
+    "runtime_ms": 2.5345743448306924e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 14,
+    "n_terms": 14,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch",
+      "poly_degree": 1,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "IMR stitch exp (x=q, deg=2)",
+    "approach_number": 2,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "physics-informed closed forms",
+    "parameterization": "q",
+    "loss": 0.5608101525541345,
+    "loss_components": {
+      "mean_fd_mismatch": 0.5608101525541342,
+      "mismatch_40Msun": 0.7287638683153571,
+      "mismatch_80Msun": 0.6004452642967877,
+      "mismatch_120Msun": 0.5144536214906333,
+      "mismatch_160Msun": 0.4830537155836035,
+      "mismatch_200Msun": 0.47733429308429026
+    },
+    "runtime_ms": 2.5426514651456868e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 21,
+    "n_terms": 21,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch",
+      "poly_degree": 2,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "IMR stitch exp (x=delta_m, deg=1)",
+    "approach_number": 5,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "physics-informed closed forms",
+    "parameterization": "delta_m",
+    "loss": 0.5613733047972588,
+    "loss_components": {
+      "mean_fd_mismatch": 0.5613733047972588,
+      "mismatch_40Msun": 0.728927434718491,
+      "mismatch_80Msun": 0.602635841804011,
+      "mismatch_120Msun": 0.5174120867165948,
+      "mismatch_160Msun": 0.4839717588723378,
+      "mismatch_200Msun": 0.47391940187485904
+    },
+    "runtime_ms": 2.5435114232678573e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 14,
+    "n_terms": 14,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch",
+      "poly_degree": 1,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "IMR stitch exp (x=eta, deg=2)",
+    "approach_number": 4,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "physics-informed closed forms",
+    "parameterization": "eta",
+    "loss": 0.5645351521193863,
+    "loss_components": {
+      "mean_fd_mismatch": 0.5645351521193862,
+      "mismatch_40Msun": 0.7300795860055762,
+      "mismatch_80Msun": 0.6038458375401007,
+      "mismatch_120Msun": 0.5189151949548849,
+      "mismatch_160Msun": 0.4887415018601541,
+      "mismatch_200Msun": 0.4810936402362154
+    },
+    "runtime_ms": 2.6007406826408417e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 21,
+    "n_terms": 21,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch",
+      "poly_degree": 2,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "IMR stitch exp (x=delta_m, deg=2)",
+    "approach_number": 6,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "physics-informed closed forms",
+    "parameterization": "delta_m",
+    "loss": 0.5692560727857605,
+    "loss_components": {
+      "mean_fd_mismatch": 0.5692560727857605,
+      "mismatch_40Msun": 0.7319643428432886,
+      "mismatch_80Msun": 0.6080546860652065,
+      "mismatch_120Msun": 0.5243920314610382,
+      "mismatch_160Msun": 0.49366266238437784,
+      "mismatch_200Msun": 0.4882066411748913
+    },
+    "runtime_ms": 2.662861626770941e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 21,
+    "n_terms": 21,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch",
+      "poly_degree": 2,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "IMR stitch exp (x=eta, deg=1)",
+    "approach_number": 3,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "physics-informed closed forms",
+    "parameterization": "eta",
+    "loss": 0.5709387302490869,
+    "loss_components": {
+      "mean_fd_mismatch": 0.5709387302490867,
+      "mismatch_40Msun": 0.732857259088926,
+      "mismatch_80Msun": 0.6095060023134166,
+      "mismatch_120Msun": 0.5262350460664519,
+      "mismatch_160Msun": 0.49561339384380154,
+      "mismatch_200Msun": 0.4904819499328384
+    },
+    "runtime_ms": 2.6090629184387106e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 14,
+    "n_terms": 14,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "exp_stitch",
+      "poly_degree": 1,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "pysr",
+    "display_name": "PySR (t/1000, eta)",
+    "approach_number": 19,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "symbolic regression",
+    "parameterization": "eta + t/1000",
+    "loss": 0.6239107167339091,
+    "loss_components": {
+      "mean_fd_mismatch": 0.6239107167339092,
+      "mismatch_40Msun": 0.5720547364987909,
+      "mismatch_80Msun": 0.611240971224102,
+      "mismatch_120Msun": 0.6571643348086247,
+      "mismatch_160Msun": 0.6490740158409268,
+      "mismatch_200Msun": 0.6300195252971007
+    },
+    "runtime_ms": 2.399282398705172e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 0,
+    "n_terms": 0,
+    "expression_file": "expression.txt",
+    "notes": {
+      "best_equations_file": "saved_model/best_equations.json"
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Gauss-mod stitch (x=delta_m, deg=2)",
+    "approach_number": 18,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "functional form optimization",
+    "parameterization": "delta_m",
+    "loss": 0.6422230337850854,
+    "loss_components": {
+      "mean_fd_mismatch": 0.6422230337850854,
+      "mismatch_40Msun": 0.7480448227322483,
+      "mismatch_80Msun": 0.6541816712336622,
+      "mismatch_120Msun": 0.6218100066273589,
+      "mismatch_160Msun": 0.59719629715046,
+      "mismatch_200Msun": 0.5898823711816975
+    },
+    "runtime_ms": 2.9918719495407315e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 24,
+    "n_terms": 24,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "gauss_mod",
+      "poly_degree": 2,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Gauss-mod stitch (x=q, deg=1)",
+    "approach_number": 13,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "functional form optimization",
+    "parameterization": "q",
+    "loss": 0.6430999404788624,
+    "loss_components": {
+      "mean_fd_mismatch": 0.6430999404788624,
+      "mismatch_40Msun": 0.7574599163704809,
+      "mismatch_80Msun": 0.6506711728284175,
+      "mismatch_120Msun": 0.59282702704344,
+      "mismatch_160Msun": 0.5918689655672613,
+      "mismatch_200Msun": 0.6226726205847123
+    },
+    "runtime_ms": 2.99143741372146e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 16,
+    "n_terms": 16,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "gauss_mod",
+      "poly_degree": 1,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Gauss-mod stitch (x=q, deg=2)",
+    "approach_number": 14,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "functional form optimization",
+    "parameterization": "q",
+    "loss": 0.6477373924665231,
+    "loss_components": {
+      "mean_fd_mismatch": 0.6477373924665231,
+      "mismatch_40Msun": 0.7552627633316564,
+      "mismatch_80Msun": 0.6630905645552756,
+      "mismatch_120Msun": 0.6310030858702512,
+      "mismatch_160Msun": 0.6059394496425093,
+      "mismatch_200Msun": 0.5833910989329227
+    },
+    "runtime_ms": 3.027810142208114e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 24,
+    "n_terms": 24,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "gauss_mod",
+      "poly_degree": 2,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Gauss-mod stitch (x=eta, deg=1)",
+    "approach_number": 15,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "functional form optimization",
+    "parameterization": "eta",
+    "loss": 0.6503503498145254,
+    "loss_components": {
+      "mean_fd_mismatch": 0.6503503498145254,
+      "mismatch_40Msun": 0.7548950092932278,
+      "mismatch_80Msun": 0.6643520781983235,
+      "mismatch_120Msun": 0.6350091703631254,
+      "mismatch_160Msun": 0.6154830757878431,
+      "mismatch_200Msun": 0.5820124154301074
+    },
+    "runtime_ms": 2.9806091869828658e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 16,
+    "n_terms": 16,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "gauss_mod",
+      "poly_degree": 1,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Gauss-mod stitch (x=delta_m, deg=1)",
+    "approach_number": 17,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "functional form optimization",
+    "parameterization": "delta_m",
+    "loss": 0.6519131081345226,
+    "loss_components": {
+      "mean_fd_mismatch": 0.6519131081345226,
+      "mismatch_40Msun": 0.7599323160223267,
+      "mismatch_80Msun": 0.6616112608120275,
+      "mismatch_120Msun": 0.616406055702537,
+      "mismatch_160Msun": 0.6112698271728539,
+      "mismatch_200Msun": 0.6103460809628685
+    },
+    "runtime_ms": 2.9097361281068555e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 16,
+    "n_terms": 16,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "gauss_mod",
+      "poly_degree": 1,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "closed_form",
+    "display_name": "Gauss-mod stitch (x=eta, deg=2)",
+    "approach_number": 16,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "functional form optimization",
+    "parameterization": "eta",
+    "loss": 0.652734297736726,
+    "loss_components": {
+      "mean_fd_mismatch": 0.652734297736726,
+      "mismatch_40Msun": 0.7569986925675681,
+      "mismatch_80Msun": 0.6691364386716905,
+      "mismatch_120Msun": 0.6403193243896177,
+      "mismatch_160Msun": 0.610399018185951,
+      "mismatch_200Msun": 0.5868180148688019
+    },
+    "runtime_ms": 2.9904571713927655e-05,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 24,
+    "n_terms": 24,
+    "expression_file": "expression.txt",
+    "notes": {
+      "amp_kind": "gauss_mod",
+      "poly_degree": 2,
+      "transition_w": 25.0
+    }
+  },
+  {
+    "approach": "gplearn",
+    "display_name": "gplearn (t/1000, eta)",
+    "approach_number": 20,
+    "benchmark": "analytic",
+    "agent": "gpt52",
+    "category": "symbolic regression",
+    "parameterization": "eta + t/1000",
+    "loss": 0.8396000473395279,
+    "loss_components": {
+      "mean_fd_mismatch": 0.8396000473395279,
+      "mismatch_40Msun": 0.8468675280961191,
+      "mismatch_80Msun": 0.8420130536217536,
+      "mismatch_120Msun": 0.8328050765021809,
+      "mismatch_160Msun": 0.8347620953674499,
+      "mismatch_200Msun": 0.8415524831101358
+    },
+    "runtime_ms": 5.8364302947781596e-06,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 0,
+    "n_terms": 0,
+    "expression_file": "expression.txt",
+    "notes": {
+      "models_file": "saved_model/gplearn_models.joblib"
+    }
+  }
+]

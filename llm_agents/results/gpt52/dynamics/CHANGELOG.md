@@ -1,0 +1,87 @@
+# Dynamics Bench — Changelog (gpt52)
+
+Date: 2026-05-01
+
+## Approaches
+
+- 01. SVD+Ridge (raw, tau) — category=svd/decomposition, params=raw_6d, time=normalized_time, loss=0.0135004
+  - observed: train_loss=1.344e-02, val_loss=1.350e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 02. SVD+GPR (RBF, raw, tau) — category=svd/decomposition, params=raw_6d, time=normalized_time, loss=0.0100316
+  - observed: train_loss=8.288e-03, val_loss=1.003e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 03. SVD+GPR (Matern, eff, tau) — category=svd/decomposition, params=eff_loge0_6d, time=normalized_time, loss=0.0112349
+  - observed: train_loss=8.341e-03, val_loss=1.123e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 04. SVD+Poly-3 Ridge (raw, tau) — category=svd/decomposition, params=raw_6d, time=normalized_time, loss=0.0108257
+  - observed: train_loss=8.638e-03, val_loss=1.115e-02
+  - hypothesis: Validation loss suggests overfitting → increase regularization (alpha).
+  - change: alpha -> 1.00e-02
+- 05. SVD+KRR (trig, tau) — category=interpolation/kernel, params=trig_anomaly_7d, time=normalized_time, loss=0.0121731
+  - observed: train_loss=6.861e-03, val_loss=1.346e-02
+  - hypothesis: Validation loss suggests overfitting → increase regularization (alpha).
+  - change: alpha -> 1.00e-02
+- 06. SVD+RBFInterpolator (eff, tau) — category=interpolation/kernel, params=eff_loge0_6d, time=normalized_time, loss=0.0104206
+  - observed: train_loss=7.644e-03, val_loss=1.042e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 07. SVD+kNN (eff, tau) — category=interpolation/kernel, params=eff_loge0_6d, time=normalized_time, loss=0.0204574
+  - observed: train_loss=6.850e-03, val_loss=2.046e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 08. EIM+KRR (raw, tau) — category=svd/decomposition, params=raw_6d, time=normalized_time, loss=0.0339137
+  - observed: train_loss=9.085e-03, val_loss=3.246e-02
+  - hypothesis: Validation loss suggests overfitting → increase regularization (alpha).
+  - change: alpha -> 1.00e-02
+- 09. SVD+MLP (eff, tau) — category=machine_learning, params=eff_loge0_6d, time=normalized_time, loss=0.018031
+  - observed: train_loss=1.413e-02, val_loss=1.803e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 10. SVD+RandomForest (raw, tau) — category=machine_learning, params=raw_6d, time=normalized_time, loss=0.0150757
+  - observed: train_loss=8.796e-03, val_loss=1.508e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 11. SVD+ExtraTrees (raw, tau) — category=machine_learning, params=raw_6d, time=normalized_time, loss=0.0127662
+  - observed: train_loss=6.850e-03, val_loss=1.277e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 12. SVD+HistGB (eff, tau) — category=machine_learning, params=eff_loge0_6d, time=normalized_time, loss=0.0117475
+  - observed: train_loss=7.151e-03, val_loss=1.175e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 13. SVD+SVR (raw, tau) — category=interpolation/kernel, params=raw_6d, time=normalized_time, loss=0.0118727
+  - observed: train_loss=8.228e-03, val_loss=1.187e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 14. SVD+Lasso (raw, tau) — category=svd/decomposition, params=raw_6d, time=normalized_time, loss=0.0134843
+  - observed: train_loss=1.343e-02, val_loss=1.348e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 15. SVD+ElasticNet (raw, tau) — category=svd/decomposition, params=raw_6d, time=normalized_time, loss=0.0134898
+  - observed: train_loss=1.343e-02, val_loss=1.349e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 16. SVD+Ridge (fully, tau) — category=svd/decomposition, params=fully_transformed_7d, time=normalized_time, loss=0.021292
+  - observed: train_loss=2.102e-02, val_loss=2.129e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 17. SVD+Ridge (raw, t_end) — category=svd/decomposition, params=raw_6d, time=t0_at_end, loss=0.0194016
+  - observed: train_loss=1.859e-02, val_loss=1.940e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 18. SVD+GPR (RBF, raw, t_end) — category=svd/decomposition, params=raw_6d, time=t0_at_end, loss=0.0129889
+  - observed: train_loss=7.862e-03, val_loss=1.299e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 19. PySR (SVD coeffs, eff) — category=symbolic/physics-informed, params=eff_loge0_6d, time=normalized_time, loss=0.0129024
+  - observed: val_rms_rel=0.0129
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 20. gplearn (SVD coeffs, raw) — category=symbolic/physics-informed, params=raw_6d, time=normalized_time, loss=0.0379739
+  - observed: val_rms_rel=0.038
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+

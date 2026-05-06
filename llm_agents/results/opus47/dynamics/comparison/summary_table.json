@@ -1,0 +1,458 @@
+[
+  {
+    "approach": "svd_bayes_ridge_log_omega",
+    "approach_number": 24,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "log_omega",
+    "time_convention": "tau_normalized",
+    "loss": 0.009844146894435886,
+    "loss_components": {
+      "rms_rel_err_x": 0.009844146894435886
+    },
+    "runtime_ms": 0.06528891599737108,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 120,
+    "train_time_s": 0.05582094192504883,
+    "notes": "SVD + Bayesian ridge poly-2 on log_omega."
+  },
+  {
+    "approach": "svd_lasso_poly3_log_omega",
+    "approach_number": 18,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "svd_decomp",
+    "parameterization": "log_omega",
+    "time_convention": "tau_normalized",
+    "loss": 0.009851024653107698,
+    "loss_components": {
+      "rms_rel_err_x": 0.009851024653107698
+    },
+    "runtime_ms": 0.253191583964508,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1660,
+    "train_time_s": 0.29287290573120117,
+    "notes": "SVD + Lasso poly-3 on log_omega reparam."
+  },
+  {
+    "approach": "svd_extra_trees_trig_zeta",
+    "approach_number": 19,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "trig_zeta",
+    "time_convention": "tau_normalized",
+    "loss": 0.012455705854963967,
+    "loss_components": {
+      "rms_rel_err_x": 0.012455705854963967
+    },
+    "runtime_ms": 0.09831183200003579,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 9600,
+    "train_time_s": 0.20365595817565918,
+    "notes": "SVD + ExtraTrees on trig_zeta parameterization."
+  },
+  {
+    "approach": "direct_rf_eta_chieff",
+    "approach_number": 22,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.012629106871826619,
+    "loss_components": {
+      "rms_rel_err_x": 0.012629106871826619
+    },
+    "runtime_ms": 0.10611441603396088,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 6400,
+    "train_time_s": 0.28400683403015137,
+    "notes": "Random Forest predicting log(x) on full 256-point grid (no SVD)."
+  },
+  {
+    "approach": "svd_gbm_eta_chieff",
+    "approach_number": 8,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.01302296564382846,
+    "loss_components": {
+      "rms_rel_err_x": 0.01302296564382846
+    },
+    "runtime_ms": 0.14850033400580287,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 32000,
+    "train_time_s": 1.6211140155792236,
+    "notes": "SVD + GBM (per output)."
+  },
+  {
+    "approach": "logsvd_linear_raw6",
+    "approach_number": 12,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "svd_decomp",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.013125171571531695,
+    "loss_components": {
+      "rms_rel_err_x": 0.013125171571531695
+    },
+    "runtime_ms": 0.0005268320092000067,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 120,
+    "train_time_s": 0.000985860824584961,
+    "notes": "SVD on log(x) + linear; x grows monotonically so log scale stabilizes fits."
+  },
+  {
+    "approach": "svd_linear_raw6",
+    "approach_number": 1,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "svd_decomp",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.013583393205060459,
+    "loss_components": {
+      "rms_rel_err_x": 0.013583393205060459
+    },
+    "runtime_ms": 0.00015224999515339732,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 120,
+    "train_time_s": 0.0005118846893310547,
+    "notes": "SVD + linear regression (baseline)."
+  },
+  {
+    "approach": "svd_pysr_eta_chieff",
+    "approach_number": 14,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.013922444589309593,
+    "loss_components": {
+      "rms_rel_err_x": 0.013922444589309593
+    },
+    "runtime_ms": 0.019580750027671456,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 110,
+    "train_time_s": 12.778244972229004,
+    "notes": "PySR on top 5 log-SVD coeffs; linear regression for rest."
+  },
+  {
+    "approach": "svd_rbfinterp_raw6",
+    "approach_number": 11,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "interpolation",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.014203422988767814,
+    "loss_components": {
+      "rms_rel_err_x": 0.014203422988767814
+    },
+    "runtime_ms": 0.1833500000066124,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 250,
+    "train_time_s": 0.26849818229675293,
+    "notes": "SVD + thin-plate-spline RBF interpolation."
+  },
+  {
+    "approach": "svd_rf_raw6",
+    "approach_number": 6,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.014649531231028771,
+    "loss_components": {
+      "rms_rel_err_x": 0.014649531231028771
+    },
+    "runtime_ms": 0.1890648339758627,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 6400,
+    "train_time_s": 0.11571979522705078,
+    "notes": "SVD + Random Forest."
+  },
+  {
+    "approach": "svd_huber_eta_chieff",
+    "approach_number": 23,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.020514580471322815,
+    "loss_components": {
+      "rms_rel_err_x": 0.020514580471322815
+    },
+    "runtime_ms": 0.05207858397625387,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 120,
+    "train_time_s": 1.6336629390716553,
+    "notes": "SVD + Huber regression (robust)."
+  },
+  {
+    "approach": "svd_pysr_raw6",
+    "approach_number": 21,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.021166162150840072,
+    "loss_components": {
+      "rms_rel_err_x": 0.021166162150840072
+    },
+    "runtime_ms": 0.01149033202091232,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 122,
+    "train_time_s": 1.6590139865875244,
+    "notes": "PySR (raw6) on top 3 log-SVD coeffs."
+  },
+  {
+    "approach": "svd_gplearn_eta_chieff",
+    "approach_number": 15,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.02277796884147838,
+    "loss_components": {
+      "rms_rel_err_x": 0.02277796884147838
+    },
+    "runtime_ms": 0.0010194180067628622,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 110,
+    "train_time_s": 17.933272123336792,
+    "notes": "gplearn on top 5 log-SVD coeffs."
+  },
+  {
+    "approach": "logsvd_poly2_eta_chieff",
+    "approach_number": 13,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "svd_decomp",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.024081798925687584,
+    "loss_components": {
+      "rms_rel_err_x": 0.024081798925687584
+    },
+    "runtime_ms": 0.0005254159914329648,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 560,
+    "train_time_s": 0.0007841587066650391,
+    "notes": "SVD on log(x) + polynomial-2 ridge."
+  },
+  {
+    "approach": "svd_poly2_eta_chieff",
+    "approach_number": 2,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "svd_decomp",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.024378455904314558,
+    "loss_components": {
+      "rms_rel_err_x": 0.024378455904314558
+    },
+    "runtime_ms": 0.0005029999883845448,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 560,
+    "train_time_s": 0.0008420944213867188,
+    "notes": "SVD + polynomial-2 ridge regression on eta+chi_eff+log(e0)."
+  },
+  {
+    "approach": "svd_poly3_trig_zeta",
+    "approach_number": 3,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "svd_decomp",
+    "parameterization": "trig_zeta",
+    "time_convention": "tau_normalized",
+    "loss": 0.024427040783856123,
+    "loss_components": {
+      "rms_rel_err_x": 0.024427040783856123
+    },
+    "runtime_ms": 0.1441811679978855,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 2400,
+    "train_time_s": 0.1446530818939209,
+    "notes": "SVD + polynomial-3 ridge with cos/sin(zeta0) reparameterization."
+  },
+  {
+    "approach": "svd_krr_rbf_eta_chieff",
+    "approach_number": 9,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "interpolation",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.031777164374446026,
+    "loss_components": {
+      "rms_rel_err_x": 0.031777164374446026
+    },
+    "runtime_ms": 0.3058644179836847,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 5000,
+    "train_time_s": 0.26200389862060547,
+    "notes": "SVD + Kernel Ridge RBF."
+  },
+  {
+    "approach": "logsvd_gpr_rbf_eta_chieff",
+    "approach_number": 20,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "svd_decomp",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.03256729199519917,
+    "loss_components": {
+      "rms_rel_err_x": 0.03256729199519917
+    },
+    "runtime_ms": 0.6048542500357144,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 160,
+    "train_time_s": 1.1404752731323242,
+    "notes": "log-SVD + GPR-RBF (one per coefficient)."
+  },
+  {
+    "approach": "svd_knn_raw6",
+    "approach_number": 10,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "interpolation",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.03299613631289994,
+    "loss_components": {
+      "rms_rel_err_x": 0.03299613631289994
+    },
+    "runtime_ms": 0.0019437499577179551,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 250,
+    "train_time_s": 0.0002849102020263672,
+    "notes": "SVD + KNN k=5 distance-weighted."
+  },
+  {
+    "approach": "svd_gpr_matern_eta_chieff",
+    "approach_number": 5,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "svd_decomp",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.03881786750158704,
+    "loss_components": {
+      "rms_rel_err_x": 0.03881786750158704
+    },
+    "runtime_ms": 0.68600708397571,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 160,
+    "train_time_s": 5.369225025177002,
+    "notes": "SVD + GPR-Matern-5/2 with eta_chieff reparam."
+  },
+  {
+    "approach": "direct_mlp_dense_eta_chieff",
+    "approach_number": 17,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.03961585501837191,
+    "loss_components": {
+      "rms_rel_err_x": 0.03961585501837191
+    },
+    "runtime_ms": 0.005994417995680124,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 165632,
+    "train_time_s": 0.7275681495666504,
+    "notes": "Direct MLP predicting log(x) on the full 256-point grid (no SVD)."
+  },
+  {
+    "approach": "svd_gpr_rbf_raw6",
+    "approach_number": 4,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "svd_decomp",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.039712544725254637,
+    "loss_components": {
+      "rms_rel_err_x": 0.039712544725254637
+    },
+    "runtime_ms": 0.43640508403768763,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 160,
+    "train_time_s": 4.111208915710449,
+    "notes": "SVD + GPR-RBF (one per coefficient)."
+  },
+  {
+    "approach": "svd_mlp_eta_chieff",
+    "approach_number": 7,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.1098068984011367,
+    "loss_components": {
+      "rms_rel_err_x": 0.1098068984011367
+    },
+    "runtime_ms": 0.0018241660436615348,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 19988,
+    "train_time_s": 0.11831402778625488,
+    "notes": "SVD + MLP 128-128 tanh."
+  },
+  {
+    "approach": "eim_linear_raw6",
+    "approach_number": 16,
+    "benchmark": "dynamics",
+    "agent": "opus47",
+    "category": "svd_decomp",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.7667355378110978,
+    "loss_components": {
+      "rms_rel_err_x": 0.7667355378110978
+    },
+    "runtime_ms": 0.00015091802924871445,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 120,
+    "train_time_s": 0.0006961822509765625,
+    "notes": "EIM at 20 nodes with linear regression."
+  }
+]

@@ -1,0 +1,485 @@
+[
+  {
+    "approach": "cubic_spline_per_mode",
+    "approach_number": 4,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "interpolation",
+    "parameterization": "raw",
+    "mode": "all_modes",
+    "loss": 5.634280335774061e-06,
+    "loss_components": {
+      "rel_error_omega_real": 9.965791731349713e-09,
+      "rel_error_omega_imag": 1.1258594879816773e-05
+    },
+    "runtime_ms": 0.00513957230042137,
+    "n_train": 5000,
+    "n_val": 1204578,
+    "n_params": 1204322,
+    "train_time_s": 18.609309911727905,
+    "notes": "Cubic spline per (l, m, n) mode in spin a."
+  },
+  {
+    "approach": "per_mode_poly_log1ma",
+    "approach_number": 18,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "log_1ma",
+    "mode": "all_modes",
+    "loss": 0.046190788092422656,
+    "loss_components": {
+      "rel_error_omega_real": 0.0007093377569166152,
+      "rel_error_omega_imag": 0.0916722384279287
+    },
+    "runtime_ms": 0.0038875449396245133,
+    "n_train": 5000,
+    "n_val": 1204578,
+    "n_params": 41040,
+    "train_time_s": 19.373369693756104,
+    "notes": "Per-mode polynomial deg-8 in -log(1-a)."
+  },
+  {
+    "approach": "per_mode_pade",
+    "approach_number": 19,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "mode": "all_modes",
+    "loss": 0.09136357874625617,
+    "loss_components": {
+      "rel_error_omega_real": 0.0007203337096072535,
+      "rel_error_omega_imag": 0.18200682378290509
+    },
+    "runtime_ms": 0.002708901058869854,
+    "n_train": 5000,
+    "n_val": 1204578,
+    "n_params": 27360,
+    "train_time_s": 37.13601016998291,
+    "notes": "Per-mode Pad\u00e9 rational approximant."
+  },
+  {
+    "approach": "pade_l2m2n0",
+    "approach_number": 13,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw_a",
+    "mode": "l2_m2_n0",
+    "loss": 0.16844370942615583,
+    "loss_components": {
+      "rel_error_omega_real": 0.003477189995475573,
+      "rel_error_omega_imag": 0.3334102288568361
+    },
+    "runtime_ms": 0.001,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 12,
+    "train_time_s": 0.006932973861694336,
+    "notes": "Pad\u00e9 rational P(a)/(1+Q(a)(1-a)) for l2m2n0."
+  },
+  {
+    "approach": "rf_raw",
+    "approach_number": 23,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "raw",
+    "mode": "all_modes",
+    "loss": 0.17563669588964306,
+    "loss_components": {
+      "rel_error_omega_real": 0.008467453048133722,
+      "rel_error_omega_imag": 0.3428059387311524
+    },
+    "runtime_ms": 0.00031233260110277846,
+    "n_train": 30000,
+    "n_val": 1204578,
+    "n_params": 2560,
+    "train_time_s": 0.3370671272277832,
+    "notes": "RF with raw [a, l, m, n] features."
+  },
+  {
+    "approach": "rf_lm_diff",
+    "approach_number": 10,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "lm_diff",
+    "mode": "all_modes",
+    "loss": 0.17783539156250305,
+    "loss_components": {
+      "rel_error_omega_real": 0.008257506119747146,
+      "rel_error_omega_imag": 0.347413277005259
+    },
+    "runtime_ms": 0.0003346012434940935,
+    "n_train": 30000,
+    "n_val": 1204578,
+    "n_params": 2560,
+    "train_time_s": 0.39500999450683594,
+    "notes": "Random Forest 80 trees on lm_diff (30k subsample)."
+  },
+  {
+    "approach": "extra_trees_compact",
+    "approach_number": 12,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "compact",
+    "mode": "all_modes",
+    "loss": 0.37184969216423147,
+    "loss_components": {
+      "rel_error_omega_real": 0.022024664729414216,
+      "rel_error_omega_imag": 0.7216747195990487
+    },
+    "runtime_ms": 0.0004575030901444434,
+    "n_train": 30000,
+    "n_val": 1204578,
+    "n_params": 3200,
+    "train_time_s": 0.23438191413879395,
+    "notes": "ExtraTrees 100 trees on compactified spin."
+  },
+  {
+    "approach": "hgbr_all_normalized",
+    "approach_number": 11,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "all_normalized",
+    "mode": "all_modes",
+    "loss": 0.46991091985279615,
+    "loss_components": {
+      "rel_error_omega_real": 0.01135901242481199,
+      "rel_error_omega_imag": 0.9284628272807803
+    },
+    "runtime_ms": 0.0017422742491909691,
+    "n_train": 30000,
+    "n_val": 1204578,
+    "n_params": 6400,
+    "train_time_s": 1.384680986404419,
+    "notes": "HistGradientBoosting 200 iters."
+  },
+  {
+    "approach": "per_mode_poly_chebyshev",
+    "approach_number": 24,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "chebyshev",
+    "mode": "all_modes",
+    "loss": 0.504164520998997,
+    "loss_components": {
+      "rel_error_omega_real": 0.0006696940770886292,
+      "rel_error_omega_imag": 1.0076593479209053
+    },
+    "runtime_ms": 0.003463605282183864,
+    "n_train": 5000,
+    "n_val": 1204578,
+    "n_params": 59280,
+    "train_time_s": 17.64776301383972,
+    "notes": "Per-mode polynomial deg-12 in Chebyshev variable."
+  },
+  {
+    "approach": "per_mode_poly10",
+    "approach_number": 17,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "mode": "all_modes",
+    "loss": 0.6399814822598291,
+    "loss_components": {
+      "rel_error_omega_real": 0.0008966880135416415,
+      "rel_error_omega_imag": 1.2790662765061165
+    },
+    "runtime_ms": 0.004276942832976333,
+    "n_train": 5000,
+    "n_val": 1204578,
+    "n_params": 50160,
+    "train_time_s": 18.2795729637146,
+    "notes": "Per-mode polynomial deg-10 fit in spin a."
+  },
+  {
+    "approach": "pysr_l3m3n0",
+    "approach_number": 21,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw_a_only",
+    "mode": "l3_m3_n0",
+    "loss": 1.0788545178320186,
+    "loss_components": {
+      "rel_error_omega_real": 0.013426620904680544,
+      "rel_error_omega_imag": 2.1442824147593567
+    },
+    "runtime_ms": 0.001,
+    "n_train": 533,
+    "n_val": 534,
+    "n_params": 18,
+    "train_time_s": 2.90303897857666,
+    "notes": "PySR symbolic regression on l=3,m=3,n=0 mode (second mode reparameterization).",
+    "pysr_expressions_file": "/Users/tousifislam/Research/projects/nr_projects/gwBenchmarks/llm_agents/results/opus47/ringdown/models/21_pysr_l3m3n0/saved_model/expressions.json"
+  },
+  {
+    "approach": "poly8_log1ma",
+    "approach_number": 2,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "log_1ma",
+    "mode": "all_modes",
+    "loss": 1.0875082914164589,
+    "loss_components": {
+      "rel_error_omega_real": 0.0037236254759014037,
+      "rel_error_omega_imag": 2.1712929573570166
+    },
+    "runtime_ms": 0.0021076455020930585,
+    "n_train": 1204322,
+    "n_val": 1204578,
+    "n_params": 988,
+    "train_time_s": 21.748183965682983,
+    "notes": "Polynomial deg-8 ridge with log(1-a) reparam."
+  },
+  {
+    "approach": "poly8_chebyshev",
+    "approach_number": 3,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "chebyshev",
+    "mode": "all_modes",
+    "loss": 1.3496435634888877,
+    "loss_components": {
+      "rel_error_omega_real": 0.005709228474712722,
+      "rel_error_omega_imag": 2.6935778985030625
+    },
+    "runtime_ms": 0.00209797942006388,
+    "n_train": 1204322,
+    "n_val": 1204578,
+    "n_params": 988,
+    "train_time_s": 23.051219940185547,
+    "notes": "Polynomial deg-8 ridge with 2a-1 reparam."
+  },
+  {
+    "approach": "knn_all_normalized",
+    "approach_number": 14,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "interpolation",
+    "parameterization": "all_normalized",
+    "mode": "all_modes",
+    "loss": 1.4640535910027181,
+    "loss_components": {
+      "rel_error_omega_real": 0.02294776878283771,
+      "rel_error_omega_imag": 2.9051594132225986
+    },
+    "runtime_ms": 0.000987594411211552,
+    "n_train": 30000,
+    "n_val": 1204578,
+    "n_params": 30000,
+    "train_time_s": 0.005280971527099609,
+    "notes": "KNN k=3 distance-weighted with normalized features."
+  },
+  {
+    "approach": "poly8_raw",
+    "approach_number": 1,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "mode": "all_modes",
+    "loss": 2.114985778205777,
+    "loss_components": {
+      "rel_error_omega_real": 0.009481605415174036,
+      "rel_error_omega_imag": 4.22048995099638
+    },
+    "runtime_ms": 0.0021138716667461867,
+    "n_train": 1204322,
+    "n_val": 1204578,
+    "n_params": 988,
+    "train_time_s": 76.17798686027527,
+    "notes": "Polynomial deg-8 baseline (joint fit on all 1.2M points)."
+  },
+  {
+    "approach": "krr_poly8_chebyshev",
+    "approach_number": 15,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "chebyshev",
+    "mode": "all_modes",
+    "loss": 2.2054157055115495,
+    "loss_components": {
+      "rel_error_omega_real": 0.017466712355020057,
+      "rel_error_omega_imag": 4.393364698668079
+    },
+    "runtime_ms": 0.3208801475970883,
+    "n_train": 3000,
+    "n_val": 1204578,
+    "n_params": 3000,
+    "train_time_s": 52.77421808242798,
+    "notes": "Kernel Ridge polynomial deg-8 with Chebyshev mapping."
+  },
+  {
+    "approach": "pysr_l2m2n0",
+    "approach_number": 8,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw_a_only",
+    "mode": "l2_m2_n0",
+    "loss": 2.5772917785842377,
+    "loss_components": {
+      "rel_error_omega_real": 0.021660495378447508,
+      "rel_error_omega_imag": 5.132923061790028
+    },
+    "runtime_ms": 0.001,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 20,
+    "train_time_s": 15.89968490600586,
+    "notes": "PySR symbolic regression on l=2,m=2,n=0 mode.",
+    "pysr_expressions_file": "/Users/tousifislam/Research/projects/nr_projects/gwBenchmarks/llm_agents/results/opus47/ringdown/models/08_pysr_l2m2n0/saved_model/expressions.json"
+  },
+  {
+    "approach": "mlp_deep_log1ma",
+    "approach_number": 20,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "log_1ma",
+    "mode": "all_modes",
+    "loss": 2.683718032867238,
+    "loss_components": {
+      "rel_error_omega_real": 0.02015850896019678,
+      "rel_error_omega_imag": 5.347277556774279
+    },
+    "runtime_ms": 0.00399475360567874,
+    "n_train": 30000,
+    "n_val": 1204578,
+    "n_params": 42562,
+    "train_time_s": 140.23279690742493,
+    "notes": "Deep MLP 256-128-64 with -log(1-a)."
+  },
+  {
+    "approach": "mlp_lm_diff",
+    "approach_number": 7,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "lm_diff",
+    "mode": "all_modes",
+    "loss": 3.797623004176489,
+    "loss_components": {
+      "rel_error_omega_real": 0.01993038444148219,
+      "rel_error_omega_imag": 7.5753156239114965
+    },
+    "runtime_ms": 0.0030992481843999634,
+    "n_train": 30000,
+    "n_val": 1204578,
+    "n_params": 25666,
+    "train_time_s": 236.24330496788025,
+    "notes": "MLP 128-128-64 on lm_diff features (subsampled training)."
+  },
+  {
+    "approach": "bayes_ridge_poly6_log1ma",
+    "approach_number": 22,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "log_1ma",
+    "mode": "all_modes",
+    "loss": 4.2516269196152034,
+    "loss_components": {
+      "rel_error_omega_real": 0.007581165324773163,
+      "rel_error_omega_imag": 8.495672673905634
+    },
+    "runtime_ms": 0.0019520500369483726,
+    "n_train": 1204322,
+    "n_val": 1204578,
+    "n_params": 209,
+    "train_time_s": 23.969961166381836,
+    "notes": "Bayesian Ridge poly-6 with log(1-a)."
+  },
+  {
+    "approach": "mlp_raw",
+    "approach_number": 16,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "raw",
+    "mode": "all_modes",
+    "loss": 5.230613739566252,
+    "loss_components": {
+      "rel_error_omega_real": 0.04411718765177874,
+      "rel_error_omega_imag": 10.417110291480725
+    },
+    "runtime_ms": 0.0011127599876271591,
+    "n_train": 30000,
+    "n_val": 1204578,
+    "n_params": 4610,
+    "train_time_s": 4.751850128173828,
+    "notes": "MLP 64-64 baseline."
+  },
+  {
+    "approach": "gpr_rbf_raw_subsample",
+    "approach_number": 5,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "raw",
+    "mode": "all_modes",
+    "loss": 5.773527949788212,
+    "loss_components": {
+      "rel_error_omega_real": 0.02808379404797885,
+      "rel_error_omega_imag": 11.518972105528446
+    },
+    "runtime_ms": 0.1626041468710927,
+    "n_train": 1500,
+    "n_val": 1204578,
+    "n_params": 1500,
+    "train_time_s": 10.414931058883667,
+    "notes": "GPR RBF with 1500 subsampled points."
+  },
+  {
+    "approach": "gplearn_l2m2n0",
+    "approach_number": 9,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw_a_only",
+    "mode": "l2_m2_n0",
+    "loss": 17.61669377321529,
+    "loss_components": {
+      "rel_error_omega_real": 0.1591834487287383,
+      "rel_error_omega_imag": 35.07420409770184
+    },
+    "runtime_ms": 0.001,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 20,
+    "train_time_s": 14.558132886886597,
+    "notes": "gplearn SymbolicRegressor on l=2,m=2,n=0 mode.",
+    "gplearn_expressions_file": "/Users/tousifislam/Research/projects/nr_projects/gwBenchmarks/llm_agents/results/opus47/ringdown/models/09_gplearn_l2m2n0/saved_model/expressions.json"
+  },
+  {
+    "approach": "rbf_interp_compact",
+    "approach_number": 6,
+    "benchmark": "ringdown",
+    "agent": "opus47",
+    "category": "interpolation",
+    "parameterization": "compact",
+    "mode": "all_modes",
+    "loss": 51368521179.86785,
+    "loss_components": {
+      "rel_error_omega_real": 143118.79300730868,
+      "rel_error_omega_imag": 102736899240.94269
+    },
+    "runtime_ms": 0.0327445365508464,
+    "n_train": 3000,
+    "n_val": 1204578,
+    "n_params": 3000,
+    "train_time_s": 0.36507701873779297,
+    "notes": "Thin-plate-spline RBF on 3000 points."
+  }
+]

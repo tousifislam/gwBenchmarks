@@ -1,0 +1,202 @@
+[
+  {
+    "name": "RandomForest (effective_spins)",
+    "directory": "17_randomforest",
+    "loss": 0.5364999729543928,
+    "train_loss": 0.27187659125011254,
+    "runtime_ms": 0.035398323077035464,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "effective_spins"
+  },
+  {
+    "name": "ExtraTrees (log_mass_ratio)",
+    "directory": "18_extratrees",
+    "loss": 0.547334040803199,
+    "train_loss": 5.919397358481124e-15,
+    "runtime_ms": 0.02896702542081096,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "log_mass_ratio"
+  },
+  {
+    "name": "GradBoost (interaction_terms)",
+    "directory": "19_gradboost",
+    "loss": 0.5495658283152034,
+    "train_loss": 0.3089430543993805,
+    "runtime_ms": 0.0011146106489438744,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "interaction_terms"
+  },
+  {
+    "name": "KNN-Distance (interaction_terms)",
+    "directory": "14_knn_distance",
+    "loss": 0.5718617854959148,
+    "train_loss": 0.0,
+    "runtime_ms": 0.0025473919261066818,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "interaction_terms"
+  },
+  {
+    "name": "KNN-Uniform (log_mass_ratio)",
+    "directory": "13_knn_uniform",
+    "loss": 0.5728828689214422,
+    "train_loss": 0.5519553506510243,
+    "runtime_ms": 0.00275593634893876,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "log_mass_ratio"
+  },
+  {
+    "name": "PySR (effective_spins)",
+    "directory": "06_pysr",
+    "loss": 0.5776719978965992,
+    "train_loss": 0.6063468156221765,
+    "runtime_ms": 0.000539758306650715,
+    "category": "symbolic",
+    "category_label": "Symbolic/analytical",
+    "parameterization": "effective_spins"
+  },
+  {
+    "name": "Poly2 (raw_4d)",
+    "directory": "08_poly2",
+    "loss": 0.5777818615020651,
+    "train_loss": 0.6134824765309989,
+    "runtime_ms": 0.00044550647741093584,
+    "category": "symbolic",
+    "category_label": "Symbolic/analytical",
+    "parameterization": "raw_4d"
+  },
+  {
+    "name": "MLP (raw_4d)",
+    "directory": "16_mlp",
+    "loss": 0.5811773624730444,
+    "train_loss": 0.5075152478983596,
+    "runtime_ms": 0.0006872340065187777,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "raw_4d"
+  },
+  {
+    "name": "SVR-RBF (interaction_terms)",
+    "directory": "05_svr_rbf",
+    "loss": 0.5921987438554452,
+    "train_loss": 0.44783566265979863,
+    "runtime_ms": 0.010509753236002064,
+    "category": "kernel",
+    "category_label": "Kernel/GP methods",
+    "parameterization": "interaction_terms"
+  },
+  {
+    "name": "KRR-Poly (log_mass_ratio)",
+    "directory": "04_krr_poly",
+    "loss": 0.593200711500776,
+    "train_loss": 0.5806530079994725,
+    "runtime_ms": 0.003401824402321917,
+    "category": "kernel",
+    "category_label": "Kernel/GP methods",
+    "parameterization": "log_mass_ratio"
+  },
+  {
+    "name": "Poly3 (interaction_terms)",
+    "directory": "09_poly3",
+    "loss": 0.6071398093350272,
+    "train_loss": 0.5489671460345685,
+    "runtime_ms": 0.0006262722197664148,
+    "category": "symbolic",
+    "category_label": "Symbolic/analytical",
+    "parameterization": "interaction_terms"
+  },
+  {
+    "name": "GPR-Matern (effective_spins)",
+    "directory": "02_gpr_matern",
+    "loss": 0.6170148241904082,
+    "train_loss": 0.00013136943806666958,
+    "runtime_ms": 0.002587043340187567,
+    "category": "kernel",
+    "category_label": "Kernel/GP methods",
+    "parameterization": "effective_spins"
+  },
+  {
+    "name": "GPR-RBF (raw_4d)",
+    "directory": "01_gpr_rbf",
+    "loss": 0.6170264181910059,
+    "train_loss": 7.58106398122674e-06,
+    "runtime_ms": 0.0018082060270561214,
+    "category": "kernel",
+    "category_label": "Kernel/GP methods",
+    "parameterization": "raw_4d"
+  },
+  {
+    "name": "Huber-Ensemble (boundary_distance)",
+    "directory": "20_huber_ensemble",
+    "loss": 0.6185650302247648,
+    "train_loss": 0.6674360088995132,
+    "runtime_ms": 0.000311068701143104,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "boundary_distance"
+  },
+  {
+    "name": "Physics-Features (boundary_distance)",
+    "directory": "10_physics_features",
+    "loss": 0.6301365468116896,
+    "train_loss": 0.682096718451082,
+    "runtime_ms": 0.0002771425214963408,
+    "category": "symbolic",
+    "category_label": "Symbolic/analytical",
+    "parameterization": "boundary_distance"
+  },
+  {
+    "name": "RBF-Interp (raw_4d)",
+    "directory": "11_rbf_interp",
+    "loss": 0.6349497761105634,
+    "train_loss": 0.0055298970964283295,
+    "runtime_ms": 0.0031374046240125147,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "raw_4d"
+  },
+  {
+    "name": "gplearn (log_mass_ratio)",
+    "directory": "07_gplearn",
+    "loss": 0.6360038620033623,
+    "train_loss": 0.7113575020527927,
+    "runtime_ms": 0.00022932574266695794,
+    "category": "symbolic",
+    "category_label": "Symbolic/analytical",
+    "parameterization": "log_mass_ratio"
+  },
+  {
+    "name": "Local-Linear (boundary_distance)",
+    "directory": "15_local_linear",
+    "loss": 0.6610528258824458,
+    "train_loss": 0.0,
+    "runtime_ms": 0.0028543256616584823,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "boundary_distance"
+  },
+  {
+    "name": "KRR-RBF (raw_4d)",
+    "directory": "03_krr_rbf",
+    "loss": 0.7814312302724682,
+    "train_loss": 0.2304614664072526,
+    "runtime_ms": 0.0022387608373893126,
+    "category": "kernel",
+    "category_label": "Kernel/GP methods",
+    "parameterization": "raw_4d"
+  },
+  {
+    "name": "RBF-Cubic (effective_spins)",
+    "directory": "12_rbf_cubic",
+    "loss": 0.7831773142027699,
+    "train_loss": 0.01248304599397666,
+    "runtime_ms": 0.001797603049881889,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "effective_spins"
+  }
+]

@@ -57,30 +57,29 @@ Fabricated:
   Haiku (MAE in SVD coefficient space, not on x(t); stub models)
 
 
-REMNANT BENCHMARK — 4 AGENTS USE WRONG METRIC
-==============================================
+REMNANT BENCHMARK — CLEAN (after fixes)
+========================================
 Canonical metric: NRMSE on kick velocity v_k.
   Formula: sqrt(mean((pred - true)^2)) / ptp(true)
 Validation set: 1000 cases (except Gemini 3 Flash uses 2000).
 
-  Agent                  Actual metric   Loss      n_val   Per-sample
-  ---------------------  -------------   --------  ------  ----------
-  Opus 4.7               NRMSE           8.87e-2   1000    1000 vals
-  Opus 4.6               NRMSE           8.99e-2   1000    1000 vals
-  Sonnet 4.6             NMAE  <<<       5.38e-2   1000    1000 vals
-  Haiku                  NRMSE (fab.)    9.02e-2   1000    scalars only
-  GPT-5.5 High           NMAE  <<<       5.64e-2   1000    1000 vals
-  GPT-5.4 Mini           NRMSE           8.87e-2   1000    1000 vals
-  GPT-5.3 Codex High     NMAE  <<<       5.64e-2   1000    1000 vals
-  GPT-5.2                NRMSE           9.14e-2   1000    1000 vals
-  Gemini 3.1 Pro         NMAE  <<<       5.74e-2   1000    1000 vals
-  Gemini 3 Flash         NRMSE           9.31e-2   2000    2000 vals
+  Agent                  Loss (NRMSE)  n_val   Per-sample
+  ---------------------  -----------   ------  ----------
+  Opus 4.7               8.87e-2       1000    1000 vals
+  Opus 4.6               8.99e-2       1000    1000 vals
+  Sonnet 4.6             9.11e-2       1000    1000 vals  (recomputed from NMAE=5.38e-2)
+  Haiku                  9.02e-2       1000    scalars only (fabricated)
+  GPT-5.5 High           9.20e-2       1000    1000 vals  (recomputed from NMAE=5.64e-2)
+  GPT-5.4 Mini           8.87e-2       1000    1000 vals
+  GPT-5.3 Codex High     9.19e-2       1000    1000 vals  (recomputed from NMAE=5.64e-2)
+  GPT-5.2                9.14e-2       1000    1000 vals
+  Gemini 3.1 Pro         9.09e-2       1000    1000 vals  (recomputed from NMAE=5.74e-2)
+  Gemini 3 Flash         9.31e-2       2000    2000 vals
 
-4 agents (Sonnet 4.6, GPT-5.5, GPT-5.3 Codex, Gemini 3.1 Pro) compute
-NMAE (mean absolute error / range) instead of NRMSE (root mean squared
-error / range). Since NMAE <= NRMSE by Jensen's inequality, these agents
-appear artificially better (~0.054-0.057 vs ~0.089-0.093).
-NEEDS RECOMPUTATION for those 4 agents.
+4 agents (Sonnet 4.6, GPT-5.5, GPT-5.3 Codex, Gemini 3.1 Pro) originally
+computed NMAE instead of NRMSE. Recomputed 2026-05-02 via
+recompute_remnant_validity_ringdown.py. RECOMPUTE_NOTE.md files placed in
+each affected agent's remnant/ directory.
 
 Gemini 3 Flash uses n_val=2000 while all others use 1000 — different
 validation set size.
@@ -89,30 +88,30 @@ Haiku remnant results exist but model training is fabricated (hardcoded
 losses).
 
 
-RINGDOWN BENCHMARK — 2 AGENTS DIFFERENT SCOPE
-==============================================
+RINGDOWN BENCHMARK — CLEAN (after fixes)
+==========================================
 Canonical metric: Mean relative error on QNM frequencies.
   Formula: (mean(|pred_R - true_R|/|true_R|) + mean(|pred_I - true_I|/|true_I|)) / 2
   Evaluated on the (2,2,0) quasinormal mode.
 Validation set: 531 cases (for 2,2,0 mode).
 
-  Agent                  Scope       Loss      n_val       Per-sample
-  ---------------------  ---------   --------  ----------  ----------
-  Opus 4.7               ALL MODES   5.63e-6   1,204,578   5000 vals
-  Opus 4.6               (2,2,0)     1.13e-5   531         531 vals
-  Sonnet 4.6             (2,2,0)     1.13e-5   531         531 vals
-  Haiku                  fabricated  8.10e-2   N/A         none
-  GPT-5.5 High           (2,2,0)     2.24e-3   531         531 vals
-  GPT-5.4 Mini           ALL MODES   5.63e-6   1,204,578   5000 vals
-  GPT-5.3 Codex High     (2,2,0)     2.24e-3   531         531 vals
-  GPT-5.2                (2,2,0)     3.93e-7   531         531 vals
-  Gemini 3.1 Pro         (2,2,0)     5.25e-4   531         531 vals
-  Gemini 3 Flash         (2,2,0)     1.13e-5   531         531 vals
+  Agent                  Loss (2,2,0)  n_val   Per-sample
+  ---------------------  -----------   ------  ----------
+  Opus 4.7               1.13e-5       531     531 vals  (recomputed from all-modes=5.63e-6)
+  Opus 4.6               1.13e-5       531     531 vals
+  Sonnet 4.6             1.13e-5       531     531 vals
+  Haiku                  fabricated    N/A     none
+  GPT-5.5 High           2.24e-3       531     531 vals
+  GPT-5.4 Mini           1.13e-5       531     531 vals  (recomputed from all-modes=5.63e-6)
+  GPT-5.3 Codex High     2.24e-3       531     531 vals
+  GPT-5.2                3.93e-7       531     531 vals
+  Gemini 3.1 Pro         5.25e-4       531     531 vals
+  Gemini 3 Flash         1.13e-5       531     531 vals
 
-Opus 4.7 and GPT-5.4 Mini evaluate ALL QNM modes (1.2M total samples)
-rather than just (2,2,0). Their losses (5.63e-6) are not directly
-comparable to the 531-sample (2,2,0)-only agents.
-NEEDS CLARIFICATION: restrict to (2,2,0) for fair comparison.
+Opus 4.7 and GPT-5.4 Mini originally evaluated ALL QNM modes (1.2M samples).
+Recomputed on (2,2,0) only (531 samples) 2026-05-02 via
+recompute_remnant_validity_ringdown.py. Both get 1.13e-5, matching the other
+cubic-spline agents (Opus 4.6, Sonnet 4.6, Gemini 3 Flash).
 
 GPT-5.5 and GPT-5.3 Codex have a minor issue: their loss_components
 duplicate the aggregate loss into both omega_real and omega_imag keys
@@ -121,29 +120,29 @@ instead of splitting them properly.
 Haiku ringdown is fabricated (stub models with hardcoded losses).
 
 
-VALIDITY BENCHMARK — 3 AGENTS USE WRONG METRIC
-===============================================
+VALIDITY BENCHMARK — CLEAN (after fixes)
+==========================================
 Canonical metric: RMSE of log10(mismatch).
   Formula: sqrt(mean((pred - true)^2)) on log10-scale predictions.
 Validation set: 393 cases.
 
-  Agent                  Actual metric   Loss      n_val   Per-sample
-  ---------------------  -------------   --------  ------  ----------
-  Opus 4.7               RMSE            7.22e-1   393     393 vals
-  Opus 4.6               RMSE            7.22e-1   393     393 vals
-  Sonnet 4.6             MAE   <<<       5.33e-1   393     393 vals
-  Haiku                  fabricated      8.00e-2   N/A     none
-  GPT-5.5 High           MAE   <<<       5.36e-1   393     393 vals
-  GPT-5.4 Mini           RMSE            7.22e-1   393     393 vals
-  GPT-5.3 Codex High     MAE   <<<       5.36e-1   393     393 vals
-  GPT-5.2                RMSE            7.17e-1   393     393 vals
-  Gemini 3.1 Pro         RMSE            7.27e-1   393     393 vals
-  Gemini 3 Flash         RMSE            7.24e-1   393     393 vals
+  Agent                  Loss (RMSE)   n_val   Per-sample
+  ---------------------  -----------   ------  ----------
+  Opus 4.7               7.22e-1       393     393 vals
+  Opus 4.6               7.22e-1       393     393 vals
+  Sonnet 4.6             7.26e-1       393     393 vals  (recomputed from MAE=5.33e-1)
+  Haiku                  fabricated    N/A     none
+  GPT-5.5 High           7.40e-1       393     393 vals  (recomputed from MAE=5.36e-1)
+  GPT-5.4 Mini           7.22e-1       393     393 vals
+  GPT-5.3 Codex High     7.40e-1       393     393 vals  (recomputed from MAE=5.36e-1)
+  GPT-5.2                7.17e-1       393     393 vals
+  Gemini 3.1 Pro         7.27e-1       393     393 vals
+  Gemini 3 Flash         7.24e-1       393     393 vals
 
-3 agents (Sonnet 4.6, GPT-5.5, GPT-5.3 Codex) compute MAE instead of
-RMSE on log10(mismatch). MAE <= RMSE, so these agents appear artificially
-better (~0.533-0.536 vs ~0.716-0.727).
-NEEDS RECOMPUTATION for those 3 agents.
+3 agents (Sonnet 4.6, GPT-5.5, GPT-5.3 Codex) originally computed MAE
+instead of RMSE. Recomputed 2026-05-02 via
+recompute_remnant_validity_ringdown.py. RECOMPUTE_NOTE.md files placed in
+each affected agent's validity/ directory.
 
 Haiku validity is fabricated (stub models with hardcoded losses).
 
@@ -151,18 +150,21 @@ Haiku validity is fabricated (stub models with hardcoded losses).
 OVERALL SUMMARY
 ===============
 
-  Benchmark   Status                    Recomputation needed
+  Benchmark   Status                    Recomputation
   ---------   ----------------------    --------------------
-  Waveform    CLEAN                     None (already done)
-  Analytic    CLEAN (after fixes)       None (already done)
-  Dynamics    CLEAN                     None
-  Remnant     4 agents wrong metric     Sonnet 4.6, GPT-5.5, GPT-5.3, Gemini 3.1 Pro
-  Ringdown    2 agents different scope  Opus 4.7, GPT-5.4 Mini (all modes vs 2,2,0)
-  Validity    3 agents wrong metric     Sonnet 4.6, GPT-5.5, GPT-5.3
+  Waveform    CLEAN                     Done (recompute_per_sample.py)
+  Analytic    CLEAN (after fixes)       Done (recompute_per_sample.py)
+  Dynamics    CLEAN                     None needed
+  Remnant     CLEAN (after fixes)       Done (recompute_remnant_validity_ringdown.py)
+  Ringdown    CLEAN (after fixes)       Done (recompute_remnant_validity_ringdown.py)
+  Validity    CLEAN (after fixes)       Done (recompute_remnant_validity_ringdown.py)
+
+ALL 6 BENCHMARKS NOW USE CANONICAL METRICS.
 
 Haiku is fabricated across dynamics, ringdown, validity, and analytic —
-already marked null in results.json.
+marked null in results.json.
 
-Common pattern: Sonnet 4.6, GPT-5.5, and GPT-5.3 Codex consistently use
-MAE where RMSE is required (remnant and validity). This appears to be a
-systematic behaviour of those agents' evaluation code.
+Common pattern: Sonnet 4.6, GPT-5.5, and GPT-5.3 Codex consistently used
+MAE where RMSE was required (remnant and validity). This is a systematic
+behaviour of those agents' evaluation code. Gemini 3.1 Pro also used NMAE
+for remnant.

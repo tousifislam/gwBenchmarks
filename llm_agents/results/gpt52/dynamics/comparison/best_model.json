@@ -1,0 +1,25 @@
+{
+  "approach": "gpr_rbf",
+  "display_name": "SVD+GPR (RBF, raw, tau)",
+  "approach_number": 2,
+  "benchmark": "dynamics",
+  "agent": "gpt52",
+  "category": "svd/decomposition",
+  "parameterization": "raw_6d",
+  "time_convention": "normalized_time",
+  "loss": 0.010031634570708676,
+  "loss_components": {
+    "rms_relative_error_x": 0.010031634570708676
+  },
+  "runtime_ms": 0.08078166795894504,
+  "n_train": 250,
+  "n_val": 250,
+  "n_params": 0,
+  "notes": {
+    "reasoned_optimization": {
+      "observed": "train_loss=8.288e-03, val_loss=1.003e-02",
+      "hypothesis": "",
+      "change": ""
+    }
+  }
+}

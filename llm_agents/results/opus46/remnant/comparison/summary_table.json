@@ -1,0 +1,418 @@
+[
+  {
+    "approach": "et_raw",
+    "approach_number": 15,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 0.08987815542264548,
+    "loss_components": {
+      "nrmse_v_k": 0.08987815542264548
+    },
+    "runtime_ms": 0.046819210052490234,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 100000,
+    "notes": "ExtraTrees 500"
+  },
+  {
+    "approach": "bagging_rf_eta",
+    "approach_number": 20,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 0.09124018180846835,
+    "loss_components": {
+      "nrmse_v_k": 0.09124018180846835
+    },
+    "runtime_ms": 0.1458740234375,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "notes": "Bagging RF eta"
+  },
+  {
+    "approach": "lasso_poly3_eta",
+    "approach_number": 16,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 0.09165567476552207,
+    "loss_components": {
+      "nrmse_v_k": 0.09165567476552207
+    },
+    "runtime_ms": 0.011723995208740234,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 120,
+    "notes": "Lasso poly-3 eta"
+  },
+  {
+    "approach": "gpr_matern_eta",
+    "approach_number": 2,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 0.09168230531097317,
+    "loss_components": {
+      "nrmse_v_k": 0.09168230531097317
+    },
+    "runtime_ms": 0.023820161819458008,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "notes": "GPR Matern-5/2, eta+chieff"
+  },
+  {
+    "approach": "rf_raw",
+    "approach_number": 7,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 0.09223265173723193,
+    "loss_components": {
+      "nrmse_v_k": 0.09223265173723193
+    },
+    "runtime_ms": 0.046827077865600586,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 100000,
+    "notes": "RF 500 trees"
+  },
+  {
+    "approach": "rf_eta",
+    "approach_number": 8,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 0.09255374003599087,
+    "loss_components": {
+      "nrmse_v_k": 0.09255374003599087
+    },
+    "runtime_ms": 0.04045677185058594,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 100000,
+    "notes": "RF 500 trees eta"
+  },
+  {
+    "approach": "poly4_eta",
+    "approach_number": 11,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 0.09311323482547346,
+    "loss_components": {
+      "nrmse_v_k": 0.09311323482547346
+    },
+    "runtime_ms": 0.015368938446044922,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 330,
+    "notes": "Poly-4 + Ridge eta"
+  },
+  {
+    "approach": "bayridge_mdiff",
+    "approach_number": 17,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "mass_diff",
+    "loss": 0.09311481924938779,
+    "loss_components": {
+      "nrmse_v_k": 0.09311481924938779
+    },
+    "runtime_ms": 0.027647018432617188,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 56,
+    "notes": "BayRidge poly-3 mass_diff"
+  },
+  {
+    "approach": "gbr_eta",
+    "approach_number": 9,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 0.09509660454795898,
+    "loss_components": {
+      "nrmse_v_k": 0.09509660454795898
+    },
+    "runtime_ms": 0.006485939025878906,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 500,
+    "notes": "GBR 500 est eta"
+  },
+  {
+    "approach": "knn_raw",
+    "approach_number": 12,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 0.09530211861720213,
+    "loss_components": {
+      "nrmse_v_k": 0.09530211861720213
+    },
+    "runtime_ms": 0.005562782287597656,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 0,
+    "notes": "7-NN distance-weighted"
+  },
+  {
+    "approach": "adaboost_eta",
+    "approach_number": 18,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 0.09542208577955724,
+    "loss_components": {
+      "nrmse_v_k": 0.09542208577955724
+    },
+    "runtime_ms": 0.01944708824157715,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 200,
+    "notes": "AdaBoost DT-8 eta"
+  },
+  {
+    "approach": "mlp_eta",
+    "approach_number": 6,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 0.09580142513309306,
+    "loss_components": {
+      "nrmse_v_k": 0.09580142513309306
+    },
+    "runtime_ms": 0.011899232864379883,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 167552,
+    "notes": "MLP [512,256,128] eta"
+  },
+  {
+    "approach": "gbr_mdiff",
+    "approach_number": 22,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "mass_diff",
+    "loss": 0.09812513775320654,
+    "loss_components": {
+      "nrmse_v_k": 0.09812513775320654
+    },
+    "runtime_ms": 0.0074198246002197266,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 500,
+    "notes": "GBR 500 mass_diff"
+  },
+  {
+    "approach": "mlp_raw",
+    "approach_number": 5,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 0.09828611808251535,
+    "loss_components": {
+      "nrmse_v_k": 0.09828611808251535
+    },
+    "runtime_ms": 0.001955747604370117,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 42816,
+    "notes": "MLP [256,128,64]"
+  },
+  {
+    "approach": "poly3_raw",
+    "approach_number": 10,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 0.09871905793735448,
+    "loss_components": {
+      "nrmse_v_k": 0.09871905793735448
+    },
+    "runtime_ms": 0.029284238815307617,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 120,
+    "notes": "Poly-3 + Ridge"
+  },
+  {
+    "approach": "enet_pn",
+    "approach_number": 21,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "pn_inspired",
+    "loss": 0.09928377287505487,
+    "loss_components": {
+      "nrmse_v_k": 0.09928377287505487
+    },
+    "runtime_ms": 0.0221560001373291,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 126,
+    "notes": "ElasticNet poly-4 PN-inspired"
+  },
+  {
+    "approach": "mlp_sph",
+    "approach_number": 19,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "spherical",
+    "loss": 0.09995922230322679,
+    "loss_components": {
+      "nrmse_v_k": 0.09995922230322679
+    },
+    "runtime_ms": 0.012354135513305664,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 429696,
+    "notes": "MLP [512,512,256,128] spherical"
+  },
+  {
+    "approach": "pysr_eta",
+    "approach_number": 24,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 0.10543225869581761,
+    "loss_components": {
+      "nrmse_v_k": 0.10543225869581761
+    },
+    "runtime_ms": 0.0022089481353759766,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 25,
+    "notes": "PySR symbolic regression eta"
+  },
+  {
+    "approach": "rbf_interp_raw",
+    "approach_number": 13,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 0.1064053398084417,
+    "loss_components": {
+      "nrmse_v_k": 0.1064053398084417
+    },
+    "runtime_ms": 0.06611371040344238,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "notes": "RBF TPS interp"
+  },
+  {
+    "approach": "rbf_interp_eta",
+    "approach_number": 14,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 0.10735065961908799,
+    "loss_components": {
+      "nrmse_v_k": 0.10735065961908799
+    },
+    "runtime_ms": 0.0387880802154541,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "notes": "RBF TPS interp eta"
+  },
+  {
+    "approach": "krr_raw",
+    "approach_number": 3,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 0.10764308063243822,
+    "loss_components": {
+      "nrmse_v_k": 0.10764308063243822
+    },
+    "runtime_ms": 0.10168290138244629,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "notes": "KRR RBF"
+  },
+  {
+    "approach": "pysr_raw",
+    "approach_number": 23,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 0.11140831182425534,
+    "loss_components": {
+      "nrmse_v_k": 0.11140831182425534
+    },
+    "runtime_ms": 0.0021681785583496094,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 25,
+    "notes": "PySR symbolic regression raw"
+  },
+  {
+    "approach": "gpr_rbf_raw",
+    "approach_number": 1,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 0.11625188565245366,
+    "loss_components": {
+      "nrmse_v_k": 0.11625188565245366
+    },
+    "runtime_ms": 0.030083656311035156,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "notes": "GPR RBF kernel, raw params"
+  },
+  {
+    "approach": "svr_raw",
+    "approach_number": 4,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 0.1230084208823818,
+    "loss_components": {
+      "nrmse_v_k": 0.1230084208823818
+    },
+    "runtime_ms": 0.02357792854309082,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 1000,
+    "notes": "SVR RBF C=100"
+  },
+  {
+    "approach": "gplearn_raw",
+    "approach_number": 25,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "loss": 1.1437940189649958,
+    "loss_components": {
+      "nrmse_v_k": 1.1437940189649958
+    },
+    "runtime_ms": 8.177757263183594e-05,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 30,
+    "notes": "gplearn symbolic regression raw"
+  },
+  {
+    "approach": "gplearn_eta",
+    "approach_number": 26,
+    "benchmark": "remnant",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "loss": 1.1437940189649958,
+    "loss_components": {
+      "nrmse_v_k": 1.1437940189649958
+    },
+    "runtime_ms": 8.225440979003906e-05,
+    "n_train": 1000,
+    "n_val": 1000,
+    "n_params": 30,
+    "notes": "gplearn symbolic regression eta"
+  }
+]

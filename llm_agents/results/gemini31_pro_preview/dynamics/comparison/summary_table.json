@@ -1,0 +1,362 @@
+[
+    {
+        "approach": "3_svd_poly_trig",
+        "approach_number": 3,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "trig_anomaly",
+        "time_convention": "tau_in_[0,1]",
+        "category": "SVD",
+        "loss": 0.009593230549154588,
+        "loss_components": {
+            "rms_relative_error_x": 0.009593230549154588
+        },
+        "runtime_ms": 0.0021638870239257812,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "13_gb_trig",
+        "approach_number": 13,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "trig_anomaly",
+        "time_convention": "tau_in_[0,1]",
+        "category": "ML",
+        "loss": 0.011612755439418265,
+        "loss_components": {
+            "rms_relative_error_x": 0.011612755439418265
+        },
+        "runtime_ms": 0.012732505798339844,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "9_krr_logw",
+        "approach_number": 9,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "log_omega",
+        "time_convention": "tau_in_[0,1]",
+        "category": "Interpolation",
+        "loss": 0.01216715439300404,
+        "loss_components": {
+            "rms_relative_error_x": 0.01216715439300404
+        },
+        "runtime_ms": 0.009700775146484375,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "1_svd_gpr_raw",
+        "approach_number": 1,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_6d",
+        "time_convention": "tau_in_[0,1]",
+        "category": "SVD",
+        "loss": 0.013230372963756386,
+        "loss_components": {
+            "rms_relative_error_x": 0.013230372963756386
+        },
+        "runtime_ms": 0.003528594970703125,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "14_rf_full",
+        "approach_number": 14,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "fully_transformed",
+        "time_convention": "tau_in_[0,1]",
+        "category": "ML",
+        "loss": 0.013522819904417546,
+        "loss_components": {
+            "rms_relative_error_x": 0.013522819904417546
+        },
+        "runtime_ms": 0.02817058563232422,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "5_svd_rf_raw",
+        "approach_number": 5,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_6d",
+        "time_convention": "tau_in_[0,1]",
+        "category": "SVD",
+        "loss": 0.013608676559454977,
+        "loss_components": {
+            "rms_relative_error_x": 0.013608676559454977
+        },
+        "runtime_ms": 0.013490676879882812,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "2_svd_gpr_eta",
+        "approach_number": 2,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_log_e0",
+        "time_convention": "tau_in_[0,1]",
+        "category": "SVD",
+        "loss": 0.014192509836383163,
+        "loss_components": {
+            "rms_relative_error_x": 0.014192509836383163
+        },
+        "runtime_ms": 0.0040435791015625,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "6_knn_raw",
+        "approach_number": 6,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_6d",
+        "time_convention": "tau_in_[0,1]",
+        "category": "Interpolation",
+        "loss": 0.015604890563267686,
+        "loss_components": {
+            "rms_relative_error_x": 0.015604890563267686
+        },
+        "runtime_ms": 0.0033597946166992188,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "8_knn_trig",
+        "approach_number": 8,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "trig_anomaly",
+        "time_convention": "tau_in_[0,1]",
+        "category": "Interpolation",
+        "loss": 0.01585523463957849,
+        "loss_components": {
+            "rms_relative_error_x": 0.01585523463957849
+        },
+        "runtime_ms": 0.0037326812744140625,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "7_knn_eta",
+        "approach_number": 7,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_log_e0",
+        "time_convention": "tau_in_[0,1]",
+        "category": "Interpolation",
+        "loss": 0.020887639194986988,
+        "loss_components": {
+            "rms_relative_error_x": 0.020887639194986988
+        },
+        "runtime_ms": 0.00305938720703125,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "20_pysr_full",
+        "approach_number": 20,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "fully_transformed",
+        "time_convention": "tau_in_[0,1]",
+        "category": "Symbolic",
+        "loss": 0.025672243119192716,
+        "loss_components": {
+            "rms_relative_error_x": 0.025672243119192716
+        },
+        "runtime_ms": 0.014323234558105469,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "18_pysr_raw",
+        "approach_number": 18,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_6d",
+        "time_convention": "tau_in_[0,1]",
+        "category": "Symbolic",
+        "loss": 0.027805477784904716,
+        "loss_components": {
+            "rms_relative_error_x": 0.027805477784904716
+        },
+        "runtime_ms": 0.014852523803710938,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "19_pysr_trig",
+        "approach_number": 19,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "trig_anomaly",
+        "time_convention": "tau_in_[0,1]",
+        "category": "Symbolic",
+        "loss": 0.029394521730656775,
+        "loss_components": {
+            "rms_relative_error_x": 0.029394521730656775
+        },
+        "runtime_ms": 0.014060020446777344,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "17_gplearn_eta",
+        "approach_number": 17,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_log_e0",
+        "time_convention": "tau_in_[0,1]",
+        "category": "Symbolic",
+        "loss": 0.036715000950117795,
+        "loss_components": {
+            "rms_relative_error_x": 0.036715000950117795
+        },
+        "runtime_ms": 0.0009717941284179686,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "10_svr_full",
+        "approach_number": 10,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "fully_transformed",
+        "time_convention": "tau_in_[0,1]",
+        "category": "Interpolation",
+        "loss": 0.0384728043630092,
+        "loss_components": {
+            "rms_relative_error_x": 0.0384728043630092
+        },
+        "runtime_ms": 0.0024843215942382812,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "16_gplearn_raw",
+        "approach_number": 16,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_6d",
+        "time_convention": "tau_in_[0,1]",
+        "category": "Symbolic",
+        "loss": 0.03988662934995452,
+        "loss_components": {
+            "rms_relative_error_x": 0.03988662934995452
+        },
+        "runtime_ms": 0.0014715194702148438,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "15_mlp_deep_trig",
+        "approach_number": 15,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "trig_anomaly",
+        "time_convention": "tau_in_[0,1]",
+        "category": "ML",
+        "loss": 0.06372973658904738,
+        "loss_components": {
+            "rms_relative_error_x": 0.06372973658904738
+        },
+        "runtime_ms": 0.0016603469848632812,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "11_mlp_raw",
+        "approach_number": 11,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_6d",
+        "time_convention": "tau_in_[0,1]",
+        "category": "ML",
+        "loss": 0.09374887583657177,
+        "loss_components": {
+            "rms_relative_error_x": 0.09374887583657177
+        },
+        "runtime_ms": 0.0014324188232421875,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "12_mlp_eta",
+        "approach_number": 12,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_log_e0",
+        "time_convention": "tau_in_[0,1]",
+        "category": "ML",
+        "loss": 0.09759295922440553,
+        "loss_components": {
+            "rms_relative_error_x": 0.09759295922440553
+        },
+        "runtime_ms": 0.0018911361694335938,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "4_svd_mlp_full",
+        "approach_number": 4,
+        "benchmark": "dynamics",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "fully_transformed",
+        "time_convention": "tau_in_[0,1]",
+        "category": "SVD",
+        "loss": 0.10389060338076378,
+        "loss_components": {
+            "rms_relative_error_x": 0.10389060338076378
+        },
+        "runtime_ms": 0.0015249252319335938,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    }
+]

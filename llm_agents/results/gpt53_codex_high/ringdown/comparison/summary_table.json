@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Cubic-Spline (raw_a)",
+    "directory": "10_cubic_spline",
+    "loss": 0.002236814341060417,
+    "train_loss": 0.0,
+    "runtime_ms": 0.0008833182452986694,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "raw_a"
+  },
+  {
+    "name": "Pade-like (sqrt_irreducible)",
+    "directory": "04_pade_like",
+    "loss": 0.0025864911488405625,
+    "train_loss": 0.0028510890017195176,
+    "runtime_ms": 0.0002684405778592589,
+    "category": "analytic",
+    "category_label": "Analytical/classical",
+    "parameterization": "sqrt_irreducible"
+  },
+  {
+    "name": "RandomForest (raw_a)",
+    "directory": "18_randomforest",
+    "loss": 0.004159210540063564,
+    "train_loss": 0.005093901834975609,
+    "runtime_ms": 0.058902854958405325,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "raw_a"
+  },
+  {
+    "name": "KNN-5 (raw_a)",
+    "directory": "13_knn_5",
+    "loss": 0.004412522687053229,
+    "train_loss": 0.0,
+    "runtime_ms": 0.0008957156001216611,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "raw_a"
+  },
+  {
+    "name": "GradBoost (sqrt_irreducible)",
+    "directory": "20_gradboost",
+    "loss": 0.008432137870692243,
+    "train_loss": 0.007089619653267233,
+    "runtime_ms": 0.0013339604214254745,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "sqrt_irreducible"
+  },
+  {
+    "name": "RBF-ThinPlate (raw_a)",
+    "directory": "11_rbf_thinplate",
+    "loss": 0.011231322944152708,
+    "train_loss": 0.014596195176152894,
+    "runtime_ms": 0.009544412434458902,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "raw_a"
+  },
+  {
+    "name": "Poly-15-log (log_compact)",
+    "directory": "02_poly_15_log",
+    "loss": 0.01848707066130659,
+    "train_loss": 0.022905389833150765,
+    "runtime_ms": 0.00036840867286235825,
+    "category": "analytic",
+    "category_label": "Analytical/classical",
+    "parameterization": "log_compact"
+  },
+  {
+    "name": "ExtraTrees (log_compact)",
+    "directory": "19_extratrees",
+    "loss": 0.01859007072563113,
+    "train_loss": 0.02281172258862199,
+    "runtime_ms": 0.027914939640289814,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "log_compact"
+  },
+  {
+    "name": "GPR-Matern (log_compact)",
+    "directory": "16_gpr_matern",
+    "loss": 0.019750442296292872,
+    "train_loss": 0.024808421533369842,
+    "runtime_ms": 0.014871154432123607,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "log_compact"
+  },
+  {
+    "name": "RBF-Cubic (chebyshev_mapped)",
+    "directory": "12_rbf_cubic",
+    "loss": 0.06683869434990197,
+    "train_loss": 0.08158893893291873,
+    "runtime_ms": 0.005279190175361552,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "chebyshev_mapped"
+  },
+  {
+    "name": "GPR-RBF (raw_a)",
+    "directory": "15_gpr_rbf",
+    "loss": 0.21867477017951237,
+    "train_loss": 0.046895868613986265,
+    "runtime_ms": 0.01233066484795115,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "raw_a"
+  },
+  {
+    "name": "KRR-RBF (raw_a)",
+    "directory": "14_krr_rbf",
+    "loss": 0.28655358335678077,
+    "train_loss": 0.3438427615873716,
+    "runtime_ms": 0.008127589516250483,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "raw_a"
+  },
+  {
+    "name": "Cheb-18 (chebyshev_mapped)",
+    "directory": "03_cheb_18",
+    "loss": 0.4897536130343,
+    "train_loss": 0.5856701760199678,
+    "runtime_ms": 0.00032705656935069744,
+    "category": "analytic",
+    "category_label": "Analytical/classical",
+    "parameterization": "chebyshev_mapped"
+  },
+  {
+    "name": "Poly-10 (raw_a)",
+    "directory": "01_poly_10",
+    "loss": 1.0159354850658753,
+    "train_loss": 1.2115844394963673,
+    "runtime_ms": 0.00030539740006774386,
+    "category": "analytic",
+    "category_label": "Analytical/classical",
+    "parameterization": "raw_a"
+  },
+  {
+    "name": "Rational-Compact (compactified)",
+    "directory": "05_rational_compact",
+    "loss": 3.7564246192911614,
+    "train_loss": 2.8036024441788037,
+    "runtime_ms": 0.0002976308976652595,
+    "category": "analytic",
+    "category_label": "Analytical/classical",
+    "parameterization": "compactified"
+  },
+  {
+    "name": "Symbolic-Log (log_compact)",
+    "directory": "09_symbolic_log",
+    "loss": 4.608092242059474,
+    "train_loss": 5.480488793296497,
+    "runtime_ms": 0.00044734834600415385,
+    "category": "symbolic",
+    "category_label": "Symbolic regression",
+    "parameterization": "log_compact"
+  },
+  {
+    "name": "Symbolic-Sqrt (sqrt_irreducible)",
+    "directory": "08_symbolic_sqrt",
+    "loss": 6.1059162376578175,
+    "train_loss": 7.262299205515861,
+    "runtime_ms": 0.00042302258621389134,
+    "category": "symbolic",
+    "category_label": "Symbolic regression",
+    "parameterization": "sqrt_irreducible"
+  },
+  {
+    "name": "gplearn (raw_a)",
+    "directory": "07_gplearn",
+    "loss": 14.162981926106124,
+    "train_loss": 16.841013942716998,
+    "runtime_ms": 0.00044609233210820935,
+    "category": "symbolic",
+    "category_label": "Symbolic regression",
+    "parameterization": "raw_a"
+  },
+  {
+    "name": "MLP (chebyshev_mapped)",
+    "directory": "17_mlp",
+    "loss": 17.462884200932162,
+    "train_loss": 20.76167354856806,
+    "runtime_ms": 0.0004056816361142978,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "chebyshev_mapped"
+  },
+  {
+    "name": "PySR (log_compact)",
+    "directory": "06_pysr",
+    "loss": 20.725396819700954,
+    "train_loss": 24.656981904448152,
+    "runtime_ms": 0.0003052410834491702,
+    "category": "symbolic",
+    "category_label": "Symbolic regression",
+    "parameterization": "log_compact"
+  }
+]

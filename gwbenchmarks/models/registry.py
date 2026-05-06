@@ -2,6 +2,8 @@
 
 from gwbenchmarks.models.anthropic import ClaudeModel
 from gwbenchmarks.models.openai import OpenAIModel
+from gwbenchmarks.models.gemini import GeminiModel
+from gwbenchmarks.models.opencode import OpenCodeModel
 from gwbenchmarks.models.base import LLMModel
 
 MODELS = {
@@ -49,6 +51,26 @@ MODELS = {
         "class": OpenAIModel,
         "model_id": "gpt-5.2",
         "name": "GPT-5.2",
+    },
+    "gemini-3.1-pro-preview": {
+        "class": GeminiModel,
+        "model_id": "gemini-3.1-pro-preview",
+        "name": "Gemini 3.1 Pro Preview",
+    },
+    "gemini-2.5-pro": {
+        "class": GeminiModel,
+        "model_id": "gemini-2.5-pro",
+        "name": "Gemini 2.5 Pro",
+    },
+    "gemini-3-flash-preview": {
+        "class": GeminiModel,
+        "model_id": "gemini-3-flash-preview",
+        "name": "Gemini 3 Flash Preview",
+    },
+    "gemini-2.5-flash": {
+        "class": GeminiModel,
+        "model_id": "gemini-2.5-flash",
+        "name": "Gemini 2.5 Flash",
     },
 }
 

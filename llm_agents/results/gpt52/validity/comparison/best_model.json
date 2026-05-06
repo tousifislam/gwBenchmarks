@@ -1,0 +1,25 @@
+{
+  "approach": "extratrees",
+  "display_name": "ExtraTrees (raw)",
+  "approach_number": 12,
+  "benchmark": "validity",
+  "agent": "gpt52",
+  "category": "machine_learning",
+  "parameterization": "raw_4d",
+  "loss": 0.7165766589041672,
+  "loss_components": {
+    "log_rmse": 0.7165766589041672
+  },
+  "runtime_ms": 0.26086917053434155,
+  "n_train": 393,
+  "n_val": 393,
+  "n_params": 0,
+  "notes": {
+    "fit_time_s": 0.8065266250050627,
+    "reasoned_optimization": {
+      "observed": "train_rmse=8.250e-14, val_rmse=7.294e-01 -> val_rmse=7.166e-01",
+      "hypothesis": "Trees overfitting \u2192 cap max_depth.",
+      "change": "max_depth -> 12"
+    }
+  }
+}

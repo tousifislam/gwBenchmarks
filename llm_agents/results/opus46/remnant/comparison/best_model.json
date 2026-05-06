@@ -1,0 +1,16 @@
+{
+  "approach": "et_raw",
+  "approach_number": 15,
+  "benchmark": "remnant",
+  "agent": "opus46",
+  "parameterization": "raw",
+  "loss": 0.08987815542264548,
+  "loss_components": {
+    "nrmse_v_k": 0.08987815542264548
+  },
+  "runtime_ms": 0.046819210052490234,
+  "n_train": 1000,
+  "n_val": 1000,
+  "n_params": 100000,
+  "notes": "ExtraTrees 500"
+}

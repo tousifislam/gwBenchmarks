@@ -1,0 +1,218 @@
+[
+  {
+    "rank": 1,
+    "name": "rf_logq",
+    "category": "ml",
+    "parameterization": "logq",
+    "val_loss": 0.5332012555668648,
+    "train_loss": 0.2681455399454146,
+    "runtime_ms": 25.784015655517578
+  },
+  {
+    "rank": 2,
+    "name": "rf_raw",
+    "category": "ml",
+    "parameterization": "raw",
+    "val_loss": 0.5342915972105943,
+    "train_loss": 0.20985458907467489,
+    "runtime_ms": 14.528036117553711
+  },
+  {
+    "rank": 3,
+    "name": "et_bnd",
+    "category": "ml",
+    "parameterization": "bnd",
+    "val_loss": 0.5527146407144915,
+    "train_loss": 1.2240579627082636e-14,
+    "runtime_ms": 25.723934173583984
+  },
+  {
+    "rank": 4,
+    "name": "rbf_mq_eff",
+    "category": "interp",
+    "parameterization": "eff",
+    "val_loss": 0.5594840509985055,
+    "train_loss": 0.5055231409281553,
+    "runtime_ms": 0.2639293670654297
+  },
+  {
+    "rank": 5,
+    "name": "rbf_tps_raw",
+    "category": "interp",
+    "parameterization": "raw",
+    "val_loss": 0.5633246510700863,
+    "train_loss": 0.35260847153259517,
+    "runtime_ms": 0.2338886260986328
+  },
+  {
+    "rank": 6,
+    "name": "knn10_logq",
+    "category": "interp",
+    "parameterization": "logq",
+    "val_loss": 0.5636183567414901,
+    "train_loss": 0.0,
+    "runtime_ms": 0.28204917907714844
+  },
+  {
+    "rank": 7,
+    "name": "et_inter",
+    "category": "ml",
+    "parameterization": "inter",
+    "val_loss": 0.5651393544759217,
+    "train_loss": 8.507931424682342e-15,
+    "runtime_ms": 13.948917388916016
+  },
+  {
+    "rank": 8,
+    "name": "gpr_matern_logq",
+    "category": "kernel_gp",
+    "parameterization": "logq",
+    "val_loss": 0.5686965962451743,
+    "train_loss": 0.47401039546700346,
+    "runtime_ms": 0.5440711975097656
+  },
+  {
+    "rank": 9,
+    "name": "krr_matern_logq",
+    "category": "kernel_gp",
+    "parameterization": "logq",
+    "val_loss": 0.5692844897430993,
+    "train_loss": 0.19050480003475878,
+    "runtime_ms": 0.29015541076660156
+  },
+  {
+    "rank": 10,
+    "name": "mlp_eff",
+    "category": "ml",
+    "parameterization": "eff",
+    "val_loss": 0.570332700953643,
+    "train_loss": 0.5700151087178145,
+    "runtime_ms": 0.11801719665527344
+  },
+  {
+    "rank": 11,
+    "name": "gbr_logq",
+    "category": "ml",
+    "parameterization": "logq",
+    "val_loss": 0.575435673520713,
+    "train_loss": 0.11024926032139974,
+    "runtime_ms": 0.1888275146484375
+  },
+  {
+    "rank": 12,
+    "name": "poly3_logq",
+    "category": "symbolic",
+    "parameterization": "logq",
+    "val_loss": 0.5766650987020523,
+    "train_loss": 0.5837243901053559,
+    "runtime_ms": 0.1239776611328125
+  },
+  {
+    "rank": 13,
+    "name": "poly2_raw",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "val_loss": 0.577738216436915,
+    "train_loss": 0.6134476012394101,
+    "runtime_ms": 0.12326240539550781
+  },
+  {
+    "rank": 14,
+    "name": "knn5_eff",
+    "category": "interp",
+    "parameterization": "eff",
+    "val_loss": 0.5787739268048927,
+    "train_loss": 0.0,
+    "runtime_ms": 0.2899169921875
+  },
+  {
+    "rank": 15,
+    "name": "mlp_inter",
+    "category": "ml",
+    "parameterization": "inter",
+    "val_loss": 0.5853365990750027,
+    "train_loss": 0.6303695640362992,
+    "runtime_ms": 0.10800361633300781
+  },
+  {
+    "rank": 16,
+    "name": "gplearn_eff",
+    "category": "symbolic",
+    "parameterization": "eff",
+    "val_loss": 0.6137788167754856,
+    "train_loss": 0.6549528337974092,
+    "runtime_ms": 0.12493133544921875
+  },
+  {
+    "rank": 17,
+    "name": "gpr_rbf_raw",
+    "category": "kernel_gp",
+    "parameterization": "raw",
+    "val_loss": 0.6170181951202449,
+    "train_loss": 0.6883389542849321,
+    "runtime_ms": 0.4150867462158203
+  },
+  {
+    "rank": 18,
+    "name": "gpr_matern_eff",
+    "category": "kernel_gp",
+    "parameterization": "eff",
+    "val_loss": 0.6170188888773164,
+    "train_loss": 0.03873837806777517,
+    "runtime_ms": 0.19502639770507812
+  },
+  {
+    "rank": 19,
+    "name": "gplearn_raw",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "val_loss": 0.6203627411412861,
+    "train_loss": 0.6942256397285167,
+    "runtime_ms": 0.16117095947265625
+  },
+  {
+    "rank": 20,
+    "name": "gpr_bnd",
+    "category": "kernel_gp",
+    "parameterization": "bnd",
+    "val_loss": 0.6266120165497416,
+    "train_loss": 0.2934289035881873,
+    "runtime_ms": 0.17404556274414062
+  },
+  {
+    "rank": 21,
+    "name": "krr_eff",
+    "category": "kernel_gp",
+    "parameterization": "eff",
+    "val_loss": 0.6305773964281878,
+    "train_loss": 0.3401329949227862,
+    "runtime_ms": 0.2868175506591797
+  },
+  {
+    "rank": 22,
+    "name": "pysr_logq",
+    "category": "symbolic",
+    "parameterization": "logq",
+    "val_loss": 0.6328484045649012,
+    "train_loss": 0.6851591895364422,
+    "runtime_ms": 1.3818740844726562
+  },
+  {
+    "rank": 23,
+    "name": "mlp_deep_logq",
+    "category": "ml",
+    "parameterization": "logq",
+    "val_loss": 0.6375879027162369,
+    "train_loss": 0.6565819695269866,
+    "runtime_ms": 0.1380443572998047
+  },
+  {
+    "rank": 24,
+    "name": "pysr_raw",
+    "category": "symbolic",
+    "parameterization": "raw",
+    "val_loss": 0.6386331288184245,
+    "train_loss": 0.6802521933049103,
+    "runtime_ms": 1.5208721160888672
+  }
+]

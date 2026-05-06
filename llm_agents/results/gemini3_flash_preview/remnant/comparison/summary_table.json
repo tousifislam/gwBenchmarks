@@ -1,0 +1,434 @@
+[
+    {
+        "approach": "rf_raw",
+        "approach_number": 5,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.09308118549526011,
+        "loss_components": {
+            "nrmse_v_k": 0.09308118549526011
+        },
+        "runtime_ms": 0.00908803939819336,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 100,
+        "notes": "Random Forest on raw params."
+    },
+    {
+        "approach": "lgbm_raw",
+        "approach_number": 7,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.09309737029275512,
+        "loss_components": {
+            "nrmse_v_k": 0.09309737029275512
+        },
+        "runtime_ms": 0.0022368431091308594,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "LightGBM on raw params."
+    },
+    {
+        "approach": "rf_eff",
+        "approach_number": 14,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "loss": 0.09358833822369773,
+        "loss_components": {
+            "nrmse_v_k": 0.09358833822369773
+        },
+        "runtime_ms": 0.008652925491333008,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "Random Forest on effective spins."
+    },
+    {
+        "approach": "xgb_eff",
+        "approach_number": 20,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "loss": 0.09455622896346837,
+        "loss_components": {
+            "nrmse_v_k": 0.09455622896346837
+        },
+        "runtime_ms": 0.0004999637603759766,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "XGBoost on effective spins."
+    },
+    {
+        "approach": "krr_rbf_raw",
+        "approach_number": 3,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.09530306824516863,
+        "loss_components": {
+            "nrmse_v_k": 0.09530306824516863
+        },
+        "runtime_ms": 0.004086971282958984,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 100,
+        "notes": "Kernel Ridge Regression with RBF kernel."
+    },
+    {
+        "approach": "cat_raw",
+        "approach_number": 8,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.09568188837056839,
+        "loss_components": {
+            "nrmse_v_k": 0.09568188837056839
+        },
+        "runtime_ms": 0.0005979537963867188,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "CatBoost on raw params."
+    },
+    {
+        "approach": "knn_raw",
+        "approach_number": 12,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.09621372865833046,
+        "loss_components": {
+            "nrmse_v_k": 0.09621372865833046
+        },
+        "runtime_ms": 0.0023801326751708984,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "K-Nearest Neighbors on raw params."
+    },
+    {
+        "approach": "poly2_deltam",
+        "approach_number": 10,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "delta_m_chi_a",
+        "loss": 0.0970975262794291,
+        "loss_components": {
+            "nrmse_v_k": 0.0970975262794291
+        },
+        "runtime_ms": 0.00030112266540527344,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "Polynomial Regression (degree 2) on delta_m + chi_a."
+    },
+    {
+        "approach": "xgb_raw",
+        "approach_number": 6,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.09726353109879475,
+        "loss_components": {
+            "nrmse_v_k": 0.09726353109879475
+        },
+        "runtime_ms": 0.00044274330139160156,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "XGBoost on raw params."
+    },
+    {
+        "approach": "rf_deltam",
+        "approach_number": 22,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "delta_m_chi_a",
+        "loss": 0.09763622746482133,
+        "loss_components": {
+            "nrmse_v_k": 0.09763622746482133
+        },
+        "runtime_ms": 0.009286880493164062,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "Random Forest on delta_m + chi_a."
+    },
+    {
+        "approach": "lgbm_eff",
+        "approach_number": 21,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "loss": 0.0991188702892418,
+        "loss_components": {
+            "nrmse_v_k": 0.0991188702892418
+        },
+        "runtime_ms": 0.0023550987243652344,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "LightGBM on effective spins."
+    },
+    {
+        "approach": "rbf_raw",
+        "approach_number": 11,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.09922625479362013,
+        "loss_components": {
+            "nrmse_v_k": 0.09922625479362013
+        },
+        "runtime_ms": 0.004343986511230469,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "RBF Interpolation on raw params (2k subset)."
+    },
+    {
+        "approach": "poly2_raw",
+        "approach_number": 9,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.09961391754580508,
+        "loss_components": {
+            "nrmse_v_k": 0.09961391754580508
+        },
+        "runtime_ms": 0.0003581047058105469,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "Polynomial Regression (degree 2) on raw params."
+    },
+    {
+        "approach": "nusvr_raw",
+        "approach_number": 21,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.10041629591863613,
+        "loss_components": {
+            "nrmse_v_k": 0.10041629591863613
+        },
+        "runtime_ms": 0.014895200729370117,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 1000,
+        "notes": "NuSVR on raw params."
+    },
+    {
+        "approach": "lr_eff",
+        "approach_number": 22,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "loss": 0.10724174899083153,
+        "loss_components": {
+            "nrmse_v_k": 0.10724174899083153
+        },
+        "runtime_ms": 0.00010800361633300781,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 1000,
+        "notes": "Linear Regression on effective spins."
+    },
+    {
+        "approach": "ridge_raw",
+        "approach_number": 19,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.11794310909303217,
+        "loss_components": {
+            "nrmse_v_k": 0.11794310909303217
+        },
+        "runtime_ms": 6.985664367675781e-05,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 1000,
+        "notes": "Ridge Regression on raw params."
+    },
+    {
+        "approach": "lr_raw",
+        "approach_number": 18,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.11795434045158901,
+        "loss_components": {
+            "nrmse_v_k": 0.11795434045158901
+        },
+        "runtime_ms": 6.604194641113281e-05,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 1000,
+        "notes": "Linear Regression on raw params."
+    },
+    {
+        "approach": "gpr_matern25_sph",
+        "approach_number": 15,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "spherical",
+        "loss": 0.14313758708451063,
+        "loss_components": {
+            "nrmse_v_k": 0.14313758708451063
+        },
+        "runtime_ms": 0.014943122863769531,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 1000,
+        "notes": "GPR with Matern 2.5 on spherical spins."
+    },
+    {
+        "approach": "gpr_rbf_raw",
+        "approach_number": 1,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.15642021031530978,
+        "loss_components": {
+            "nrmse_v_k": 0.15642021031530978
+        },
+        "runtime_ms": 0.01211094856262207,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 1000,
+        "notes": "GPR with RBF kernel on raw params."
+    },
+    {
+        "approach": "gpr_matern15_eff",
+        "approach_number": 2,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "loss": 0.1601757293375631,
+        "loss_components": {
+            "nrmse_v_k": 0.1601757293375631
+        },
+        "runtime_ms": 0.013555049896240234,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 1000,
+        "notes": "GPR with Matern 1.5 on effective spins (2k subset)."
+    },
+    {
+        "approach": "gpr_rbf_deltam",
+        "approach_number": 19,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "delta_m_chi_a",
+        "loss": 0.3354793029255394,
+        "loss_components": {
+            "nrmse_v_k": 0.3354793029255394
+        },
+        "runtime_ms": 0.013058900833129883,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 1000,
+        "notes": "GPR with RBF on delta_m + chi_a."
+    },
+    {
+        "approach": "svr_rbf_raw",
+        "approach_number": 20,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.39254422162951796,
+        "loss_components": {
+            "nrmse_v_k": 0.39254422162951796
+        },
+        "runtime_ms": 9.298324584960938e-05,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 1000,
+        "notes": "SVR with RBF kernel on raw params."
+    },
+    {
+        "approach": "mlp_eff",
+        "approach_number": 13,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "loss": 0.6216598758871834,
+        "loss_components": {
+            "nrmse_v_k": 0.6216598758871834
+        },
+        "runtime_ms": 0.00038886070251464844,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "MLP on effective spins."
+    },
+    {
+        "approach": "mlp_deltam",
+        "approach_number": 23,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "delta_m_chi_a",
+        "loss": 0.6943666499275596,
+        "loss_components": {
+            "nrmse_v_k": 0.6943666499275596
+        },
+        "runtime_ms": 0.0005061626434326172,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 10000,
+        "notes": "MLP on delta_m + chi_a."
+    },
+    {
+        "approach": "mlp_raw",
+        "approach_number": 4,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 0.9801162816056921,
+        "loss_components": {
+            "nrmse_v_k": 0.9801162816056921
+        },
+        "runtime_ms": 0.000308990478515625,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 100,
+        "notes": "MLP with 2 hidden layers on raw params."
+    },
+    {
+        "approach": "gplearn_eff",
+        "approach_number": 16,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "loss": 1.7415617367287484,
+        "loss_components": {
+            "nrmse_v_k": 1.7415617367287484
+        },
+        "runtime_ms": 0.0002789497375488281,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 500,
+        "notes": "gplearn on effective_spins (500 subset)."
+    },
+    {
+        "approach": "gplearn_raw",
+        "approach_number": 17,
+        "benchmark": "remnant",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "loss": 1.7415617367287484,
+        "loss_components": {
+            "nrmse_v_k": 1.7415617367287484
+        },
+        "runtime_ms": 0.00022792816162109375,
+        "n_train": 10000,
+        "n_val": 2000,
+        "n_params": 500,
+        "notes": "gplearn on raw (500 subset)."
+    }
+]

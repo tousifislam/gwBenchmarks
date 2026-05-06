@@ -1,0 +1,112 @@
+[
+  {
+    "approach": "pn0_qnm",
+    "expression": "h22(t,q) = h_insp(t) * (1-w(t)) + h_rd(t) * w(t)\neta = q/(1+q)^2\nA_insp(t) = C(eta) * eta * (5/(256*eta*|t|))^(1/4)  for t < 0\nphi_insp(t) = phi_c(eta) + (16/5)*(5/(256*eta))^(3/8) * |t|^(5/8)\nh_rd(t) = A_peak(eta) * exp(-t/tau_rd(eta)) * exp(-i*(omega_rd(eta)*t + phi0(eta)))  for t >= 0\nw(t) = 0.5*(1 + tanh(t/5))\n[Polynomial fits for tau_rd(eta), omega_rd(eta), A_peak(eta), phi_c(eta) from training data]",
+    "val_loss": 0.6315405703385503
+  },
+  {
+    "approach": "pn0_qnm_ampcorr",
+    "expression": "h22 = A_PN0(t) * exp(poly2(log|t|; eta)) * exp(-i*phi_PN0) smoothed with tanh QNM",
+    "val_loss": 0.576189882492884
+  },
+  {
+    "approach": "pn2_qnm",
+    "expression": "phi = phi_PN0 + a0(eta)*v^2 + a1(eta)*v^4 + a2(eta)*v^6, v=(5/256/eta/tau)^(1/8)",
+    "val_loss": 0.6497125026680128
+  },
+  {
+    "approach": "pn_gauss_merger",
+    "expression": "A(t) = A_PN*(1-blend) + A_peak*exp(-t^2/(2*sigma(eta)^2))*blend; sigma=poly2(eta)",
+    "val_loss": 0.5829366633852417
+  },
+  {
+    "approach": "imrphenom_style",
+    "expression": "omega(t) = omega_PN0*(b0+b1*v^2+b2*v^4+b3*v^6), b_i=poly(eta); phi=cumsum(omega)",
+    "val_loss": 0.5592013025885041
+  },
+  {
+    "approach": "pade_amp",
+    "expression": "A(t) = eta*v^2*(a0+a1*v^2+a2*v^4)/(1+b1*v^2+b2*v^4), Pade[2,2], v=(5/256/eta/tau)^(1/8)",
+    "val_loss": 0.6938900799919511
+  },
+  {
+    "approach": "pn_full_corr",
+    "expression": "h22 = A_PN*corr(tau,eta)*exp(-i*(phi_PN0+delta_phi(v,eta)))+QNM; both corr from data",
+    "val_loss": 0.6575704598733049
+  },
+  {
+    "approach": "phenom_ampcorr",
+    "expression": "h22 = A_PN*amp_corr * exp(-i*cumsum(omega_phenom)) + QNM",
+    "val_loss": 0.2959225396655168
+  },
+  {
+    "approach": "gauss3_amp",
+    "expression": "A(t) = sum_k c_k(eta)*exp(-(t-mu_k)^2/(2*sigma_k^2)); phi=phi_PN0; k=1..3",
+    "val_loss": 0.5085127700224787
+  },
+  {
+    "approach": "lorentz_peak",
+    "expression": "A(t) = A_peak(eta)/(1+(t/gamma(eta))^2); gamma=poly2(eta), Lorentzian merger peak",
+    "val_loss": 0.45670772092726464
+  },
+  {
+    "approach": "sigmoid_blend",
+    "expression": "h22 = A_PN*(1-tanh(t/W))*exp(-i*phi_insp) + A_peak*exp(-t/tau_rd)*exp(-i*omega_rd*t)",
+    "val_loss": 0.6271586689454264
+  },
+  {
+    "approach": "gplearn_amp",
+    "expression": "log(A(tau,eta)) = log(X1)",
+    "val_loss": 0.5191870983102499
+  },
+  {
+    "approach": "gplearn_freq",
+    "expression": "omega(v,eta)/omega_PN = 0.758",
+    "val_loss": 0.6388026227812007
+  },
+  {
+    "approach": "pysr_amp",
+    "expression": "log(A(tau,eta)) = -0.32929087*x0 + log(x0*(0.54436344*x1 + 0.0051772310979156) + 1.51317624697639*x1)",
+    "val_loss": 0.48026161623012015
+  },
+  {
+    "approach": "pysr_freq",
+    "expression": "omega_ratio(v,eta) = exp((x1 - (x0/(x0 + x1) - 1*0.07899996))*(-x0 + x0/0.2821771 - 1*0.510674))",
+    "val_loss": 0.5223040574667164
+  },
+  {
+    "approach": "matched_3region",
+    "expression": "3-region: PN(t<-15)->Gaussian(-15<t<5)->QNM(t>5), smooth tanh transitions",
+    "val_loss": 0.5758493037189604
+  },
+  {
+    "approach": "damp_sinusoid",
+    "expression": "h22 = A0*exp(-t/tau1)*exp(-i*omega1*t) + A2*exp(-t/tau2)*exp(-i*omega2*t), 2 overtones",
+    "val_loss": 0.6281916624913927
+  },
+  {
+    "approach": "powerlaw_delta",
+    "expression": "A(tau) = exp(a(delta_m))*tau^b(delta_m); a,b=poly(delta_m), delta_m=(q-1)/(q+1)",
+    "val_loss": 0.47628191161618444
+  },
+  {
+    "approach": "pn_qnm_composite",
+    "expression": "PN(t<t_ISCO)+QNM(t>0) joined at ISCO frequency omega_22=0.088; tanh blend",
+    "val_loss": 0.6500748525728663
+  },
+  {
+    "approach": "sqrteta_model",
+    "expression": "Parameters tau_rd,omega_rd,A_peak=poly(sqrt(eta)); sqrt(eta) reparam",
+    "val_loss": 0.657574768532226
+  },
+  {
+    "approach": "poly_q_direct",
+    "expression": "Parameters=poly3(log(q)); using log(q) directly as reparameterization",
+    "val_loss": 0.6574953898666585
+  },
+  {
+    "approach": "phenom_pysr_freq",
+    "expression": "omega from PySR freq ratio; amp from PN*correction; phi=cumsum(omega)",
+    "val_loss": 0.27208402287550043
+  }
+]

@@ -19,6 +19,7 @@ htmlcov/
 envs/
 outputs/
 # LLM agent run artifacts (models, plots, pkl files) — keep prompts and scripts only
+# LLM agent run artifacts (models, plots, pkl files) — keep prompts and scripts only
 llm_agents/results/**/models/
 llm_agents/results/**/saved_model/
 *.pkl

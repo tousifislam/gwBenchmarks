@@ -1,0 +1,23 @@
+{
+    "approach": "2_taylort4_q",
+    "approach_number": 2,
+    "benchmark": "analytic",
+    "agent": "gemini31_pro_preview",
+    "parameterization": "q_raw",
+    "category": "Physics-informed",
+    "loss": 0.7903484987263402,
+    "loss_components": {
+        "mismatch_40Msun": 0.7751594258677369,
+        "mismatch_80Msun": 0.7640018969386404,
+        "mismatch_120Msun": 0.811224857770864,
+        "mismatch_160Msun": 0.8121989509830725,
+        "mismatch_200Msun": 0.7891573620713872
+    },
+    "runtime_ms": 33.82252511524018,
+    "n_train": 20,
+    "n_val": 21,
+    "n_params": 19,
+    "n_terms": 13,
+    "expression_file": "expression.txt",
+    "notes": "Generated automatically"
+}

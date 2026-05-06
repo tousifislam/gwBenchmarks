@@ -1,0 +1,29 @@
+{
+  "approach": "closed_form",
+  "display_name": "Composite stitch sharp (x=q, deg=1)",
+  "approach_number": 7,
+  "benchmark": "analytic",
+  "agent": "gpt52",
+  "category": "matched asymptotic / composite",
+  "parameterization": "q",
+  "loss": 0.27197858463072794,
+  "loss_components": {
+    "mean_fd_mismatch": 0.2719785846307279,
+    "mismatch_40Msun": 0.5751845428942929,
+    "mismatch_80Msun": 0.35590339587974396,
+    "mismatch_120Msun": 0.2014077821604065,
+    "mismatch_160Msun": 0.12862089933758677,
+    "mismatch_200Msun": 0.09877630288160914
+  },
+  "runtime_ms": 2.646055262696198e-05,
+  "n_train": 20,
+  "n_val": 21,
+  "n_params": 14,
+  "n_terms": 14,
+  "expression_file": "expression.txt",
+  "notes": {
+    "amp_kind": "exp_stitch_sharp",
+    "poly_degree": 1,
+    "transition_w": 10.0
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "rank": 1,
+  "name": "phenom_pysr_freq",
+  "category": "symbolic",
+  "parameterization": "eta",
+  "val_loss": 0.27208402287550043,
+  "train_loss": 0.2786617033959605,
+  "runtime_ms": 10.012149810791016
+}

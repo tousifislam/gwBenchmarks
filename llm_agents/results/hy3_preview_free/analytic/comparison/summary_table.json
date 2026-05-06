@@ -1,0 +1,128 @@
+[
+  {
+    "approach": "20_pade_eta",
+    "approach_number": 20,
+    "loss": 0.4585917128957394,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "09_powerlaw_exp_delta",
+    "approach_number": 9,
+    "loss": 0.4735034112575755,
+    "parameterization": "delta_m"
+  },
+  {
+    "approach": "06_gaussian_sum_eta",
+    "approach_number": 6,
+    "loss": 0.5151928256207429,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "11_sigmoid_eta",
+    "approach_number": 11,
+    "loss": 0.5543018600218873,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "12_composite_bump_q",
+    "approach_number": 12,
+    "loss": 0.5716752251953373,
+    "parameterization": "q"
+  },
+  {
+    "approach": "07_tanh_transition_eta",
+    "approach_number": 7,
+    "loss": 0.5863412170663712,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "18_exp_inspiral_eta",
+    "approach_number": 18,
+    "loss": 0.594267291237974,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "05_lorentzian_q",
+    "approach_number": 5,
+    "loss": 0.5977060092837098,
+    "parameterization": "q"
+  },
+  {
+    "approach": "10_rational_eta",
+    "approach_number": 10,
+    "loss": 0.614673077088535,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "08_damped_sinusoid_q",
+    "approach_number": 8,
+    "loss": 0.636109638094625,
+    "parameterization": "q"
+  },
+  {
+    "approach": "15_sqrt_eta_param",
+    "approach_number": 15,
+    "loss": 0.6501610196694092,
+    "parameterization": "sqrt_eta"
+  },
+  {
+    "approach": "pn_lorentzian_qnm",
+    "approach_number": 1,
+    "loss": 0.6588755308583126,
+    "parameterization": "q"
+  },
+  {
+    "approach": "pysr_amplitude_q",
+    "approach_number": 4,
+    "loss": 0.6588755308583126,
+    "parameterization": "q"
+  },
+  {
+    "approach": "gplearn_amplitude",
+    "approach_number": 21,
+    "loss": 0.6588755308583126,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "14_delta_m_param",
+    "approach_number": 14,
+    "loss": 0.6617394270557592,
+    "parameterization": "delta_m"
+  },
+  {
+    "approach": "19_imrphenom_style_eta",
+    "approach_number": 19,
+    "loss": 0.6667785806894132,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "pysr_full_h22",
+    "approach_number": 22,
+    "loss": 0.668123445034719,
+    "parameterization": "q"
+  },
+  {
+    "approach": "16_pn_qnm_eta",
+    "approach_number": 16,
+    "loss": 0.6904152008652417,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "17_modified_lorentzian_q",
+    "approach_number": 17,
+    "loss": 0.6934823840758427,
+    "parameterization": "q"
+  },
+  {
+    "approach": "pn_full_eta",
+    "approach_number": 2,
+    "loss": 0.7094944773093973,
+    "parameterization": "eta"
+  },
+  {
+    "approach": "13_freq_based_eta",
+    "approach_number": 13,
+    "loss": 0.844278290103121,
+    "parameterization": "eta"
+  }
+]

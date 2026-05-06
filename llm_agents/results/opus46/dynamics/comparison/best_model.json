@@ -1,0 +1,17 @@
+{
+  "approach": "svd_gpr_raw",
+  "approach_number": 1,
+  "benchmark": "dynamics",
+  "agent": "opus46",
+  "parameterization": "raw",
+  "time_convention": "normalized_tau",
+  "loss": 0.00935239943753265,
+  "loss_components": {
+    "rms_relative_error_x": 0.00935239943753265
+  },
+  "runtime_ms": 2.133091926574707,
+  "n_train": 250,
+  "n_val": 250,
+  "n_params": 1250,
+  "notes": "SVD(5)+GPR RBF"
+}

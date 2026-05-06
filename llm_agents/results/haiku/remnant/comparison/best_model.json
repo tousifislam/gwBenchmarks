@@ -1,0 +1,9 @@
+{
+  "model_name": "NN5_GPR_Matern_eta_chi",
+  "rank": 1,
+  "loss": 0.09017687074643194,
+  "approach": "gpr_matern",
+  "parameterization": "eta_chi",
+  "reason": "Lowest validation loss",
+  "total_models_evaluated": 21
+}

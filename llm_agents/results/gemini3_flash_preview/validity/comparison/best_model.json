@@ -1,0 +1,16 @@
+{
+    "approach": "cat_raw",
+    "approach_number": 21,
+    "benchmark": "validity",
+    "agent": "gemini3_flash_preview",
+    "parameterization": "raw",
+    "loss": 0.7241678335237897,
+    "loss_components": {
+        "log10_rmse": 0.7241678335237897
+    },
+    "runtime_ms": 0.0008833014024729643,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 100,
+    "notes": "CatBoost on raw params."
+}

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>gwBenchmarks — Gravitational Wave Astronomy Benchmark Suite</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 <style>
   :root {
     --bg:       #ffffff;
@@ -25,6 +26,7 @@
     --gpt52:    #e11d48;
     --gemini31: #ea580c;
     --gemini3f: #c2410c;
+    --kimi:     #6366f1;
     --sim:      #9333ea;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -69,9 +71,14 @@
   .hero h1 {
     font-size: clamp(2rem, 5vw, 3.2rem);
     font-weight: 700; letter-spacing: -0.04em;
-    line-height: 1.1; margin-bottom: 1.2rem;
+    line-height: 1.1; margin-bottom: 0.75rem;
   }
   .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 400; letter-spacing: -0.02em;
+    color: var(--text-dim); line-height: 1.3; margin-bottom: 1.2rem;
+  }
   .hero p { color: var(--text-dim); max-width: 640px; margin: 0 auto 1.5rem; font-size: 14px; line-height: 1.8; text-align: left; }
   .investigators { color: var(--muted); font-size: 12px; margin-bottom: 2rem; }
   .investigators strong { color: var(--text-dim); font-weight: 600; }
@@ -87,6 +94,7 @@
   .pill-gpt52   { color: var(--gpt52); border-color: var(--gpt52); background: rgba(225,29,72,0.06); }
   .pill-gemini31 { color: var(--gemini31); border-color: var(--gemini31); background: rgba(234,88,12,0.06); }
   .pill-gemini3f { color: var(--gemini3f); border-color: var(--gemini3f); background: rgba(194,65,12,0.06); }
+  .pill-kimi     { color: var(--kimi);    border-color: var(--kimi);    background: rgba(99,102,241,0.06); }
   .model-pills-group { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
   .model-pills-row { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; align-items: center; }
   .model-pills-label { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; min-width: 52px; text-align: right; }
@@ -111,11 +119,18 @@
   .model-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .best-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); background: rgba(13,124,102,0.08); border: 1px solid rgba(13,124,102,0.2); padding: 0.1rem 0.4rem; border-radius: 3px; margin-left: 0.4rem; }
   .tbd { color: var(--muted); font-size: 11px; }
-  .val-best { color: var(--accent); font-weight: 600; }
+  .val-met { color: var(--accent); }
+  .val-met .ci-bounds { color: rgba(13,124,102,0.5); }
+  .val-not { color: #dc2626; }
+  .val-not .ci-bounds { color: rgba(220,38,38,0.45); }
+  .val-best-bold { font-weight: 700; }
   .sim-ref { color: var(--sim); font-weight: 600; font-style: italic; }
+  .sim-ref .ci-bounds { color: rgba(147,51,234,0.5); }
   .phys-ref { color: #b45309; font-weight: 600; font-style: italic; }
-  .verdict-met { color: var(--accent); font-weight: 500; font-size: 10px; opacity: 0.4; }
-  .verdict-not { color: #dc2626; font-weight: 500; font-size: 10px; opacity: 0.4; }
+  .ci { display: inline-flex; align-items: center; gap: 1px; white-space: nowrap; }
+  .ci-med { }
+  .ci-bounds { display: inline-flex; flex-direction: column; font-size: 8px; line-height: 1.1; color: var(--muted); vertical-align: middle; position: relative; top: -1px; }
+  tbody td { white-space: nowrap; }
 
   /* benchmark grid */
   .bench-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
@@ -134,6 +149,13 @@
   .bar-fill { height: 100%; border-radius: 99px; transition: width .6s ease; width: 0%; }
   .bar-val { font-size: 10px; color: var(--text-dim); width: 68px; text-align: right; flex-shrink: 0; }
   .bar-val-sim { font-size: 10px; color: var(--sim); width: 68px; text-align: right; flex-shrink: 0; font-weight: 600; }
+
+  /* violin plots */
+  .violin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .violin-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem; }
+  .violin-card h3 { font-size: 12px; font-weight: 600; margin-bottom: 0.25rem; text-align: center; }
+  .violin-card .violin-metric { font-size: 10px; color: var(--muted); text-align: center; margin-bottom: 0.5rem; font-style: italic; }
+  @media (max-width: 800px) { .violin-grid { grid-template-columns: 1fr; } }
 
   /* radar */
   .radar-wrap { display: grid; grid-template-columns: 1fr 280px; gap: 2rem; align-items: center; }
@@ -171,6 +193,10 @@
   .method-card h3 { font-size: 12px; font-weight: 600; margin-bottom: 0.3rem; }
   .method-card .output { color: var(--accent2); font-size: 10px; margin-bottom: 0.4rem; }
   .method-card .metric { color: var(--text-dim); font-size: 11px; line-height: 1.6; }
+  .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+  .glossary-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.25rem; }
+  .glossary-card h3 { font-size: 13px; font-weight: 600; margin-bottom: 0.35rem; color: var(--accent); }
+  .glossary-card p { font-size: 12px; color: var(--text-dim); line-height: 1.7; }
   code { font-family: inherit; background: rgba(0,0,0,0.05); padding: 0.1em 0.35em; border-radius: 3px; font-size: 10px; }
 
   footer { text-align: center; padding: 2rem; margin-top: 5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; line-height: 1.8; }
@@ -186,15 +212,17 @@
 
 <nav>
   <div class="nav-brand">
-    <img src="../logo.png" alt="gwBenchmarks">
+    <img src="logo.png" alt="gwBenchmarks">
     <span>gw<em>Benchmarks</em></span>
   </div>
   <div class="nav-links">
     <a href="#why">why</a>
     <a href="#leaderboard">leaderboard</a>
+    <a href="#distributions">distributions</a>
     <a href="#about-benchmarks">benchmarks</a>
     <a href="#methods">metrics</a>
     <a href="#about-us">team</a>
+    <a href="#glossary">glossary</a>
     <a href="https://github.com/tousifislam/gwBenchmarks">github</a>
   </div>
 </nav>
@@ -205,9 +233,10 @@
     <div class="hero-badge">
       GRAVITATIONAL WAVE ASTRONOMY BENCHMARK SUITE
     </div>
-    <h1>Can LLMs do <em>GW</em> physics?</h1>
+    <h1>Can LLM Agents Match Months of PhD Work?</h1>
+    <div class="subtitle">An Eight-Task Benchmark for Gravitational Waves Astronomy</div>
     <p>
-      gwBenchmarks is a benchmark for large language model agents tackling long-horizon,
+      gwBenchmarks is a benchmark suite for large language model agents tackling long-horizon,
       terminal-based astrophysical research problems.
       Focused on gravitational waves from binary compact object mergers, it evaluates
       models using fully automated, physics-driven, and quantitatively verifiable
@@ -243,8 +272,12 @@
         <span class="pill pill-gemini31">Gemini 3.1 Pro</span>
         <span class="pill pill-gemini3f">Gemini 3 Flash</span>
       </div>
+      <div class="model-pills-row">
+        <span class="model-pills-label">KIMI</span>
+        <span class="pill pill-kimi">Kimi K2.6</span>
+      </div>
     </div>
-    <img src="../logo.png" alt="gwBenchmarks logo" class="hero-logo" style="margin-top:2rem">
+    <img src="logo.png" alt="gwBenchmarks logo" class="hero-logo" style="margin-top:2rem">
   </div>
 
   <!-- WHY -->
@@ -276,11 +309,13 @@
       <span class="section-tag">ALL BENCHMARKS &middot; LOWER IS BETTER</span>
     </div>
     <div class="note">
-      <div style="margin-bottom:0.5rem">Best model per agent per benchmark. Haiku dynamics / ringdown / validity / analytic excluded (fabricated results).</div>
+      <div style="margin-bottom:0.5rem">Best model per agent per benchmark. Values shown as <strong>median<sup>+hi</sup><sub>&minus;lo</sub></strong> (90% credible interval from per-sample metric distribution). Haiku dynamics / ringdown / validity / analytic excluded (fabricated results).</div>
       <ul style="margin:0;padding-left:1.2rem;list-style:disc">
-        <li><span style="color:var(--sim);font-weight:600">Simulation Error</span> — the irreducible floor set by the ground-truth data itself, arising from different sources depending on the benchmark: numerical relativity resolution convergence (waveform, remnant, analytic), EOB truncation (dynamics), or optimized mismatches (validity). The best LLM-built models approach this floor on several benchmarks.</li>
-        <li><span style="color:#b45309;font-weight:600">Physics Req.</span> — the accuracy threshold needed for scientific applications such as gravitational wave detection and parameter estimation. Models meeting this bar produce results reliable enough for use in real data analysis pipelines.</li>
-        <li><span style="color:var(--accent);font-weight:600">Verdict</span> — whether each agent's best model meets the physics requirement for that benchmark (<span class="verdict-met">&#x2714; Met</span>) or falls short (<span class="verdict-not">Not yet</span>).</li>
+        <li><span style="color:var(--sim);font-weight:600">Simulation Error</span> — the irreducible floor set by the ground-truth data itself (NR convergence, EOB truncation, etc.).</li>
+        <li><span style="color:#b45309;font-weight:600">Physics Req.</span> — the accuracy threshold needed for scientific applications (detection, parameter estimation).</li>
+        <li><span style="color:var(--accent);font-weight:700">Green</span> — median meets the physics requirement for that benchmark.</li>
+        <li><span style="color:#dc2626;font-weight:700">Red</span> — median does not yet meet the physics requirement.</li>
+        <li><strong>Bold</strong> — best (lowest median) among all agents for that benchmark.</li>
       </ul>
     </div>
     <div class="table-wrap">
@@ -289,12 +324,12 @@
           <tr>
             <th>#</th>
             <th>Model</th>
-            <th>Waveform ↓</th>
-            <th>Remnant ↓</th>
-            <th>Dynamics ↓</th>
-            <th>Ringdown ↓</th>
-            <th>Validity ↓</th>
-            <th>Analytic ↓</th>
+            <th>Waveform<br>Bench ↓</th>
+            <th>Remnant<br>Bench ↓</th>
+            <th>Dynamics<br>Bench ↓</th>
+            <th>Ringdown<br>Bench ↓</th>
+            <th>Validity<br>Bench ↓</th>
+            <th>Analytic<br>Bench ↓</th>
           </tr>
         </thead>
         <tbody id="leaderboard-body"></tbody>
@@ -356,6 +391,16 @@
       <span class="section-tag">6 TASKS</span>
     </div>
     <div class="bench-grid" id="bench-grid"></div>
+  </section>
+
+  <!-- VIOLIN PLOTS -->
+  <section id="distributions">
+    <div class="section-header">
+      <h2>Error Distributions</h2>
+      <span class="section-tag">PER-SAMPLE &middot; LOG SCALE</span>
+    </div>
+    <div class="note">Violin plots show the full distribution of per-sample errors (log scale) for each agent's best model. Wider regions indicate more samples at that error level. The white dot marks the median; thick bar spans p25&ndash;p75. The <span style="color:#9333ea;font-weight:600">purple violin</span> (waveform, remnant, analytic) shows the NR simulation error floor from resolution convergence.</div>
+    <div class="violin-grid" id="violin-grid"></div>
   </section>
 
   <!-- ABOUT THE BENCHMARKS -->
@@ -448,27 +493,27 @@
     </div>
     <div class="methods-grid">
       <div class="method-card">
-        <h3>Waveform &amp; Analytic</h3>
+        <h3>Waveform &amp; Analytic Bench</h3>
         <div class="output">output: Re(h&#x2082;&#x2082;), Im(h&#x2082;&#x2082;)</div>
         <div class="metric">Mean frequency-domain mismatch over total masses [40, 80, 120, 160, 200] M&#x2609; using <code>aLIGO ZeroDetHighPower</code> PSD, <code>f_low=15 Hz</code>, <code>f_high=990 Hz</code>, maximised over time and phase.</div>
       </div>
       <div class="method-card">
-        <h3>Remnant</h3>
+        <h3>Remnant Bench</h3>
         <div class="output">output: kick velocity |v<sub>k</sub>|</div>
         <div class="metric">Normalised RMSE: <code>NRMSE(v_k) = RMSE / range(v_k*)</code>. Dimensionless and robust to the scale of kick velocities across the parameter space.</div>
       </div>
       <div class="method-card">
-        <h3>Dynamics</h3>
+        <h3>Dynamics Bench</h3>
         <div class="output">output: x(t)</div>
         <div class="metric">Pointwise RMS relative error: <code>&#x221A;(mean((x&#x0302;&#x2212;x*)&#x00B2;/x*&#x00B2;))</code>. Weights all time steps equally in fractional terms, avoiding late-time bias from the monotonically growing x(t).</div>
       </div>
       <div class="method-card">
-        <h3>Ringdown</h3>
+        <h3>Ringdown Bench</h3>
         <div class="output">output: Re(&#x03C9;), Im(&#x03C9;)</div>
         <div class="metric">Mean of per-mode relative errors: <code>(|&#x0394;&#x03C9;<sub>R</sub>/&#x03C9;<sub>R</sub>*| + |&#x0394;&#x03C9;<sub>I</sub>/&#x03C9;<sub>I</sub>*|) / 2</code>. Evaluated on the (&#x2113;=2, m=2) fundamental mode.</div>
       </div>
       <div class="method-card">
-        <h3>Validity</h3>
+        <h3>Validity Bench</h3>
         <div class="output">output: predicted mismatch M&#x0302;</div>
         <div class="metric">RMSE in log&#x2081;&#x2080; space: <code>RMSE(log&#x2081;&#x2080; M&#x0302;, log&#x2081;&#x2080; M*)</code>. Appropriate because mismatches span orders of magnitude (~1e-7 to ~1e-1).</div>
       </div>
@@ -518,6 +563,68 @@
     </div>
   </section>
 
+  <section id="glossary">
+    <div class="section-header">
+      <h2>Gravitational Wave Terminology</h2>
+      <span class="section-tag">GLOSSARY</span>
+    </div>
+    <p style="color:var(--text-dim); font-size:12px; margin-bottom:1.5rem; line-height:1.7;">Key terms used throughout the paper and this benchmark suite, for readers unfamiliar with gravitational wave modelling.</p>
+    <div class="glossary-grid">
+      <div class="glossary-card">
+        <h3>General Relativity (GR)</h3>
+        <p>Einstein&rsquo;s theory of gravity, which describes spacetime as a dynamical geometric entity and predicts the existence of gravitational waves emitted by accelerating masses.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Beyond-GR Theories</h3>
+        <p>Extensions or alternatives to general relativity that modify the underlying theory of gravity, often leading to deviations in gravitational wave signals that can be tested observationally.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Binary Black Hole (BBH)</h3>
+        <p>A system of two black holes orbiting each other and emitting gravitational radiation as they inspiral and merge.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Waveform</h3>
+        <p>The gravitational wave signal <em>h(t)</em> emitted by a source, typically represented as a complex time series encoding amplitude and phase.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Numerical Relativity (NR)</h3>
+        <p>A computational approach that solves the Einstein equations directly to simulate spacetime dynamics during compact object mergers. Highly accurate but computationally expensive.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Post-Newtonian (PN) Approximation</h3>
+        <p>An analytic expansion valid during the early inspiral phase, where gravitational fields are weak and velocities are small compared to the speed of light.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Effective-One-Body (EOB) Models</h3>
+        <p>Semi-analytic models that map the two-body problem to an effective single-body system, combining analytic approximations with calibration to numerical simulations.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Ringdown</h3>
+        <p>The final phase of a merger in which the remnant black hole emits damped oscillations characterized by quasi-normal modes.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Quasi-Normal Modes (QNM)</h3>
+        <p>Characteristic oscillation frequencies of a perturbed black hole, determined by its mass and spin.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Gravitational Wave Detection</h3>
+        <p>The process of identifying gravitational wave signals in noisy detector data, typically using matched filtering with waveform templates.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Parameter Estimation</h3>
+        <p>The inference of source properties (e.g., masses, spins, distance) from observed gravitational wave signals, often performed using Bayesian methods.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Mismatch</h3>
+        <p>A measure of disagreement between two waveforms, typically defined using a noise-weighted inner product in the frequency domain.</p>
+      </div>
+      <div class="glossary-card">
+        <h3>Recoil (Kick) Velocity</h3>
+        <p>The velocity imparted to the remnant black hole due to asymmetric emission of gravitational radiation during merger.</p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -528,33 +635,34 @@
 <script>
 // ── Inline data (no fetch required) ──
 const DATA = {
-  haiku:            { waveform: 5.83e-1, remnant: 9.02e-2, dynamics: null,    ringdown: null,    validity: null,    analytic: null    },
-  sonnet46:         { waveform: 1.58e-1, remnant: 5.38e-2, dynamics: 8.31e-3, ringdown: 1.13e-5, validity: 5.33e-1, analytic: 2.72e-1 },
-  opus46:           { waveform: 1.63e-1, remnant: 8.99e-2, dynamics: 9.35e-3, ringdown: 1.13e-5, validity: 7.22e-1, analytic: 1.68e-1 },
-  opus47:           { waveform: 1.87e-1, remnant: 8.87e-2, dynamics: 9.84e-3, ringdown: 5.63e-6, validity: 7.22e-1, analytic: 5.22e-2 },
-  gpt55_high:       { waveform: 1.86e-1, remnant: 5.64e-2, dynamics: 1.17e-2, ringdown: 2.24e-3, validity: 5.36e-1, analytic: 3.51e-1 },
-  gpt54_mini:       { waveform: 4.03e-1, remnant: 8.87e-2, dynamics: 9.84e-3, ringdown: 5.63e-6, validity: 7.22e-1, analytic: 6.39e-1 },
-  gpt53_codex_high: { waveform: 1.86e-1, remnant: 5.64e-2, dynamics: 1.17e-2, ringdown: 2.24e-3, validity: 5.36e-1, analytic: 3.51e-1 },
-  gpt52:            { waveform: 2.20e-1, remnant: 9.14e-2, dynamics: 1.00e-2, ringdown: 3.93e-7, validity: 7.17e-1, analytic: 2.72e-1 },
-  gemini31_pro_preview: { waveform: 3.49e-1, remnant: 5.74e-2, dynamics: 9.59e-3, ringdown: 5.25e-4, validity: 7.27e-1, analytic: 7.90e-1 },
-  gemini3_flash_preview: { waveform: 2.20e-1, remnant: 9.31e-2, dynamics: 9.83e-3, ringdown: 1.13e-5, validity: 7.24e-1, analytic: 4.14e-1 },
+  haiku:                 { waveform: {med:5.931e-01, lo:1.591e-01, hi:1.095e-01}, remnant: null, dynamics: null, ringdown: null, validity: null, analytic: null },
+  sonnet46:              { waveform: {med:1.422e-01, lo:1.276e-01, hi:2.260e-01}, remnant: {med:2.348e-02, lo:2.258e-02, hi:1.849e-01}, dynamics: {med:6.710e-03, lo:5.068e-03, hi:1.152e-02}, ringdown: {med:1.306e-12, lo:1.217e-12, hi:1.688e-05}, validity: {med:4.493e-01, lo:4.006e-01, hi:8.125e-01}, analytic: {med:2.852e-01, lo:1.049e-01, hi:6.355e-02} },
+  opus46:                { waveform: {med:1.475e-01, lo:1.412e-01, hi:2.356e-01}, remnant: {med:2.933e-02, lo:2.835e-02, hi:1.577e-01}, dynamics: {med:7.408e-03, lo:5.186e-03, hi:1.328e-02}, ringdown: {med:1.306e-12, lo:1.217e-12, hi:1.688e-05}, validity: {med:4.368e-01, lo:3.974e-01, hi:8.143e-01}, analytic: {med:1.735e-01, lo:1.326e-01, hi:1.100e-01} },
+  opus47:                { waveform: {med:1.648e-01, lo:1.154e-01, hi:2.287e-01}, remnant: {med:3.032e-02, lo:2.830e-02, hi:1.698e-01}, dynamics: {med:8.123e-03, lo:5.715e-03, hi:1.245e-02}, ringdown: {med:1.306e-12, lo:1.217e-12, hi:1.688e-05}, validity: {med:4.261e-01, lo:3.789e-01, hi:8.227e-01}, analytic: {med:4.161e-02, lo:1.612e-02, hi:5.376e-02} },
+  gpt55_high:            { waveform: {med:1.782e-01, lo:1.590e-01, hi:2.223e-01}, remnant: {med:2.891e-02, lo:2.775e-02, hi:1.719e-01}, dynamics: {med:1.053e-02, lo:7.625e-03, hi:1.369e-02}, ringdown: {med:1.718e-04, lo:9.037e-05, hi:2.636e-02}, validity: {med:4.442e-01, lo:4.117e-01, hi:8.212e-01}, analytic: {med:3.550e-01, lo:9.756e-02, hi:6.586e-02} },
+  gpt54_mini:            { waveform: {med:3.597e-01, lo:2.236e-01, hi:4.037e-01}, remnant: {med:3.032e-02, lo:2.830e-02, hi:1.698e-01}, dynamics: {med:8.123e-03, lo:5.715e-03, hi:1.245e-02}, ringdown: {med:1.306e-12, lo:1.217e-12, hi:1.688e-05}, validity: {med:4.261e-01, lo:3.789e-01, hi:8.227e-01}, analytic: {med:6.380e-01, lo:1.324e-02, hi:1.607e-02} },
+  gpt53_codex_high:      { waveform: {med:1.782e-01, lo:1.590e-01, hi:2.223e-01}, remnant: {med:2.913e-02, lo:2.782e-02, hi:1.699e-01}, dynamics: {med:1.053e-02, lo:7.625e-03, hi:1.369e-02}, ringdown: {med:1.718e-04, lo:9.037e-05, hi:2.636e-02}, validity: {med:4.350e-01, lo:4.010e-01, hi:8.247e-01}, analytic: {med:3.550e-01, lo:9.756e-02, hi:6.586e-02} },
+  gpt52:                 { waveform: {med:1.935e-01, lo:1.645e-01, hi:3.066e-01}, remnant: {med:2.858e-02, lo:2.788e-02, hi:1.623e-01}, dynamics: {med:8.022e-03, lo:5.362e-03, hi:1.287e-02}, ringdown: {med:2.920e-12, lo:2.392e-12, hi:1.154e-08}, validity: {med:4.230e-01, lo:3.697e-01, hi:8.928e-01}, analytic: {med:2.921e-01, lo:8.645e-02, hi:3.577e-02} },
+  gemini31_pro_preview:  { waveform: {med:3.425e-01, lo:1.615e-01, hi:2.036e-01}, remnant: {med:3.208e-02, lo:3.075e-02, hi:1.646e-01}, dynamics: {med:7.719e-03, lo:5.298e-03, hi:1.290e-02}, ringdown: {med:2.409e-04, lo:2.138e-04, hi:1.726e-03}, validity: {med:4.327e-01, lo:3.953e-01, hi:8.098e-01}, analytic: {med:7.890e-01, lo:6.743e-03, hi:1.167e-02} },
+  gemini3_flash_preview: { waveform: {med:2.127e-01, lo:1.971e-01, hi:2.452e-01}, remnant: {med:2.988e-02, lo:2.869e-02, hi:1.773e-01}, dynamics: {med:7.699e-03, lo:4.961e-03, hi:1.325e-02}, ringdown: {med:1.306e-12, lo:1.217e-12, hi:1.688e-05}, validity: {med:4.195e-01, lo:3.585e-01, hi:8.715e-01}, analytic: {med:4.432e-01, lo:1.901e-01, hi:7.591e-02} },
+  kimi_k26:              { waveform: {med:3.912e-01, lo:2.484e-01, hi:5.884e-01}, remnant: {med:7.796e-04, lo:5.104e-06, hi:4.258e-02}, dynamics: {med:4.447e-01, lo:2.981e-01, hi:5.223e-01}, ringdown: {med:9.318e-06, lo:1.093e-06, hi:6.569e-05}, validity: {med:1.967e-01, lo:2.081e-03, hi:1.504e+00}, analytic: {med:5.800e-01, lo:5.800e-01, hi:5.800e-01} },
 };
 
 const FABRICATED = {
   haiku: new Set(['dynamics', 'ringdown', 'validity', 'analytic']),
 };
 
-// NR truncation errors (measured from dataset resolution convergence)
+// NR truncation errors (measured from dataset resolution convergence, 90% CI)
 const SIM_ERRORS = {
-  waveform: 8.44e-4,
-  remnant:  3.18e-2,
-  analytic: 3.88e-5,
+  waveform: {med:8.928e-04, lo:8.562e-04, hi:4.026e-02},
+  remnant:  {med:5.918e-03, lo:5.881e-03, hi:6.083e-02},
+  analytic: {med:3.880e-05, lo:2.988e-05, hi:9.493e-04},
 };
 
 // Physics requirements: accuracy needed for scientific applications
 const PHYS_REQ = {
   waveform: 5e-3,
-  remnant:  1e-3,
+  remnant:  5.918e-03,
   dynamics: 1e-4,
   ringdown: 1e-6,
   validity: 1e-3,
@@ -575,21 +683,40 @@ const AGENTS = [
   // Gemini models
   { id: 'gemini31_pro_preview', label: 'Gemini 3.1 Pro',   color: '#ea580c' },
   { id: 'gemini3_flash_preview', label: 'Gemini 3 Flash',  color: '#c2410c' },
+  // Kimi models
+  { id: 'kimi_k26',              label: 'Kimi K2.6',        color: '#6366f1' },
 ];
 
 const BENCHES = [
-  { id: 'waveform', label: 'Waveform',  tag: 'h22 surrogate',     desc: 'Co-precessing (2,2) mode from 7D spinning BBH parameters.',              metric: 'mean FD mismatch @ [40,80,120,160,200] Msun' },
-  { id: 'remnant',  label: 'Remnant',   tag: 'kick velocity',     desc: 'Kick velocity magnitude from pre-merger binary parameters.',              metric: 'NRMSE(v_k)' },
-  { id: 'dynamics', label: 'Dynamics',  tag: 'orbital x(t)',      desc: 'Eccentric spinning BBH PN frequency parameter x(t) over inspiral.',      metric: 'pointwise RMS relative error on x(t)' },
-  { id: 'ringdown', label: 'Ringdown',  tag: 'QNM frequencies',   desc: 'Kerr quasi-normal mode frequencies as a function of remnant spin.',      metric: 'mean relative error on Re/Im(omega)' },
-  { id: 'validity', label: 'Validity',  tag: 'extrapolation',     desc: 'Predict NRHybSur3dq8 mismatch to detect surrogate extrapolation.',      metric: 'RMSE in log10 space' },
-  { id: 'analytic', label: 'Analytic',  tag: 'closed-form h22',   desc: 'Closed-form analytic surrogate for non-spinning BBH, q in [1, 20].',    metric: 'mean FD mismatch @ [40,80,120,160,200] Msun' },
+  { id: 'waveform', label: 'Waveform Bench',  tag: 'h22 surrogate',     desc: 'Co-precessing (2,2) mode from 7D spinning BBH parameters.',              metric: 'mean FD mismatch @ [40,80,120,160,200] Msun' },
+  { id: 'remnant',  label: 'Remnant Bench',   tag: 'kick velocity',     desc: 'Kick velocity magnitude from pre-merger binary parameters.',              metric: 'NRMSE(v_k)' },
+  { id: 'dynamics', label: 'Dynamics Bench',  tag: 'orbital x(t)',      desc: 'Eccentric spinning BBH PN frequency parameter x(t) over inspiral.',      metric: 'pointwise RMS relative error on x(t)' },
+  { id: 'ringdown', label: 'Ringdown Bench',  tag: 'QNM frequencies',   desc: 'Kerr quasi-normal mode frequencies as a function of remnant spin.',      metric: 'mean relative error on Re/Im(omega)' },
+  { id: 'validity', label: 'Validity Bench',  tag: 'extrapolation',     desc: 'Predict NRHybSur3dq8 mismatch to detect surrogate extrapolation.',      metric: 'RMSE in log10 space' },
+  { id: 'analytic', label: 'Analytic Bench',  tag: 'closed-form h22',   desc: 'Closed-form analytic surrogate for non-spinning BBH, q in [1, 20].',    metric: 'mean FD mismatch @ [40,80,120,160,200] Msun' },
 ];
 
-function fmt(v) {
+function fmtScalar(v) {
   if (v === null || v === undefined) return null;
   return v.toExponential(2);
 }
+
+function val(entry) {
+  if (entry === null || entry === undefined) return null;
+  if (typeof entry === 'number') return entry;
+  return entry.med;
+}
+
+function fmtCI(entry) {
+  if (entry === null || entry === undefined) return null;
+  if (typeof entry === 'number') return fmtScalar(entry);
+  const m = entry.med.toExponential(2);
+  const lo = entry.lo.toExponential(1);
+  const hi = entry.hi.toExponential(1);
+  return `<span class="ci"><span class="ci-med">${m}</span><span class="ci-bounds"><span>+${hi}</span><span>&minus;${lo}</span></span></span>`;
+}
+
+function fmt(v) { return fmtScalar(v); }
 
 // ── Build leaderboard ──
 const tbody = document.getElementById('leaderboard-body');
@@ -600,10 +727,9 @@ simRow.innerHTML = `
   <td class="rank" style="color:var(--sim)">ref</td>
   <td><span class="model-name" style="color:var(--sim)"><span class="model-dot" style="background:var(--sim)"></span>Simulation Error</span></td>
   ${BENCHES.map(b => {
-    const v = SIM_ERRORS[b.id];
-    return v != null
-      ? `<td class="sim-ref">${fmt(v)}</td>`
-      : `<td class="tbd">—</td>`;
+    const entry = SIM_ERRORS[b.id];
+    if (entry == null) return '<td class="tbd">—</td>';
+    return `<td class="sim-ref">${fmtCI(entry)}</td>`;
   }).join('')}`;
 tbody.appendChild(simRow);
 
@@ -612,8 +738,14 @@ const physRow = document.createElement('tr');
 physRow.innerHTML = `
   <td class="rank" style="color:#b45309">req</td>
   <td><span class="model-name" style="color:#b45309"><span class="model-dot" style="background:#b45309"></span>Physics Req.</span></td>
-  ${BENCHES.map(b => `<td class="phys-ref">${fmt(PHYS_REQ[b.id])}</td>`).join('')}`;
+  ${BENCHES.map(b => `<td class="phys-ref">${fmtScalar(PHYS_REQ[b.id])}</td>`).join('')}`;
 tbody.appendChild(physRow);
+
+// Precompute best (lowest median) per benchmark
+const bestPerBench = {};
+BENCHES.forEach(b => {
+  bestPerBench[b.id] = Math.min(...AGENTS.map(x => val(DATA[x.id]?.[b.id])).filter(x => x != null));
+});
 
 // List agents in declared order (Claude first, then GPT)
 AGENTS.forEach((a, idx) => {
@@ -624,40 +756,26 @@ AGENTS.forEach((a, idx) => {
     ${BENCHES.map(b => {
       const fab = FABRICATED[a.id]?.has(b.id);
       if (fab) return '<td class="tbd" style="color:#dc2626;font-size:10px" title="Fabricated results excluded">&#x1F480; Fabricated</td>';
-      const v = DATA[a.id]?.[b.id];
+      const entry = DATA[a.id]?.[b.id];
+      const v = val(entry);
       if (v === null || v === undefined) return '<td class="tbd">—</td>';
-      const best = Math.min(...AGENTS.map(x => DATA[x.id]?.[b.id]).filter(x => x != null));
-      const cls = v === best ? 'val-best' : '';
-      return `<td class="${cls}">${fmt(v)}</td>`;
+      const isBest = v === bestPerBench[b.id];
+      const met = v <= PHYS_REQ[b.id];
+      const cls = met ? 'val-met' : 'val-not';
+      const boldCls = isBest ? ' val-best-bold' : '';
+      return `<td class="${cls}${boldCls}">${fmtCI(entry)}</td>`;
     }).join('')}`;
   tbody.appendChild(tr);
-
-  // Verdict row for this agent
-  const vtr = document.createElement('tr');
-  vtr.style.borderBottom = '2px solid var(--border)';
-  vtr.innerHTML = `
-    <td></td>
-    <td style="font-size:10px;color:var(--muted);padding-top:0;padding-bottom:0.5rem;opacity:0.3">Verdict</td>
-    ${BENCHES.map(b => {
-      const fab = FABRICATED[a.id]?.has(b.id);
-      if (fab) return '<td></td>';
-      const v = DATA[a.id]?.[b.id];
-      if (v === null || v === undefined) return '<td class="tbd">—</td>';
-      const req = PHYS_REQ[b.id];
-      if (v <= req) return '<td class="verdict-met">&#x2714; Met</td>';
-      return '<td class="verdict-not">Not yet</td>';
-    }).join('')}`;
-  tbody.appendChild(vtr);
 });
 
 // ── Build benchmark cards ──
 const grid = document.getElementById('bench-grid');
 BENCHES.forEach(bench => {
-  const vals = AGENTS.map(a => DATA[a.id]?.[bench.id]).filter(v => v != null);
-  const nrv = SIM_ERRORS[bench.id];
+  const medians = AGENTS.map(a => val(DATA[a.id]?.[bench.id])).filter(v => v != null);
+  const nrv = val(SIM_ERRORS[bench.id]);
   const prv = PHYS_REQ[bench.id];
   const refVals = [nrv, prv].filter(v => v != null);
-  const allVals = [...vals, ...refVals];
+  const allVals = [...medians, ...refVals];
   const worst = allVals.length ? Math.max(...allVals) : 1;
 
   const card = document.createElement('div');
@@ -672,7 +790,16 @@ BENCHES.forEach(bench => {
       <div class="bar-row">
         <span class="bar-label-sim">Sim. Error</span>
         <div class="bar-track"><div class="bar-fill" style="background:var(--sim);width:${w}%"></div></div>
-        <span class="bar-val-sim">${fmt(nrv)}</span>
+        <span class="bar-val-sim">${fmtScalar(nrv)}</span>
+      </div>`;
+  } else if (SIM_ERRORS[bench.id] != null) {
+    const sv = val(SIM_ERRORS[bench.id]);
+    const w = (sv / worst) * 100;
+    barsHtml += `
+      <div class="bar-row">
+        <span class="bar-label-sim">Sim. Error</span>
+        <div class="bar-track"><div class="bar-fill" style="background:var(--sim);width:${w}%"></div></div>
+        <span class="bar-val-sim">${fmtScalar(sv)}</span>
       </div>`;
   }
 
@@ -683,7 +810,7 @@ BENCHES.forEach(bench => {
       <div class="bar-row">
         <span class="bar-label-sim" style="color:#b45309">Physics Req.</span>
         <div class="bar-track"><div class="bar-fill" style="background:#b45309;width:${w}%"></div></div>
-        <span class="bar-val-sim" style="color:#b45309">${fmt(prv)}</span>
+        <span class="bar-val-sim" style="color:#b45309">${fmtScalar(prv)}</span>
       </div>`;
   }
 
@@ -699,8 +826,8 @@ BENCHES.forEach(bench => {
         </div>`;
       return;
     }
-    const v = DATA[a.id]?.[bench.id];
-    const str = v != null ? fmt(v) : '—';
+    const v = val(DATA[a.id]?.[bench.id]);
+    const str = v != null ? fmtScalar(v) : '—';
     const w = v != null ? (v / worst) * 100 : 0;
     barsHtml += `
       <div class="bar-row">
@@ -722,7 +849,7 @@ BENCHES.forEach(bench => {
 });
 
 // ── Radar chart ──
-const radarAgents = AGENTS.filter(a => BENCHES.some(b => DATA[a.id]?.[b.id] != null));
+const radarAgents = AGENTS.filter(a => BENCHES.some(b => val(DATA[a.id]?.[b.id]) != null));
 const radarChart = new Chart(document.getElementById('radarChart'), {
   type: 'radar',
   data: {
@@ -730,10 +857,10 @@ const radarChart = new Chart(document.getElementById('radarChart'), {
     datasets: radarAgents.map(a => ({
       label: a.label,
       data: BENCHES.map(bench => {
-        const vals = AGENTS.map(x => DATA[x.id]?.[bench.id]).filter(v => v != null);
-        if (!vals.length) return 0;
-        const best = Math.min(...vals), worst = Math.max(...vals);
-        const v = DATA[a.id]?.[bench.id];
+        const medians = AGENTS.map(x => val(DATA[x.id]?.[bench.id])).filter(v => v != null);
+        if (!medians.length) return 0;
+        const best = Math.min(...medians), worst = Math.max(...medians);
+        const v = val(DATA[a.id]?.[bench.id]);
         if (v == null) return 0;
         return worst === best ? 0 : (v - best) / (worst - best);
       }),
@@ -767,6 +894,106 @@ const radarChart = new Chart(document.getElementById('radarChart'), {
       }
     }
   }
+});
+
+// ── Violin plots ──
+fetch('violin_data.json').then(r => r.json()).then(VDATA => {
+  const vgrid = document.getElementById('violin-grid');
+  const agentColors = {};
+  AGENTS.forEach(a => { agentColors[a.id] = a.color; });
+  const agentLabels = {};
+  AGENTS.forEach(a => { agentLabels[a.id] = a.label; });
+
+  const benchMeta = {
+    waveform: { title: 'Waveform Bench', metric: 'FD Mismatch (per waveform)' },
+    analytic: { title: 'Analytic Bench', metric: 'FD Mismatch (per waveform)' },
+    dynamics: { title: 'Dynamics Bench', metric: 'RMS Relative Error (per case)' },
+    remnant:  { title: 'Remnant Bench',  metric: 'Normalized |pred-true|/ptp (per sample)' },
+    ringdown: { title: 'Ringdown Bench', metric: 'Relative Error (per sample)' },
+    validity: { title: 'Validity Bench', metric: '|pred-true| in log10 space (per sample)' },
+  };
+
+  const benchOrder = ['waveform', 'analytic', 'dynamics', 'remnant', 'ringdown', 'validity'];
+
+  benchOrder.forEach(benchId => {
+    const bd = VDATA[benchId];
+    if (!bd) return;
+    const meta = benchMeta[benchId];
+
+    const card = document.createElement('div');
+    card.className = 'violin-card';
+    card.innerHTML = `<h3>${meta.title}</h3><div class="violin-metric">${meta.metric}</div>`;
+    const plotDiv = document.createElement('div');
+    plotDiv.style.width = '100%';
+    plotDiv.style.height = '340px';
+    card.appendChild(plotDiv);
+    vgrid.appendChild(card);
+
+    const traces = [];
+
+    // NR simulation error violin first (if available)
+    if (bd['nr_error'] && bd['nr_error'].length > 0) {
+      const logNR = bd['nr_error'].map(v => Math.log10(Math.max(v, 1e-20)));
+      traces.push({
+        type: 'violin',
+        y: logNR,
+        name: 'NR Error',
+        box: { visible: true, width: 0.15 },
+        meanline: { visible: false },
+        line: { color: '#9333ea', width: 2 },
+        fillcolor: 'rgba(147,51,234,0.20)',
+        marker: { color: '#9333ea', size: 2 },
+        points: false,
+        spanmode: 'hard',
+        scalemode: 'width',
+        width: 0.75,
+      });
+    }
+
+    AGENTS.forEach(a => {
+      const samples = bd[a.id];
+      if (!samples || samples.length === 0) return;
+      const logSamples = samples.map(v => Math.log10(Math.max(v, 1e-20)));
+      traces.push({
+        type: 'violin',
+        y: logSamples,
+        name: agentLabels[a.id],
+        box: { visible: true, width: 0.15 },
+        meanline: { visible: false },
+        line: { color: agentColors[a.id], width: 1.5 },
+        fillcolor: agentColors[a.id] + '30',
+        marker: { color: agentColors[a.id], size: 2 },
+        points: false,
+        spanmode: 'hard',
+        scalemode: 'width',
+        width: 0.75,
+      });
+    });
+
+    const yaxExtra = {};
+    if (benchId === 'ringdown') { yaxExtra.range = [-20, 0.5]; }
+    if (benchId === 'validity') { yaxExtra.range = [-1.6, 0.5]; }
+
+    Plotly.newPlot(plotDiv, traces, {
+      yaxis: Object.assign({
+        title: { text: 'log₁₀(error)', font: { family: 'monospace', size: 11 } },
+        gridcolor: 'rgba(0,0,0,0.06)',
+        zeroline: true,
+        zerolinecolor: 'rgba(0,0,0,0.15)',
+        tickfont: { family: 'monospace', size: 10 },
+      }, yaxExtra),
+      xaxis: {
+        tickfont: { family: 'monospace', size: 9 },
+        tickangle: -30,
+      },
+      showlegend: false,
+      margin: { t: 10, b: 80, l: 55, r: 15 },
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      plot_bgcolor: 'rgba(0,0,0,0)',
+      font: { family: 'JetBrains Mono, Fira Code, monospace' },
+      violinmode: 'group',
+    }, { responsive: true, displayModeBar: false });
+  });
 });
 </script>
 

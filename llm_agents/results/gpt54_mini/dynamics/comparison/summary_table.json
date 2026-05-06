@@ -1,0 +1,458 @@
+[
+  {
+    "approach": "svd_bayes_ridge_log_omega",
+    "approach_number": 24,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "log_omega",
+    "time_convention": "tau_normalized",
+    "loss": 0.009844146894435886,
+    "loss_components": {
+      "rms_rel_err_x": 0.009844146894435886
+    },
+    "runtime_ms": 0.008838332025334239,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 120,
+    "train_time_s": 0.02262401580810547,
+    "notes": "SVD + Bayesian ridge poly-2 on log_omega."
+  },
+  {
+    "approach": "svd_lasso_poly3_log_omega",
+    "approach_number": 18,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "svd_decomp",
+    "parameterization": "log_omega",
+    "time_convention": "tau_normalized",
+    "loss": 0.009851024653107698,
+    "loss_components": {
+      "rms_rel_err_x": 0.009851024653107698
+    },
+    "runtime_ms": 0.02312083402648568,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1660,
+    "train_time_s": 0.29378509521484375,
+    "notes": "SVD + Lasso poly-3 on log_omega reparam."
+  },
+  {
+    "approach": "svd_extra_trees_trig_zeta",
+    "approach_number": 19,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "trig_zeta",
+    "time_convention": "tau_normalized",
+    "loss": 0.01245570585496397,
+    "loss_components": {
+      "rms_rel_err_x": 0.01245570585496397
+    },
+    "runtime_ms": 0.10136558196973056,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 9600,
+    "train_time_s": 0.2094728946685791,
+    "notes": "SVD + ExtraTrees on trig_zeta parameterization."
+  },
+  {
+    "approach": "direct_rf_eta_chieff",
+    "approach_number": 22,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.01262910687182662,
+    "loss_components": {
+      "rms_rel_err_x": 0.01262910687182662
+    },
+    "runtime_ms": 0.10081675008405,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 6400,
+    "train_time_s": 0.2962071895599365,
+    "notes": "Random Forest predicting log(x) on full 256-point grid (no SVD)."
+  },
+  {
+    "approach": "svd_gbm_eta_chieff",
+    "approach_number": 8,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.01302296564382846,
+    "loss_components": {
+      "rms_rel_err_x": 0.01302296564382846
+    },
+    "runtime_ms": 0.026831833994947374,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 32000,
+    "train_time_s": 0.7454640865325928,
+    "notes": "SVD + GBM (per output)."
+  },
+  {
+    "approach": "logsvd_linear_raw6",
+    "approach_number": 12,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "svd_decomp",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.013125171571531695,
+    "loss_components": {
+      "rms_rel_err_x": 0.013125171571531695
+    },
+    "runtime_ms": 0.00017974991351366043,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 120,
+    "train_time_s": 0.0003693103790283203,
+    "notes": "SVD on log(x) + linear; x grows monotonically so log scale stabilizes fits."
+  },
+  {
+    "approach": "svd_linear_raw6",
+    "approach_number": 1,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "svd_decomp",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.013583393205060459,
+    "loss_components": {
+      "rms_rel_err_x": 0.013583393205060459
+    },
+    "runtime_ms": 0.00018308206927031279,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 120,
+    "train_time_s": 0.0005910396575927734,
+    "notes": "SVD + linear regression (baseline)."
+  },
+  {
+    "approach": "svd_pysr_eta_chieff",
+    "approach_number": 14,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.013922444589309593,
+    "loss_components": {
+      "rms_rel_err_x": 0.013922444589309593
+    },
+    "runtime_ms": 0.018980082008056343,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 110,
+    "train_time_s": 12.53921890258789,
+    "notes": "PySR on top 5 log-SVD coeffs; linear regression for rest."
+  },
+  {
+    "approach": "svd_rbfinterp_raw6",
+    "approach_number": 11,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "interpolation",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.014203422988767814,
+    "loss_components": {
+      "rms_rel_err_x": 0.014203422988767814
+    },
+    "runtime_ms": 0.230066999909468,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 250,
+    "train_time_s": 0.26451778411865234,
+    "notes": "SVD + thin-plate-spline RBF interpolation."
+  },
+  {
+    "approach": "svd_rf_raw6",
+    "approach_number": 6,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.014649531231028775,
+    "loss_components": {
+      "rms_rel_err_x": 0.014649531231028775
+    },
+    "runtime_ms": 0.10012158402241766,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 6400,
+    "train_time_s": 0.10924005508422852,
+    "notes": "SVD + Random Forest."
+  },
+  {
+    "approach": "svd_huber_eta_chieff",
+    "approach_number": 23,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.020514580471322815,
+    "loss_components": {
+      "rms_rel_err_x": 0.020514580471322815
+    },
+    "runtime_ms": 0.0030554160475730896,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 120,
+    "train_time_s": 0.0668940544128418,
+    "notes": "SVD + Huber regression (robust)."
+  },
+  {
+    "approach": "svd_pysr_raw6",
+    "approach_number": 21,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "symbolic",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.021166162150840072,
+    "loss_components": {
+      "rms_rel_err_x": 0.021166162150840072
+    },
+    "runtime_ms": 0.011669000028632581,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 122,
+    "train_time_s": 1.6521527767181396,
+    "notes": "PySR (raw6) on top 3 log-SVD coeffs."
+  },
+  {
+    "approach": "svd_gplearn_eta_chieff",
+    "approach_number": 15,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.02277796884147838,
+    "loss_components": {
+      "rms_rel_err_x": 0.02277796884147838
+    },
+    "runtime_ms": 0.0010163340484723449,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 110,
+    "train_time_s": 20.404957056045532,
+    "notes": "gplearn on top 5 log-SVD coeffs."
+  },
+  {
+    "approach": "logsvd_poly2_eta_chieff",
+    "approach_number": 13,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "svd_decomp",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.024081798925687584,
+    "loss_components": {
+      "rms_rel_err_x": 0.024081798925687584
+    },
+    "runtime_ms": 0.0013061660574749112,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 560,
+    "train_time_s": 0.001477956771850586,
+    "notes": "SVD on log(x) + polynomial-2 ridge."
+  },
+  {
+    "approach": "svd_poly2_eta_chieff",
+    "approach_number": 2,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "svd_decomp",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.024378455904314558,
+    "loss_components": {
+      "rms_rel_err_x": 0.024378455904314558
+    },
+    "runtime_ms": 0.00048116804100573063,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 560,
+    "train_time_s": 0.0007469654083251953,
+    "notes": "SVD + polynomial-2 ridge regression on eta+chi_eff+log(e0)."
+  },
+  {
+    "approach": "svd_poly3_trig_zeta",
+    "approach_number": 3,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "svd_decomp",
+    "parameterization": "trig_zeta",
+    "time_convention": "tau_normalized",
+    "loss": 0.024427040783856123,
+    "loss_components": {
+      "rms_rel_err_x": 0.024427040783856123
+    },
+    "runtime_ms": 0.08436083397828043,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 2400,
+    "train_time_s": 0.22530722618103027,
+    "notes": "SVD + polynomial-3 ridge with cos/sin(zeta0) reparameterization."
+  },
+  {
+    "approach": "svd_krr_rbf_eta_chieff",
+    "approach_number": 9,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "interpolation",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.031777164374446026,
+    "loss_components": {
+      "rms_rel_err_x": 0.031777164374446026
+    },
+    "runtime_ms": 0.30265966593287885,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 5000,
+    "train_time_s": 0.2581021785736084,
+    "notes": "SVD + Kernel Ridge RBF."
+  },
+  {
+    "approach": "logsvd_gpr_rbf_eta_chieff",
+    "approach_number": 20,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "svd_decomp",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.03256729199519917,
+    "loss_components": {
+      "rms_rel_err_x": 0.03256729199519917
+    },
+    "runtime_ms": 0.5977664178935811,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 160,
+    "train_time_s": 0.8804471492767334,
+    "notes": "log-SVD + GPR-RBF (one per coefficient)."
+  },
+  {
+    "approach": "svd_knn_raw6",
+    "approach_number": 10,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "interpolation",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.03299613631289994,
+    "loss_components": {
+      "rms_rel_err_x": 0.03299613631289994
+    },
+    "runtime_ms": 0.004372415947727859,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 250,
+    "train_time_s": 0.000263214111328125,
+    "notes": "SVD + KNN k=5 distance-weighted."
+  },
+  {
+    "approach": "svd_gpr_matern_eta_chieff",
+    "approach_number": 5,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "svd_decomp",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.03881786750158704,
+    "loss_components": {
+      "rms_rel_err_x": 0.03881786750158704
+    },
+    "runtime_ms": 0.5524120840709656,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 160,
+    "train_time_s": 1.2586290836334229,
+    "notes": "SVD + GPR-Matern-5/2 with eta_chieff reparam."
+  },
+  {
+    "approach": "direct_mlp_dense_eta_chieff",
+    "approach_number": 17,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.03961585501837191,
+    "loss_components": {
+      "rms_rel_err_x": 0.03961585501837191
+    },
+    "runtime_ms": 0.025593583937734365,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 165632,
+    "train_time_s": 0.48720312118530273,
+    "notes": "Direct MLP predicting log(x) on the full 256-point grid (no SVD)."
+  },
+  {
+    "approach": "svd_gpr_rbf_raw6",
+    "approach_number": 4,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "svd_decomp",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.039712544725254637,
+    "loss_components": {
+      "rms_rel_err_x": 0.039712544725254637
+    },
+    "runtime_ms": 0.539195666089654,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 160,
+    "train_time_s": 0.8786768913269043,
+    "notes": "SVD + GPR-RBF (one per coefficient)."
+  },
+  {
+    "approach": "svd_mlp_eta_chieff",
+    "approach_number": 7,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "time_convention": "tau_normalized",
+    "loss": 0.1098068984011367,
+    "loss_components": {
+      "rms_rel_err_x": 0.1098068984011367
+    },
+    "runtime_ms": 0.0016109179705381393,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 19988,
+    "train_time_s": 0.05003190040588379,
+    "notes": "SVD + MLP 128-128 tanh."
+  },
+  {
+    "approach": "eim_linear_raw6",
+    "approach_number": 16,
+    "benchmark": "dynamics",
+    "agent": "gpt54_mini",
+    "category": "svd_decomp",
+    "parameterization": "raw6",
+    "time_convention": "tau_normalized",
+    "loss": 0.7667355378110978,
+    "loss_components": {
+      "rms_rel_err_x": 0.7667355378110978
+    },
+    "runtime_ms": 0.0003420839784666896,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 120,
+    "train_time_s": 0.0008261203765869141,
+    "notes": "EIM at 20 nodes with linear regression."
+  }
+]

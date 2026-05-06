@@ -1,0 +1,422 @@
+[
+    {
+        "approach": "svd_gpr_raw",
+        "approach_number": 1,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw_7d",
+        "time_convention": "t0_at_peak",
+        "loss": 0.21969296373142555,
+        "loss_components": {
+            "mismatch_40Msun": 0.38985480915267157,
+            "mismatch_80Msun": 0.2876818578353001,
+            "mismatch_120Msun": 0.18457400819775607,
+            "mismatch_160Msun": 0.13135247987683765,
+            "mismatch_200Msun": 0.10500166359456234
+        },
+        "runtime_ms": 88.66291236877441,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "Baseline SVD+GPR with raw parameters."
+    },
+    {
+        "approach": "svd_lgbm_raw",
+        "approach_number": 12,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.22795029936959058,
+        "loss_components": {
+            "mismatch_40Msun": 0.46768089070137064,
+            "mismatch_80Msun": 0.29035611423037355,
+            "mismatch_120Msun": 0.17488840646818535,
+            "mismatch_160Msun": 0.11746521736062888,
+            "mismatch_200Msun": 0.0893608680873943
+        },
+        "runtime_ms": 154.92895221710205,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + LightGBM on raw params."
+    },
+    {
+        "approach": "svd_gpr_eff",
+        "approach_number": 2,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "time_convention": "t0_at_peak",
+        "loss": NaN,
+        "loss_components": {
+            "mismatch_40Msun": NaN,
+            "mismatch_80Msun": NaN,
+            "mismatch_120Msun": NaN,
+            "mismatch_160Msun": NaN,
+            "mismatch_200Msun": NaN
+        },
+        "runtime_ms": 91.52030754089355,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD+GPR with effective spins and Matern kernel."
+    },
+    {
+        "approach": "svd_gpr_raw_tstart",
+        "approach_number": 15,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_start",
+        "loss": NaN,
+        "loss_components": {
+            "mismatch_40Msun": NaN,
+            "mismatch_80Msun": NaN,
+            "mismatch_120Msun": NaN,
+            "mismatch_160Msun": NaN,
+            "mismatch_200Msun": NaN
+        },
+        "runtime_ms": 100.36143207550049,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + GPR on raw params with t=0 at start."
+    },
+    {
+        "approach": "svd_rf_raw",
+        "approach_number": 5,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.20246739309367354,
+        "loss_components": {
+            "mismatch_40Msun": 0.431418559013218,
+            "mismatch_80Msun": 0.2639237429158535,
+            "mismatch_120Msun": 0.1502092990671804,
+            "mismatch_160Msun": 0.09607835125635511,
+            "mismatch_200Msun": 0.07070701321576066
+        },
+        "runtime_ms": 59.72635269165039,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + Random Forest on raw params."
+    },
+    {
+        "approach": "svd_rbf_raw",
+        "approach_number": 22,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.22345544866173364,
+        "loss_components": {
+            "mismatch_40Msun": 0.42725664824547166,
+            "mismatch_80Msun": 0.2914076508905236,
+            "mismatch_120Msun": 0.1800876097383475,
+            "mismatch_160Msun": 0.12376052596782543,
+            "mismatch_200Msun": 0.09476480846650016
+        },
+        "runtime_ms": 104.07256031036377,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + RBF Interpolation on raw parameters."
+    },
+    {
+        "approach": "svd_cat_raw",
+        "approach_number": 13,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.22469758837050793,
+        "loss_components": {
+            "mismatch_40Msun": 0.4682025559647642,
+            "mismatch_80Msun": 0.29013274192224775,
+            "mismatch_120Msun": 0.17174109567265827,
+            "mismatch_160Msun": 0.11126703564234759,
+            "mismatch_200Msun": 0.08214451265052179
+        },
+        "runtime_ms": 85.85448741912842,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + CatBoost on raw params."
+    },
+    {
+        "approach": "svd_kr_raw",
+        "approach_number": 6,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.22779814579967775,
+        "loss_components": {
+            "mismatch_40Msun": 0.4702905896935506,
+            "mismatch_80Msun": 0.30015145285219397,
+            "mismatch_120Msun": 0.17593844901205716,
+            "mismatch_160Msun": 0.11220368995970996,
+            "mismatch_200Msun": 0.08040654748087696
+        },
+        "runtime_ms": 56.3495397567749,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + Kernel Ridge on raw params."
+    },
+    {
+        "approach": "svd_mlp_raw",
+        "approach_number": 4,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.2315185251857045,
+        "loss_components": {
+            "mismatch_40Msun": 0.4873486095711561,
+            "mismatch_80Msun": 0.30430698950466284,
+            "mismatch_120Msun": 0.17612256443015467,
+            "mismatch_160Msun": 0.1110852648339488,
+            "mismatch_200Msun": 0.07872919758859998
+        },
+        "runtime_ms": 57.76088809967041,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + MLP on raw params."
+    },
+    {
+        "approach": "eim_gpr_raw",
+        "approach_number": 11,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.23337582178560642,
+        "loss_components": {
+            "mismatch_40Msun": 0.4371143277653956,
+            "mismatch_80Msun": 0.30074567471794306,
+            "mismatch_120Msun": 0.1884411122473652,
+            "mismatch_160Msun": 0.1331962102797554,
+            "mismatch_200Msun": 0.10738178391757285
+        },
+        "runtime_ms": 93.65607643127441,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "EIM + GPR on raw parameters."
+    },
+    {
+        "approach": "svd_poly2_raw",
+        "approach_number": 3,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.2356923138416393,
+        "loss_components": {
+            "mismatch_40Msun": 0.5034610599752967,
+            "mismatch_80Msun": 0.3060010167866196,
+            "mismatch_120Msun": 0.177285726497117,
+            "mismatch_160Msun": 0.11190686099633108,
+            "mismatch_200Msun": 0.07980690495283238
+        },
+        "runtime_ms": 59.7213716506958,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + Polynomial Regression (degree 2) on raw params."
+    },
+    {
+        "approach": "svd_poly3_raw",
+        "approach_number": 17,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.2690183272188447,
+        "loss_components": {
+            "mismatch_40Msun": 0.5044359893499595,
+            "mismatch_80Msun": 0.3518753226661454,
+            "mismatch_120Msun": 0.22290343618035535,
+            "mismatch_160Msun": 0.15118186748272985,
+            "mismatch_200Msun": 0.11469502041503339
+        },
+        "runtime_ms": 103.28965282440186,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + Poly (deg 3) on raw params."
+    },
+    {
+        "approach": "svd_rf_eff",
+        "approach_number": 20,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "time_convention": "t0_at_peak",
+        "loss": 0.35463079995044544,
+        "loss_components": {
+            "mismatch_40Msun": 0.6131982529844489,
+            "mismatch_80Msun": 0.4565985908329394,
+            "mismatch_120Msun": 0.3257856225969214,
+            "mismatch_160Msun": 0.22073411989977063,
+            "mismatch_200Msun": 0.15683741343814697
+        },
+        "runtime_ms": 60.87657928466797,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + Random Forest on effective spins."
+    },
+    {
+        "approach": "svd_poly2_eff",
+        "approach_number": 18,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "time_convention": "t0_at_peak",
+        "loss": 0.4200276357069762,
+        "loss_components": {
+            "mismatch_40Msun": 0.5563311322863865,
+            "mismatch_80Msun": 0.4261803069236874,
+            "mismatch_120Msun": 0.3821634063628343,
+            "mismatch_160Msun": 0.37081919778135797,
+            "mismatch_200Msun": 0.36464413518061506
+        },
+        "runtime_ms": 54.75644016265869,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + Poly (deg 2) on effective spins."
+    },
+    {
+        "approach": "svd_gpr_eff_matern25",
+        "approach_number": 10,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "time_convention": "t0_at_peak",
+        "loss": NaN,
+        "loss_components": {
+            "mismatch_40Msun": NaN,
+            "mismatch_80Msun": NaN,
+            "mismatch_120Msun": NaN,
+            "mismatch_160Msun": NaN,
+            "mismatch_200Msun": NaN
+        },
+        "runtime_ms": 56.558743476867676,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + GPR with effective spins and Matern 2.5 kernel."
+    },
+    {
+        "approach": "svd_gpr_sph",
+        "approach_number": 8,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "spherical",
+        "time_convention": "t0_at_peak",
+        "loss": NaN,
+        "loss_components": {
+            "mismatch_40Msun": NaN,
+            "mismatch_80Msun": NaN,
+            "mismatch_120Msun": NaN,
+            "mismatch_160Msun": NaN,
+            "mismatch_200Msun": NaN
+        },
+        "runtime_ms": 57.34347724914551,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + GPR with spherical spin parameters."
+    },
+    {
+        "approach": "svd_xgb_raw",
+        "approach_number": 7,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.24340254628946173,
+        "loss_components": {
+            "mismatch_40Msun": 0.4846052510996429,
+            "mismatch_80Msun": 0.3101377647438885,
+            "mismatch_120Msun": 0.19146997431486876,
+            "mismatch_160Msun": 0.1307585260053367,
+            "mismatch_200Msun": 0.10004121528357157
+        },
+        "runtime_ms": 74.37966728210449,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + XGBoost on raw params."
+    },
+    {
+        "approach": "svd_mlp_eff",
+        "approach_number": 19,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "time_convention": "t0_at_peak",
+        "loss": 0.3669986451002178,
+        "loss_components": {
+            "mismatch_40Msun": 0.6184157932691948,
+            "mismatch_80Msun": 0.44653396471469414,
+            "mismatch_120Msun": 0.3118367499058678,
+            "mismatch_160Msun": 0.24760064657942235,
+            "mismatch_200Msun": 0.21060607103190962
+        },
+        "runtime_ms": 97.6759033203125,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + MLP on effective spins."
+    },
+    {
+        "approach": "svd_gpr_eff_tstart",
+        "approach_number": 16,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "effective_spins",
+        "time_convention": "t0_at_start",
+        "loss": NaN,
+        "loss_components": {
+            "mismatch_40Msun": NaN,
+            "mismatch_80Msun": NaN,
+            "mismatch_120Msun": NaN,
+            "mismatch_160Msun": NaN,
+            "mismatch_200Msun": NaN
+        },
+        "runtime_ms": 83.75753593444824,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 50,
+        "notes": "SVD + GPR on effective spins with t=0 at start."
+    },
+    {
+        "approach": "amp_phase_svd_gpr_raw",
+        "approach_number": 14,
+        "benchmark": "waveform",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "t0_at_peak",
+        "loss": 0.6460432232636761,
+        "loss_components": {
+            "mismatch_40Msun": 0.7816357412556753,
+            "mismatch_80Msun": 0.6794616136968045,
+            "mismatch_120Msun": 0.6154633484846959,
+            "mismatch_160Msun": 0.58380257419442,
+            "mismatch_200Msun": 0.5698528386867853
+        },
+        "runtime_ms": 91.51976013183594,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 40,
+        "notes": "Separate SVD+GPR for log-amplitude and phase."
+    }
+]

@@ -1,0 +1,154 @@
+[
+    {
+        "model_name": "RBFInterp_Raw",
+        "approach_number": 6,
+        "loss": 0.07238635057447243,
+        "runtime_ms": 0.5459785461425781,
+        "parameterization": "raw_6d",
+        "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.0724."
+    },
+    {
+        "model_name": "RBFInterp_EtaChiEff",
+        "approach_number": 13,
+        "loss": 0.07320472827304292,
+        "runtime_ms": 0.5240440368652344,
+        "parameterization": "eta_chieff_chia_loge0_zeta0_omega0",
+        "notes": "Model trained with eta_chieff_chia_loge0_zeta0_omega0 parameterization. Evaluated loss: 0.0732."
+    },
+    {
+        "model_name": "SVD_LightGBM_EtaChiEff",
+        "approach_number": 20,
+        "loss": 0.07563707752072019,
+        "runtime_ms": 1151.6811847686768,
+        "parameterization": "eta_chieff_chia_loge0_zeta0_omega0",
+        "notes": "Model trained with eta_chieff_chia_loge0_zeta0_omega0 parameterization. Evaluated loss: 0.0756."
+    },
+    {
+        "model_name": "SVD_LightGBM_Raw",
+        "approach_number": 9,
+        "loss": 0.07901297870979013,
+        "runtime_ms": 1192.2283172607422,
+        "parameterization": "raw_6d",
+        "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.0790."
+    },
+    {
+        "model_name": "SVD_RandomForest_EtaChiEff",
+        "approach_number": 18,
+        "loss": 0.0797396693339193,
+        "runtime_ms": 14.2059326171875,
+        "parameterization": "eta_chieff_chia_loge0_zeta0_omega0",
+        "notes": "Model trained with eta_chieff_chia_loge0_zeta0_omega0 parameterization. Evaluated loss: 0.0797."
+    },
+    {
+        "model_name": "SVD_Polynomial_Raw_Deg3",
+        "approach_number": 16,
+        "loss": 0.08077813199198909,
+        "runtime_ms": 0.5869865417480469,
+        "parameterization": "raw_6d",
+        "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.0808."
+    },
+    {
+        "model_name": "SVD_GPR_Raw",
+        "approach_number": 1,
+        "loss": 0.08223258196603989,
+        "runtime_ms": 6.252050399780273,
+        "parameterization": "raw_6d",
+        "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.0822."
+    },
+    {
+        "model_name": "SVD_Polynomial_Raw",
+        "approach_number": 3,
+        "loss": 0.08334531741017966,
+        "runtime_ms": 0.4210472106933594,
+        "parameterization": "raw_6d",
+        "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.0833."
+    },
+    {
+        "model_name": "SVD_XGBoost_EtaChiEff",
+        "approach_number": 19,
+        "loss": 0.08341666561764492,
+        "runtime_ms": 0.9729862213134766,
+        "parameterization": "eta_chieff_chia_loge0_zeta0_omega0",
+        "notes": "Model trained with eta_chieff_chia_loge0_zeta0_omega0 parameterization. Evaluated loss: 0.0834."
+    },
+    {
+        "model_name": "SVD_RandomForest_Raw",
+        "approach_number": 5,
+        "loss": 0.08496744735844665,
+        "runtime_ms": 14.234066009521484,
+        "parameterization": "raw_6d",
+        "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.0850."
+    },
+    {
+        "model_name": "SVD_XGBoost_Raw",
+        "approach_number": 8,
+        "loss": 0.08630368914949658,
+        "runtime_ms": 0.9741783142089844,
+        "parameterization": "raw_6d",
+        "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.0863."
+    },
+    {
+        "model_name": "SVD_GPR_EtaChiEff",
+        "approach_number": 2,
+        "loss": 0.08767059831059967,
+        "runtime_ms": 6.052255630493164,
+        "parameterization": "eta_chieff_chia_loge0_zeta0_omega0",
+        "notes": "Model trained with eta_chieff_chia_loge0_zeta0_omega0 parameterization. Evaluated loss: 0.0877."
+    },
+    {
+        "model_name": "NNInterp_Raw",
+        "approach_number": 7,
+        "loss": 0.09867493598341724,
+        "runtime_ms": 25.936126708984375,
+        "parameterization": "raw_6d",
+        "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.0987."
+    },
+    {
+        "model_name": "SVD_KRR_EtaChiEff",
+        "approach_number": 15,
+        "loss": 0.11193387793634127,
+        "runtime_ms": 4.187107086181641,
+        "parameterization": "eta_chieff_chia_loge0_zeta0_omega0",
+        "notes": "Model trained with eta_chieff_chia_loge0_zeta0_omega0 parameterization. Evaluated loss: 0.1119."
+    },
+    {
+        "model_name": "SVD_KRR_Raw",
+        "approach_number": 14,
+        "loss": 0.11411938890667872,
+        "runtime_ms": 4.284858703613281,
+        "parameterization": "raw_6d",
+        "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.1141."
+    },
+    {
+        "model_name": "SVD_KRR_M1M2S1S2",
+        "approach_number": 12,
+        "loss": 0.11926124889960156,
+        "runtime_ms": 4.293203353881836,
+        "parameterization": "m1m2_s1zs2z_e0_zeta0_omega0",
+        "notes": "Model trained with m1m2_s1zs2z_e0_zeta0_omega0 parameterization. Evaluated loss: 0.1193."
+    },
+    {
+        "model_name": "SVD_MLP_Raw",
+        "approach_number": 4,
+        "loss": 0.13826030545649393,
+        "runtime_ms": 0.14781951904296875,
+        "parameterization": "raw_6d",
+        "notes": "Model trained with raw_6d parameterization. Evaluated loss: 0.1383."
+    },
+    {
+        "model_name": "SVD_MLP_EtaChiEff",
+        "approach_number": 17,
+        "loss": 0.15516018137650534,
+        "runtime_ms": 0.24199485778808594,
+        "parameterization": "eta_chieff_chia_loge0_zeta0_omega0",
+        "notes": "Model trained with eta_chieff_chia_loge0_zeta0_omega0 parameterization. Evaluated loss: 0.1552."
+    },
+    {
+        "model_name": "PhenomFit_Poly_EtaChiEff",
+        "approach_number": 11,
+        "loss": 0.15832664662077792,
+        "runtime_ms": 0.7309913635253906,
+        "parameterization": "eta_chieff_chia_loge0_zeta0_omega0",
+        "notes": "Model trained with eta_chieff_chia_loge0_zeta0_omega0 parameterization. Evaluated loss: 0.1583."
+    }
+]

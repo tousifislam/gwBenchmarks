@@ -1,0 +1,11 @@
+{
+    "model_name": "LightGBM_Raw",
+    "approach_number": 9,
+    "loss": 0.09309737029275512,
+    "runtime_ms": 27.048826217651367,
+    "approach_category": "lightgbm",
+    "parameterization": "raw_7d",
+    "loss_components": {
+        "nrmse_vf_mag": 0.09309737029275512
+    }
+}

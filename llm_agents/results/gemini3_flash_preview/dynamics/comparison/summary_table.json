@@ -1,0 +1,342 @@
+[
+    {
+        "approach": "svd_poly2_raw",
+        "approach_number": 3,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.009825907507388197,
+        "loss_components": {
+            "rms_relative_error_x": 0.009825907507388197
+        },
+        "runtime_ms": 0.0015077590942382812,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "SVD + Polynomial Regression (degree 2) on raw params."
+    },
+    {
+        "approach": "svd_poly2_trig",
+        "approach_number": 10,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "trig_anomaly",
+        "time_convention": "normalized_tau",
+        "loss": 0.009895415788838322,
+        "loss_components": {
+            "rms_relative_error_x": 0.009895415788838322
+        },
+        "runtime_ms": 0.0017232894897460938,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "SVD + Polynomial Regression (degree 2) on trig anomaly params."
+    },
+    {
+        "approach": "svd_poly3_raw",
+        "approach_number": 9,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.010966016166505796,
+        "loss_components": {
+            "rms_relative_error_x": 0.010966016166505796
+        },
+        "runtime_ms": 0.001552581787109375,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "SVD + Polynomial Regression (degree 3) on raw params."
+    },
+    {
+        "approach": "svd_cat_raw",
+        "approach_number": 8,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.011565086986066163,
+        "loss_components": {
+            "rms_relative_error_x": 0.011565086986066163
+        },
+        "runtime_ms": 0.026000022888183594,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "SVD + CatBoost on raw params."
+    },
+    {
+        "approach": "svd_lgbm_raw",
+        "approach_number": 7,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.012816754685019369,
+        "loss_components": {
+            "rms_relative_error_x": 0.012816754685019369
+        },
+        "runtime_ms": 0.04286003112792969,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "SVD + LightGBM on raw params."
+    },
+    {
+        "approach": "rf_eff_log_e",
+        "approach_number": 14,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "eff_log_e",
+        "time_convention": "normalized_tau",
+        "loss": 0.013042680819528243,
+        "loss_components": {
+            "rms_relative_error_x": 0.013042680819528243
+        },
+        "runtime_ms": 0.014520645141601562,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "Random Forest on effective spin + log eccentricity."
+    },
+    {
+        "approach": "svd_rf_raw",
+        "approach_number": 5,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.013268964794164437,
+        "loss_components": {
+            "rms_relative_error_x": 0.013268964794164437
+        },
+        "runtime_ms": 0.014559745788574219,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "SVD + Random Forest on raw params."
+    },
+    {
+        "approach": "lr_raw",
+        "approach_number": 19,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.013423894078496366,
+        "loss_components": {
+            "rms_relative_error_x": 0.013423894078496366
+        },
+        "runtime_ms": 0.0009870529174804688,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "Linear Regression on raw params."
+    },
+    {
+        "approach": "rbf_raw",
+        "approach_number": 11,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.014100495391335191,
+        "loss_components": {
+            "rms_relative_error_x": 0.014100495391335191
+        },
+        "runtime_ms": 0.0036325454711914062,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "RBF Interpolation on raw params."
+    },
+    {
+        "approach": "gpr_matern25_fully",
+        "approach_number": 15,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "fully_transformed",
+        "time_convention": "normalized_tau",
+        "loss": 0.014617153077178065,
+        "loss_components": {
+            "rms_relative_error_x": 0.014617153077178065
+        },
+        "runtime_ms": 0.004200935363769531,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "GPR with Matern 2.5 on fully transformed parameters."
+    },
+    {
+        "approach": "svd_xgb_raw",
+        "approach_number": 6,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.015055452968371418,
+        "loss_components": {
+            "rms_relative_error_x": 0.015055452968371418
+        },
+        "runtime_ms": 0.017568588256835938,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "SVD + XGBoost on raw params."
+    },
+    {
+        "approach": "ridge_raw",
+        "approach_number": 20,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.025049193638244434,
+        "loss_components": {
+            "rms_relative_error_x": 0.025049193638244434
+        },
+        "runtime_ms": 0.0008840560913085938,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "Ridge Regression on raw params."
+    },
+    {
+        "approach": "svd_gpr_eff_log_e",
+        "approach_number": 2,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "eff_log_e",
+        "time_convention": "normalized_tau",
+        "loss": 0.030426507508098766,
+        "loss_components": {
+            "rms_relative_error_x": 0.030426507508098766
+        },
+        "runtime_ms": 0.0036573410034179688,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "SVD + GPR with Matern 1.5 on effective spin + log eccentricity."
+    },
+    {
+        "approach": "knn_raw",
+        "approach_number": 12,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.03306421039787895,
+        "loss_components": {
+            "rms_relative_error_x": 0.03306421039787895
+        },
+        "runtime_ms": 0.002704620361328125,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "K-Nearest Neighbors on raw params."
+    },
+    {
+        "approach": "lasso_raw",
+        "approach_number": 21,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.037441443856546096,
+        "loss_components": {
+            "rms_relative_error_x": 0.037441443856546096
+        },
+        "runtime_ms": 0.0010805130004882812,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "Lasso Regression on raw params."
+    },
+    {
+        "approach": "gplearn_raw",
+        "approach_number": 16,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.038488502227673214,
+        "loss_components": {
+            "rms_relative_error_x": 0.038488502227673214
+        },
+        "runtime_ms": 0.001995086669921875,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 500,
+        "notes": "gplearn on raw (first 5 coeffs)."
+    },
+    {
+        "approach": "gplearn_trig",
+        "approach_number": 17,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "trig_anomaly",
+        "time_convention": "normalized_tau",
+        "loss": 0.039983660200857134,
+        "loss_components": {
+            "rms_relative_error_x": 0.039983660200857134
+        },
+        "runtime_ms": 0.0019435882568359373,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 500,
+        "notes": "gplearn on trig_anomaly (first 5 coeffs)."
+    },
+    {
+        "approach": "svd_gpr_raw",
+        "approach_number": 1,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.050042285318768094,
+        "loss_components": {
+            "rms_relative_error_x": 0.050042285318768094
+        },
+        "runtime_ms": 0.0035686492919921875,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "SVD + GPR with RBF kernel on raw params."
+    },
+    {
+        "approach": "mlp_eff_log_e",
+        "approach_number": 13,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "eff_log_e",
+        "time_convention": "normalized_tau",
+        "loss": 0.08484776505367658,
+        "loss_components": {
+            "rms_relative_error_x": 0.08484776505367658
+        },
+        "runtime_ms": 0.00106048583984375,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "MLP on effective spin + log eccentricity."
+    },
+    {
+        "approach": "svd_mlp_raw",
+        "approach_number": 4,
+        "benchmark": "dynamics",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "time_convention": "normalized_tau",
+        "loss": 0.1090497442967278,
+        "loss_components": {
+            "rms_relative_error_x": 0.1090497442967278
+        },
+        "runtime_ms": 0.0011873245239257812,
+        "n_train": 250,
+        "n_val": 250,
+        "n_params": 100,
+        "notes": "SVD + MLP on raw params."
+    }
+]

@@ -1,0 +1,19 @@
+{
+  "approach": "svd_bayes_ridge_log_omega",
+  "approach_number": 24,
+  "benchmark": "dynamics",
+  "agent": "gpt54_mini",
+  "category": "ml",
+  "parameterization": "log_omega",
+  "time_convention": "tau_normalized",
+  "loss": 0.009844146894435886,
+  "loss_components": {
+    "rms_rel_err_x": 0.009844146894435886
+  },
+  "runtime_ms": 0.008838332025334239,
+  "n_train": 250,
+  "n_val": 250,
+  "n_params": 120,
+  "train_time_s": 0.02262401580810547,
+  "notes": "SVD + Bayesian ridge poly-2 on log_omega."
+}

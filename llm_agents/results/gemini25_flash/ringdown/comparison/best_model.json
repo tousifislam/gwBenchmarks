@@ -1,0 +1,9 @@
+{
+    "model_name": "RBFInterp_SqrtIrreducible",
+    "approach_number": 15,
+    "loss": 8.67858522842674e-07,
+    "runtime_ms": 2.8069019317626953,
+    "parameterization": "sqrt_irreducible",
+    "notes": "Model trained with sqrt_irreducible parameterization for mode l2/m+2/n0. Evaluated loss: 0.0000.",
+    "per_sample_loss": []
+}

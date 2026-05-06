@@ -1,0 +1,202 @@
+[
+  {
+    "name": "RandomForest (effective_spins)",
+    "directory": "17_randomforest",
+    "loss": 0.05635771666436307,
+    "train_loss": 0.02512477741925775,
+    "runtime_ms": 0.014242167002521455,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "effective_spins"
+  },
+  {
+    "name": "ExtraTrees (massdiff_spins)",
+    "directory": "18_extratrees",
+    "loss": 0.05976533890071652,
+    "train_loss": 7.204850868230231e-10,
+    "runtime_ms": 0.013960250013042241,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "massdiff_spins"
+  },
+  {
+    "name": "PySR (effective_spins)",
+    "directory": "06_pysr",
+    "loss": 0.06089309241365742,
+    "train_loss": 0.06000243107203422,
+    "runtime_ms": 0.000306583009660244,
+    "category": "symbolic",
+    "category_label": "Symbolic/analytical",
+    "parameterization": "effective_spins"
+  },
+  {
+    "name": "KNN-Distance (pn_products)",
+    "directory": "14_knn_distance",
+    "loss": 0.06127201361914127,
+    "train_loss": 0.0,
+    "runtime_ms": 0.005369958991650492,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "pn_products"
+  },
+  {
+    "name": "GradBoost (pn_products)",
+    "directory": "19_gradboost",
+    "loss": 0.061394962246207885,
+    "train_loss": 0.039835117479581406,
+    "runtime_ms": 0.0009655830217525363,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "pn_products"
+  },
+  {
+    "name": "KNN-Uniform (massdiff_spins)",
+    "directory": "13_knn_uniform",
+    "loss": 0.0626869536829625,
+    "train_loss": 0.05512845115310253,
+    "runtime_ms": 0.0047952079912647605,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "massdiff_spins"
+  },
+  {
+    "name": "RBF-Interp (raw_7d)",
+    "directory": "11_rbf_interp",
+    "loss": 0.06301332327816064,
+    "train_loss": 5.002378920092111e-06,
+    "runtime_ms": 0.007702583039645106,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "raw_7d"
+  },
+  {
+    "name": "KRR-Poly (massdiff_spins)",
+    "directory": "04_krr_poly",
+    "loss": 0.06411110134942835,
+    "train_loss": 0.05683888722354787,
+    "runtime_ms": 0.008015208994038403,
+    "category": "kernel",
+    "category_label": "Kernel/GP methods",
+    "parameterization": "massdiff_spins"
+  },
+  {
+    "name": "Local-Linear (spherical_spins)",
+    "directory": "15_local_linear",
+    "loss": 0.06564204653907671,
+    "train_loss": 0.0,
+    "runtime_ms": 0.006091500050388277,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "spherical_spins"
+  },
+  {
+    "name": "KRR-RBF (raw_7d)",
+    "directory": "03_krr_rbf",
+    "loss": 0.06645258025215094,
+    "train_loss": 0.0003406763217162664,
+    "runtime_ms": 0.004862292029429227,
+    "category": "kernel",
+    "category_label": "Kernel/GP methods",
+    "parameterization": "raw_7d"
+  },
+  {
+    "name": "GPR-RBF (raw_7d)",
+    "directory": "01_gpr_rbf",
+    "loss": 0.06764770210027629,
+    "train_loss": 0.0001973902404229545,
+    "runtime_ms": 0.006851041980553418,
+    "category": "kernel",
+    "category_label": "Kernel/GP methods",
+    "parameterization": "raw_7d"
+  },
+  {
+    "name": "Poly3 (pn_products)",
+    "directory": "09_poly3",
+    "loss": 0.06843848529427138,
+    "train_loss": 0.055836317479634585,
+    "runtime_ms": 0.0004966660053469241,
+    "category": "symbolic",
+    "category_label": "Symbolic/analytical",
+    "parameterization": "pn_products"
+  },
+  {
+    "name": "Poly2 (raw_7d)",
+    "directory": "08_poly2",
+    "loss": 0.0719184768768481,
+    "train_loss": 0.0707649691392061,
+    "runtime_ms": 0.0002687079831957817,
+    "category": "symbolic",
+    "category_label": "Symbolic/analytical",
+    "parameterization": "raw_7d"
+  },
+  {
+    "name": "Huber-Ensemble (spherical_spins)",
+    "directory": "20_huber_ensemble",
+    "loss": 0.0740897754451546,
+    "train_loss": 0.07715205457171823,
+    "runtime_ms": 0.00013095897156745195,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "spherical_spins"
+  },
+  {
+    "name": "SVR-RBF (pn_products)",
+    "directory": "05_svr_rbf",
+    "loss": 0.07832573454633211,
+    "train_loss": 0.05341933962034732,
+    "runtime_ms": 0.007150584016926587,
+    "category": "kernel",
+    "category_label": "Kernel/GP methods",
+    "parameterization": "pn_products"
+  },
+  {
+    "name": "Physics-Features (spherical_spins)",
+    "directory": "10_physics_features",
+    "loss": 0.08079196948299117,
+    "train_loss": 0.08133440055573653,
+    "runtime_ms": 0.00011508399620652199,
+    "category": "symbolic",
+    "category_label": "Symbolic/analytical",
+    "parameterization": "spherical_spins"
+  },
+  {
+    "name": "GPR-Matern (effective_spins)",
+    "directory": "02_gpr_matern",
+    "loss": 0.08294917845913682,
+    "train_loss": 1.749960098372112e-05,
+    "runtime_ms": 0.008539333997759968,
+    "category": "kernel",
+    "category_label": "Kernel/GP methods",
+    "parameterization": "effective_spins"
+  },
+  {
+    "name": "RBF-Cubic (effective_spins)",
+    "directory": "12_rbf_cubic",
+    "loss": 0.09267305029255886,
+    "train_loss": 0.0015161522102466803,
+    "runtime_ms": 0.005586249986663461,
+    "category": "interp",
+    "category_label": "Interpolation",
+    "parameterization": "effective_spins"
+  },
+  {
+    "name": "gplearn (massdiff_spins)",
+    "directory": "07_gplearn",
+    "loss": 1.7370508591205802,
+    "train_loss": 1.733110850336623,
+    "runtime_ms": 7.316598203033209e-05,
+    "category": "symbolic",
+    "category_label": "Symbolic/analytical",
+    "parameterization": "massdiff_spins"
+  },
+  {
+    "name": "MLP (raw_7d)",
+    "directory": "16_mlp",
+    "loss": 1.956706570593449,
+    "train_loss": 1.7094080230545747,
+    "runtime_ms": 0.00027600000612437725,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "raw_7d"
+  }
+]

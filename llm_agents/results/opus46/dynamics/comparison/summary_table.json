@@ -1,0 +1,444 @@
+[
+  {
+    "approach": "svd_gpr_raw",
+    "approach_number": 1,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.00935239943753265,
+    "loss_components": {
+      "rms_relative_error_x": 0.00935239943753265
+    },
+    "runtime_ms": 2.133091926574707,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1250,
+    "notes": "SVD(5)+GPR RBF"
+  },
+  {
+    "approach": "svd_bayridge_log",
+    "approach_number": 16,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "log_freq",
+    "time_convention": "normalized_tau",
+    "loss": 0.009353962968626795,
+    "loss_components": {
+      "rms_relative_error_x": 0.009353962968626795
+    },
+    "runtime_ms": 0.06151962280273437,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_bayridge_log"
+  },
+  {
+    "approach": "svd_gpr_matern_trig",
+    "approach_number": 19,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "trig_anomaly",
+    "time_convention": "normalized_tau",
+    "loss": 0.00939097753725451,
+    "loss_components": {
+      "rms_relative_error_x": 0.00939097753725451
+    },
+    "runtime_ms": 0.06199264526367188,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1250,
+    "notes": "SVD(5)+GPR Matern trig"
+  },
+  {
+    "approach": "svd_rbf_interp_raw",
+    "approach_number": 22,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.01043603696974436,
+    "loss_components": {
+      "rms_relative_error_x": 0.01043603696974436
+    },
+    "runtime_ms": 0.33240318298339844,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 7500,
+    "notes": "SVD(30)+RBF TPS raw"
+  },
+  {
+    "approach": "svd_krr_raw",
+    "approach_number": 7,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.01057594719783135,
+    "loss_components": {
+      "rms_relative_error_x": 0.01057594719783135
+    },
+    "runtime_ms": 0.5315771102905273,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_krr_raw"
+  },
+  {
+    "approach": "svd_gpr_matern_eta",
+    "approach_number": 2,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "time_convention": "normalized_tau",
+    "loss": 0.010785987645018768,
+    "loss_components": {
+      "rms_relative_error_x": 0.010785987645018768
+    },
+    "runtime_ms": 0.06262779235839844,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1250,
+    "notes": "SVD(5)+GPR Matern eta"
+  },
+  {
+    "approach": "svd_svr_trig",
+    "approach_number": 13,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "trig_anomaly",
+    "time_convention": "normalized_tau",
+    "loss": 0.010938542646820927,
+    "loss_components": {
+      "rms_relative_error_x": 0.010938542646820927
+    },
+    "runtime_ms": 0.1312398910522461,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_svr_trig"
+  },
+  {
+    "approach": "svd_poly3_raw",
+    "approach_number": 3,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.011442428749462445,
+    "loss_components": {
+      "rms_relative_error_x": 0.011442428749462445
+    },
+    "runtime_ms": 0.16766738891601562,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_poly3_raw"
+  },
+  {
+    "approach": "svd_gbr_eta",
+    "approach_number": 6,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "time_convention": "normalized_tau",
+    "loss": 0.011870971541166352,
+    "loss_components": {
+      "rms_relative_error_x": 0.011870971541166352
+    },
+    "runtime_ms": 0.34757518768310547,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_gbr_eta"
+  },
+  {
+    "approach": "svd_et_raw",
+    "approach_number": 12,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.01191013394729619,
+    "loss_components": {
+      "rms_relative_error_x": 0.01191013394729619
+    },
+    "runtime_ms": 0.1699514389038086,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_et_raw"
+  },
+  {
+    "approach": "svd_rbf_interp_eta",
+    "approach_number": 21,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "time_convention": "normalized_tau",
+    "loss": 0.012431618183148136,
+    "loss_components": {
+      "rms_relative_error_x": 0.012431618183148136
+    },
+    "runtime_ms": 0.5859041213989258,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 7500,
+    "notes": "SVD(30)+RBF TPS eta"
+  },
+  {
+    "approach": "svd_gbr_raw",
+    "approach_number": 20,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.012686050040140989,
+    "loss_components": {
+      "rms_relative_error_x": 0.012686050040140989
+    },
+    "runtime_ms": 0.6158046722412109,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_gbr_raw"
+  },
+  {
+    "approach": "svd_rf_eta",
+    "approach_number": 11,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "time_convention": "normalized_tau",
+    "loss": 0.01276165613471247,
+    "loss_components": {
+      "rms_relative_error_x": 0.01276165613471247
+    },
+    "runtime_ms": 0.17473983764648438,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_rf_eta"
+  },
+  {
+    "approach": "svd_adaboost_eta",
+    "approach_number": 15,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "time_convention": "normalized_tau",
+    "loss": 0.013291907751526484,
+    "loss_components": {
+      "rms_relative_error_x": 0.013291907751526484
+    },
+    "runtime_ms": 0.6901483535766602,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_adaboost_eta"
+  },
+  {
+    "approach": "svd_rf_raw",
+    "approach_number": 5,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.01349147132819202,
+    "loss_components": {
+      "rms_relative_error_x": 0.01349147132819202
+    },
+    "runtime_ms": 0.11662769317626953,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_rf_raw"
+  },
+  {
+    "approach": "pysr_raw",
+    "approach_number": 23,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.013509628069175609,
+    "loss_components": {
+      "rms_relative_error_x": 0.013509628069175609
+    },
+    "runtime_ms": 0.1,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 100,
+    "notes": "PySR on SVD coefficients raw"
+  },
+  {
+    "approach": "svd_lasso_eta",
+    "approach_number": 14,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "time_convention": "normalized_tau",
+    "loss": 0.01434676074399661,
+    "loss_components": {
+      "rms_relative_error_x": 0.01434676074399661
+    },
+    "runtime_ms": 0.11677742004394531,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_lasso_eta"
+  },
+  {
+    "approach": "pysr_eta",
+    "approach_number": 24,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "time_convention": "normalized_tau",
+    "loss": 0.015194719927573748,
+    "loss_components": {
+      "rms_relative_error_x": 0.015194719927573748
+    },
+    "runtime_ms": 0.1,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 100,
+    "notes": "PySR on SVD coefficients eta"
+  },
+  {
+    "approach": "svd_knn_raw",
+    "approach_number": 8,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.015685254971897197,
+    "loss_components": {
+      "rms_relative_error_x": 0.015685254971897197
+    },
+    "runtime_ms": 0.003536224365234375,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_knn_raw"
+  },
+  {
+    "approach": "svd_enet_full",
+    "approach_number": 18,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "fully_transformed",
+    "time_convention": "normalized_tau",
+    "loss": 0.015850988550300784,
+    "loss_components": {
+      "rms_relative_error_x": 0.015850988550300784
+    },
+    "runtime_ms": 0.04583549499511719,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_enet_full"
+  },
+  {
+    "approach": "svd_mlp_raw",
+    "approach_number": 4,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.016831364083028894,
+    "loss_components": {
+      "rms_relative_error_x": 0.016831364083028894
+    },
+    "runtime_ms": 0.0016241073608398438,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_mlp_raw"
+  },
+  {
+    "approach": "svd_mlp_trig",
+    "approach_number": 17,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "trig_anomaly",
+    "time_convention": "normalized_tau",
+    "loss": 0.017332664543867678,
+    "loss_components": {
+      "rms_relative_error_x": 0.017332664543867678
+    },
+    "runtime_ms": 0.01852893829345703,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_mlp_trig"
+  },
+  {
+    "approach": "svd_poly4_eta",
+    "approach_number": 10,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "time_convention": "normalized_tau",
+    "loss": 0.01936079905928309,
+    "loss_components": {
+      "rms_relative_error_x": 0.01936079905928309
+    },
+    "runtime_ms": 0.45696067810058594,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_poly4_eta"
+  },
+  {
+    "approach": "svd_mlp_eta",
+    "approach_number": 9,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "time_convention": "normalized_tau",
+    "loss": 0.020831874417505645,
+    "loss_components": {
+      "rms_relative_error_x": 0.020831874417505645
+    },
+    "runtime_ms": 0.0056915283203125,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 1000,
+    "notes": "svd_mlp_eta"
+  },
+  {
+    "approach": "gplearn_raw",
+    "approach_number": 25,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "raw",
+    "time_convention": "normalized_tau",
+    "loss": 0.026197295522096792,
+    "loss_components": {
+      "rms_relative_error_x": 0.026197295522096792
+    },
+    "runtime_ms": 0.1,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 150,
+    "notes": "gplearn on SVD coefficients raw"
+  },
+  {
+    "approach": "gplearn_eta",
+    "approach_number": 26,
+    "benchmark": "dynamics",
+    "agent": "opus46",
+    "parameterization": "eta_chieff",
+    "time_convention": "normalized_tau",
+    "loss": 0.031679676160164746,
+    "loss_components": {
+      "rms_relative_error_x": 0.031679676160164746
+    },
+    "runtime_ms": 0.1,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 150,
+    "notes": "gplearn on SVD coefficients eta"
+  }
+]

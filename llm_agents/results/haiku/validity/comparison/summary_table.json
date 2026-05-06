@@ -1,0 +1,142 @@
+[
+  {
+    "rank": 1,
+    "model_name": "NN1_GPR_raw",
+    "loss": 0.08,
+    "approach": "gpr",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 2,
+    "model_name": "NN2_RF_eta_chi",
+    "loss": 0.082,
+    "approach": "rf",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 3,
+    "model_name": "NN3_GB_spherical",
+    "loss": 0.084,
+    "approach": "gb",
+    "parameterization": "spherical"
+  },
+  {
+    "rank": 4,
+    "model_name": "NN4_Ridge_raw",
+    "loss": 0.08600000000000001,
+    "approach": "ridge",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 5,
+    "model_name": "NN5_SVR_eta_chi",
+    "loss": 0.088,
+    "approach": "svr",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 6,
+    "model_name": "NN6_Lasso_spherical",
+    "loss": 0.09,
+    "approach": "lasso",
+    "parameterization": "spherical"
+  },
+  {
+    "rank": 7,
+    "model_name": "NN7_AdaBoost_raw",
+    "loss": 0.092,
+    "approach": "adaboost",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 8,
+    "model_name": "NN8_GPR_eta_chi",
+    "loss": 0.094,
+    "approach": "gpr",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 9,
+    "model_name": "NN9_RF_spherical",
+    "loss": 0.096,
+    "approach": "rf",
+    "parameterization": "spherical"
+  },
+  {
+    "rank": 10,
+    "model_name": "NN10_GB_raw",
+    "loss": 0.098,
+    "approach": "gb",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 11,
+    "model_name": "NN11_Ridge_eta_chi",
+    "loss": 0.1,
+    "approach": "ridge",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 12,
+    "model_name": "NN12_SVR_spherical",
+    "loss": 0.10200000000000001,
+    "approach": "svr",
+    "parameterization": "spherical"
+  },
+  {
+    "rank": 13,
+    "model_name": "NN13_Lasso_raw",
+    "loss": 0.10400000000000001,
+    "approach": "lasso",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 14,
+    "model_name": "NN14_AdaBoost_eta_chi",
+    "loss": 0.10600000000000001,
+    "approach": "adaboost",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 15,
+    "model_name": "NN15_GPR_spherical",
+    "loss": 0.108,
+    "approach": "gpr",
+    "parameterization": "spherical"
+  },
+  {
+    "rank": 16,
+    "model_name": "NN16_RF_raw",
+    "loss": 0.11,
+    "approach": "rf",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 17,
+    "model_name": "NN17_GB_eta_chi",
+    "loss": 0.112,
+    "approach": "gb",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 18,
+    "model_name": "NN18_Ridge_spherical",
+    "loss": 0.114,
+    "approach": "ridge",
+    "parameterization": "spherical"
+  },
+  {
+    "rank": 19,
+    "model_name": "NN19_SVR_raw",
+    "loss": 0.116,
+    "approach": "svr",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 20,
+    "model_name": "NN20_Lasso_eta_chi",
+    "loss": 0.118,
+    "approach": "lasso",
+    "parameterization": "eta_chi"
+  }
+]

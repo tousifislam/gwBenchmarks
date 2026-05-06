@@ -1,0 +1,128 @@
+[
+  {
+    "approach": "09_svd_mlp_eta_eff",
+    "approach_number": 9,
+    "loss": 0.4595866396250503,
+    "parameterization": "eta_chi_eff"
+  },
+  {
+    "approach": "12_svd_kr_eta_eff",
+    "approach_number": 12,
+    "loss": 0.46942811941898066,
+    "parameterization": "eta_chi_eff"
+  },
+  {
+    "approach": "10_svd_rf_eta_eff",
+    "approach_number": 10,
+    "loss": 0.48085755875161046,
+    "parameterization": "eta_chi_eff"
+  },
+  {
+    "approach": "11_svd_svr_eta_eff",
+    "approach_number": 11,
+    "loss": 0.48238299960603115,
+    "parameterization": "eta_chi_eff"
+  },
+  {
+    "approach": "16_svd_gpr_delta",
+    "approach_number": 16,
+    "loss": 0.5,
+    "parameterization": "delta_m"
+  },
+  {
+    "approach": "17_eim_gpr",
+    "approach_number": 17,
+    "loss": 0.5,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "18_autoencoder_mlp",
+    "approach_number": 18,
+    "loss": 0.5,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "19_amp_phase",
+    "approach_number": 19,
+    "loss": 0.5,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "20_rbf_interp",
+    "approach_number": 20,
+    "loss": 0.5,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "21_svd_gpr_sqrt_eta",
+    "approach_number": 21,
+    "loss": 0.5,
+    "parameterization": "sqrt_eta"
+  },
+  {
+    "approach": "22_svd_mlp_sqrt_eta",
+    "approach_number": 22,
+    "loss": 0.5,
+    "parameterization": "sqrt_eta"
+  },
+  {
+    "approach": "23_svd_rf_sqrt_eta",
+    "approach_number": 23,
+    "loss": 0.5,
+    "parameterization": "sqrt_eta"
+  },
+  {
+    "approach": "24_nearest_neighbor",
+    "approach_number": 24,
+    "loss": 0.5,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "25_pysr_full",
+    "approach_number": 25,
+    "loss": 0.5,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "07_svd_kr",
+    "approach_number": 7,
+    "loss": 0.5838010829788488,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "05_svd_rf",
+    "approach_number": 5,
+    "loss": 0.5860631832633509,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "06_svd_svr",
+    "approach_number": 6,
+    "loss": 0.5871426455586685,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "04_svd_mlp",
+    "approach_number": 4,
+    "loss": 0.5896378161058562,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "02_svd_gpr_rbf",
+    "approach_number": 2,
+    "loss": 0.5933736306002324,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "03_svd_gpr_matern",
+    "approach_number": 3,
+    "loss": 0.6027889052962205,
+    "parameterization": "raw_7d"
+  },
+  {
+    "approach": "01_mlp_direct",
+    "approach_number": 1,
+    "loss": 0.643517854449569,
+    "parameterization": "raw_7d"
+  }
+]

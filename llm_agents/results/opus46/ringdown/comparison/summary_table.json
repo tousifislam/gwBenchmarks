@@ -1,0 +1,470 @@
+[
+  {
+    "approach": "cubic_spline_raw",
+    "approach_number": 11,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 1.1299381259098558e-05,
+    "loss_components": {
+      "mre_omega_real": 8.349458640291404e-08,
+      "mre_omega_imag": 2.25152679317942e-05
+    },
+    "runtime_ms": 8.845284384747234e-05,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 2124,
+    "notes": "Cubic spline interpolation, raw spin (sorted)"
+  },
+  {
+    "approach": "rbf_linear_neglog",
+    "approach_number": 13,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.00022097986391413286,
+    "loss_components": {
+      "mre_omega_real": 7.522529500808088e-06,
+      "mre_omega_imag": 0.0004344371983274576
+    },
+    "runtime_ms": 0.08819556730166218,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 531,
+    "notes": "RBF linear interpolation, neglog reparam"
+  },
+  {
+    "approach": "gpr_matern_neglog",
+    "approach_number": 16,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.0004514135561242918,
+    "loss_components": {
+      "mre_omega_real": 2.1062597964997517e-05,
+      "mre_omega_imag": 0.0008817645142835861
+    },
+    "runtime_ms": 0.21577554907502428,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 531,
+    "notes": "GPR Matern-5/2 kernel, neglog reparam"
+  },
+  {
+    "approach": "krr_neglog",
+    "approach_number": 17,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.0005816185998425926,
+    "loss_components": {
+      "mre_omega_real": 1.1671164364245303e-05,
+      "mre_omega_imag": 0.0011515660353209399
+    },
+    "runtime_ms": 0.10704141103166197,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 531,
+    "notes": "KRR RBF kernel, neglog reparam"
+  },
+  {
+    "approach": "gpr_rbf_neglog",
+    "approach_number": 15,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.001986101701964348,
+    "loss_components": {
+      "mre_omega_real": 7.308444498248918e-05,
+      "mre_omega_imag": 0.0038991189589462063
+    },
+    "runtime_ms": 0.08440511599323396,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 531,
+    "notes": "GPR RBF kernel, neglog reparam"
+  },
+  {
+    "approach": "gbr_sqrt1ma2",
+    "approach_number": 26,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "sqrt1ma2",
+    "loss": 0.002280516740662402,
+    "loss_components": {
+      "mre_omega_real": 0.0004012196219653716,
+      "mre_omega_imag": 0.004159813859359432
+    },
+    "runtime_ms": 0.005949239497355372,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 1000,
+    "notes": "GBR 500, sqrt(1-a^2) reparam"
+  },
+  {
+    "approach": "gbr_neglog",
+    "approach_number": 22,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.0027423609266922252,
+    "loss_components": {
+      "mre_omega_real": 0.0005932683079960416,
+      "mre_omega_imag": 0.0048914535453884085
+    },
+    "runtime_ms": 0.004414560206641361,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 1000,
+    "notes": "GBR 500 estimators, neglog reparam"
+  },
+  {
+    "approach": "rf_neglog",
+    "approach_number": 21,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.0035497854030499616,
+    "loss_components": {
+      "mre_omega_real": 0.0004969813712483063,
+      "mre_omega_imag": 0.006602589434851617
+    },
+    "runtime_ms": 0.1748474753284634,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 200000,
+    "notes": "Random Forest 500 trees, neglog reparam"
+  },
+  {
+    "approach": "knn_raw",
+    "approach_number": 14,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 0.004407858472374025,
+    "loss_components": {
+      "mre_omega_real": 0.0003766000583398689,
+      "mre_omega_imag": 0.008439116886408181
+    },
+    "runtime_ms": 0.0015104333335172436,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": "5-NN distance-weighted, raw spin"
+  },
+  {
+    "approach": "chebyshev_neglog",
+    "approach_number": 4,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.004736252612029245,
+    "loss_components": {
+      "mre_omega_real": 8.180946160972138e-07,
+      "mre_omega_imag": 0.009471687129442392
+    },
+    "runtime_ms": 0.0001620887138524747,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 42,
+    "notes": "Chebyshev deg 20, neglog reparameterization"
+  },
+  {
+    "approach": "rf_raw",
+    "approach_number": 20,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 0.012637921453061243,
+    "loss_components": {
+      "mre_omega_real": 0.00044713440348017984,
+      "mre_omega_imag": 0.024828708502642308
+    },
+    "runtime_ms": 0.15249180479462762,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 200000,
+    "notes": "Random Forest 500 trees, raw spin"
+  },
+  {
+    "approach": "pysr_neglog",
+    "approach_number": 8,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.025298112574460657,
+    "loss_components": {
+      "mre_omega_real": 0.0012941037284416828,
+      "mre_omega_imag": 0.049302121420479635
+    },
+    "runtime_ms": 0.006169698108163033,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 40,
+    "notes": "PySR symbolic regression, neglog reparam, separate R/I fits"
+  },
+  {
+    "approach": "ridge_poly_neglog",
+    "approach_number": 6,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.07687985597607114,
+    "loss_components": {
+      "mre_omega_real": 0.0003916625284579087,
+      "mre_omega_imag": 0.15336804942368437
+    },
+    "runtime_ms": 0.00012841377330140654,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 42,
+    "notes": "Ridge poly deg 20 + neglog reparam"
+  },
+  {
+    "approach": "svr_neglog",
+    "approach_number": 23,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.12259983556799528,
+    "loss_components": {
+      "mre_omega_real": 0.0015474517768375147,
+      "mre_omega_imag": 0.24365221935915304
+    },
+    "runtime_ms": 0.002723629191770392,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 531,
+    "notes": "SVR RBF C=100, neglog reparam"
+  },
+  {
+    "approach": "pade_rational_raw",
+    "approach_number": 5,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 0.14314812277821531,
+    "loss_components": {
+      "mre_omega_real": 0.0007971773088167303,
+      "mre_omega_imag": 0.2854990682476139
+    },
+    "runtime_ms": 8.081985732256355e-05,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 30,
+    "notes": "Pade/rational approx [7,6]/[7,6], raw spin"
+  },
+  {
+    "approach": "mlp_neglog",
+    "approach_number": 18,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 0.15205413434363843,
+    "loss_components": {
+      "mre_omega_real": 0.0008255074085364499,
+      "mre_omega_imag": 0.30328276127874043
+    },
+    "runtime_ms": 0.0026235023685318827,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 41344,
+    "notes": "MLP [256,128,64], neglog reparam, 2D output"
+  },
+  {
+    "approach": "mlp_sqrt1ma2",
+    "approach_number": 19,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "sqrt1ma2",
+    "loss": 0.4440238927956658,
+    "loss_components": {
+      "mre_omega_real": 0.0050236750207877075,
+      "mre_omega_imag": 0.8830241105705439
+    },
+    "runtime_ms": 0.005841479687591956,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 164608,
+    "notes": "MLP [512,256,128], sqrt(1-a^2) reparam"
+  },
+  {
+    "approach": "poly20_raw",
+    "approach_number": 3,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 0.4558552756753358,
+    "loss_components": {
+      "mre_omega_real": 0.0019313148645372,
+      "mre_omega_imag": 0.9097792364861343
+    },
+    "runtime_ms": 9.024884067686264e-05,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 42,
+    "notes": "Polynomial degree 20, raw spin"
+  },
+  {
+    "approach": "rbf_tps_raw",
+    "approach_number": 12,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 0.47565686441072746,
+    "loss_components": {
+      "mre_omega_real": 0.0005157588008740205,
+      "mre_omega_imag": 0.9507979700205809
+    },
+    "runtime_ms": 0.06990064559907788,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 531,
+    "notes": "RBF thin_plate_spline interpolation, raw spin"
+  },
+  {
+    "approach": "poly15_raw",
+    "approach_number": 2,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 0.5840029751142345,
+    "loss_components": {
+      "mre_omega_real": 0.0027371933626771914,
+      "mre_omega_imag": 1.1652687568657918
+    },
+    "runtime_ms": 6.420688665070327e-05,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 32,
+    "notes": "Polynomial degree 15, raw spin"
+  },
+  {
+    "approach": "poly10_raw",
+    "approach_number": 1,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 0.9793523859245583,
+    "loss_components": {
+      "mre_omega_real": 0.005618182846504791,
+      "mre_omega_imag": 1.953086589002612
+    },
+    "runtime_ms": 7.183987317561204e-05,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 22,
+    "notes": "Polynomial degree 10, raw spin"
+  },
+  {
+    "approach": "extratrees_raw",
+    "approach_number": 24,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 1.0498533275494994,
+    "loss_components": {
+      "mre_omega_real": 0.002476246325678398,
+      "mre_omega_imag": 2.0972304087733207
+    },
+    "runtime_ms": 0.17295853566315214,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 200000,
+    "notes": "ExtraTrees 500, raw spin"
+  },
+  {
+    "approach": "extratrees_neglog",
+    "approach_number": 25,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 1.0863974110277246,
+    "loss_components": {
+      "mre_omega_real": 0.024527105144023238,
+      "mre_omega_imag": 2.148267716911426
+    },
+    "runtime_ms": 0.15819589072477122,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 200000,
+    "notes": "ExtraTrees 500, neglog reparam"
+  },
+  {
+    "approach": "pysr_raw",
+    "approach_number": 7,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 3.765677426892085,
+    "loss_components": {
+      "mre_omega_real": 0.00904317194767284,
+      "mre_omega_imag": 7.522311681836497
+    },
+    "runtime_ms": 0.006048917321386535,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 40,
+    "notes": "PySR symbolic regression, raw spin, separate R/I fits"
+  },
+  {
+    "approach": "gplearn_raw",
+    "approach_number": 9,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "raw",
+    "loss": 19.85444740857372,
+    "loss_components": {
+      "mre_omega_real": 0.05319985386113167,
+      "mre_omega_imag": 39.65569496328631
+    },
+    "runtime_ms": 0.0002527865537366849,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 60,
+    "notes": "gplearn symbolic regression, raw spin, separate R/I fits"
+  },
+  {
+    "approach": "gplearn_neglog",
+    "approach_number": 10,
+    "benchmark": "ringdown",
+    "agent": "opus46",
+    "mode": "l2/m+2/n0",
+    "parameterization": "neglog",
+    "loss": 23.515996571155117,
+    "loss_components": {
+      "mre_omega_real": 0.07637950749612783,
+      "mre_omega_imag": 46.95561363481411
+    },
+    "runtime_ms": 0.0002276425981252207,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 60,
+    "notes": "gplearn symbolic regression, neglog reparam, separate R/I fits"
+  }
+]

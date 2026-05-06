@@ -13,7 +13,7 @@ Usage:
 Supported agents : haiku, opus46, opus47, sonnet46,
                    gpt55_high, gpt54_mini, gpt53_codex_high, gpt52,
                    gemini31_pro_preview, gemini25_pro, gemini3_flash_preview, gemini25_flash,
-                   hy3_preview_free, kimi_k26
+                    hy3_preview_free, kimi_k26, deepseek_v4_pro_max
 Supported benchmarks: waveform, remnant, dynamics, ringdown, validity, analytic
 """
 
@@ -35,6 +35,7 @@ AGENT_LABELS = {
     "gemini25_flash":        "Gemini 2.5 Flash",
     "hy3_preview_free":  "Hy3 Preview Free",
     "kimi_k26":          "Kimi K2.6",
+    "deepseek_v4_pro_max": "DeepSeek V4 Pro Max",
 }
 
 BENCHMARKS = ["waveform", "remnant", "dynamics", "ringdown", "validity", "analytic"]

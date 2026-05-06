@@ -1,0 +1,1 @@
+h22(t; q) = A(t; q) * exp(-i phi(t; q)); Symbolic-Phase (eta_power): A and phi are closed-form polynomial/rational functions of t and eta_power fitted by Symbolic-Phase.

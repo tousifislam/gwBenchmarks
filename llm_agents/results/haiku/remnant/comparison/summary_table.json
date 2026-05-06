@@ -1,0 +1,212 @@
+[
+  {
+    "rank": 1,
+    "model_name": "NN5_GPR_Matern_eta_chi",
+    "approach": "gpr_matern",
+    "parameterization": "eta_chi",
+    "loss": 0.09017687074643194,
+    "loss_train": 0.09311990741107669,
+    "n_params": 7,
+    "notes": "gpr_matern with eta_chi parameterization"
+  },
+  {
+    "rank": 2,
+    "model_name": "NN2_GPR_RBF_eta_chi",
+    "approach": "gpr_rbf",
+    "parameterization": "eta_chi",
+    "loss": 0.09109520086361231,
+    "loss_train": 0.09520912729539081,
+    "n_params": 7,
+    "notes": "gpr_rbf with eta_chi parameterization"
+  },
+  {
+    "rank": 3,
+    "model_name": "NN13_GB_eta_chi",
+    "approach": "gb",
+    "parameterization": "eta_chi",
+    "loss": 0.09220104608333693,
+    "loss_train": 0.04792461909452362,
+    "n_params": 7,
+    "notes": "gb with eta_chi parameterization"
+  },
+  {
+    "rank": 4,
+    "model_name": "NN10_RF_eta_chi",
+    "approach": "rf",
+    "parameterization": "eta_chi",
+    "loss": 0.09242276366146096,
+    "loss_train": 0.043074253313547486,
+    "n_params": 7,
+    "notes": "rf with eta_chi parameterization"
+  },
+  {
+    "rank": 5,
+    "model_name": "NN21_ExtraTrees_eta_chi",
+    "approach": "extratrees",
+    "parameterization": "eta_chi",
+    "loss": 0.09268227112179751,
+    "loss_train": 0.03863296587685492,
+    "n_params": 7,
+    "notes": "extratrees with eta_chi parameterization"
+  },
+  {
+    "rank": 6,
+    "model_name": "NN9_RF_raw",
+    "approach": "rf",
+    "parameterization": "raw",
+    "loss": 0.09312951599944765,
+    "loss_train": 0.04398057415809054,
+    "n_params": 7,
+    "notes": "rf with raw parameterization"
+  },
+  {
+    "rank": 7,
+    "model_name": "NN6_GPR_Matern_spherical",
+    "approach": "gpr_matern",
+    "parameterization": "spherical",
+    "loss": 0.09412134984648753,
+    "loss_train": 0.09249482277098357,
+    "n_params": 7,
+    "notes": "gpr_matern with spherical parameterization"
+  },
+  {
+    "rank": 8,
+    "model_name": "NN14_GB_spherical",
+    "approach": "gb",
+    "parameterization": "spherical",
+    "loss": 0.09455505667729838,
+    "loss_train": 0.04903073655815079,
+    "n_params": 7,
+    "notes": "gb with spherical parameterization"
+  },
+  {
+    "rank": 9,
+    "model_name": "NN12_GB_raw",
+    "approach": "gb",
+    "parameterization": "raw",
+    "loss": 0.0953889778289164,
+    "loss_train": 0.044776584688349864,
+    "n_params": 7,
+    "notes": "gb with raw parameterization"
+  },
+  {
+    "rank": 10,
+    "model_name": "NN3_GPR_RBF_spherical",
+    "approach": "gpr_rbf",
+    "parameterization": "spherical",
+    "loss": 0.09552980417068704,
+    "loss_train": 0.09673687618538754,
+    "n_params": 7,
+    "notes": "gpr_rbf with spherical parameterization"
+  },
+  {
+    "rank": 11,
+    "model_name": "NN11_RF_spherical",
+    "approach": "rf",
+    "parameterization": "spherical",
+    "loss": 0.0958038114283112,
+    "loss_train": 0.048037594839369514,
+    "n_params": 7,
+    "notes": "rf with spherical parameterization"
+  },
+  {
+    "rank": 12,
+    "model_name": "NN4_GPR_Matern_raw",
+    "approach": "gpr_matern",
+    "parameterization": "raw",
+    "loss": 0.09656636349250572,
+    "loss_train": 0.06879366044017288,
+    "n_params": 7,
+    "notes": "gpr_matern with raw parameterization"
+  },
+  {
+    "rank": 13,
+    "model_name": "NN1_GPR_RBF_raw",
+    "approach": "gpr_rbf",
+    "parameterization": "raw",
+    "loss": 0.0969243908788207,
+    "loss_train": 0.08034046395926278,
+    "n_params": 7,
+    "notes": "gpr_rbf with raw parameterization"
+  },
+  {
+    "rank": 14,
+    "model_name": "NN16_Ridge_eta_chi",
+    "approach": "ridge",
+    "parameterization": "eta_chi",
+    "loss": 0.09884126641778788,
+    "loss_train": 0.11002425435971917,
+    "n_params": 7,
+    "notes": "ridge with eta_chi parameterization"
+  },
+  {
+    "rank": 15,
+    "model_name": "NN20_AdaBoost_raw",
+    "approach": "adaboost",
+    "parameterization": "raw",
+    "loss": 0.11229056359412881,
+    "loss_train": 0.10696279782096513,
+    "n_params": 7,
+    "notes": "adaboost with raw parameterization"
+  },
+  {
+    "rank": 16,
+    "model_name": "NN15_Ridge_raw",
+    "approach": "ridge",
+    "parameterization": "raw",
+    "loss": 0.11794418480379867,
+    "loss_train": 0.129472914944095,
+    "n_params": 7,
+    "notes": "ridge with raw parameterization"
+  },
+  {
+    "rank": 17,
+    "model_name": "NN17_Lasso_raw",
+    "approach": "lasso",
+    "parameterization": "raw",
+    "loss": 0.12535514238781517,
+    "loss_train": 0.14684621318989063,
+    "n_params": 7,
+    "notes": "lasso with raw parameterization"
+  },
+  {
+    "rank": 18,
+    "model_name": "NN18_Lasso_eta_chi",
+    "approach": "lasso",
+    "parameterization": "eta_chi",
+    "loss": 0.12535514238781517,
+    "loss_train": 0.14684621318989063,
+    "n_params": 7,
+    "notes": "lasso with eta_chi parameterization"
+  },
+  {
+    "rank": 19,
+    "model_name": "NN19_ElasticNet_spherical",
+    "approach": "elasticnet",
+    "parameterization": "spherical",
+    "loss": 0.12535514238781517,
+    "loss_train": 0.14684621318989063,
+    "n_params": 7,
+    "notes": "elasticnet with spherical parameterization"
+  },
+  {
+    "rank": 20,
+    "model_name": "NN7_SVR_raw",
+    "approach": "svr",
+    "parameterization": "raw",
+    "loss": 0.3925442187153632,
+    "loss_train": 0.3957180467766019,
+    "n_params": 7,
+    "notes": "svr with raw parameterization"
+  },
+  {
+    "rank": 21,
+    "model_name": "NN8_SVR_eta_chi",
+    "approach": "svr",
+    "parameterization": "eta_chi",
+    "loss": 0.3925442187153632,
+    "loss_train": 0.3957180467766019,
+    "n_params": 7,
+    "notes": "svr with eta_chi parameterization"
+  }
+]

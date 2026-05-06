@@ -1,0 +1,87 @@
+# Remnant Bench — Changelog (gpt52)
+
+Date: 2026-05-01
+
+## Approaches
+
+- 01. GPR (RBF, raw) — category=kernel/gp, params=raw_7d, loss=0.116252
+  - observed: train_nrmse=6.022e-04, val_nrmse=1.163e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 02. GPR (Matern-5/2, eff) — category=kernel/gp, params=effective_spins_7d, loss=0.11547
+  - observed: train_nrmse=3.299e-06, val_nrmse=1.155e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 03. KRR (RBF, pn) — category=kernel/gp, params=pn_products_5d, loss=0.103096
+  - observed: train_nrmse=9.856e-02, val_nrmse=1.031e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 04. SVR (RBF, raw) — category=kernel/gp, params=raw_7d, loss=0.123481
+  - observed: train_nrmse=2.216e-02, val_nrmse=1.235e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 05. RBFInterpolator (eff) — category=interpolation, params=effective_spins_7d, loss=0.125513
+  - observed: train_nrmse=6.545e-06, val_nrmse=1.255e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 06. kNN (eff) — category=interpolation, params=effective_spins_7d, loss=0.0951261
+  - observed: train_nrmse=0.000e+00, val_nrmse=9.513e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 07. MLP (eff) — category=machine_learning, params=effective_spins_7d, loss=0.678942
+  - observed: train_nrmse=2.969e-01, val_nrmse=6.789e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 08. RandomForest (raw) — category=machine_learning, params=raw_7d, loss=0.092814
+  - observed: train_nrmse=3.727e-02, val_nrmse=9.281e-02
+  - hypothesis: Trees overfitting → cap max_depth.
+  - change: max_depth -> 12
+- 09. ExtraTrees (raw) — category=machine_learning, params=raw_7d, loss=0.0914093
+  - observed: train_nrmse=1.790e-08, val_nrmse=9.141e-02
+  - hypothesis: Trees overfitting → cap max_depth.
+  - change: max_depth -> 12
+- 10. HistGB (pn) — category=machine_learning, params=pn_products_5d, loss=0.104302
+  - observed: train_nrmse=4.780e-02, val_nrmse=1.043e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 11. Ridge (massdiff+chia) — category=symbolic/analytical, params=massdiff_chia_5d, loss=0.107839
+  - observed: train_nrmse=1.178e-01, val_nrmse=1.078e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 12. Poly-3 Ridge (raw) — category=symbolic/analytical, params=raw_7d, loss=0.0987586
+  - observed: train_nrmse=8.377e-02, val_nrmse=9.876e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 13. Poly-5 Ridge (pn) — category=symbolic/analytical, params=pn_products_5d, loss=0.102305
+  - observed: train_nrmse=1.015e-01, val_nrmse=1.023e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 14. Ridge (spherical) — category=symbolic/analytical, params=spherical_spins_7d, loss=0.109018
+  - observed: train_nrmse=1.193e-01, val_nrmse=1.090e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 15. KRR (RBF, raw, alpha=1e-2) — category=kernel/gp, params=raw_7d, loss=0.100168
+  - observed: train_nrmse=2.778e-02, val_nrmse=1.136e-01
+  - hypothesis: Validation error suggests overfitting → increase regularization (alpha).
+  - change: alpha -> 1.00e-01
+- 16. SVR (RBF, pn) — category=kernel/gp, params=pn_products_5d, loss=0.109722
+  - observed: train_nrmse=1.008e-01, val_nrmse=1.097e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 17. MLP (raw) — category=machine_learning, params=raw_7d, loss=0.906335
+  - observed: train_nrmse=4.055e-01, val_nrmse=9.063e-01
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 18. HistGB (eff) — category=machine_learning, params=effective_spins_7d, loss=0.098153
+  - observed: train_nrmse=4.392e-02, val_nrmse=9.815e-02
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 19. PySR (eff) — category=symbolic/analytical, params=effective_spins_7d, loss=0.092608
+  - observed: val_nrmse=0.0926
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+- 20. gplearn (raw) — category=symbolic/analytical, params=raw_7d, loss=0.804782
+  - observed: val_nrmse=0.805
+  - hypothesis: Baseline fit; no targeted tuning applied.
+  - change: None.
+

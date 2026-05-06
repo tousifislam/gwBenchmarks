@@ -1,0 +1,393 @@
+[
+    {
+        "approach": "spline_raw",
+        "approach_number": 3,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 1.1299381259098558e-05,
+        "loss_components": {
+            "rms_relative_error_combined": 1.1299381259098558e-05
+        },
+        "runtime_ms": 0.0005652900020505974,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Cubic spline interpolation on raw spin."
+    },
+    {
+        "approach": "spline_raw_logtarget",
+        "approach_number": 5,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 3.453794036457571e-05,
+        "loss_components": {
+            "rel_error_combined": 3.453794036457571e-05
+        },
+        "runtime_ms": 8.710584622542961e-05,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Cubic spline on raw spin with log-targets."
+    },
+    {
+        "approach": "rbf_raw",
+        "approach_number": 11,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.001857740908977266,
+        "loss_components": {
+            "rel_error_combined": 0.001857740908977266
+        },
+        "runtime_ms": 0.0056461650323957596,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 100,
+        "notes": "RBF Interpolation on raw spin."
+    },
+    {
+        "approach": "knn_raw",
+        "approach_number": 12,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.004018069348731218,
+        "loss_components": {
+            "rel_error_combined": 0.004018069348731218
+        },
+        "runtime_ms": 0.0013330786466149512,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 100,
+        "notes": "K-Nearest Neighbors on raw spin."
+    },
+    {
+        "approach": "rf_raw",
+        "approach_number": 14,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.004122905068806341,
+        "loss_components": {
+            "rel_error_combined": 0.004122905068806341
+        },
+        "runtime_ms": 0.013352338428102194,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 100,
+        "notes": "Random Forest on raw spin."
+    },
+    {
+        "approach": "cat_raw",
+        "approach_number": 21,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.012545641746033929,
+        "loss_components": {
+            "rel_error_combined": 0.012545641746033929
+        },
+        "runtime_ms": 0.001109028042148511,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "CatBoost on raw spin."
+    },
+    {
+        "approach": "gplearn_log_logt",
+        "approach_number": 17,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "log_compact",
+        "mode": "l2_m2_n0",
+        "loss": 0.06908602707858208,
+        "loss_components": {
+            "rel_error_combined": 0.06908602707858208
+        },
+        "runtime_ms": 0.000465163178812088,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 100,
+        "notes": "gplearn on log_compact with log targets."
+    },
+    {
+        "approach": "xgb_raw",
+        "approach_number": 19,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.07832064594037713,
+        "loss_components": {
+            "rel_error_combined": 0.07832064594037713
+        },
+        "runtime_ms": 0.0012208288447780574,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "XGBoost on raw spin."
+    },
+    {
+        "approach": "lgbm_raw",
+        "approach_number": 20,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.07880925034250376,
+        "loss_components": {
+            "rel_error_combined": 0.07880925034250376
+        },
+        "runtime_ms": 0.003257938248514007,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "LightGBM on raw spin."
+    },
+    {
+        "approach": "lr_log_logt",
+        "approach_number": 25,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "log_compact",
+        "mode": "l2_m2_n0",
+        "loss": 0.1587159589208513,
+        "loss_components": {
+            "rel_error_combined": 0.1587159589208513
+        },
+        "runtime_ms": 0.00014861873763204742,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Linear Regression on log-compactified spin and log targets."
+    },
+    {
+        "approach": "poly15_log_logt",
+        "approach_number": 8,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "log_compact",
+        "mode": "l2_m2_n0",
+        "loss": 0.18791136263773225,
+        "loss_components": {
+            "rel_error_combined": 0.18791136263773225
+        },
+        "runtime_ms": 0.0005087161019248028,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Polynomial degree 15 on log-compactified spin and log targets."
+    },
+    {
+        "approach": "poly10_raw_logtarget",
+        "approach_number": 4,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.23661534846896617,
+        "loss_components": {
+            "rel_error_combined": 0.23661534846896617
+        },
+        "runtime_ms": 0.000414426268381812,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Polynomial degree 10 on raw spin with log-targets."
+    },
+    {
+        "approach": "gplearn_raw_logt",
+        "approach_number": 16,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.24639719504913613,
+        "loss_components": {
+            "rel_error_combined": 0.24639719504913613
+        },
+        "runtime_ms": 0.0005769639814416343,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 100,
+        "notes": "gplearn on raw with log targets."
+    },
+    {
+        "approach": "poly20_raw",
+        "approach_number": 15,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.45596302635654906,
+        "loss_components": {
+            "rel_error_combined": 0.45596302635654906
+        },
+        "runtime_ms": 0.0006250068966278248,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Polynomial degree 20 on raw spin."
+    },
+    {
+        "approach": "mlp_raw_logt",
+        "approach_number": 13,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.5370341087011768,
+        "loss_components": {
+            "rel_error_combined": 0.5370341087011768
+        },
+        "runtime_ms": 0.0006326398831527336,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 100,
+        "notes": "MLP on raw spin with log targets."
+    },
+    {
+        "approach": "poly15_cheb",
+        "approach_number": 6,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "chebyshev",
+        "mode": "l2_m2_n0",
+        "loss": 0.5840022753590385,
+        "loss_components": {
+            "rel_error_combined": 0.5840022753590385
+        },
+        "runtime_ms": 0.0004988381193631561,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Polynomial degree 15 on Chebyshev mapped spin."
+    },
+    {
+        "approach": "poly10_raw",
+        "approach_number": 1,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.9793523870379062,
+        "loss_components": {
+            "rel_error_combined": 0.9793523870379062
+        },
+        "runtime_ms": 0.00046740817484882595,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Polynomial degree 10 on raw spin."
+    },
+    {
+        "approach": "gpr_rbf_raw",
+        "approach_number": 9,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 0.9811885540623537,
+        "loss_components": {
+            "rel_error_combined": 0.9811885540623537
+        },
+        "runtime_ms": 0.008491473009357346,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "GPR with RBF kernel on raw spin."
+    },
+    {
+        "approach": "ridge_poly10",
+        "approach_number": 22,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 3.597593515442031,
+        "loss_components": {
+            "rel_error_combined": 3.597593515442031
+        },
+        "runtime_ms": 0.0004750411613737347,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Ridge Regression (deg 10) on raw spin."
+    },
+    {
+        "approach": "poly15_log",
+        "approach_number": 2,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "log_compact",
+        "mode": "l2_m2_n0",
+        "loss": 5.829330203103822,
+        "loss_components": {
+            "rms_relative_error_combined": 5.829330203103822
+        },
+        "runtime_ms": 0.00042924324222428197,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Polynomial degree 15 on log-compactified spin."
+    },
+    {
+        "approach": "gpr_matern25_logt",
+        "approach_number": 10,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 7.0374841273607105,
+        "loss_components": {
+            "rel_error_combined": 7.0374841273607105
+        },
+        "runtime_ms": 0.010745898029449521,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "GPR with Matern 2.5 on raw spin and log targets."
+    },
+    {
+        "approach": "svr_raw",
+        "approach_number": 24,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 12.368204199943385,
+        "loss_components": {
+            "rel_error_combined": 12.368204199943385
+        },
+        "runtime_ms": 0.0003502193817311088,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "SVR with RBF kernel on raw spin."
+    },
+    {
+        "approach": "lasso_poly10",
+        "approach_number": 23,
+        "benchmark": "ringdown",
+        "agent": "gemini3_flash_preview",
+        "parameterization": "raw",
+        "mode": "l2_m2_n0",
+        "loss": 20.740685079187923,
+        "loss_components": {
+            "rel_error_combined": 20.740685079187923
+        },
+        "runtime_ms": 0.00046336718198269775,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 20,
+        "notes": "Lasso Regression (deg 10) on raw spin."
+    }
+]

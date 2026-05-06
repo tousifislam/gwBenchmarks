@@ -1,0 +1,202 @@
+[
+  {
+    "name": "RBF-Interp (trig_anomaly)",
+    "directory": "12_rbf_interp",
+    "loss": 0.011706230517977815,
+    "train_loss": 6.690380895013067e-08,
+    "runtime_ms": 0.008349500130861998,
+    "category": "kernel",
+    "category_label": "Interpolation/kernel",
+    "parameterization": "trig_anomaly"
+  },
+  {
+    "name": "GradBoost (fully_transformed)",
+    "directory": "19_gradboost",
+    "loss": 0.011848534600021889,
+    "train_loss": 0.004584999103070002,
+    "runtime_ms": 0.3110223358962685,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "fully_transformed"
+  },
+  {
+    "name": "PN+PolyPatch (log_frequency)",
+    "directory": "08_pn_polypatch",
+    "loss": 0.012703011017455867,
+    "train_loss": 0.008108841958629338,
+    "runtime_ms": 0.0034166641999036074,
+    "category": "symbolic",
+    "category_label": "Symbolic/physics-informed",
+    "parameterization": "log_frequency"
+  },
+  {
+    "name": "SVD+GPR-Matern (effspin_loge)",
+    "directory": "04_svd_gpr_matern",
+    "loss": 0.013369031757962087,
+    "train_loss": 0.008218990394983703,
+    "runtime_ms": 0.011655668029561639,
+    "category": "svd",
+    "category_label": "SVD/decomposition-based",
+    "parameterization": "effspin_loge"
+  },
+  {
+    "name": "ExtraTrees (log_frequency)",
+    "directory": "18_extratrees",
+    "loss": 0.013410885615423767,
+    "train_loss": 1.2479792887257247e-15,
+    "runtime_ms": 0.06357833184301853,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "log_frequency"
+  },
+  {
+    "name": "gplearn-Coefs (trig_anomaly)",
+    "directory": "07_gplearn_coefs",
+    "loss": 0.013655543137527265,
+    "train_loss": 0.013438506005844253,
+    "runtime_ms": 0.05285950005054474,
+    "category": "symbolic",
+    "category_label": "Symbolic/physics-informed",
+    "parameterization": "trig_anomaly"
+  },
+  {
+    "name": "SVD+Ridge (raw_6d)",
+    "directory": "01_svd_ridge",
+    "loss": 0.013716379652896411,
+    "train_loss": 0.01360702488524462,
+    "runtime_ms": 0.0007696638349443674,
+    "category": "svd",
+    "category_label": "SVD/decomposition-based",
+    "parameterization": "raw_6d"
+  },
+  {
+    "name": "RandomForest (trig_anomaly)",
+    "directory": "17_randomforest",
+    "loss": 0.01525141647933549,
+    "train_loss": 0.009808027195266458,
+    "runtime_ms": 0.06362849986180663,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "trig_anomaly"
+  },
+  {
+    "name": "EIM+PLS (trig_anomaly)",
+    "directory": "05_eim_pls",
+    "loss": 0.015463011266101523,
+    "train_loss": 0.014839484193769082,
+    "runtime_ms": 0.0007341639138758183,
+    "category": "svd",
+    "category_label": "SVD/decomposition-based",
+    "parameterization": "trig_anomaly"
+  },
+  {
+    "name": "SVD+GPR-RBF (raw_6d)",
+    "directory": "03_svd_gpr_rbf",
+    "loss": 0.01592050339429804,
+    "train_loss": 1.9240454837893323e-06,
+    "runtime_ms": 0.010372332064434886,
+    "category": "svd",
+    "category_label": "SVD/decomposition-based",
+    "parameterization": "raw_6d"
+  },
+  {
+    "name": "KNN-Correction (log_frequency)",
+    "directory": "13_knn_correction",
+    "loss": 0.01595239427908567,
+    "train_loss": 0.0,
+    "runtime_ms": 0.01736083603464067,
+    "category": "kernel",
+    "category_label": "Interpolation/kernel",
+    "parameterization": "log_frequency"
+  },
+  {
+    "name": "KRR-Poly (effspin_loge)",
+    "directory": "11_krr_poly",
+    "loss": 0.01603424412861147,
+    "train_loss": 0.009409088121402225,
+    "runtime_ms": 0.012682663975283504,
+    "category": "kernel",
+    "category_label": "Interpolation/kernel",
+    "parameterization": "effspin_loge"
+  },
+  {
+    "name": "SVD+Poly2 (effspin_loge)",
+    "directory": "02_svd_poly2",
+    "loss": 0.016455471678609536,
+    "train_loss": 0.014892408329286348,
+    "runtime_ms": 0.0024886680766940117,
+    "category": "svd",
+    "category_label": "SVD/decomposition-based",
+    "parameterization": "effspin_loge"
+  },
+  {
+    "name": "SVR-RBF (fully_transformed)",
+    "directory": "14_svr_rbf",
+    "loss": 0.020598251817837834,
+    "train_loss": 0.015309877235541438,
+    "runtime_ms": 0.4008855000138283,
+    "category": "kernel",
+    "category_label": "Interpolation/kernel",
+    "parameterization": "fully_transformed"
+  },
+  {
+    "name": "Symbolic-Ridge (fully_transformed)",
+    "directory": "09_symbolic_ridge",
+    "loss": 0.021388180827120497,
+    "train_loss": 0.021064151525287726,
+    "runtime_ms": 0.022570664063096046,
+    "category": "symbolic",
+    "category_label": "Symbolic/physics-informed",
+    "parameterization": "fully_transformed"
+  },
+  {
+    "name": "PySR-Coefs (effspin_loge)",
+    "directory": "06_pysr_coefs",
+    "loss": 0.03847283598730414,
+    "train_loss": 0.03875509265189484,
+    "runtime_ms": 0.0009233320597559214,
+    "category": "symbolic",
+    "category_label": "Symbolic/physics-informed",
+    "parameterization": "effspin_loge"
+  },
+  {
+    "name": "Ensemble-Avg (effspin_loge)",
+    "directory": "20_ensemble_avg",
+    "loss": 0.038523995484530754,
+    "train_loss": 0.03880531721755166,
+    "runtime_ms": 9.033200331032276e-05,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "effspin_loge"
+  },
+  {
+    "name": "KRR-RBF (raw_6d)",
+    "directory": "10_krr_rbf",
+    "loss": 0.10967121367642704,
+    "train_loss": 3.658471550173187e-05,
+    "runtime_ms": 0.007644499884918332,
+    "category": "kernel",
+    "category_label": "Interpolation/kernel",
+    "parameterization": "raw_6d"
+  },
+  {
+    "name": "MLP-Deep (effspin_loge)",
+    "directory": "16_mlp_deep",
+    "loss": 0.6070760178065225,
+    "train_loss": 0.571859854092,
+    "runtime_ms": 0.0009648320265114307,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "effspin_loge"
+  },
+  {
+    "name": "MLP-Small (raw_6d)",
+    "directory": "15_mlp_small",
+    "loss": 1.1461078665460622,
+    "train_loss": 1.099263276866611,
+    "runtime_ms": 0.0008131640497595072,
+    "category": "ml",
+    "category_label": "Machine learning",
+    "parameterization": "raw_6d"
+  }
+]

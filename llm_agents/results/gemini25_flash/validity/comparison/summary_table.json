@@ -1,0 +1,162 @@
+[
+    {
+        "model_name": "RandomForest_Raw",
+        "approach_number": 9,
+        "loss": 0.7248022339021223,
+        "runtime_ms": 15.70892333984375,
+        "parameterization": "raw_4d",
+        "notes": "Model trained with raw_4d parameterization. Evaluated loss: 0.7248."
+    },
+    {
+        "model_name": "LightGBM_Raw",
+        "approach_number": 11,
+        "loss": 0.7352625345857325,
+        "runtime_ms": 1.569986343383789,
+        "parameterization": "raw_4d",
+        "notes": "Model trained with raw_4d parameterization. Evaluated loss: 0.7353."
+    },
+    {
+        "model_name": "XGBoost_Raw",
+        "approach_number": 10,
+        "loss": 0.7737932707377437,
+        "runtime_ms": 1.024007797241211,
+        "parameterization": "raw_4d",
+        "notes": "Model trained with raw_4d parameterization. Evaluated loss: 0.7738."
+    },
+    {
+        "model_name": "RandomForest_InteractionTerms",
+        "approach_number": 16,
+        "loss": 0.7741689494609831,
+        "runtime_ms": 15.880823135375977,
+        "parameterization": "interaction_terms",
+        "notes": "Model trained with interaction_terms parameterization. Evaluated loss: 0.7742."
+    },
+    {
+        "model_name": "LightGBM_EffectiveSpins",
+        "approach_number": 19,
+        "loss": 0.7804563966615582,
+        "runtime_ms": 1.5418529510498047,
+        "parameterization": "effective_spins",
+        "notes": "Model trained with effective_spins parameterization. Evaluated loss: 0.7805."
+    },
+    {
+        "model_name": "XGBoost_LogMassRatio",
+        "approach_number": 13,
+        "loss": 0.7918448898981651,
+        "runtime_ms": 1.065969467163086,
+        "parameterization": "log_mass_ratio",
+        "notes": "Model trained with log_mass_ratio parameterization. Evaluated loss: 0.7918."
+    },
+    {
+        "model_name": "MLP_LogMassRatio",
+        "approach_number": 14,
+        "loss": 0.7990468887912594,
+        "runtime_ms": 0.5729198455810547,
+        "parameterization": "log_mass_ratio",
+        "notes": "Model trained with log_mass_ratio parameterization. Evaluated loss: 0.7990."
+    },
+    {
+        "model_name": "XGBoost_EffectiveSpins",
+        "approach_number": 18,
+        "loss": 0.8021552024433413,
+        "runtime_ms": 1.1010169982910156,
+        "parameterization": "effective_spins",
+        "notes": "Model trained with effective_spins parameterization. Evaluated loss: 0.8022."
+    },
+    {
+        "model_name": "KRR_Raw",
+        "approach_number": 3,
+        "loss": 0.8028946322684296,
+        "runtime_ms": 0.9882450103759766,
+        "parameterization": "raw_4d",
+        "notes": "Model trained with raw_4d parameterization. Evaluated loss: 0.8029."
+    },
+    {
+        "model_name": "MLP_Raw",
+        "approach_number": 8,
+        "loss": 0.8050853432153793,
+        "runtime_ms": 0.5476474761962891,
+        "parameterization": "raw_4d",
+        "notes": "Model trained with raw_4d parameterization. Evaluated loss: 0.8051."
+    },
+    {
+        "model_name": "KRR_EffectiveSpins",
+        "approach_number": 17,
+        "loss": 0.8064478290602245,
+        "runtime_ms": 1.1668205261230469,
+        "parameterization": "effective_spins",
+        "notes": "Model trained with effective_spins parameterization. Evaluated loss: 0.8064."
+    },
+    {
+        "model_name": "PhenomFit_Poly_EtaChiEff",
+        "approach_number": 5,
+        "loss": 0.8066023056780379,
+        "runtime_ms": 0.2608299255371094,
+        "parameterization": "effective_spins",
+        "notes": "Model trained with effective_spins parameterization. Evaluated loss: 0.8066."
+    },
+    {
+        "model_name": "NNInterp_Raw",
+        "approach_number": 7,
+        "loss": 0.8070773538403754,
+        "runtime_ms": 21.275043487548828,
+        "parameterization": "raw_4d",
+        "notes": "Model trained with raw_4d parameterization. Evaluated loss: 0.8071."
+    },
+    {
+        "model_name": "KRR_LogMassRatio",
+        "approach_number": 12,
+        "loss": 0.808127842212802,
+        "runtime_ms": 1.0900497436523438,
+        "parameterization": "log_mass_ratio",
+        "notes": "Model trained with log_mass_ratio parameterization. Evaluated loss: 0.8081."
+    },
+    {
+        "model_name": "Polynomial_Fit_InteractionTerms",
+        "approach_number": 20,
+        "loss": 0.8138845906497206,
+        "runtime_ms": 0.22983551025390625,
+        "parameterization": "interaction_terms",
+        "notes": "Model trained with interaction_terms parameterization. Evaluated loss: 0.8139."
+    },
+    {
+        "model_name": "SVR_Raw",
+        "approach_number": 4,
+        "loss": 0.8512872419568527,
+        "runtime_ms": 3.2749176025390625,
+        "parameterization": "raw_4d",
+        "notes": "Model trained with raw_4d parameterization. Evaluated loss: 0.8513."
+    },
+    {
+        "model_name": "GPR_Matern_EffectiveSpins",
+        "approach_number": 2,
+        "loss": 3.6370038376676095,
+        "runtime_ms": 2.226114273071289,
+        "parameterization": "effective_spins",
+        "notes": "Model trained with effective_spins parameterization. Evaluated loss: 3.6370."
+    },
+    {
+        "model_name": "GPR_RBF_InteractionTerms",
+        "approach_number": 15,
+        "loss": 4.861549814405747,
+        "runtime_ms": 2.0999908447265625,
+        "parameterization": "interaction_terms",
+        "notes": "Model trained with interaction_terms parameterization. Evaluated loss: 4.8615."
+    },
+    {
+        "model_name": "GPR_RBF_Raw",
+        "approach_number": 1,
+        "loss": 4.862045515458164,
+        "runtime_ms": 2.0990371704101562,
+        "parameterization": "raw_4d",
+        "notes": "Model trained with raw_4d parameterization. Evaluated loss: 4.8620."
+    },
+    {
+        "model_name": "RBFInterp_Raw",
+        "approach_number": 6,
+        "loss": 5.758827337537162,
+        "runtime_ms": 1.3189315795898438,
+        "parameterization": "raw_4d",
+        "notes": "Model trained with raw_4d parameterization. Evaluated loss: 5.7588."
+    }
+]

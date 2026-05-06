@@ -1,0 +1,22 @@
+{
+    "approach": "damped_sin",
+    "approach_number": 20,
+    "benchmark": "analytic",
+    "agent": "gemini3_flash_preview",
+    "parameterization": "eta",
+    "loss": 0.413900228599356,
+    "loss_components": {
+        "mismatch_40Msun": 0.6345952064280324,
+        "mismatch_80Msun": 0.4410856170036914,
+        "mismatch_120Msun": 0.3465618047132916,
+        "mismatch_160Msun": 0.3247254795537132,
+        "mismatch_200Msun": 0.3225330352980513
+    },
+    "runtime_ms": 1.7013322739374068,
+    "n_train": 20,
+    "n_val": 20,
+    "n_params": 0,
+    "n_terms": 10,
+    "expression_file": "expression.txt",
+    "notes": "Damped sinusoid."
+}

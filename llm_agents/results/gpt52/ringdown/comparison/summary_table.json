@@ -1,0 +1,514 @@
+[
+  {
+    "approach": "spline",
+    "display_name": "CubicSpline (sqrt(1-a^2))",
+    "approach_number": 8,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "sqrt_irreducible",
+    "mode": "l2/m+2/n0",
+    "loss": 3.9327163560389704e-07,
+    "loss_components": {
+      "rel_error_omega_real": 7.27405049158955e-07,
+      "rel_error_omega_imag": 5.913822204883896e-08
+    },
+    "runtime_ms": 4.370628001971658e-05,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.23799162497743964,
+      "reasoned_optimization": {
+        "observed": "val_loss=3.933e-07",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "rbf_interp",
+    "display_name": "RBFInterp (cubic, log)",
+    "approach_number": 10,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "log_compact",
+    "mode": "l2/m+2/n0",
+    "loss": 6.337925397416109e-06,
+    "loss_components": {
+      "rel_error_omega_real": 3.789894194655041e-09,
+      "rel_error_omega_imag": 1.2672060900637565e-05
+    },
+    "runtime_ms": 0.4158475367868014,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 5.974998930469155e-05,
+      "reasoned_optimization": {
+        "observed": "val_loss=6.338e-06",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "spline",
+    "display_name": "CubicSpline (raw)",
+    "approach_number": 7,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "raw_a",
+    "mode": "l2/m+2/n0",
+    "loss": 2.6609748881849534e-05,
+    "loss_components": {
+      "rel_error_omega_real": 8.672109419711547e-08,
+      "rel_error_omega_imag": 5.313277666950196e-05
+    },
+    "runtime_ms": 4.19020617692933e-05,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.25977775000501424,
+      "reasoned_optimization": {
+        "observed": "val_loss=2.661e-05",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "rational",
+    "display_name": "Rational [5,5] (log)",
+    "approach_number": 5,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "log_compact",
+    "mode": "l2/m+2/n0",
+    "loss": 0.00036803198804175887,
+    "loss_components": {
+      "rel_error_omega_real": 6.846790162944635e-06,
+      "rel_error_omega_imag": 0.0007292171859205732
+    },
+    "runtime_ms": 0.00013716202299417525,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.00025883299531415105,
+      "reasoned_optimization": {
+        "observed": "val_loss=3.680e-04",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "rbf_interp",
+    "display_name": "RBFInterp (TPS, raw)",
+    "approach_number": 9,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "raw_a",
+    "mode": "l2/m+2/n0",
+    "loss": 0.0009249367264251415,
+    "loss_components": {
+      "rel_error_omega_real": 7.816005263771824e-06,
+      "rel_error_omega_imag": 0.001842057447586511
+    },
+    "runtime_ms": 0.42791698110884446,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 6.804201984778047e-05,
+      "reasoned_optimization": {
+        "observed": "val_loss=9.249e-04",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "poly",
+    "display_name": "Poly-15 (-log(1-a))",
+    "approach_number": 2,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "log_compact",
+    "mode": "l2/m+2/n0",
+    "loss": 0.0028860985343909747,
+    "loss_components": {
+      "rel_error_omega_real": 3.3786704034016745e-05,
+      "rel_error_omega_imag": 0.005738410364747933
+    },
+    "runtime_ms": 5.296612133863058e-05,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.00047862500650808215,
+      "reasoned_optimization": {
+        "observed": "val_loss=8.176e-03 -> 2.886e-03",
+        "hypothesis": "High-degree polynomial likely oscillating near a\u21921 \u2192 reduce degree.",
+        "change": "degree -> 11"
+      }
+    }
+  },
+  {
+    "approach": "pysr",
+    "display_name": "PySR (log)",
+    "approach_number": 19,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "log_compact",
+    "mode": "l2/m+2/n0",
+    "loss": 0.004060456448320124,
+    "loss_components": {
+      "rel_error_omega_real": 3.598549285511642e-05,
+      "rel_error_omega_imag": 0.008084927403785132
+    },
+    "runtime_ms": 0.00010436162240312149,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "expression_omega_r": "0.59674317/(0.5841989**(x0**((x0*x0*x0*x0*0.3039362 + cos(x0 - 0.8918426))**(-0.0025476716))) + 0.59681576)",
+      "expression_omega_i": "-sin(sin(0.089133605/(sqrt(x0) + x0**2 + cos(x0 + 0.04401333) - 0.003543514)**(0.075840816*x0)))"
+    }
+  },
+  {
+    "approach": "rf",
+    "display_name": "RandomForest (raw)",
+    "approach_number": 15,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "raw_a",
+    "mode": "l2/m+2/n0",
+    "loss": 0.004153262793171945,
+    "loss_components": {
+      "rel_error_omega_real": 0.0005038406878343627,
+      "rel_error_omega_imag": 0.007802684898509529
+    },
+    "runtime_ms": 0.10961621090780291,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.4304297090275213,
+      "reasoned_optimization": {
+        "observed": "val_loss=4.153e-03",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "svr_rbf",
+    "display_name": "SVR-RBF (log)",
+    "approach_number": 13,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "log_compact",
+    "mode": "l2/m+2/n0",
+    "loss": 0.04192829232167893,
+    "loss_components": {
+      "rel_error_omega_real": 0.0002850433218035015,
+      "rel_error_omega_imag": 0.08357154132155438
+    },
+    "runtime_ms": 0.0066017721500773886,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.018440790998283774,
+      "reasoned_optimization": {
+        "observed": "val_loss=4.193e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "hgb",
+    "display_name": "HistGB (raw)",
+    "approach_number": 16,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "raw_a",
+    "mode": "l2/m+2/n0",
+    "loss": 0.08717605413238634,
+    "loss_components": {
+      "rel_error_omega_real": 0.0011839941575929897,
+      "rel_error_omega_imag": 0.1731681141071797
+    },
+    "runtime_ms": 0.10433702259596346,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 2.359552584006451,
+      "reasoned_optimization": {
+        "observed": "val_loss=8.718e-02",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "chebyshev",
+    "display_name": "Chebyshev-35 (2a-1)",
+    "approach_number": 4,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "cheb_mapped",
+    "mode": "l2/m+2/n0",
+    "loss": 0.2381213484251743,
+    "loss_components": {
+      "rel_error_omega_real": 0.0007207021876749222,
+      "rel_error_omega_imag": 0.4755219946626736
+    },
+    "runtime_ms": 0.00018133900677276646,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.0008613340323790908,
+      "reasoned_optimization": {
+        "observed": "val_loss=2.381e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "chebyshev",
+    "display_name": "Chebyshev-25 (2a-1)",
+    "approach_number": 3,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "cheb_mapped",
+    "mode": "l2/m+2/n0",
+    "loss": 0.32952015797334866,
+    "loss_components": {
+      "rel_error_omega_real": 0.001189069015902762,
+      "rel_error_omega_imag": 0.6578512469307946
+    },
+    "runtime_ms": 0.00013692645187684372,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.022159041021950543,
+      "reasoned_optimization": {
+        "observed": "val_loss=3.295e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "gpr_rbf",
+    "display_name": "GPR-RBF (raw)",
+    "approach_number": 11,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "raw_a",
+    "mode": "l2/m+2/n0",
+    "loss": 0.41217948979868263,
+    "loss_components": {
+      "rel_error_omega_real": 0.0005261187231583034,
+      "rel_error_omega_imag": 0.8238328608742069
+    },
+    "runtime_ms": 0.009745212750625138,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 1.7030866669956595,
+      "reasoned_optimization": {
+        "observed": "val_loss=4.122e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "mlp",
+    "display_name": "MLP (log)",
+    "approach_number": 14,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "log_compact",
+    "mode": "l2/m+2/n0",
+    "loss": 0.49302658230878676,
+    "loss_components": {
+      "rel_error_omega_real": 0.005582372897099113,
+      "rel_error_omega_imag": 0.9804707917204749
+    },
+    "runtime_ms": 0.0008884180475748977,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.08548225002596155,
+      "reasoned_optimization": {
+        "observed": "val_loss=4.930e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "krr_rbf",
+    "display_name": "KRR-RBF (raw)",
+    "approach_number": 12,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "raw_a",
+    "mode": "l2/m+2/n0",
+    "loss": 0.6534968392617783,
+    "loss_components": {
+      "rel_error_omega_real": 0.002239354171441145,
+      "rel_error_omega_imag": 1.3047543243521154
+    },
+    "runtime_ms": 0.005309086660424812,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.0640174169675447,
+      "reasoned_optimization": {
+        "observed": "val_loss=6.535e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "poly",
+    "display_name": "Poly-10 (raw)",
+    "approach_number": 1,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "raw_a",
+    "mode": "l2/m+2/n0",
+    "loss": 2.121986567395925,
+    "loss_components": {
+      "rel_error_omega_real": 0.014214417985046662,
+      "rel_error_omega_imag": 4.229758716806805
+    },
+    "runtime_ms": 3.146513219635141e-05,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.0003921669558621943,
+      "reasoned_optimization": {
+        "observed": "val_loss=9.794e-01 -> 2.122e+00",
+        "hypothesis": "High-degree polynomial likely oscillating near a\u21921 \u2192 reduce degree.",
+        "change": "degree -> 6"
+      }
+    }
+  },
+  {
+    "approach": "gplearn",
+    "display_name": "gplearn (raw)",
+    "approach_number": 20,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "raw_a",
+    "mode": "l2/m+2/n0",
+    "loss": 20.509755681181367,
+    "loss_components": {
+      "rel_error_omega_real": 0.11292105352843428,
+      "rel_error_omega_imag": 40.906590308834296
+    },
+    "runtime_ms": 0.00021202069235414883,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "expression_omega_r": "mul(add(0.568, X0), 0.481)",
+      "expression_omega_i": "-0.075"
+    }
+  },
+  {
+    "approach": "poly",
+    "display_name": "Poly-12 (compactified)",
+    "approach_number": 17,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "compactified",
+    "mode": "l2/m+2/n0",
+    "loss": 729407.9231223823,
+    "loss_components": {
+      "rel_error_omega_real": 140.21415216140835,
+      "rel_error_omega_imag": 1458675.6320926032
+    },
+    "runtime_ms": 4.252919176568868e-05,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.0005558329867199063,
+      "reasoned_optimization": {
+        "observed": "val_loss=6.146e+07 -> 7.294e+05",
+        "hypothesis": "High-degree polynomial likely oscillating near a\u21921 \u2192 reduce degree.",
+        "change": "degree -> 8"
+      }
+    }
+  },
+  {
+    "approach": "rational",
+    "display_name": "Rational [9,9] (cheb)",
+    "approach_number": 18,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "cheb_mapped",
+    "mode": "l2/m+2/n0",
+    "loss": 1437627672.3381886,
+    "loss_components": {
+      "rel_error_omega_real": 2875255344.5273166,
+      "rel_error_omega_imag": 0.14906006397240643
+    },
+    "runtime_ms": 0.0002756590951451586,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.00047995802015066147,
+      "reasoned_optimization": {
+        "observed": "val_loss=1.438e+09",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "rational",
+    "display_name": "Rational [7,7] (raw)",
+    "approach_number": 6,
+    "benchmark": "ringdown",
+    "agent": "gpt52",
+    "parameterization": "raw_a",
+    "mode": "l2/m+2/n0",
+    "loss": 526963047360.62274,
+    "loss_components": {
+      "rel_error_omega_real": 8.673685508218933e-05,
+      "rel_error_omega_imag": 1053926094721.2455
+    },
+    "runtime_ms": 0.00019954605617344715,
+    "n_train": 531,
+    "n_val": 531,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.00033070798963308334,
+      "reasoned_optimization": {
+        "observed": "val_loss=5.270e+11",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  }
+]

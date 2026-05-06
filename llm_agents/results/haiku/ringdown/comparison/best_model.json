@@ -1,0 +1,1 @@
+{"model_name": "NN4_GPR_Matern_eta_chi", "loss": 0.081, "approach": "gpr_matern", "rank": 1, "total_models": 20}

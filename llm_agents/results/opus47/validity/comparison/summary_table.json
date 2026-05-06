@@ -1,0 +1,436 @@
+[
+  {
+    "approach": "rf_raw4",
+    "approach_number": 3,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "raw4",
+    "loss": 0.7220358460760729,
+    "loss_components": {
+      "log_rmse": 0.7220358460760729
+    },
+    "runtime_ms": 0.08050980662977981,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 9600,
+    "train_time_s": 0.15364885330200195,
+    "notes": "Random Forest 300 trees, raw features."
+  },
+  {
+    "approach": "extra_trees_log_q",
+    "approach_number": 12,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "log_q",
+    "loss": 0.7384885299221575,
+    "loss_components": {
+      "log_rmse": 0.7384885299221575
+    },
+    "runtime_ms": 0.09496183203190858,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 9600,
+    "train_time_s": 0.11977910995483398,
+    "notes": "ExtraTrees with log(q) reparam."
+  },
+  {
+    "approach": "stacked_gbm_gpr_eta_chieff",
+    "approach_number": 18,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.7630655971941716,
+    "loss_components": {
+      "log_rmse": 0.7630655971941716
+    },
+    "runtime_ms": 0.16075604326866624,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 6793,
+    "train_time_s": 0.7994639873504639,
+    "notes": "Stacked GBM + GPR-on-residuals."
+  },
+  {
+    "approach": "rf_interaction_tuned",
+    "approach_number": 24,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "interaction",
+    "loss": 0.7666272539826725,
+    "loss_components": {
+      "log_rmse": 0.7666272539826725
+    },
+    "runtime_ms": 0.07309701021034365,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 16000,
+    "train_time_s": 0.40511107444763184,
+    "notes": "Tuned RF with interaction features (deeper, sqrt features)."
+  },
+  {
+    "approach": "gbm_eta_chieff",
+    "approach_number": 4,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.7781964443064608,
+    "loss_components": {
+      "log_rmse": 0.7781964443064608
+    },
+    "runtime_ms": 0.0026494910885430586,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 9600,
+    "train_time_s": 0.11076211929321289,
+    "notes": "GBM (sklearn fallback)."
+  },
+  {
+    "approach": "gbm_boundary_features",
+    "approach_number": 17,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "boundary",
+    "loss": 0.7868871023626557,
+    "loss_components": {
+      "log_rmse": 0.7868871023626557
+    },
+    "runtime_ms": 0.0035404465762594994,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 9600,
+    "train_time_s": 0.35123395919799805,
+    "notes": "GBM with NRHybSur3dq8 boundary distance features (q-8, |chi|-0.8 clipped)."
+  },
+  {
+    "approach": "hgbr_interaction",
+    "approach_number": 10,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "interaction",
+    "loss": 0.7948189690045692,
+    "loss_components": {
+      "log_rmse": 0.7948189690045692
+    },
+    "runtime_ms": 0.03557660051594244,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 9600,
+    "train_time_s": 0.932121753692627,
+    "notes": "HistGradientBoosting with interaction features."
+  },
+  {
+    "approach": "mlp_deep_ensemble_boundary",
+    "approach_number": 11,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "boundary",
+    "loss": 0.8016738322026301,
+    "loss_components": {
+      "log_rmse": 0.8016738322026301
+    },
+    "runtime_ms": 0.12519179388516968,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 127040,
+    "train_time_s": 78.64252185821533,
+    "notes": "Deep ensemble of 5 MLPs with boundary-distance features."
+  },
+  {
+    "approach": "poly2_raw4",
+    "approach_number": 23,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "raw4",
+    "loss": 0.8138508421087931,
+    "loss_components": {
+      "log_rmse": 0.8138508421087931
+    },
+    "runtime_ms": 0.0002668575018184596,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 15,
+    "train_time_s": 0.0016529560089111328,
+    "notes": "Polynomial deg-2 ridge baseline (raw features)."
+  },
+  {
+    "approach": "poly3_eta_chieff",
+    "approach_number": 7,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.8218943483926039,
+    "loss_components": {
+      "log_rmse": 0.8218943483926039
+    },
+    "runtime_ms": 0.05825779263170687,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 35,
+    "train_time_s": 0.025994062423706055,
+    "notes": "Polynomial deg-3 ridge."
+  },
+  {
+    "approach": "mlp_eta_chieff",
+    "approach_number": 5,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.8272613180526006,
+    "loss_components": {
+      "log_rmse": 0.8272613180526006
+    },
+    "runtime_ms": 0.007097010157703785,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 4545,
+    "train_time_s": 0.4580249786376953,
+    "notes": "MLP 64-64."
+  },
+  {
+    "approach": "lasso_poly3_interaction",
+    "approach_number": 16,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "interaction",
+    "loss": 0.8475642756179754,
+    "loss_components": {
+      "log_rmse": 0.8475642756179754
+    },
+    "runtime_ms": 0.029321405842589836,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 83,
+    "train_time_s": 0.5419261455535889,
+    "notes": "Lasso poly-3 with interaction features."
+  },
+  {
+    "approach": "bayes_ridge_poly2_eta",
+    "approach_number": 20,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "eta_chieff",
+    "loss": 0.8731604911352852,
+    "loss_components": {
+      "log_rmse": 0.8731604911352852
+    },
+    "runtime_ms": 0.0002616628383596738,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 14,
+    "train_time_s": 0.0009279251098632812,
+    "notes": "Bayesian Ridge poly-2."
+  },
+  {
+    "approach": "mlp_deep_interaction",
+    "approach_number": 21,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "ml",
+    "parameterization": "interaction",
+    "loss": 0.8733566162797239,
+    "loss_components": {
+      "log_rmse": 0.8733566162797239
+    },
+    "runtime_ms": 0.02304834604580856,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 45057,
+    "train_time_s": 27.20237684249878,
+    "notes": "Deep MLP with interaction features."
+  },
+  {
+    "approach": "pysr_eta_chieff",
+    "approach_number": 8,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.8787807443085358,
+    "loss_components": {
+      "log_rmse": 0.8787807443085358
+    },
+    "runtime_ms": 0.0025380623340843667,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 20,
+    "train_time_s": 14.568112850189209,
+    "notes": "PySR symbolic regression on log10(mm).",
+    "pysr_expressions_file": "/Users/tousifislam/Research/projects/nr_projects/gwBenchmarks/llm_agents/results/opus47/validity/models/08_pysr_eta_chieff/saved_model/expressions.json"
+  },
+  {
+    "approach": "pysr_log_q",
+    "approach_number": 19,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "log_q",
+    "loss": 0.8793804989449688,
+    "loss_components": {
+      "log_rmse": 0.8793804989449688
+    },
+    "runtime_ms": 0.0022990877829544227,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 18,
+    "train_time_s": 2.0824241638183594,
+    "notes": "PySR (log_q reparameterization, second symbolic run)."
+  },
+  {
+    "approach": "svr_rbf_eta_chieff",
+    "approach_number": 15,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "eta_chieff",
+    "loss": 0.8948008802783551,
+    "loss_components": {
+      "log_rmse": 0.8948008802783551
+    },
+    "runtime_ms": 0.009466497477561083,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 393,
+    "train_time_s": 0.004061222076416016,
+    "notes": "SVR RBF."
+  },
+  {
+    "approach": "gpr_matern_eta_chieff",
+    "approach_number": 2,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "eta_chieff",
+    "loss": 0.8981300275268637,
+    "loss_components": {
+      "log_rmse": 0.8981300275268637
+    },
+    "runtime_ms": 0.04617641985051467,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 10,
+    "train_time_s": 0.8225929737091064,
+    "notes": "GPR Matern-5/2 with eta+chi_eff reparam."
+  },
+  {
+    "approach": "gpr_rbf_raw4",
+    "approach_number": 1,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "raw4",
+    "loss": 0.8981553615523522,
+    "loss_components": {
+      "log_rmse": 0.8981553615523522
+    },
+    "runtime_ms": 0.041122137384937064,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 10,
+    "train_time_s": 0.8461010456085205,
+    "notes": "GPR RBF baseline."
+  },
+  {
+    "approach": "gpr_compound_boundary",
+    "approach_number": 22,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "boundary",
+    "loss": 0.9009834040151308,
+    "loss_components": {
+      "log_rmse": 0.9009834040151308
+    },
+    "runtime_ms": 0.13154277989152657,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 10,
+    "train_time_s": 0.772111177444458,
+    "notes": "GPR with compound RBF*Matern kernel + boundary features."
+  },
+  {
+    "approach": "gplearn_eta_chieff",
+    "approach_number": 9,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "symbolic",
+    "parameterization": "eta_chieff",
+    "loss": 0.9028652976202249,
+    "loss_components": {
+      "log_rmse": 0.9028652976202249
+    },
+    "runtime_ms": 0.00010649998744584753,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 20,
+    "train_time_s": 12.091774940490723,
+    "notes": "gplearn SymbolicRegressor.",
+    "gplearn_expressions_file": "/Users/tousifislam/Research/projects/nr_projects/gwBenchmarks/llm_agents/results/opus47/validity/models/09_gplearn_eta_chieff/saved_model/expressions.json"
+  },
+  {
+    "approach": "krr_rbf_raw4",
+    "approach_number": 6,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "kernel_gp",
+    "parameterization": "raw4",
+    "loss": 0.9040467090344908,
+    "loss_components": {
+      "log_rmse": 0.9040467090344908
+    },
+    "runtime_ms": 0.11111869213542173,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 393,
+    "train_time_s": 0.29072093963623047,
+    "notes": "Kernel Ridge RBF."
+  },
+  {
+    "approach": "knn_eta_chieff",
+    "approach_number": 14,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "interpolation",
+    "parameterization": "eta_chieff",
+    "loss": 0.9278082402280051,
+    "loss_components": {
+      "log_rmse": 0.9278082402280051
+    },
+    "runtime_ms": 0.0027662735037225993,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 393,
+    "train_time_s": 0.011477947235107422,
+    "notes": "KNN k=5 distance-weighted."
+  },
+  {
+    "approach": "rbf_interp_raw4",
+    "approach_number": 13,
+    "benchmark": "validity",
+    "agent": "opus47",
+    "category": "interpolation",
+    "parameterization": "raw4",
+    "loss": 0.9280810120104517,
+    "loss_components": {
+      "log_rmse": 0.9280810120104517
+    },
+    "runtime_ms": 0.04345716791714449,
+    "n_train": 393,
+    "n_val": 393,
+    "n_params": 393,
+    "train_time_s": 0.01723027229309082,
+    "notes": "Thin-plate-spline RBF interpolation."
+  }
+]

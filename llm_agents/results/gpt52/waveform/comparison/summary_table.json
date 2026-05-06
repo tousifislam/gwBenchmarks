@@ -1,0 +1,643 @@
+[
+  {
+    "approach": "extratrees",
+    "display_name": "SVD+ExtraTrees (raw)",
+    "approach_number": 11,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.2199241507170676,
+    "loss_components": {
+      "mean_fd_mismatch": 0.2199241507170676,
+      "mismatch_40Msun": 0.3589975630291218,
+      "mismatch_80Msun": 0.28172279806826417,
+      "mismatch_120Msun": 0.19983996345365737,
+      "mismatch_160Msun": 0.14689708577553387,
+      "mismatch_200Msun": 0.11216334325876094
+    },
+    "runtime_ms": 0.6599375000223517,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 5607,
+    "notes": {
+      "fit_time_s": 0.22476279101101682,
+      "reasoned_optimization": {
+        "observed": "train_loss=9.054e-02, val_loss=2.199e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "knn",
+    "display_name": "SVD+kNN (eff)",
+    "approach_number": 7,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "interpolation/kernel",
+    "parameterization": "effective_spins_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.2235099200701817,
+    "loss_components": {
+      "mean_fd_mismatch": 0.2235099200701817,
+      "mismatch_40Msun": 0.36120500768803576,
+      "mismatch_80Msun": 0.2749317210781419,
+      "mismatch_120Msun": 0.20401333795084678,
+      "mismatch_160Msun": 0.15611094972993197,
+      "mismatch_200Msun": 0.12128858390395204
+    },
+    "runtime_ms": 0.16578716784715652,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 217,
+    "notes": {
+      "fit_time_s": 0.1373425829806365,
+      "reasoned_optimization": {
+        "observed": "train_loss=9.054e-02, val_loss=2.235e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "rf",
+    "display_name": "SVD+RandomForest (raw)",
+    "approach_number": 10,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.24027000816651242,
+    "loss_components": {
+      "mean_fd_mismatch": 0.24027000816651242,
+      "mismatch_40Msun": 0.4082748632668154,
+      "mismatch_80Msun": 0.31034586274907067,
+      "mismatch_120Msun": 0.21384419033102278,
+      "mismatch_160Msun": 0.1531879599104944,
+      "mismatch_200Msun": 0.11569716457515868
+    },
+    "runtime_ms": 0.24222799995914102,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 3507,
+    "notes": {
+      "fit_time_s": 0.36735912499716505,
+      "reasoned_optimization": {
+        "observed": "train_loss=1.013e-01, val_loss=2.403e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "rbf_interp",
+    "display_name": "SVD+RBFInterpolator (eff)",
+    "approach_number": 6,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "interpolation/kernel",
+    "parameterization": "effective_spins_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.2605178610736845,
+    "loss_components": {
+      "mean_fd_mismatch": 0.2605178610736845,
+      "mismatch_40Msun": 0.3795595918366616,
+      "mismatch_80Msun": 0.31025614272730945,
+      "mismatch_120Msun": 0.24563320982713296,
+      "mismatch_160Msun": 0.201112526310117,
+      "mismatch_200Msun": 0.1660278346672016
+    },
+    "runtime_ms": 0.2707556679379195,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "fit_time_s": 0.0745235420181416,
+      "reasoned_optimization": {
+        "observed": "train_loss=1.780e-01, val_loss=2.605e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "hgb",
+    "display_name": "SVD+HistGB (raw)",
+    "approach_number": 12,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.26227496041015175,
+    "loss_components": {
+      "mean_fd_mismatch": 0.26227496041015175,
+      "mismatch_40Msun": 0.4345831338885394,
+      "mismatch_80Msun": 0.3326261422848704,
+      "mismatch_120Msun": 0.2358070871555783,
+      "mismatch_160Msun": 0.17414669199670718,
+      "mismatch_200Msun": 0.13421174672506356
+    },
+    "runtime_ms": 1.2507750000804663,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 217,
+    "notes": {
+      "fit_time_s": 14.758342042041477,
+      "reasoned_optimization": {
+        "observed": "train_loss=9.452e-02, val_loss=2.623e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "svr_rbf",
+    "display_name": "SVD+SVR (RBF, raw)",
+    "approach_number": 13,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "interpolation/kernel",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.28128641992393705,
+    "loss_components": {
+      "mean_fd_mismatch": 0.28128641992393705,
+      "mismatch_40Msun": 0.43196377729662283,
+      "mismatch_80Msun": 0.34712273054328097,
+      "mismatch_120Msun": 0.2668255158949418,
+      "mismatch_160Msun": 0.20318009398940834,
+      "mismatch_200Msun": 0.15733998189543127
+    },
+    "runtime_ms": 0.1733595000114292,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 91,
+    "notes": {
+      "fit_time_s": 0.10849158297060058,
+      "reasoned_optimization": {
+        "observed": "train_loss=2.068e-01, val_loss=2.813e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "krr_rbf",
+    "display_name": "SVD+KRR (RBF, spherical)",
+    "approach_number": 5,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "interpolation/kernel",
+    "parameterization": "spherical_spins_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.2861562260201334,
+    "loss_components": {
+      "mean_fd_mismatch": 0.2861562260201334,
+      "mismatch_40Msun": 0.43527739647495356,
+      "mismatch_80Msun": 0.3609950294905135,
+      "mismatch_120Msun": 0.2729756196685892,
+      "mismatch_160Msun": 0.20427291068388814,
+      "mismatch_200Msun": 0.15726017378272295
+    },
+    "runtime_ms": 0.13411566778086126,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 217,
+    "notes": {
+      "fit_time_s": 0.060651500010862947,
+      "reasoned_optimization": {
+        "observed": "train_loss=9.420e-02, val_loss=3.030e-01",
+        "hypothesis": "Validation loss suggests overfitting \u2192 increase regularization (alpha).",
+        "change": "alpha -> 1.00e-02"
+      }
+    }
+  },
+  {
+    "approach": "poly_ridge",
+    "display_name": "SVD+Poly-3 Ridge (raw)",
+    "approach_number": 4,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.2908596938608264,
+    "loss_components": {
+      "mean_fd_mismatch": 0.2908596938608264,
+      "mismatch_40Msun": 0.45592875554698903,
+      "mismatch_80Msun": 0.3670640591689313,
+      "mismatch_120Msun": 0.27407510476813574,
+      "mismatch_160Msun": 0.20408942208225614,
+      "mismatch_200Msun": 0.1531411277378197
+    },
+    "runtime_ms": 0.11646483186632395,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 287,
+    "notes": {
+      "fit_time_s": 0.05027458304539323,
+      "reasoned_optimization": {
+        "observed": "train_loss=1.727e-01, val_loss=2.910e-01",
+        "hypothesis": "Validation loss suggests overfitting \u2192 increase regularization (alpha).",
+        "change": "alpha -> 1.00e-02"
+      }
+    }
+  },
+  {
+    "approach": "lasso",
+    "display_name": "SVD+Lasso (raw)",
+    "approach_number": 14,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.29543478548870616,
+    "loss_components": {
+      "mean_fd_mismatch": 0.29543478548870616,
+      "mismatch_40Msun": 0.5404007592699488,
+      "mismatch_80Msun": 0.37370134182067677,
+      "mismatch_120Msun": 0.2514977391342636,
+      "mismatch_160Msun": 0.17902623191731154,
+      "mismatch_200Msun": 0.13254785530132998
+    },
+    "runtime_ms": 0.11380966822616756,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 287,
+    "notes": {
+      "fit_time_s": 0.024404041992966086,
+      "reasoned_optimization": {
+        "observed": "train_loss=3.020e-01, val_loss=2.954e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "elasticnet",
+    "display_name": "SVD+ElasticNet (raw)",
+    "approach_number": 15,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.2954733532697899,
+    "loss_components": {
+      "mean_fd_mismatch": 0.2954733532697899,
+      "mismatch_40Msun": 0.5403584320780227,
+      "mismatch_80Msun": 0.3737637618040596,
+      "mismatch_120Msun": 0.2515641856737978,
+      "mismatch_160Msun": 0.17908603446873053,
+      "mismatch_200Msun": 0.13259435232433892
+    },
+    "runtime_ms": 0.09788133203983307,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 287,
+    "notes": {
+      "fit_time_s": 0.023124917002860457,
+      "reasoned_optimization": {
+        "observed": "train_loss=3.020e-01, val_loss=2.955e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "mlp_sklearn",
+    "display_name": "SVD+MLP (sklearn, eff)",
+    "approach_number": 9,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "machine_learning",
+    "parameterization": "effective_spins_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.29644769141644883,
+    "loss_components": {
+      "mean_fd_mismatch": 0.29644769141644883,
+      "mismatch_40Msun": 0.46127496840755816,
+      "mismatch_80Msun": 0.36661672837438325,
+      "mismatch_120Msun": 0.274733108211248,
+      "mismatch_160Msun": 0.2108304319137,
+      "mismatch_200Msun": 0.16878322017535505
+    },
+    "runtime_ms": 0.12970699998550117,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 287,
+    "notes": {
+      "fit_time_s": 1.9116652910015546,
+      "reasoned_optimization": {
+        "observed": "train_loss=2.806e-01, val_loss=2.964e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "Reversed-time SVD+Ridge (raw)",
+    "approach_number": 18,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_7d",
+    "time_convention": "reversed_time",
+    "representation": "real_imag",
+    "loss": 0.2973952030404775,
+    "loss_components": {
+      "mean_fd_mismatch": 0.2973952030404775,
+      "mismatch_40Msun": 0.5420591596483662,
+      "mismatch_80Msun": 0.3766198546208731,
+      "mismatch_120Msun": 0.25350798061027924,
+      "mismatch_160Msun": 0.18100554940152985,
+      "mismatch_200Msun": 0.13378347092133885
+    },
+    "runtime_ms": 0.10481483186595142,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 357,
+    "notes": {
+      "fit_time_s": 0.02006908302428201,
+      "reasoned_optimization": {
+        "observed": "train_loss=3.019e-01, val_loss=2.955e-01",
+        "hypothesis": "Both losses high \u2192 increase basis size to capture more variance.",
+        "change": "n_svd -> 50"
+      }
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "SVD+Ridge (raw)",
+    "approach_number": 1,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.29739523825182396,
+    "loss_components": {
+      "mean_fd_mismatch": 0.29739523825182396,
+      "mismatch_40Msun": 0.5420592437942021,
+      "mismatch_80Msun": 0.37661994405850263,
+      "mismatch_120Msun": 0.25350804348485156,
+      "mismatch_160Msun": 0.18100553018646587,
+      "mismatch_200Msun": 0.13378342973509752
+    },
+    "runtime_ms": 0.09554116404615343,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 357,
+    "notes": {
+      "fit_time_s": 0.28296712500741705,
+      "reasoned_optimization": {
+        "observed": "train_loss=3.019e-01, val_loss=2.955e-01",
+        "hypothesis": "Both losses high \u2192 increase basis size to capture more variance.",
+        "change": "n_svd -> 50"
+      }
+    }
+  },
+  {
+    "approach": "eim_krr_rbf",
+    "display_name": "EIM+KRR (raw)",
+    "approach_number": 8,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.2991135996227544,
+    "loss_components": {
+      "mean_fd_mismatch": 0.2991135996227544,
+      "mismatch_40Msun": 0.47175930618273826,
+      "mismatch_80Msun": 0.3686208068253858,
+      "mismatch_120Msun": 0.2688559782782369,
+      "mismatch_160Msun": 0.2127678806880998,
+      "mismatch_200Msun": 0.17356402613931152
+    },
+    "runtime_ms": 0.12455733609385788,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 175,
+    "notes": {
+      "fit_time_s": 0.08066358300857246,
+      "reasoned_optimization": {
+        "observed": "train_loss=1.769e-01, val_loss=3.068e-01",
+        "hypothesis": "Validation loss suggests overfitting \u2192 increase regularization (alpha).",
+        "change": "alpha -> 1.00e-02"
+      }
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "SVD+Ridge (raw+omega0)",
+    "approach_number": 16,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_plus_omega0_8d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.3004048897447049,
+    "loss_components": {
+      "mean_fd_mismatch": 0.3004048897447049,
+      "mismatch_40Msun": 0.5491726467923956,
+      "mismatch_80Msun": 0.381790510197549,
+      "mismatch_120Msun": 0.2555846776023747,
+      "mismatch_160Msun": 0.1815775857008839,
+      "mismatch_200Msun": 0.13389902843032153
+    },
+    "runtime_ms": 0.09983116784133017,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 408,
+    "notes": {
+      "fit_time_s": 0.019993250025436282,
+      "reasoned_optimization": {
+        "observed": "train_loss=3.017e-01, val_loss=2.987e-01",
+        "hypothesis": "Both losses high \u2192 increase basis size to capture more variance.",
+        "change": "n_svd -> 50"
+      }
+    }
+  },
+  {
+    "approach": "pysr",
+    "display_name": "PySR (SVD coeffs, eff)",
+    "approach_number": 19,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "effective_spins_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.3043618177194415,
+    "loss_components": {
+      "mean_fd_mismatch": 0.3043618177194415,
+      "mismatch_40Msun": 0.5462280975237256,
+      "mismatch_80Msun": 0.38402036742525003,
+      "mismatch_120Msun": 0.26046194669859535,
+      "mismatch_160Msun": 0.18822241654126678,
+      "mismatch_200Msun": 0.1428762604083697
+    },
+    "runtime_ms": 0.04546966799534857,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "equations": [
+        "x0*(-0.49632937)*x3*sin(x0*x4*(-0.45453545)/((x1 - 0.09206246)*sin(sin(x4))))",
+        "(x0*x0 - 0.01317575)*sin((-x3 + exp(x2) + 0.3676917)*exp(x6))/cos(cos(x4))",
+        "x0**(5/2)*exp(-x6)/(-x2**(4.07228161920257*sqrt(x5)) - 0.20886827) + 0.009318204"
+      ]
+    }
+  },
+  {
+    "approach": "gpr_matern",
+    "display_name": "SVD+GPR (Matern-5/2, eff)",
+    "approach_number": 3,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "effective_spins_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.3202124592914228,
+    "loss_components": {
+      "mean_fd_mismatch": 0.3202124592914228,
+      "mismatch_40Msun": 0.5784457982764207,
+      "mismatch_80Msun": 0.40705022638624466,
+      "mismatch_120Msun": 0.2731059550520867,
+      "mismatch_160Msun": 0.19551257751718068,
+      "mismatch_200Msun": 0.14694773922518112
+    },
+    "runtime_ms": 0.12489483202807605,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 91,
+    "notes": {
+      "fit_time_s": 1.2321163339656778,
+      "reasoned_optimization": {
+        "observed": "train_loss=2.037e-01, val_loss=3.202e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "gpr_rbf",
+    "display_name": "SVD+GPR (RBF, raw)",
+    "approach_number": 2,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.3204360884461051,
+    "loss_components": {
+      "mean_fd_mismatch": 0.3204360884461051,
+      "mismatch_40Msun": 0.580325132698747,
+      "mismatch_80Msun": 0.40652915751557706,
+      "mismatch_120Msun": 0.273076821024813,
+      "mismatch_160Msun": 0.19532638559075768,
+      "mismatch_200Msun": 0.14692294540063097
+    },
+    "runtime_ms": 0.11254133190959692,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 91,
+    "notes": {
+      "fit_time_s": 0.6209629169898108,
+      "reasoned_optimization": {
+        "observed": "train_loss=2.036e-01, val_loss=3.204e-01",
+        "hypothesis": "",
+        "change": ""
+      }
+    }
+  },
+  {
+    "approach": "gplearn",
+    "display_name": "gplearn (SVD coeffs, raw)",
+    "approach_number": 20,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "symbolic/analytical",
+    "parameterization": "raw_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "real_imag",
+    "loss": 0.32122245156121626,
+    "loss_components": {
+      "mean_fd_mismatch": 0.32122245156121626,
+      "mismatch_40Msun": 0.5707537853564523,
+      "mismatch_80Msun": 0.4150243044986124,
+      "mismatch_120Msun": 0.2764441055794294,
+      "mismatch_160Msun": 0.19634365451185548,
+      "mismatch_200Msun": 0.1475464078597317
+    },
+    "runtime_ms": 0.04245900013484061,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 0,
+    "notes": {
+      "expressions": [
+        "0.017",
+        "sqrt(sub(X5, X5))",
+        "sub(X2, X2)",
+        "sub(X3, X3)",
+        "0.007",
+        "-0.002"
+      ]
+    }
+  },
+  {
+    "approach": "ridge",
+    "display_name": "Amp/Phase SVD+Ridge (eff)",
+    "approach_number": 17,
+    "benchmark": "waveform",
+    "agent": "gpt52",
+    "category": "svd/decomposition",
+    "parameterization": "effective_spins_7d",
+    "time_convention": "t0_at_peak",
+    "representation": "amp_phase",
+    "loss": 0.5330088301116203,
+    "loss_components": {
+      "mean_fd_mismatch": 0.5330088301116203,
+      "mismatch_40Msun": 0.7937988682615287,
+      "mismatch_80Msun": 0.6351527591898192,
+      "mismatch_120Msun": 0.49933895563932534,
+      "mismatch_160Msun": 0.4039495043152025,
+      "mismatch_200Msun": 0.33280406315222544
+    },
+    "runtime_ms": 0.233665999956429,
+    "n_train": 250,
+    "n_val": 250,
+    "n_params": 357,
+    "notes": {
+      "fit_time_s": 0.020214624993968755,
+      "reasoned_optimization": {
+        "observed": "train_loss=5.353e-01, val_loss=5.330e-01",
+        "hypothesis": "Both losses high \u2192 increase basis size to capture more variance.",
+        "change": "n_svd -> 50"
+      }
+    }
+  }
+]

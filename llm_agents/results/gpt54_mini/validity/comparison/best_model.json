@@ -1,0 +1,18 @@
+{
+  "approach": "rf_raw4",
+  "approach_number": 3,
+  "benchmark": "validity",
+  "agent": "gpt54_mini",
+  "category": "ml",
+  "parameterization": "raw4",
+  "loss": 0.722035846076073,
+  "loss_components": {
+    "log_rmse": 0.722035846076073
+  },
+  "runtime_ms": 0.06722879639599216,
+  "n_train": 393,
+  "n_val": 393,
+  "n_params": 9600,
+  "train_time_s": 0.15137386322021484,
+  "notes": "Random Forest 300 trees, raw features."
+}

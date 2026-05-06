@@ -1,0 +1,142 @@
+[
+  {
+    "rank": 1,
+    "model_name": "NN4_GPR_Matern_eta_chi",
+    "loss": 0.081,
+    "approach": "gpr_matern",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 2,
+    "model_name": "NN2_GPR_RBF_eta_chi",
+    "loss": 0.082,
+    "approach": "gpr_rbf",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 3,
+    "model_name": "NN20_ExtraTrees_eta_chi",
+    "loss": 0.082,
+    "approach": "extratrees",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 4,
+    "model_name": "NN9_GB_eta_chi",
+    "loss": 0.083,
+    "approach": "gb",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 5,
+    "model_name": "NN6_RF_eta_chi",
+    "loss": 0.084,
+    "approach": "rf",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 6,
+    "model_name": "NN1_GPR_RBF_raw",
+    "loss": 0.085,
+    "approach": "gpr_rbf",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 7,
+    "model_name": "NN19_ExtraTrees_raw",
+    "loss": 0.085,
+    "approach": "extratrees",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 8,
+    "model_name": "NN15_SVR_eta_chi",
+    "loss": 0.086,
+    "approach": "svr",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 9,
+    "model_name": "NN8_GB_raw",
+    "loss": 0.087,
+    "approach": "gb",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 10,
+    "model_name": "NN5_RF_raw",
+    "loss": 0.088,
+    "approach": "rf",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 11,
+    "model_name": "NN7_RF_spherical",
+    "loss": 0.089,
+    "approach": "rf",
+    "parameterization": "spherical"
+  },
+  {
+    "rank": 12,
+    "model_name": "NN17_AdaBoost_eta_chi",
+    "loss": 0.089,
+    "approach": "adaboost",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 13,
+    "model_name": "NN3_GPR_Matern_raw",
+    "loss": 0.09,
+    "approach": "gpr_matern",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 14,
+    "model_name": "NN14_SVR_raw",
+    "loss": 0.091,
+    "approach": "svr",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 15,
+    "model_name": "NN11_Ridge_eta_chi",
+    "loss": 0.092,
+    "approach": "ridge",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 16,
+    "model_name": "NN16_AdaBoost_raw",
+    "loss": 0.093,
+    "approach": "adaboost",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 17,
+    "model_name": "NN10_Ridge_raw",
+    "loss": 0.095,
+    "approach": "ridge",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 18,
+    "model_name": "NN13_Lasso_eta_chi",
+    "loss": 0.098,
+    "approach": "lasso",
+    "parameterization": "eta_chi"
+  },
+  {
+    "rank": 19,
+    "model_name": "NN12_Lasso_raw",
+    "loss": 0.1,
+    "approach": "lasso",
+    "parameterization": "raw"
+  },
+  {
+    "rank": 20,
+    "model_name": "NN18_ElasticNet_spherical",
+    "loss": 0.102,
+    "approach": "elasticnet",
+    "parameterization": "spherical"
+  }
+]

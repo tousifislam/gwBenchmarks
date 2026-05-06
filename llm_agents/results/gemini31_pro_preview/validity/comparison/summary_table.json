@@ -1,0 +1,376 @@
+[
+    {
+        "approach": "11_rf_raw",
+        "approach_number": 11,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_4d",
+        "category": "ML",
+        "loss": 0.7268961195583522,
+        "loss_components": {
+            "log_rmse": 0.7268961195583522
+        },
+        "runtime_ms": 0.02130782634550682,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "9_gb_logq",
+        "approach_number": 9,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "log_q_spins",
+        "category": "ML",
+        "loss": 0.7287475962890669,
+        "loss_components": {
+            "log_rmse": 0.7287475962890669
+        },
+        "runtime_ms": 0.0008851213916264114,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "8_rf_bound",
+        "approach_number": 8,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "boundary_distance",
+        "category": "ML",
+        "loss": 0.736644593149847,
+        "loss_components": {
+            "log_rmse": 0.736644593149847
+        },
+        "runtime_ms": 0.010640869917153706,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "5_gpr_white_interact",
+        "approach_number": 5,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "interaction_terms",
+        "category": "Kernel",
+        "loss": 0.7932294672018587,
+        "loss_components": {
+            "log_rmse": 0.7932294672018587
+        },
+        "runtime_ms": 0.003669098133349237,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "7_mlp_eta",
+        "approach_number": 7,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_chi_a",
+        "category": "ML",
+        "loss": 0.7978786905428195,
+        "loss_components": {
+            "log_rmse": 0.7978786905428195
+        },
+        "runtime_ms": 0.0007989752383632514,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "14_knn_bound",
+        "approach_number": 14,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "boundary_distance",
+        "category": "Interpolation",
+        "loss": 0.8010963475030696,
+        "loss_components": {
+            "log_rmse": 0.8010963475030696
+        },
+        "runtime_ms": 0.0025364582168540275,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "12_knn_raw",
+        "approach_number": 12,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_4d",
+        "category": "Interpolation",
+        "loss": 0.801237022181342,
+        "loss_components": {
+            "log_rmse": 0.801237022181342
+        },
+        "runtime_ms": 0.0019540616877509742,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "6_mlp_raw",
+        "approach_number": 6,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_4d",
+        "category": "ML",
+        "loss": 0.8061086768713202,
+        "loss_components": {
+            "log_rmse": 0.8061086768713202
+        },
+        "runtime_ms": 0.0006206163013254412,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "16_poly2_ridge_interact",
+        "approach_number": 16,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "interaction_terms",
+        "category": "Interpolation",
+        "loss": 0.8151405714499043,
+        "loss_components": {
+            "log_rmse": 0.8151405714499043
+        },
+        "runtime_ms": 0.0004713771907427839,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "15_knn_logq",
+        "approach_number": 15,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "log_q_spins",
+        "category": "Interpolation",
+        "loss": 0.8171613263391628,
+        "loss_components": {
+            "log_rmse": 0.8171613263391628
+        },
+        "runtime_ms": 0.0019874281555641695,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "4_svr_logq",
+        "approach_number": 4,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "log_q_spins",
+        "category": "Kernel",
+        "loss": 0.8224805952454616,
+        "loss_components": {
+            "log_rmse": 0.8224805952454616
+        },
+        "runtime_ms": 0.008075898536895674,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "3_krr_bound",
+        "approach_number": 3,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "boundary_distance",
+        "category": "Kernel",
+        "loss": 0.833101128221817,
+        "loss_components": {
+            "log_rmse": 0.833101128221817
+        },
+        "runtime_ms": 0.0024484920744374202,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "13_knn_eta",
+        "approach_number": 13,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_chi_a",
+        "category": "Interpolation",
+        "loss": 0.8567698334163525,
+        "loss_components": {
+            "log_rmse": 0.8567698334163525
+        },
+        "runtime_ms": 0.00178419603342925,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "2_gpr_matern_eta",
+        "approach_number": 2,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_chi_a",
+        "category": "Kernel",
+        "loss": 0.9026108880677438,
+        "loss_components": {
+            "log_rmse": 0.9026108880677438
+        },
+        "runtime_ms": 0.003745537677794012,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "1_gpr_rbf_raw",
+        "approach_number": 1,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_4d",
+        "category": "Kernel",
+        "loss": 0.902612384449797,
+        "loss_components": {
+            "log_rmse": 0.902612384449797
+        },
+        "runtime_ms": 0.0032668805304374403,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "10_mlp_deep_interact",
+        "approach_number": 10,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "interaction_terms",
+        "category": "ML",
+        "loss": 0.9091482834045121,
+        "loss_components": {
+            "log_rmse": 0.9091482834045121
+        },
+        "runtime_ms": 0.0009743008601453164,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "21_pysr_bound",
+        "approach_number": 21,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "boundary_distance",
+        "category": "Symbolic",
+        "loss": 0.9266040490732174,
+        "loss_components": {
+            "log_rmse": 0.9266040490732174
+        },
+        "runtime_ms": 0.004429853599490101,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "20_pysr_eta",
+        "approach_number": 20,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "eta_chi_eff_chi_a",
+        "category": "Symbolic",
+        "loss": 0.9278852174004592,
+        "loss_components": {
+            "log_rmse": 0.9278852174004592
+        },
+        "runtime_ms": 0.0038250105374945335,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "19_pysr_raw",
+        "approach_number": 19,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_4d",
+        "category": "Symbolic",
+        "loss": 0.936877357950194,
+        "loss_components": {
+            "log_rmse": 0.936877357950194
+        },
+        "runtime_ms": 0.00463308572162502,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "22_gplearn_interact",
+        "approach_number": 22,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "interaction_terms",
+        "category": "Symbolic",
+        "loss": 2.4820109506774135,
+        "loss_components": {
+            "log_rmse": 2.4820109506774135
+        },
+        "runtime_ms": 0.00028755828624463264,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "18_gplearn_bound",
+        "approach_number": 18,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "boundary_distance",
+        "category": "Symbolic",
+        "loss": 10.91588589453938,
+        "loss_components": {
+            "log_rmse": 10.91588589453938
+        },
+        "runtime_ms": 0.00022689198112973123,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "17_gplearn_raw",
+        "approach_number": 17,
+        "benchmark": "validity",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_4d",
+        "category": "Symbolic",
+        "loss": 51.68001878931506,
+        "loss_components": {
+            "log_rmse": 51.68001878931506
+        },
+        "runtime_ms": 0.00022689198112973123,
+        "n_train": 393,
+        "n_val": 393,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    }
+]

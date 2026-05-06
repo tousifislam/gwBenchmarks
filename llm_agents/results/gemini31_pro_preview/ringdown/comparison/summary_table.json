@@ -1,0 +1,382 @@
+[
+    {
+        "approach": "10_krr_rbf_sqrt",
+        "approach_number": 10,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "sqrt_irred",
+        "mode": "l2_m2_n0",
+        "category": "Interpolation",
+        "loss": 0.0005254371385597487,
+        "loss_components": {
+            "rel_error_omega_real": 0.0009539687444736874,
+            "rel_error_omega_imag": 9.690553264580997e-05
+        },
+        "runtime_ms": 0.00522949376797721,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "12_gpr_matern_log",
+        "approach_number": 12,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "log_compact",
+        "mode": "l2_m2_n0",
+        "category": "ML",
+        "loss": 0.0006990670526619314,
+        "loss_components": {
+            "rel_error_omega_real": 1.4288418225411406e-07,
+            "rel_error_omega_imag": 0.0013979912211416086
+        },
+        "runtime_ms": 0.005924544540951256,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "8_rbf_thin_log",
+        "approach_number": 8,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "log_compact",
+        "mode": "l2_m2_n0",
+        "category": "Interpolation",
+        "loss": 0.0019400394364399377,
+        "loss_components": {
+            "rel_error_omega_real": 7.4363764001793326e-06,
+            "rel_error_omega_imag": 0.0038726424964796963
+        },
+        "runtime_ms": 0.005224105777489039,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "4_poly10_sqrt",
+        "approach_number": 4,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "sqrt_irred",
+        "mode": "l2_m2_n0",
+        "category": "Analytical",
+        "loss": 0.001980555096167731,
+        "loss_components": {
+            "rel_error_omega_real": 0.0014601485817341913,
+            "rel_error_omega_imag": 0.002500961610601271
+        },
+        "runtime_ms": 0.00035381137538988936,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "14_rf_raw",
+        "approach_number": 14,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_a",
+        "mode": "l2_m2_n0",
+        "category": "ML",
+        "loss": 0.004330559385359041,
+        "loss_components": {
+            "rel_error_omega_real": 0.0005088607988201527,
+            "rel_error_omega_imag": 0.00815225797189793
+        },
+        "runtime_ms": 0.00707937050224922,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "15_gb_log",
+        "approach_number": 15,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "log_compact",
+        "mode": "l2_m2_n0",
+        "category": "ML",
+        "loss": 0.00843213787069099,
+        "loss_components": {
+            "rel_error_omega_real": 0.001659207724702348,
+            "rel_error_omega_imag": 0.015205068016679632
+        },
+        "runtime_ms": 0.0010623321245843633,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "2_poly15_log",
+        "approach_number": 2,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "log_compact",
+        "mode": "l2_m2_n0",
+        "category": "Analytical",
+        "loss": 0.07763583411187326,
+        "loss_components": {
+            "rel_error_omega_real": 0.00020280347479261393,
+            "rel_error_omega_imag": 0.1550688647489539
+        },
+        "runtime_ms": 0.00035605637142662724,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "11_gpr_rbf_raw",
+        "approach_number": 11,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_a",
+        "mode": "l2_m2_n0",
+        "category": "ML",
+        "loss": 0.3651228791374702,
+        "loss_components": {
+            "rel_error_omega_real": 0.20363118435028577,
+            "rel_error_omega_imag": 0.5266145739246546
+        },
+        "runtime_ms": 0.004598649881653867,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "9_krr_rbf_raw",
+        "approach_number": 9,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_a",
+        "mode": "l2_m2_n0",
+        "category": "Interpolation",
+        "loss": 0.7828366350219261,
+        "loss_components": {
+            "rel_error_omega_real": 0.0027842037157696765,
+            "rel_error_omega_imag": 1.5628890663280826
+        },
+        "runtime_ms": 0.00545354437244365,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "1_poly10_raw",
+        "approach_number": 1,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_a",
+        "mode": "l2_m2_n0",
+        "category": "Analytical",
+        "loss": 0.9793523865386354,
+        "loss_components": {
+            "rel_error_omega_real": 0.005618182847002598,
+            "rel_error_omega_imag": 1.9530865902302683
+        },
+        "runtime_ms": 0.00047279616533699685,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "3_poly10_cheb",
+        "approach_number": 3,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "chebyshev",
+        "mode": "l2_m2_n0",
+        "category": "Analytical",
+        "loss": 0.9793523865386399,
+        "loss_components": {
+            "rel_error_omega_real": 0.005618182847002482,
+            "rel_error_omega_imag": 1.9530865902302772
+        },
+        "runtime_ms": 0.00033899440154741935,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "13_mlp_raw",
+        "approach_number": 13,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_a",
+        "mode": "l2_m2_n0",
+        "category": "ML",
+        "loss": 6.648889154336038,
+        "loss_components": {
+            "rel_error_omega_real": 0.03389889955554281,
+            "rel_error_omega_imag": 13.263879409116532
+        },
+        "runtime_ms": 0.0004552851962504414,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "6_rbf_multi_raw",
+        "approach_number": 6,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_a",
+        "mode": "l2_m2_n0",
+        "category": "Interpolation",
+        "loss": 8.631996918591055,
+        "loss_components": {
+            "rel_error_omega_real": 2.1617881800885317,
+            "rel_error_omega_imag": 15.10220565709358
+        },
+        "runtime_ms": 0.002314141914669403,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "19_pysr_log",
+        "approach_number": 19,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "log_compact",
+        "mode": "l2_m2_n0",
+        "category": "Symbolic",
+        "loss": 9.89372322194415,
+        "loss_components": {
+            "rel_error_omega_real": 0.06774694300015868,
+            "rel_error_omega_imag": 19.71969950088814
+        },
+        "runtime_ms": 0.005406848454879503,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "16_gplearn_raw",
+        "approach_number": 16,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_a",
+        "mode": "l2_m2_n0",
+        "category": "Symbolic",
+        "loss": 25.36655216985178,
+        "loss_components": {
+            "rel_error_omega_real": 0.15194241933027255,
+            "rel_error_omega_imag": 50.58116192037328
+        },
+        "runtime_ms": 0.00030127846813022305,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "18_pysr_raw",
+        "approach_number": 18,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_a",
+        "mode": "l2_m2_n0",
+        "category": "Symbolic",
+        "loss": 25.729805946097525,
+        "loss_components": {
+            "rel_error_omega_real": 0.1102113583131544,
+            "rel_error_omega_imag": 51.3494005338819
+        },
+        "runtime_ms": 0.006175086098651204,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "17_gplearn_log",
+        "approach_number": 17,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "log_compact",
+        "mode": "l2_m2_n0",
+        "category": "Symbolic",
+        "loss": 27.422791582914755,
+        "loss_components": {
+            "rel_error_omega_real": 4.947530719223264,
+            "rel_error_omega_imag": 49.89805244660624
+        },
+        "runtime_ms": 0.00023752058068686734,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "20_pysr_sqrt",
+        "approach_number": 20,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "sqrt_irred",
+        "mode": "l2_m2_n0",
+        "category": "Symbolic",
+        "loss": 155.37845171173674,
+        "loss_components": {
+            "rel_error_omega_real": 0.47415876205780644,
+            "rel_error_omega_imag": 310.2827446614157
+        },
+        "runtime_ms": 0.036152069178004724,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "7_rbf_cubic_raw",
+        "approach_number": 7,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "raw_a",
+        "mode": "l2_m2_n0",
+        "category": "Interpolation",
+        "loss": 199.65326473304464,
+        "loss_components": {
+            "rel_error_omega_real": 178.1037926237491,
+            "rel_error_omega_imag": 221.20273684234022
+        },
+        "runtime_ms": 0.00731823808055813,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    },
+    {
+        "approach": "5_poly5_comp",
+        "approach_number": 5,
+        "benchmark": "ringdown",
+        "agent": "gemini31_pro_preview",
+        "parameterization": "compactified",
+        "mode": "l2_m2_n0",
+        "category": "Analytical",
+        "loss": 218.7428235174324,
+        "loss_components": {
+            "rel_error_omega_real": 0.24599891200812765,
+            "rel_error_omega_imag": 437.2396481228567
+        },
+        "runtime_ms": 0.0002976864744714424,
+        "n_train": 531,
+        "n_val": 531,
+        "n_params": 0,
+        "notes": "Generated automatically"
+    }
+]

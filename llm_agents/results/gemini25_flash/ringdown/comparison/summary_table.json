@@ -1,0 +1,170 @@
+[
+    {
+        "model_name": "RBFInterp_SqrtIrreducible",
+        "approach_number": 15,
+        "loss": 8.67858522842674e-07,
+        "runtime_ms": 2.8069019317626953,
+        "parameterization": "sqrt_irreducible",
+        "notes": "Model trained with sqrt_irreducible parameterization for mode l2/m+2/n0. Evaluated loss: 0.0000."
+    },
+    {
+        "model_name": "CubicSpline_RawA",
+        "approach_number": 4,
+        "loss": 1.1299329213948735e-05,
+        "runtime_ms": 0.03719329833984375,
+        "parameterization": "raw_a",
+        "notes": "Model trained with raw_a parameterization for mode l2/m+2/n0. Evaluated loss: 0.0000."
+    },
+    {
+        "model_name": "RBFInterp_RawA",
+        "approach_number": 6,
+        "loss": 0.0015156098534734553,
+        "runtime_ms": 2.8138160705566406,
+        "parameterization": "raw_a",
+        "notes": "Model trained with raw_a parameterization for mode l2/m+2/n0. Evaluated loss: 0.0015."
+    },
+    {
+        "model_name": "RandomForest_SqrtIrreducible",
+        "approach_number": 19,
+        "loss": 0.0016041921962861776,
+        "runtime_ms": 27.70519256591797,
+        "parameterization": "sqrt_irreducible",
+        "notes": "Model trained with sqrt_irreducible parameterization for mode l2/m+2/n0. Evaluated loss: 0.0016."
+    },
+    {
+        "model_name": "RandomForest_RawA",
+        "approach_number": 9,
+        "loss": 0.003314267379916575,
+        "runtime_ms": 26.549100875854492,
+        "parameterization": "raw_a",
+        "notes": "Model trained with raw_a parameterization for mode l2/m+2/n0. Evaluated loss: 0.0033."
+    },
+    {
+        "model_name": "GPR_SqrtIrreducible",
+        "approach_number": 14,
+        "loss": 0.013272445313486474,
+        "runtime_ms": 5.584001541137695,
+        "parameterization": "sqrt_irreducible",
+        "notes": "Model trained with sqrt_irreducible parameterization for mode l2/m+2/n0. Evaluated loss: 0.0133."
+    },
+    {
+        "model_name": "XGBoost_RawA",
+        "approach_number": 11,
+        "loss": 0.07312616105718923,
+        "runtime_ms": 0.5877017974853516,
+        "parameterization": "raw_a",
+        "notes": "Model trained with raw_a parameterization for mode l2/m+2/n0. Evaluated loss: 0.0731."
+    },
+    {
+        "model_name": "Polynomial_Fit_Deg15_LogCompactified",
+        "approach_number": 2,
+        "loss": 0.07762608146478812,
+        "runtime_ms": 0.1647472381591797,
+        "parameterization": "log_compactified",
+        "notes": "Model trained with log_compactified parameterization for mode l2/m+2/n0. Evaluated loss: 0.0776."
+    },
+    {
+        "model_name": "LightGBM_RawA",
+        "approach_number": 12,
+        "loss": 0.07871777530594543,
+        "runtime_ms": 1.5978813171386719,
+        "parameterization": "raw_a",
+        "notes": "Model trained with raw_a parameterization for mode l2/m+2/n0. Evaluated loss: 0.0787."
+    },
+    {
+        "model_name": "XGBoost_SqrtIrreducible",
+        "approach_number": 16,
+        "loss": 0.07872340027600318,
+        "runtime_ms": 0.6189346313476562,
+        "parameterization": "sqrt_irreducible",
+        "notes": "Model trained with sqrt_irreducible parameterization for mode l2/m+2/n0. Evaluated loss: 0.0787."
+    },
+    {
+        "model_name": "LightGBM_SqrtIrreducible",
+        "approach_number": 17,
+        "loss": 0.07880897345991425,
+        "runtime_ms": 1.6629695892333984,
+        "parameterization": "sqrt_irreducible",
+        "notes": "Model trained with sqrt_irreducible parameterization for mode l2/m+2/n0. Evaluated loss: 0.0788."
+    },
+    {
+        "model_name": "GPR_RawA",
+        "approach_number": 7,
+        "loss": 0.3583868959995602,
+        "runtime_ms": 5.408048629760742,
+        "parameterization": "raw_a",
+        "notes": "Model trained with raw_a parameterization for mode l2/m+2/n0. Evaluated loss: 0.3584."
+    },
+    {
+        "model_name": "MLP_SqrtIrreducible",
+        "approach_number": 18,
+        "loss": 0.45858601069546484,
+        "runtime_ms": 0.4138946533203125,
+        "parameterization": "sqrt_irreducible",
+        "notes": "Model trained with sqrt_irreducible parameterization for mode l2/m+2/n0. Evaluated loss: 0.4586."
+    },
+    {
+        "model_name": "Polynomial_Fit_Deg10_RawA",
+        "approach_number": 1,
+        "loss": 0.9793489834944036,
+        "runtime_ms": 0.15997886657714844,
+        "parameterization": "raw_a",
+        "notes": "Model trained with raw_a parameterization for mode l2/m+2/n0. Evaluated loss: 0.9793."
+    },
+    {
+        "model_name": "Chebyshev_Poly_RawA",
+        "approach_number": 3,
+        "loss": 0.9793489834945219,
+        "runtime_ms": 0.041961669921875,
+        "parameterization": "chebyshev_mapped",
+        "notes": "Model trained with chebyshev_mapped parameterization for mode l2/m+2/n0. Evaluated loss: 0.9793."
+    },
+    {
+        "model_name": "Rational_Fit_RawA",
+        "approach_number": 5,
+        "loss": 1.0323923827870285,
+        "runtime_ms": 0.225067138671875,
+        "parameterization": "raw_a",
+        "notes": "Model trained with raw_a parameterization for mode l2/m+2/n0. Evaluated loss: 1.0324."
+    },
+    {
+        "model_name": "PhenomFit_Poly_LogCompactified",
+        "approach_number": 13,
+        "loss": 1.2697910827447114,
+        "runtime_ms": 0.14400482177734375,
+        "parameterization": "log_compactified",
+        "notes": "Model trained with log_compactified parameterization for mode l2/m+2/n0. Evaluated loss: 1.2698."
+    },
+    {
+        "model_name": "MLP_RawA",
+        "approach_number": 8,
+        "loss": 2.947834491124929,
+        "runtime_ms": 0.44274330139160156,
+        "parameterization": "raw_a",
+        "notes": "Model trained with raw_a parameterization for mode l2/m+2/n0. Evaluated loss: 2.9478."
+    },
+    {
+        "model_name": "MLP_Compactified",
+        "approach_number": 22,
+        "loss": 4.787317128884459,
+        "runtime_ms": 0.4420280456542969,
+        "parameterization": "compactified",
+        "notes": "Model trained with compactified parameterization for mode l2/m+2/n0. Evaluated loss: 4.7873."
+    },
+    {
+        "model_name": "RBFInterp_Compactified",
+        "approach_number": 21,
+        "loss": 149.3947908905049,
+        "runtime_ms": 2.791881561279297,
+        "parameterization": "compactified",
+        "notes": "Model trained with compactified parameterization for mode l2/m+2/n0. Evaluated loss: 149.3948."
+    },
+    {
+        "model_name": "GPR_Compactified",
+        "approach_number": 20,
+        "loss": 13251.581564104075,
+        "runtime_ms": 5.727052688598633,
+        "parameterization": "compactified",
+        "notes": "Model trained with compactified parameterization for mode l2/m+2/n0. Evaluated loss: 13251.5816."
+    }
+]
