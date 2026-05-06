@@ -56,6 +56,16 @@ Benchmark suite for evaluating LLM-based gravitational wave (GW) modelling using
 | **Output** | predicted mismatch M̂ |
 | **Loss** | RMSE(log M̂, log M*) |
 
+### 7. New Physics Bench (RG-tail inspiral)
+
+| | |
+|---|---|
+| **Input** | Physics formulas from arXiv:2602.08833 (source packet) |
+| **Output** | `h_of_f(f, Mc, eta, dL, lambda_RG, ...)` implementation |
+| **Loss** | Mean frequency-domain mismatch over 144 test cases (4 Mc × 4 eta × 3 dL × 3 lambda_RG) |
+
+This benchmark is **formula-driven**: the agent receives post-Newtonian formulas for the dominant (2,2) mode with RG-tail corrections and must implement a frequency-domain waveform from first principles. The beyond-GR parameter `lambda_RG` deforms the radiative tail propagation; `lambda_RG = 1` recovers GR.
+
 ## Frequency-domain mismatch
 
 The FD mismatch is computed via PyCBC using the aLIGO `aLIGOZeroDetHighPower` PSD, maximized over time and phase shifts:
@@ -64,7 +74,7 @@ The FD mismatch is computed via PyCBC using the aLIGO `aLIGOZeroDetHighPower` PS
 mismatch = 1 - max_{t,phi} <h_pred, h_ref> / sqrt(<h_pred, h_pred> <h_ref, h_ref>)
 ```
 
-with `f_low = 15 Hz`, `f_high = 990 Hz`. PyCBC is required for the waveform and analytic benchmarks.
+with `f_low = 15 Hz`, `f_high = 990 Hz`. PyCBC is required for the waveform, analytic, and new physics benchmarks.
 
 ## Datasets
 
@@ -81,6 +91,7 @@ HDF5 dataset files are **not** stored in this repository due to size. Each bench
 | ringdown | `ringdown_training.h5` | `ringdown_validation.h5` |
 | analytic | `analytic_training.h5` | `analytic_validation.h5` |
 | validity | `validity_training.h5` | `validity_validation.h5` |
+| new_physics | — (formula-driven) | Reference in `gwbenchmarks/rg_tail_reference.py` |
 
 ## Rules
 
@@ -109,16 +120,18 @@ print(f"Loss: {result.loss:.6f}")
 gwBenchmarks/
 ├── gwbenchmarks/
 │   ├── __init__.py
-│   ├── metrics.py          # FD mismatch, RMS relative error, NRMSE
-│   ├── runner.py           # Benchmark runner
+│   ├── metrics.py              # FD mismatch, RMS relative error, NRMSE
+│   ├── runner.py               # Benchmark runner
+│   ├── rg_tail_reference.py    # Reference waveform for New Physics Bench
 │   └── benchmarks/
-│       ├── base.py         # Abstract benchmark class
+│       ├── base.py             # Abstract benchmark class
 │       ├── waveform.py
 │       ├── remnant.py
 │       ├── dynamics.py
 │       ├── ringdown.py
 │       ├── analytic.py
-│       └── validity.py
-├── configs/                # YAML configs per benchmark
-└── datasets/               # READMEs, scripts, plots (HDF5 files hosted separately)
+│       ├── validity.py
+│       └── new_physics.py
+├── configs/                    # YAML configs per benchmark
+└── datasets/                   # READMEs, scripts, plots (HDF5 files hosted separately)
 ```

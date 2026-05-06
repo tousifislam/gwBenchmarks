@@ -14,7 +14,7 @@ Supported agents : haiku, opus46, opus47, sonnet46,
                    gpt55_high, gpt54_mini, gpt53_codex_high, gpt52,
                    gemini31_pro_preview, gemini25_pro, gemini3_flash_preview, gemini25_flash,
                     hy3_preview_free, kimi_k26, deepseek_v4_pro_max
-Supported benchmarks: waveform, remnant, dynamics, ringdown, validity, analytic
+Supported benchmarks: waveform, remnant, dynamics, ringdown, validity, analytic, new_physics
 """
 
 import sys
@@ -38,7 +38,7 @@ AGENT_LABELS = {
     "deepseek_v4_pro_max": "DeepSeek V4 Pro Max",
 }
 
-BENCHMARKS = ["waveform", "remnant", "dynamics", "ringdown", "validity", "analytic"]
+BENCHMARKS = ["waveform", "remnant", "dynamics", "ringdown", "validity", "analytic", "new_physics"]
 
 
 def generate(agent: str, benchmark: str) -> str:
