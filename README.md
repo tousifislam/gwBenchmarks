@@ -2,6 +2,11 @@
   <img src="logo.png" alt="gwBenchmarks" width="200">
 </p>
 
+<p align="center">
+  <a href="https://tousifislam.com/gwBenchmarks/"><img src="https://img.shields.io/badge/Website-gwBenchmarks-blue?style=for-the-badge&logo=github" alt="Website"></a>
+  <a href="https://huggingface.co/GWagents"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Datasets-yellow?style=for-the-badge" alt="HuggingFace Datasets"></a>
+</p>
+
 # gwBenchmarks
 
 Benchmark suite for evaluating LLM-based gravitational wave (GW) modelling using fully numeric, physically motivated metrics. All tasks avoid human scoring and rely on standard loss functions from GW astronomy.
@@ -86,11 +91,9 @@ with `f_low = 15 Hz`, `f_high = 990 Hz`. PyCBC is required for the waveform, ana
 
 ## Datasets
 
-Binary dataset files are **not** stored in this repository due to size. They are hosted at:
+Binary dataset files are **not** stored in this repository due to size. They are hosted on Hugging Face:
 
-```text
-https://huggingface.co/datasets/GWagents/gwBenchmarks
-```
+**[🤗 GWagents/gwBenchmarks](https://huggingface.co/datasets/GWagents/gwBenchmarks)**
 
 Each benchmark directory under `datasets/` contains:
 - `README.md` — dataset description, parameter ranges, train/val split
