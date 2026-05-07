@@ -9,6 +9,8 @@
 
 Benchmark suite for evaluating LLM-based gravitational wave (GW) modelling using fully numeric, physically motivated metrics. All tasks avoid human scoring and rely on standard loss functions from GW astronomy.
 
+**Investigators**: Tousif Islam (KITP, UC Santa Barbara) · Digvijay Wadekar (UT Austin) · Zihan Zhou (Princeton)
+
 ## Benchmarks
 
 ### 1. Waveform Bench (Co-precessing h₂₂)
