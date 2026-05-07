@@ -1,0 +1,12 @@
+{
+  "method": "greedy_multiphase_fps_coverage",
+  "n_bank": 281,
+  "overlap_evaluations": 24700800,
+  "public_train_size": 6001,
+  "public_eval_size": 2573,
+  "public_eval_threshold": 0.97,
+  "public_eval_target_coverage": 0.5,
+  "public_eval_coverage_fraction": 0.7427127866303925,
+  "public_eval_median_best_overlap": 0.9768064623043002,
+  "public_eval_prefix_length_to_50pct": 81
+}

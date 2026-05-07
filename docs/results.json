@@ -23,6 +23,14 @@
     "analytic": {
       "loss": 0.0521565170374327,
       "model": "phen_imr_cheb14_logq_p4"
+    },
+    "template_bank": {
+      "loss": 0.3333,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 1.2882e-05,
+      "model": "candidate_waveform"
     }
   },
   "opus46": {
@@ -49,6 +57,14 @@
     "analytic": {
       "loss": 0.1675373753024337,
       "model": "pn_qnm_blend_eta"
+    },
+    "template_bank": {
+      "loss": 0.3293,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 0.00014182,
+      "model": "candidate_waveform"
     }
   },
   "sonnet46": {
@@ -75,6 +91,14 @@
     "analytic": {
       "loss": 0.27208402287550043,
       "model": "phenom_pysr_freq"
+    },
+    "template_bank": {
+      "loss": 0.4219,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 0.003842,
+      "model": "candidate_waveform"
     }
   },
   "haiku": {
@@ -89,7 +113,15 @@
     "dynamics": null,
     "ringdown": null,
     "validity": null,
-    "analytic": null
+    "analytic": null,
+    "template_bank": {
+      "loss": 0.2673,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 0.003808,
+      "model": "candidate_waveform"
+    }
   },
   "gpt55_high": {
     "waveform": {
@@ -115,6 +147,14 @@
     "analytic": {
       "loss": 0.35109237267813603,
       "model": "Damped-Sinusoids"
+    },
+    "template_bank": {
+      "loss": 0.3375,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 1.2867e-05,
+      "model": "candidate_waveform"
     }
   },
   "gpt54_mini": {
@@ -141,6 +181,14 @@
     "analytic": {
       "loss": 0.6386078428427667,
       "model": "symbolic_pysr_freq_delta"
+    },
+    "template_bank": {
+      "loss": 0.1015,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 0.003821,
+      "model": "candidate_waveform"
     }
   },
   "gpt53_codex_high": {
@@ -167,6 +215,14 @@
     "analytic": {
       "loss": 0.35109237267813603,
       "model": "Damped-Sinusoids"
+    },
+    "template_bank": {
+      "loss": 0.3068,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 0.505144,
+      "model": "candidate_waveform"
     }
   },
   "gpt52": {
@@ -193,6 +249,14 @@
     "analytic": {
       "loss": 0.27197858463072794,
       "model": "closed_form"
+    },
+    "template_bank": {
+      "loss": 0.1364,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 0.001191,
+      "model": "candidate_waveform"
     }
   },
   "gemini31_pro_preview": {
@@ -219,6 +283,14 @@
     "analytic": {
       "loss": 0.7903484987263402,
       "model": "2_taylort4_q"
+    },
+    "template_bank": {
+      "loss": 0.0796,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 0.00014736,
+      "model": "candidate_waveform"
     }
   },
   "gemini3_flash_preview": {
@@ -245,6 +317,14 @@
     "analytic": {
       "loss": 0.413900228599356,
       "model": "damped_sin"
+    },
+    "template_bank": {
+      "loss": 0.0523,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 0.00014736,
+      "model": "candidate_waveform"
     }
   },
   "kimi_k26": {
@@ -271,6 +351,45 @@
     "analytic": {
       "loss": 0.58,
       "model": "23_pade_q"
+    },
+    "template_bank": {
+      "loss": 0.4355,
+      "model": "greedy_bank"
+    },
+    "new_physics": null
+  },
+  "deepseek_v4_pro_max": {
+    "waveform": {
+      "loss": 0.4478,
+      "model": "svd_gb_eta_chieff"
+    },
+    "remnant": {
+      "loss": 0.0909,
+      "model": "poly3_eta_chieff"
+    },
+    "dynamics": {
+      "loss": 0.1005,
+      "model": "svd_gpr_rbf_eta"
+    },
+    "ringdown": {
+      "loss": 1.1299e-05,
+      "model": "cubic_spline"
+    },
+    "validity": {
+      "loss": 0.7204,
+      "model": "rf_raw"
+    },
+    "analytic": {
+      "loss": 0.5043,
+      "model": "pade_resummed_pn_eta"
+    },
+    "template_bank": {
+      "loss": 0.3253,
+      "model": "greedy_bank"
+    },
+    "new_physics": {
+      "loss": 1.2921e-05,
+      "model": "candidate_waveform"
     }
   }
 }
