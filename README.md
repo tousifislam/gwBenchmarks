@@ -1,7 +1,6 @@
 [![Website](https://img.shields.io/badge/Website-gwBenchmarks-blue.svg)](https://tousifislam.com/gwBenchmarks/)
 [![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-Datasets-yellow.svg)](https://huggingface.co/GWagents)
-![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Ftousifislam%2FgwBenchmarks&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false)
-[![License](https://img.shields.io/github/license/tousifislam/gwBenchmarks)](https://github.com/tousifislam/gwBenchmarks/blob/main/LICENSE)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=tousifislam.gwBenchmarks)
 ![Last Updated](https://img.shields.io/github/last-commit/tousifislam/gwBenchmarks/main?label=last%20updated)
 
 ![alt text](logo.png)
