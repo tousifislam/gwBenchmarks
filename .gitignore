@@ -27,3 +27,8 @@ llm_agents/results/**/saved_model/
 *.pkl
 *.joblib
 paper_by_ai/
+
+# One-off evaluation/recompute scripts (kept locally)
+llm_agents/recompute_*.py
+llm_agents/run_*_model.py
+llm_agents/update_*_changelog.py
