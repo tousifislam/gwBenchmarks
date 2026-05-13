@@ -1,3 +1,4 @@
+[![arXiv](https://img.shields.io/badge/arXiv-2605.11269-b31b1b.svg)](https://arxiv.org/abs/2605.11269)
 [![Website](https://img.shields.io/badge/Website-gwBenchmarks-blue.svg)](https://tousifislam.com/gwBenchmarks/)
 [![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-Datasets-yellow.svg)](https://huggingface.co/GWagents)
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=tousifislam.gwBenchmarks)
@@ -8,6 +9,8 @@
 ## **gwBenchmarks**
 
 Benchmark suite for evaluating LLM-based gravitational wave (GW) modelling using fully numeric, physically motivated metrics. All tasks avoid human scoring and rely on standard loss functions from GW astronomy.
+
+**Paper:** [arXiv:2605.11269](https://arxiv.org/abs/2605.11269)
 
 **Investigators**: Tousif Islam (KITP, UC Santa Barbara) · Digvijay Wadekar (UT Austin) · Zihan Zhou (Princeton)
 
