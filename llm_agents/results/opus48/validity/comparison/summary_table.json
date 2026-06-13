@@ -1,0 +1,209 @@
+[
+  {
+    "rank": 1,
+    "approach": "xgboost_boundary",
+    "category": "ml",
+    "parameterization": "boundary",
+    "loss": 1.6301266075730068,
+    "train_loss": 0.5803163895557604,
+    "runtime_ms": 0.004043409235908178
+  },
+  {
+    "rank": 2,
+    "approach": "rf_raw",
+    "category": "ml",
+    "parameterization": "raw_4d",
+    "loss": 1.6668823219512185,
+    "train_loss": 0.6632920038595846,
+    "runtime_ms": 0.09094910463910673
+  },
+  {
+    "rank": 3,
+    "approach": "extratrees_eff",
+    "category": "ml",
+    "parameterization": "eff_spin",
+    "loss": 1.7096597782409368,
+    "train_loss": 7.136433365627427e-14,
+    "runtime_ms": 0.11791588392573155
+  },
+  {
+    "rank": 4,
+    "approach": "xgboost_logq",
+    "category": "ml",
+    "parameterization": "log_q",
+    "loss": 1.7160712333708499,
+    "train_loss": 0.6122131437964695,
+    "runtime_ms": 0.0022804464092691435
+  },
+  {
+    "rank": 5,
+    "approach": "mlp_deep_boundary",
+    "category": "ml",
+    "parameterization": "boundary",
+    "loss": 1.720948540708116,
+    "train_loss": 0.9884836752350005,
+    "runtime_ms": 0.001565190671964456
+  },
+  {
+    "rank": 6,
+    "approach": "rbf_linear_boundary",
+    "category": "interpolation",
+    "parameterization": "boundary",
+    "loss": 1.7363342215014863,
+    "train_loss": 0.39002640423986473,
+    "runtime_ms": 0.0021579004729370427
+  },
+  {
+    "rank": 7,
+    "approach": "deep_ensemble_boundary",
+    "category": "ml",
+    "parameterization": "boundary",
+    "loss": 1.7897884297125386,
+    "train_loss": 1.0010791022963108,
+    "runtime_ms": 0.0018139225229355518
+  },
+  {
+    "rank": 8,
+    "approach": "lightgbm_eff",
+    "category": "ml",
+    "parameterization": "eff_spin",
+    "loss": 1.7950997565658153,
+    "train_loss": 0.6973583343024484,
+    "runtime_ms": 0.009238871605948334
+  },
+  {
+    "rank": 9,
+    "approach": "gpr_rbf_boundary",
+    "category": "kernel_gp",
+    "parameterization": "boundary",
+    "loss": 1.8100511432121462,
+    "train_loss": 1.7458859124573034,
+    "runtime_ms": 0.002394499062885158
+  },
+  {
+    "rank": 10,
+    "approach": "gpr_matern_eff",
+    "category": "kernel_gp",
+    "parameterization": "eff_spin",
+    "loss": 1.8151436468537019,
+    "train_loss": 1.8671214350509844,
+    "runtime_ms": 0.003343320074882216
+  },
+  {
+    "rank": 11,
+    "approach": "gpr_rbf_raw",
+    "category": "kernel_gp",
+    "parameterization": "raw_4d",
+    "loss": 1.8275501551761406,
+    "train_loss": 1.904853718020675,
+    "runtime_ms": 0.002285299713678336
+  },
+  {
+    "rank": 12,
+    "approach": "knn_raw",
+    "category": "interpolation",
+    "parameterization": "raw_4d",
+    "loss": 1.8283244280607784,
+    "train_loss": 0.0,
+    "runtime_ms": 0.0027378703498355003
+  },
+  {
+    "rank": 13,
+    "approach": "poly3_eff",
+    "category": "ml",
+    "parameterization": "eff_spin",
+    "loss": 1.8713156310634933,
+    "train_loss": 1.8655582831863284,
+    "runtime_ms": 0.00046591722328244277
+  },
+  {
+    "rank": 14,
+    "approach": "poly2_interactions",
+    "category": "ml",
+    "parameterization": "interactions",
+    "loss": 1.8769305285151978,
+    "train_loss": 1.9073796188902115,
+    "runtime_ms": 0.0003821977222238788
+  },
+  {
+    "rank": 15,
+    "approach": "krr_rbf_logq",
+    "category": "kernel_gp",
+    "parameterization": "log_q",
+    "loss": 1.8831911974892057,
+    "train_loss": 1.6355448675585715,
+    "runtime_ms": 0.002396925715089754
+  },
+  {
+    "rank": 16,
+    "approach": "gplearn_eff",
+    "category": "symbolic",
+    "parameterization": "eff_spin",
+    "loss": 1.9149453693559129,
+    "train_loss": 2.0452489649569063,
+    "runtime_ms": 0.0003336646781319577
+  },
+  {
+    "rank": 17,
+    "approach": "svr_rbf_interactions",
+    "category": "kernel_gp",
+    "parameterization": "interactions",
+    "loss": 1.9161766056206528,
+    "train_loss": 1.8423466593082825,
+    "runtime_ms": 0.009796394949954278
+  },
+  {
+    "rank": 18,
+    "approach": "pysr_raw",
+    "category": "symbolic",
+    "parameterization": "raw_4d",
+    "loss": 1.9889839174744952,
+    "train_loss": 2.0997996923682574,
+    "runtime_ms": 0.011050974139730439
+  },
+  {
+    "rank": 19,
+    "approach": "rbf_thinplate_eff",
+    "category": "interpolation",
+    "parameterization": "eff_spin",
+    "loss": 2.0229839150659252,
+    "train_loss": 0.22648492336933737,
+    "runtime_ms": 0.0029720422875790195
+  },
+  {
+    "rank": 20,
+    "approach": "gplearn_raw",
+    "category": "symbolic",
+    "parameterization": "raw_4d",
+    "loss": 2.029523480992084,
+    "train_loss": 1.9460323720978363,
+    "runtime_ms": 0.0006418495081156568
+  },
+  {
+    "rank": 21,
+    "approach": "mlp_eff",
+    "category": "ml",
+    "parameterization": "eff_spin",
+    "loss": 2.037744670497647,
+    "train_loss": 0.7992614224589464,
+    "runtime_ms": 0.0007146490742535385
+  },
+  {
+    "rank": 22,
+    "approach": "pysr_boundary",
+    "category": "symbolic",
+    "parameterization": "boundary",
+    "loss": 2.048557247758481,
+    "train_loss": 2.1863969572181516,
+    "runtime_ms": 0.004814477973918575
+  },
+  {
+    "rank": 23,
+    "approach": "rbf_multiquadric_interactions",
+    "category": "interpolation",
+    "parameterization": "interactions",
+    "loss": 2.1235078561928926,
+    "train_loss": 0.7729691238967219,
+    "runtime_ms": 0.0016567967926879573
+  }
+]

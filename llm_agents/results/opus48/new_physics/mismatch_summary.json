@@ -1,0 +1,28 @@
+{
+  "argmax": {
+    "Mc": 12.0,
+    "dL": 1000.0,
+    "eta": 0.247,
+    "lambda_RG": 0.8,
+    "mismatch": 0.8989357383236837
+  },
+  "argmin": {
+    "Mc": 40.0,
+    "dL": 410.0,
+    "eta": 0.12,
+    "lambda_RG": 1.2,
+    "mismatch": 0.48816854812314436
+  },
+  "delta_f": 0.125,
+  "f_high_hz": 990.0,
+  "f_low_hz": 15.0,
+  "max_fd_mismatch": 0.8989357383236837,
+  "mean_fd_mismatch": 0.7087221586979737,
+  "median_fd_mismatch": 0.7128505117272628,
+  "min_fd_mismatch": 0.48816854812314436,
+  "n_cases": 144,
+  "n_failed": 0,
+  "psd": "aLIGOZeroDetHighPower",
+  "scorer": "gwbenchmarks.benchmarks.new_physics.NewPhysicsBench.score_h_of_f",
+  "std_fd_mismatch": 0.1426901640787761
+}

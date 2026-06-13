@@ -1,0 +1,14 @@
+{
+  "method": "greedy_max_coverage_set_cover_IMRPhenomXHM",
+  "n_bank": 40,
+  "overlap_evaluations": 36126884,
+  "public_train_size": 6002,
+  "public_eval_size": 2572,
+  "public_eval_threshold": 0.97,
+  "public_eval_target_coverage": 0.5,
+  "public_eval_coverage_fraction": 0.687402799377916,
+  "public_eval_median_best_overlap": 0.9804973905705312,
+  "public_eval_prefix_length_to_50pct": 9,
+  "build_coverage_goal": 0.72,
+  "seed": 20259
+}

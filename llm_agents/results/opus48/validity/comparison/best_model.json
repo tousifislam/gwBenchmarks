@@ -1,0 +1,20 @@
+{
+  "approach": "xgboost_boundary",
+  "approach_number": 18,
+  "benchmark": "validity",
+  "agent": "opus48",
+  "category": "ml",
+  "parameterization": "boundary",
+  "loss": 1.6301266075730068,
+  "loss_components": {
+    "log_rmse": 1.6301266075730068
+  },
+  "train_loss": 0.5803163895557604,
+  "val_median_err": 1.0006085670094702,
+  "runtime_ms": 0.004043409235908178,
+  "n_train": 393,
+  "n_val": 393,
+  "n_params": 7,
+  "notes": "XGBoost with boundary features.",
+  "wall_time_s": 1.0
+}

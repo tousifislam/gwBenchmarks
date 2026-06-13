@@ -1,0 +1,200 @@
+[
+  {
+    "rank": 1,
+    "approach": "poly3_eff",
+    "category": "ml",
+    "parameterization": "eff_spin",
+    "loss": 0.0905565120090702,
+    "train_loss": 0.09145149443568537,
+    "runtime_ms": 0.0003447532653808594
+  },
+  {
+    "rank": 2,
+    "approach": "rf_raw",
+    "category": "ml",
+    "parameterization": "raw_7d",
+    "loss": 0.0928842082294019,
+    "train_loss": 0.03724026688727446,
+    "runtime_ms": 0.04916787147521973
+  },
+  {
+    "rank": 3,
+    "approach": "knn_raw",
+    "category": "interpolation",
+    "parameterization": "raw_7d",
+    "loss": 0.0946875427486046,
+    "train_loss": 0.0,
+    "runtime_ms": 0.0056171417236328125
+  },
+  {
+    "rank": 4,
+    "approach": "extratrees_eff",
+    "category": "ml",
+    "parameterization": "eff_spin",
+    "loss": 0.0947595906482611,
+    "train_loss": 1.4107042428236678e-08,
+    "runtime_ms": 0.04827404022216797
+  },
+  {
+    "rank": 5,
+    "approach": "xgboost_pn",
+    "category": "ml",
+    "parameterization": "pn_products",
+    "loss": 0.09503503466388817,
+    "train_loss": 0.04516256979462532,
+    "runtime_ms": 0.0009860992431640625
+  },
+  {
+    "rank": 6,
+    "approach": "gpr_rbf_pn_logt",
+    "category": "kernel_gp",
+    "parameterization": "pn_products",
+    "loss": 0.09589766341821034,
+    "train_loss": 0.09875038819471117,
+    "runtime_ms": 0.006554126739501953
+  },
+  {
+    "rank": 7,
+    "approach": "krr_rbf_eff",
+    "category": "kernel_gp",
+    "parameterization": "eff_spin",
+    "loss": 0.09668841112120893,
+    "train_loss": 0.07995620745902246,
+    "runtime_ms": 0.004303932189941406
+  },
+  {
+    "rank": 8,
+    "approach": "rbf_linear_spherical",
+    "category": "interpolation",
+    "parameterization": "spherical",
+    "loss": 0.09914928235048662,
+    "train_loss": 0.001463984457428964,
+    "runtime_ms": 0.005354166030883789
+  },
+  {
+    "rank": 9,
+    "approach": "mlp_eff",
+    "category": "ml",
+    "parameterization": "eff_spin",
+    "loss": 0.10105111479216815,
+    "train_loss": 0.07172745463710292,
+    "runtime_ms": 0.0004918575286865234
+  },
+  {
+    "rank": 10,
+    "approach": "xgboost_logt_massdiff",
+    "category": "ml",
+    "parameterization": "massdiff_antisym",
+    "loss": 0.10140929882651581,
+    "train_loss": 0.04512265107378625,
+    "runtime_ms": 0.0009279251098632812
+  },
+  {
+    "rank": 11,
+    "approach": "mlp_deep_pn",
+    "category": "ml",
+    "parameterization": "pn_products",
+    "loss": 0.10197315183593784,
+    "train_loss": 0.06873457109909484,
+    "runtime_ms": 0.0012350082397460938
+  },
+  {
+    "rank": 12,
+    "approach": "lightgbm_eff",
+    "category": "ml",
+    "parameterization": "eff_spin",
+    "loss": 0.10206687948858703,
+    "train_loss": 0.033734074808406365,
+    "runtime_ms": 0.01300501823425293
+  },
+  {
+    "rank": 13,
+    "approach": "pysr_vf_raw",
+    "category": "symbolic",
+    "parameterization": "raw_7d",
+    "loss": 0.10346904893794577,
+    "train_loss": 0.11464403161936057,
+    "runtime_ms": 0.0029048919677734375
+  },
+  {
+    "rank": 14,
+    "approach": "pysr_vf_pn",
+    "category": "symbolic",
+    "parameterization": "pn_products",
+    "loss": 0.10434119847085105,
+    "train_loss": 0.1109049903594436,
+    "runtime_ms": 0.0017819404602050781
+  },
+  {
+    "rank": 15,
+    "approach": "poly5_pn",
+    "category": "ml",
+    "parameterization": "pn_products",
+    "loss": 0.10672811556557962,
+    "train_loss": 0.07697608002623048,
+    "runtime_ms": 0.0013759136199951172
+  },
+  {
+    "rank": 16,
+    "approach": "gpr_matern_eff",
+    "category": "kernel_gp",
+    "parameterization": "eff_spin",
+    "loss": 0.11536525274951409,
+    "train_loss": 8.670812317201811e-05,
+    "runtime_ms": 0.009630918502807617
+  },
+  {
+    "rank": 17,
+    "approach": "gpr_rbf_raw",
+    "category": "kernel_gp",
+    "parameterization": "raw_7d",
+    "loss": 0.11625187062836817,
+    "train_loss": 0.000602200242416362,
+    "runtime_ms": 0.006995201110839844
+  },
+  {
+    "rank": 18,
+    "approach": "rbf_thinplate_eff",
+    "category": "interpolation",
+    "parameterization": "eff_spin",
+    "loss": 0.1163203189481993,
+    "train_loss": 0.006719312905601297,
+    "runtime_ms": 0.00797414779663086
+  },
+  {
+    "rank": 19,
+    "approach": "svr_rbf_pn",
+    "category": "kernel_gp",
+    "parameterization": "pn_products",
+    "loss": 0.13051848011454914,
+    "train_loss": 0.08134641254925935,
+    "runtime_ms": 0.011134862899780273
+  },
+  {
+    "rank": 20,
+    "approach": "rbf_multiquadric_pn",
+    "category": "interpolation",
+    "parameterization": "pn_products",
+    "loss": 0.1316778819068183,
+    "train_loss": 0.02602853568420561,
+    "runtime_ms": 0.00466609001159668
+  },
+  {
+    "rank": 21,
+    "approach": "gplearn_vf_eff",
+    "category": "symbolic",
+    "parameterization": "eff_spin",
+    "loss": 0.3283748690976209,
+    "train_loss": 0.33307288084472075,
+    "runtime_ms": 8.106231689453125e-05
+  },
+  {
+    "rank": 22,
+    "approach": "gplearn_vf_raw",
+    "category": "symbolic",
+    "parameterization": "raw_7d",
+    "loss": 1.7415617367287484,
+    "train_loss": 1.7393208531501765,
+    "runtime_ms": 8.20159912109375e-05
+  }
+]

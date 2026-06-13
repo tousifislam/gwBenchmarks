@@ -1,0 +1,209 @@
+[
+  {
+    "rank": 1,
+    "approach": "rational1010_logcompact",
+    "category": "analytical",
+    "parameterization": "log_compact",
+    "loss": 5.329663467873984e-06,
+    "train_loss": 5.262207825687662e-06,
+    "runtime_ms": 0.00037626133575726815
+  },
+  {
+    "rank": 2,
+    "approach": "rbf_cubic_logcompact",
+    "category": "interpolation",
+    "parameterization": "log_compact",
+    "loss": 6.33797896455496e-06,
+    "train_loss": 9.878281398511746e-11,
+    "runtime_ms": 0.0019302475923872262
+  },
+  {
+    "rank": 3,
+    "approach": "rational88_logcompact",
+    "category": "analytical",
+    "parameterization": "log_compact",
+    "loss": 8.77547761264029e-06,
+    "train_loss": 8.733178350003739e-06,
+    "runtime_ms": 0.00028646149428775304
+  },
+  {
+    "rank": 4,
+    "approach": "cubic_spline_raw",
+    "category": "interpolation",
+    "parameterization": "raw_a",
+    "loss": 1.129938125910401e-05,
+    "train_loss": 6.854051166898873e-17,
+    "runtime_ms": 8.216685494460628e-05
+  },
+  {
+    "rank": 5,
+    "approach": "krr_rbf_logcompact",
+    "category": "ml",
+    "parameterization": "log_compact",
+    "loss": 8.27460843987412e-05,
+    "train_loss": 5.092135628043995e-05,
+    "runtime_ms": 0.0030320916472181764
+  },
+  {
+    "rank": 6,
+    "approach": "spline_smooth_logcompact",
+    "category": "interpolation",
+    "parameterization": "log_compact",
+    "loss": 0.00013329446556620557,
+    "train_loss": 0.00013183827866912993,
+    "runtime_ms": 8.081985732256355e-05
+  },
+  {
+    "rank": 7,
+    "approach": "poly12_sqrtirr",
+    "category": "analytical",
+    "parameterization": "sqrt_irr",
+    "loss": 0.00134668558920957,
+    "train_loss": 0.0014985936275319057,
+    "runtime_ms": 8.665684701808203e-05
+  },
+  {
+    "rank": 8,
+    "approach": "gpr_rbf_logcompact",
+    "category": "ml",
+    "parameterization": "log_compact",
+    "loss": 0.0014588854606737466,
+    "train_loss": 0.0012477679979367021,
+    "runtime_ms": 0.0038964151213622586
+  },
+  {
+    "rank": 9,
+    "approach": "rf_raw",
+    "category": "ml",
+    "parameterization": "raw_a",
+    "loss": 0.006349287529981295,
+    "train_loss": 0.0084256645199331,
+    "runtime_ms": 0.06220884017800656
+  },
+  {
+    "rank": 10,
+    "approach": "rbf_thinplate_raw",
+    "category": "interpolation",
+    "parameterization": "raw_a",
+    "loss": 0.00684194350299479,
+    "train_loss": 0.007229240637029625,
+    "runtime_ms": 0.003133565468078728
+  },
+  {
+    "rank": 11,
+    "approach": "poly15_logcompact",
+    "category": "analytical",
+    "parameterization": "log_compact",
+    "loss": 0.008176041112328234,
+    "train_loss": 0.0018888207374425524,
+    "runtime_ms": 9.608583037238112e-05
+  },
+  {
+    "rank": 12,
+    "approach": "pysr_logcompact",
+    "category": "symbolic",
+    "parameterization": "log_compact",
+    "loss": 0.011772790341173052,
+    "train_loss": 0.011842853124280189,
+    "runtime_ms": 0.009080559969397363
+  },
+  {
+    "rank": 13,
+    "approach": "rational66_raw",
+    "category": "analytical",
+    "parameterization": "raw_a",
+    "loss": 0.029335928682355596,
+    "train_loss": 0.02992835136602201,
+    "runtime_ms": 0.0002186626139782692
+  },
+  {
+    "rank": 14,
+    "approach": "histgbm_raw",
+    "category": "ml",
+    "parameterization": "raw_a",
+    "loss": 0.08605888687267207,
+    "train_loss": 0.10371890187064316,
+    "runtime_ms": 0.06705084763004282
+  },
+  {
+    "rank": 15,
+    "approach": "gpr_rbf_raw",
+    "category": "ml",
+    "parameterization": "raw_a",
+    "loss": 0.33011161341795514,
+    "train_loss": 0.39577454041672067,
+    "runtime_ms": 0.0034141899726709626
+  },
+  {
+    "rank": 16,
+    "approach": "cheby20_chebymap",
+    "category": "analytical",
+    "parameterization": "cheby_map",
+    "loss": 0.4194179708134341,
+    "train_loss": 0.5019081232414537,
+    "runtime_ms": 0.0001620887138524747
+  },
+  {
+    "rank": 17,
+    "approach": "pysr_raw",
+    "category": "symbolic",
+    "parameterization": "raw_a",
+    "loss": 0.5109295558785454,
+    "train_loss": 0.6106180843030238,
+    "runtime_ms": 0.011980645849655353
+  },
+  {
+    "rank": 18,
+    "approach": "cheby14_raw",
+    "category": "analytical",
+    "parameterization": "raw_a",
+    "loss": 0.6342213586335287,
+    "train_loss": 0.7574591755169624,
+    "runtime_ms": 0.00013155676775283956
+  },
+  {
+    "rank": 19,
+    "approach": "poly10_raw",
+    "category": "analytical",
+    "parameterization": "raw_a",
+    "loss": 0.9793523863738891,
+    "train_loss": 1.167830630388994,
+    "runtime_ms": 7.588086604174023e-05
+  },
+  {
+    "rank": 20,
+    "approach": "mlp_raw",
+    "category": "ml",
+    "parameterization": "raw_a",
+    "loss": 2.328613342424934,
+    "train_loss": 2.7738460306020944,
+    "runtime_ms": 0.0015176173208348047
+  },
+  {
+    "rank": 21,
+    "approach": "gplearn_sqrtirr",
+    "category": "symbolic",
+    "parameterization": "sqrt_irr",
+    "loss": 20.634252314243746,
+    "train_loss": 24.545895143529133,
+    "runtime_ms": 0.00030307446495961336
+  },
+  {
+    "rank": 22,
+    "approach": "gplearn_raw",
+    "category": "symbolic",
+    "parameterization": "raw_a",
+    "loss": 20.652189511789743,
+    "train_loss": 24.563787705662676,
+    "runtime_ms": 0.0003677303508176642
+  },
+  {
+    "rank": 23,
+    "approach": "rbf_multiquadric_raw",
+    "category": "interpolation",
+    "parameterization": "raw_a",
+    "loss": 30.743602922075613,
+    "train_loss": 26.897579969380455,
+    "runtime_ms": 0.001894776655006768
+  }
+]

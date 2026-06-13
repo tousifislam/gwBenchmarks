@@ -1,0 +1,222 @@
+[
+  {
+    "rank": 1,
+    "approach": "rbf_thinplate_raw",
+    "category": "interp_kernel",
+    "parameterization": "raw_newt",
+    "loss": 0.12354474702673578,
+    "val_median": 0.09386946591309786,
+    "train_loss": 0.0008306971764296814,
+    "runtime_ms": 1.210931936899821
+  },
+  {
+    "rank": 2,
+    "approach": "amp_phase_asymrank_eff",
+    "category": "decomposition",
+    "parameterization": "eff_newt",
+    "loss": 0.12642304677645247,
+    "val_median": 0.10114133427623442,
+    "train_loss": 0.024752376821337765,
+    "runtime_ms": 1.138623555501302
+  },
+  {
+    "rank": 3,
+    "approach": "svd_gpr_matern_eff",
+    "category": "decomposition",
+    "parameterization": "eff_newt",
+    "loss": 0.1264237319548341,
+    "val_median": 0.10223546985798512,
+    "train_loss": 0.024666668048399145,
+    "runtime_ms": 1.1992414792378743
+  },
+  {
+    "rank": 4,
+    "approach": "svd_gpr_rbf_raw",
+    "category": "decomposition",
+    "parameterization": "raw_newt",
+    "loss": 0.1377602932240426,
+    "val_median": 0.11304620717160327,
+    "train_loss": 0.045095125669134616,
+    "runtime_ms": 1.1937359968821208
+  },
+  {
+    "rank": 5,
+    "approach": "svd_gpr_highrank_raw",
+    "category": "decomposition",
+    "parameterization": "raw_newt",
+    "loss": 0.14444254401874387,
+    "val_median": 0.11355171611458148,
+    "train_loss": 0.010605447795890361,
+    "runtime_ms": 1.164090633392334
+  },
+  {
+    "rank": 6,
+    "approach": "eim_gpr_raw",
+    "category": "decomposition",
+    "parameterization": "raw_omega",
+    "loss": 0.1554158445069086,
+    "val_median": 0.13732430777619561,
+    "train_loss": 0.027828957272446275,
+    "runtime_ms": 1.1770586172739665
+  },
+  {
+    "rank": 7,
+    "approach": "rbf_multiquadric_eff",
+    "category": "interp_kernel",
+    "parameterization": "eff_spin_omega",
+    "loss": 0.16495153507281227,
+    "val_median": 0.15552318647870222,
+    "train_loss": 0.0023927062473194797,
+    "runtime_ms": 1.1597593625386555
+  },
+  {
+    "rank": 8,
+    "approach": "krr_rbf_eff",
+    "category": "interp_kernel",
+    "parameterization": "eff_newt",
+    "loss": 0.17600040406295825,
+    "val_median": 0.15852950619437772,
+    "train_loss": 0.014207885615073005,
+    "runtime_ms": 1.1720935503641765
+  },
+  {
+    "rank": 9,
+    "approach": "extratrees_eff",
+    "category": "ml",
+    "parameterization": "eff_spin_omega",
+    "loss": 0.1882206988092291,
+    "val_median": 0.16942852905284617,
+    "train_loss": 0.0008466537033479583,
+    "runtime_ms": 1.7899672190348308
+  },
+  {
+    "rank": 10,
+    "approach": "mlp_deep_eff",
+    "category": "ml",
+    "parameterization": "eff_newt",
+    "loss": 0.19343181608565085,
+    "val_median": 0.17177445845839023,
+    "train_loss": 0.1026217502626341,
+    "runtime_ms": 1.1479159196217854
+  },
+  {
+    "rank": 11,
+    "approach": "svd_mlp_eff",
+    "category": "decomposition",
+    "parameterization": "eff_spin_omega",
+    "loss": 0.20303087384685795,
+    "val_median": 0.2008504020351797,
+    "train_loss": 0.09101734312377217,
+    "runtime_ms": 1.1899669965108235
+  },
+  {
+    "rank": 12,
+    "approach": "svd_poly3_raw",
+    "category": "decomposition",
+    "parameterization": "raw_omega",
+    "loss": 0.22904260767625215,
+    "val_median": 0.22058410691840086,
+    "train_loss": 0.07124339462199566,
+    "runtime_ms": 1.1923670768737793
+  },
+  {
+    "rank": 13,
+    "approach": "svd_pysr_eff",
+    "category": "symbolic",
+    "parameterization": "eff_spin_omega",
+    "loss": 0.23728484271280045,
+    "val_median": 0.21030228221012798,
+    "train_loss": 0.1994106253424994,
+    "runtime_ms": 1.3813674449920654
+  },
+  {
+    "rank": 14,
+    "approach": "gbr_raw",
+    "category": "ml",
+    "parameterization": "raw_omega",
+    "loss": 0.2400894080640586,
+    "val_median": 0.2231845172684384,
+    "train_loss": 0.03606887456394861,
+    "runtime_ms": 1.2911001841227214
+  },
+  {
+    "rank": 15,
+    "approach": "svd_poly5_eff",
+    "category": "decomposition",
+    "parameterization": "eff_spin_omega",
+    "loss": 0.3136627629288461,
+    "val_median": 0.281471851894706,
+    "train_loss": 0.030921285204682365,
+    "runtime_ms": 1.1480093002319336
+  },
+  {
+    "rank": 16,
+    "approach": "knn_correction_raw",
+    "category": "interp_kernel",
+    "parameterization": "raw_omega",
+    "loss": 0.3896724432824222,
+    "val_median": 0.39503100711692585,
+    "train_loss": 0.0008466537033478702,
+    "runtime_ms": 1.1579334735870361
+  },
+  {
+    "rank": 17,
+    "approach": "rf_spherical",
+    "category": "ml",
+    "parameterization": "spherical",
+    "loss": 0.43033346765564295,
+    "val_median": 0.4486335164343391,
+    "train_loss": 0.18344973819858124,
+    "runtime_ms": 1.801784833272298
+  },
+  {
+    "rank": 18,
+    "approach": "svd_gplearn_raw",
+    "category": "symbolic",
+    "parameterization": "raw_omega",
+    "loss": 0.4511892759479521,
+    "val_median": 0.47282179306974625,
+    "train_loss": 0.2924161124863716,
+    "runtime_ms": 1.1867841084798176
+  },
+  {
+    "rank": 19,
+    "approach": "gpr_rbf_eff_tuned",
+    "category": "decomposition",
+    "parameterization": "eff_newt",
+    "loss": 0.4601804661192974,
+    "val_median": 0.42751130405151294,
+    "train_loss": 0.000997411716838501,
+    "runtime_ms": 1.1793176333109539
+  },
+  {
+    "rank": 20,
+    "approach": "rbf_linear_spherical",
+    "category": "interp_kernel",
+    "parameterization": "spherical",
+    "loss": 0.4608679668750818,
+    "val_median": 0.5118102031002599,
+    "train_loss": 0.0034768813229337707,
+    "runtime_ms": 1.1760493119557698
+  },
+  {
+    "rank": 21,
+    "approach": "mlp_massdiff",
+    "category": "ml",
+    "parameterization": "massdiff",
+    "loss": 0.47076165291767824,
+    "val_median": 0.46593346099664634,
+    "train_loss": 0.1514243820468119,
+    "runtime_ms": 1.1847734451293945
+  },
+  {
+    "rank": 22,
+    "approach": "svd_pysr_spherical",
+    "category": "symbolic",
+    "parameterization": "spherical",
+    "loss": 0.5530481610496539,
+    "val_median": 0.6453053941376837,
+    "train_loss": 0.439020340087261,
+    "runtime_ms": 1.2801011403401692
+  }
+]

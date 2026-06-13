@@ -1,0 +1,22 @@
+{
+  "approach": "rational1010_logcompact",
+  "approach_number": 23,
+  "benchmark": "ringdown",
+  "agent": "opus48",
+  "category": "analytical",
+  "parameterization": "log_compact",
+  "mode": "l2_m2_n0",
+  "loss": 5.329663467873984e-06,
+  "loss_components": {
+    "rel_error_omega_real": 5.188293725915777e-07,
+    "rel_error_omega_imag": 1.0140497563156391e-05
+  },
+  "train_loss": 5.262207825687662e-06,
+  "val_median": 3.7200514101829366e-06,
+  "runtime_ms": 0.00037626133575726815,
+  "n_train": 531,
+  "n_val": 531,
+  "n_params": 42,
+  "notes": "Higher-order rational [10,10]: reasoned push on a->1 accuracy.",
+  "wall_time_s": 5.1
+}

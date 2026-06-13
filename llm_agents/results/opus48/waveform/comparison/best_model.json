@@ -1,0 +1,29 @@
+{
+  "approach": "rbf_thinplate_raw",
+  "approach_number": 9,
+  "benchmark": "waveform",
+  "agent": "opus48",
+  "category": "interp_kernel",
+  "parameterization": "raw_newt",
+  "time_convention": "tau_normalized_peak_aligned",
+  "rankA": 25,
+  "rankP": 35,
+  "loss": 0.12354474702673578,
+  "loss_components": {
+    "mismatch_40Msun": 0.2631100075552255,
+    "mismatch_80Msun": 0.1590124293135557,
+    "mismatch_120Msun": 0.08813281006398935,
+    "mismatch_160Msun": 0.06257052144525775,
+    "mismatch_200Msun": 0.05297191842827548
+  },
+  "val_median": 0.09386946591309786,
+  "val_max": 0.5124552767438351,
+  "train_loss": 0.0008306971764296814,
+  "train_median": 0.0003991856659902093,
+  "runtime_ms": 1.210931936899821,
+  "n_train": 250,
+  "n_val": 120,
+  "n_params": 22,
+  "notes": "Thin-plate-spline RBF interpolation on SVD coeffs.",
+  "wall_time_s": 14.2
+}

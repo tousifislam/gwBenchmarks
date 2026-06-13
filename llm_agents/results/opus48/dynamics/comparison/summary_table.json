@@ -1,0 +1,200 @@
+[
+  {
+    "rank": 1,
+    "approach": "rbf_thinplate_logfreq",
+    "category": "interp_kernel",
+    "parameterization": "log_freq",
+    "loss": 0.022409894660289132,
+    "train_loss": 0.012995162803906838,
+    "runtime_ms": 0.046584129333496094
+  },
+  {
+    "rank": 2,
+    "approach": "svd_pysr_trig",
+    "category": "symbolic",
+    "parameterization": "trig_anom",
+    "loss": 0.02459576538639618,
+    "train_loss": 0.02371559649608221,
+    "runtime_ms": 0.07716751098632812
+  },
+  {
+    "rank": 3,
+    "approach": "svd_gpr_raw",
+    "category": "decomposition",
+    "parameterization": "raw_6d",
+    "loss": 0.024905351749834725,
+    "train_loss": 0.014905436935871725,
+    "runtime_ms": 0.04870891571044922
+  },
+  {
+    "rank": 4,
+    "approach": "rbf_multiquadric_eff",
+    "category": "interp_kernel",
+    "parameterization": "eff_loge",
+    "loss": 0.025521923626974044,
+    "train_loss": 0.0126407784600185,
+    "runtime_ms": 0.04951286315917969
+  },
+  {
+    "rank": 5,
+    "approach": "rbf_thinplate_full",
+    "category": "interp_kernel",
+    "parameterization": "full_transform",
+    "loss": 0.025571078017866036,
+    "train_loss": 0.012639447047426727,
+    "runtime_ms": 0.0496673583984375
+  },
+  {
+    "rank": 6,
+    "approach": "mlp_deep_full",
+    "category": "ml",
+    "parameterization": "full_transform",
+    "loss": 0.02630013655778238,
+    "train_loss": 0.013713107894206145,
+    "runtime_ms": 0.049053192138671875
+  },
+  {
+    "rank": 7,
+    "approach": "xgboost_eff",
+    "category": "ml",
+    "parameterization": "eff_loge",
+    "loss": 0.026312869599220683,
+    "train_loss": 0.012928186430923925,
+    "runtime_ms": 0.11079978942871094
+  },
+  {
+    "rank": 8,
+    "approach": "mlp_trig",
+    "category": "ml",
+    "parameterization": "trig_anom",
+    "loss": 0.026737395109444506,
+    "train_loss": 0.014217236871795783,
+    "runtime_ms": 0.05037117004394531
+  },
+  {
+    "rank": 9,
+    "approach": "svd_pysr_full",
+    "category": "symbolic",
+    "parameterization": "full_transform",
+    "loss": 0.02685748436317771,
+    "train_loss": 0.026351988351833822,
+    "runtime_ms": 0.087371826171875
+  },
+  {
+    "rank": 10,
+    "approach": "svd_poly3_eff",
+    "category": "decomposition",
+    "parameterization": "eff_loge",
+    "loss": 0.027056666804721276,
+    "train_loss": 0.020118945473173187,
+    "runtime_ms": 0.047607421875
+  },
+  {
+    "rank": 11,
+    "approach": "svd_mlp_full",
+    "category": "decomposition",
+    "parameterization": "full_transform",
+    "loss": 0.027816496268390185,
+    "train_loss": 0.015216445382335367,
+    "runtime_ms": 0.048180580139160156
+  },
+  {
+    "rank": 12,
+    "approach": "svd_gpr_matern_full",
+    "category": "decomposition",
+    "parameterization": "full_transform",
+    "loss": 0.028703877546720626,
+    "train_loss": 0.012638156376027849,
+    "runtime_ms": 0.04991626739501953
+  },
+  {
+    "rank": 13,
+    "approach": "krr_full",
+    "category": "interp_kernel",
+    "parameterization": "full_transform",
+    "loss": 0.029484190981787686,
+    "train_loss": 0.014230814411579525,
+    "runtime_ms": 0.050140380859375
+  },
+  {
+    "rank": 14,
+    "approach": "knn_raw",
+    "category": "interp_kernel",
+    "parameterization": "raw_6d",
+    "loss": 0.02962981187698493,
+    "train_loss": 0.012639215838572027,
+    "runtime_ms": 0.0530242919921875
+  },
+  {
+    "rank": 15,
+    "approach": "svd_gpr_highrank_full",
+    "category": "decomposition",
+    "parameterization": "full_transform",
+    "loss": 0.029869467815826643,
+    "train_loss": 0.006701309972314716,
+    "runtime_ms": 0.05387592315673828
+  },
+  {
+    "rank": 16,
+    "approach": "svd_gpr_lowrank_full",
+    "category": "decomposition",
+    "parameterization": "full_transform",
+    "loss": 0.03016071126370334,
+    "train_loss": 0.01716255020803591,
+    "runtime_ms": 0.048503875732421875
+  },
+  {
+    "rank": 17,
+    "approach": "extratrees_full",
+    "category": "ml",
+    "parameterization": "full_transform",
+    "loss": 0.03048551661789358,
+    "train_loss": 0.01263921583857201,
+    "runtime_ms": 0.23206043243408203
+  },
+  {
+    "rank": 18,
+    "approach": "gpr_rbf_tuned_full",
+    "category": "decomposition",
+    "parameterization": "full_transform",
+    "loss": 0.03059960918510535,
+    "train_loss": 0.015853020734295908,
+    "runtime_ms": 0.04983234405517578
+  },
+  {
+    "rank": 19,
+    "approach": "eim_gpr_full",
+    "category": "decomposition",
+    "parameterization": "full_transform",
+    "loss": 0.03124866581028848,
+    "train_loss": 0.015400344524698456,
+    "runtime_ms": 0.04894828796386719
+  },
+  {
+    "rank": 20,
+    "approach": "rf_eff",
+    "category": "ml",
+    "parameterization": "eff_loge",
+    "loss": 0.032382859940022234,
+    "train_loss": 0.016721851979119025,
+    "runtime_ms": 0.19147109985351562
+  },
+  {
+    "rank": 21,
+    "approach": "svd_gplearn_eff",
+    "category": "symbolic",
+    "parameterization": "eff_loge",
+    "loss": 0.039412677373606014,
+    "train_loss": 0.03767531279218249,
+    "runtime_ms": 0.05089569091796875
+  },
+  {
+    "rank": 22,
+    "approach": "svd_poly4_full",
+    "category": "decomposition",
+    "parameterization": "full_transform",
+    "loss": 0.045210775743487905,
+    "train_loss": 0.015384739555191752,
+    "runtime_ms": 0.04818439483642578
+  }
+]

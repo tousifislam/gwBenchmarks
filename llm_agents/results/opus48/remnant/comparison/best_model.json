@@ -1,0 +1,21 @@
+{
+  "approach": "poly3_eff",
+  "approach_number": 20,
+  "benchmark": "remnant",
+  "agent": "opus48",
+  "category": "ml",
+  "parameterization": "eff_spin",
+  "target": "vf_mag",
+  "loss": 0.0905565120090702,
+  "loss_components": {
+    "nrmse_v_k": 0.0905565120090702
+  },
+  "train_loss": 0.09145149443568537,
+  "val_median_err": 0.032205613589615927,
+  "runtime_ms": 0.0003447532653808594,
+  "n_train": 1000,
+  "n_val": 1000,
+  "n_params": 7,
+  "notes": "Cubic polynomial ridge regression.",
+  "wall_time_s": 0.0
+}

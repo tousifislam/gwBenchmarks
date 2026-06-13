@@ -1,0 +1,26 @@
+{
+  "approach": "composite_sqrteta",
+  "approach_number": 17,
+  "benchmark": "analytic",
+  "agent": "opus48",
+  "category": "matched_asymptotic",
+  "parameterization": "sqrt_eta",
+  "loss": 0.018993633058291343,
+  "loss_components": {
+    "mismatch_40Msun": 0.018993633058291343,
+    "mismatch_80Msun": 0.018993633058291343,
+    "mismatch_120Msun": 0.018993633058291343,
+    "mismatch_160Msun": 0.018993633058291343,
+    "mismatch_200Msun": 0.018993633058291343
+  },
+  "val_median": 0.01779800947155674,
+  "train_loss": 0.029629501112421776,
+  "runtime_ms": 2.192145302182152,
+  "n_train": 20,
+  "n_val": 21,
+  "n_params": 48,
+  "n_terms": 48,
+  "expression_file": "expression.txt",
+  "notes": "Composite, sqrt(eta) reparam.",
+  "wall_time_s": 4.2
+}

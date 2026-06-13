@@ -1,0 +1,200 @@
+[
+  {
+    "rank": 1,
+    "approach": "composite_sqrteta",
+    "category": "matched_asymptotic",
+    "parameterization": "sqrt_eta",
+    "loss": 0.018993633058291343,
+    "train_loss": 0.029629501112421776,
+    "runtime_ms": 2.192145302182152
+  },
+  {
+    "rank": 2,
+    "approach": "pn_t3_2term_eta",
+    "category": "physics",
+    "parameterization": "eta",
+    "loss": 0.022833327447031173,
+    "train_loss": 0.03359057983164742,
+    "runtime_ms": 2.1279085250127885
+  },
+  {
+    "rank": 3,
+    "approach": "composite_2term_eta",
+    "category": "matched_asymptotic",
+    "parameterization": "eta",
+    "loss": 0.022833327447031173,
+    "train_loss": 0.03359057983164742,
+    "runtime_ms": 2.099479947771345
+  },
+  {
+    "rank": 4,
+    "approach": "composite_2term_q",
+    "category": "matched_asymptotic",
+    "parameterization": "q",
+    "loss": 0.022878612250912478,
+    "train_loss": 0.03560929692178201,
+    "runtime_ms": 2.2430419921875
+  },
+  {
+    "rank": 5,
+    "approach": "composite_2term_deg4",
+    "category": "matched_asymptotic",
+    "parameterization": "eta",
+    "loss": 0.0246252047136969,
+    "train_loss": 0.034915312136011664,
+    "runtime_ms": 2.0552930377778553
+  },
+  {
+    "rank": 6,
+    "approach": "pysr_amp_q_2term",
+    "category": "symbolic",
+    "parameterization": "q",
+    "loss": 0.030596924624248397,
+    "train_loss": 0.03985578158183815,
+    "runtime_ms": 4.4196673801967075
+  },
+  {
+    "rank": 7,
+    "approach": "pn_t3_sech_sqrteta",
+    "category": "physics",
+    "parameterization": "sqrt_eta",
+    "loss": 0.036421595827868115,
+    "train_loss": 0.0635876243388697,
+    "runtime_ms": 1.7689182644798642
+  },
+  {
+    "rank": 8,
+    "approach": "pn_t3_sech_eta",
+    "category": "physics",
+    "parameterization": "eta",
+    "loss": 0.04177260305064887,
+    "train_loss": 0.06635177013675524,
+    "runtime_ms": 1.812185559953962
+  },
+  {
+    "rank": 9,
+    "approach": "pn_t3_sech_q",
+    "category": "physics",
+    "parameterization": "q",
+    "loss": 0.04389888334600733,
+    "train_loss": 0.06972132538594591,
+    "runtime_ms": 1.796722412109375
+  },
+  {
+    "rank": 10,
+    "approach": "pn_t3_sech_eta_deg4",
+    "category": "physics",
+    "parameterization": "eta",
+    "loss": 0.044072854655928084,
+    "train_loss": 0.07021443200972918,
+    "runtime_ms": 1.7887637728736514
+  },
+  {
+    "rank": 11,
+    "approach": "composite_2term_delta",
+    "category": "matched_asymptotic",
+    "parameterization": "delta_m",
+    "loss": 0.049280890089617176,
+    "train_loss": 0.05875736209400112,
+    "runtime_ms": 2.0840054466610862
+  },
+  {
+    "rank": 12,
+    "approach": "pn_t3_sech_delta",
+    "category": "physics",
+    "parameterization": "delta_m",
+    "loss": 0.0730812292580821,
+    "train_loss": 0.08638308859039596,
+    "runtime_ms": 1.7518997192382812
+  },
+  {
+    "rank": 13,
+    "approach": "gauss_amp_t3_eta",
+    "category": "functional",
+    "parameterization": "eta",
+    "loss": 0.09908831349721832,
+    "train_loss": 0.11012506763146497,
+    "runtime_ms": 1.8242881411597842
+  },
+  {
+    "rank": 14,
+    "approach": "pysr_amp_eta",
+    "category": "symbolic",
+    "parameterization": "eta",
+    "loss": 0.10940789469766589,
+    "train_loss": 0.13104003566552164,
+    "runtime_ms": 3.910950251988002
+  },
+  {
+    "rank": 15,
+    "approach": "gauss_amp_t3_q",
+    "category": "functional",
+    "parameterization": "q",
+    "loss": 0.11245555702107435,
+    "train_loss": 0.11851601121057623,
+    "runtime_ms": 1.8227100372314453
+  },
+  {
+    "rank": 16,
+    "approach": "gauss_amp_delta",
+    "category": "functional",
+    "parameterization": "delta_m",
+    "loss": 0.12783957899950157,
+    "train_loss": 0.12378226707455561,
+    "runtime_ms": 1.7792383829752605
+  },
+  {
+    "rank": 17,
+    "approach": "pysr_amp_delta",
+    "category": "symbolic",
+    "parameterization": "delta_m",
+    "loss": 0.14350725765684297,
+    "train_loss": 0.152122991002695,
+    "runtime_ms": 3.6115759894961403
+  },
+  {
+    "rank": 18,
+    "approach": "lorentz_amp_2term_eta",
+    "category": "functional",
+    "parameterization": "eta",
+    "loss": 0.20217295780078337,
+    "train_loss": 0.1585930068114534,
+    "runtime_ms": 2.270335242861793
+  },
+  {
+    "rank": 19,
+    "approach": "composite_lorentz_2term",
+    "category": "matched_asymptotic",
+    "parameterization": "eta",
+    "loss": 0.20217295780078337,
+    "train_loss": 0.1585930068114534,
+    "runtime_ms": 2.2888070061093284
+  },
+  {
+    "rank": 20,
+    "approach": "gplearn_amp_delta",
+    "category": "symbolic",
+    "parameterization": "delta_m",
+    "loss": 0.21319543007355612,
+    "train_loss": 0.20251234977078045,
+    "runtime_ms": 2.902099064418248
+  },
+  {
+    "rank": 21,
+    "approach": "lorentz_amp_t3_eta",
+    "category": "functional",
+    "parameterization": "eta",
+    "loss": 0.23815805229467552,
+    "train_loss": 0.2030078458478039,
+    "runtime_ms": 1.7781030564081102
+  },
+  {
+    "rank": 22,
+    "approach": "gplearn_amp_eta",
+    "category": "symbolic",
+    "parameterization": "eta",
+    "loss": 0.6784291656552283,
+    "train_loss": 0.6721795248847362,
+    "runtime_ms": 2.900577726818266
+  }
+]

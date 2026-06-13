@@ -1,0 +1,6 @@
+{
+  "n_approaches": 21,
+  "best": "rbf_thinplate_raw",
+  "best_loss": 0.12354474702673578,
+  "n_val": 120
+}

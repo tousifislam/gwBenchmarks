@@ -1,0 +1,23 @@
+BEST closed-form model: composite_sqrteta (mean FD mismatch 0.0190)
+
+# Analytic closed form for h22(t; q), approach composite_sqrteta
+# mass variable x = sqrt_eta;  h22 = A(t) * exp(-i * phi(t))
+
+AMPLITUDE form = powerlaw_sech; coefficients are polynomials in x:
+  a0(x) = -0.423985*x^3 + 2.3085*x^2 + -0.204372*x^1 + 0.0189599*x^0
+  a1(x) = 1163.29*x^3 + -1411.62*x^2 + 524.718*x^1 + -59.3446*x^0
+  a2(x) = 64.5267*x^3 + -58.166*x^2 + 16.4577*x^1 + 10.2204*x^0
+  a3(x) = -0.41696*x^3 + 0.359875*x^2 + 0.0135225*x^1 + 0.0694941*x^0
+
+PHASE form = integrable_t3_2term (exact integral of an integrable omega):
+  p0(x) = 2857.04*x^3 + -2964.11*x^2 + 908.989*x^1 + -30.2139*x^0
+  p1(x) = 2962.99*x^3 + -2800.77*x^2 + 789.862*x^1 + -40.8475*x^0
+  p2(x) = 5974.91*x^3 + -6274.94*x^2 + 2148.2*x^1 + -201.431*x^0
+  p3(x) = 0.192305*x^3 + 2.41284*x^2 + -1.60877*x^1 + 0.498394*x^0
+  p4(x) = -16.1791*x^3 + 18.1669*x^2 + -7.06616*x^1 + 1.71927*x^0
+  p5(x) = -0.415746*x^3 + 2.95903*x^2 + -1.70489*x^1 + 0.484018*x^0
+  p6(x) = 139.063*x^3 + -155.427*x^2 + 58.4579*x^1 + -7.93797*x^0
+  p7(x) = 2019.38*x^3 + -2256.38*x^2 + 828.54*x^1 + -94.9173*x^0
+
+phi(t) = p3*t - p4*(8/5)*(p0 - t)^(5/8) + p5*p2*log(cosh((t-p1)/p2)) + p6
+A(t) = a0 * [ (1+((-t)_+/a1)^2)^(-a3)  if t<=0 ;  sech(t_+/a2) if t>0 ]

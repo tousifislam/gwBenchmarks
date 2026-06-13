@@ -1,0 +1,22 @@
+{
+  "approach": "rbf_thinplate_logfreq",
+  "approach_number": 20,
+  "benchmark": "dynamics",
+  "agent": "opus48",
+  "category": "interp_kernel",
+  "parameterization": "log_freq",
+  "time_convention": "tau_normalized",
+  "rank": 22,
+  "loss": 0.022409894660289132,
+  "loss_components": {
+    "rms_relative_error_x": 0.022409894660289132
+  },
+  "val_median": 0.017936585371525676,
+  "train_loss": 0.012995162803906838,
+  "runtime_ms": 0.046584129333496094,
+  "n_train": 250,
+  "n_val": 250,
+  "n_params": 6,
+  "notes": "RBF on log-frequency reparam.",
+  "wall_time_s": 0.1
+}
