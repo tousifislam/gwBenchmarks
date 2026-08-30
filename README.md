@@ -69,8 +69,8 @@ Benchmark suite for evaluating LLM-based gravitational wave (GW) modelling using
 | | |
 |---|---|
 | **Input** | public pool of `[m1, m2, s1z, s2z]` waveform parameters |
-| **Output** | ordered bank rows `[m1, m2, s1z, s2z, phi_ref]` |
-| **Loss** | Smallest bank prefix reaching 50% hidden-test coverage at match ≥ 0.97 |
+| **Output** | ordered waveform bank plus best-fit waveform reconstruction function |
+| **Loss** | Smallest bank prefix with match ≥ 0.97 for strictly more than 90% of hidden tests |
 
 ### 8. New Physics Bench (RG-tail inspiral)
 

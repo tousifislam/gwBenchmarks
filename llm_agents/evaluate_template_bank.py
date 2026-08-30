@@ -1,54 +1,51 @@
 #!/usr/bin/env python3
-"""Evaluate a Template Bank Bench submission."""
+"""Evaluate a Template Bank Bench waveform-reconstruction submission."""
 
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 from pathlib import Path
+from typing import Callable
 
 import numpy as np
 
 from gwbenchmarks.benchmarks.template_bank import (
-    HIDDEN_TEST_PHASE_SEED,
+    FULL_HM_MODES,
+    ORTHOGONAL_MODE_GROUPS,
     PUBLIC_EVAL_PHASE_SEED,
     TemplateBankBench,
     append_phase_column,
+    complex_overlap,
     compute_hplus_hcross,
     load_template_bank_data,
     normalize_waveform,
-    overlap,
     parameter_dict_from_row,
 )
 
 
-FULL_HM_MODES = [
-    (2, 2),
-    (2, 1),
-    (3, 3),
-    (3, 2),
-    (4, 4),
-    (2, -2),
-    (2, -1),
-    (3, -3),
-    (3, -2),
-    (4, -4),
-]
-
-ORTHOGONAL_MODE_GROUPS = [
-    [(2, 2), (2, -2)],
-    [(3, 3), (3, -3)],
-    [(4, 4), (4, -4)],
-]
+# Evaluator-private deterministic seed. This value is deliberately absent from
+# the public benchmark helper and the agent prompt.
+HIDDEN_TEST_PHASE_SEED = 2718
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--agent", help="Agent ID under llm_agents/results/<agent>/template_bank")
-    parser.add_argument("--submission-dir", help="Directory containing bank_params.npy")
+    parser.add_argument(
+        "--agent", help="Agent ID under llm_agents/results/<agent>/template_bank"
+    )
+    parser.add_argument(
+        "--submission-dir", help="Directory containing bank_waveforms.npy"
+    )
     parser.add_argument("--data-dir", default="datasets/template_bank")
-    parser.add_argument("--hidden-data", default="datasets/template_bank/bank_wf_params_test.npy")
-    parser.add_argument("--literature-params", default="datasets/template_bank/calpha_grid_params.npy")
+    parser.add_argument(
+        "--hidden-data", default="datasets/template_bank/bank_wf_params_test.npy"
+    )
+    parser.add_argument(
+        "--literature-params",
+        default="datasets/template_bank/calpha_grid_params.txt",
+    )
     parser.add_argument("--config", default="configs/template_bank.yaml")
     parser.add_argument("--threshold", type=float, default=None)
     parser.add_argument("--target-coverage", type=float, default=None)
@@ -56,42 +53,61 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def orthogonalize_wfs(waveforms: np.ndarray, weights: np.ndarray) -> np.ndarray:
-    cov = np.zeros((3, 3), dtype=np.complex128)
-    for j in range(3):
-        for k in range(j, 3):
-            cov[j, k] = np.sum(weights * waveforms[j] * np.conj(waveforms[k]), axis=-1)
-    cov[np.tril_indices(3)] = cov.T.conj()[np.tril_indices(3)]
-    chol = np.linalg.cholesky(np.linalg.inv(cov[::-1, ::-1]))[::-1, ::-1]
-    return np.dot(chol.conj().T, waveforms)
+def orthogonalize_waveforms(
+    waveforms: np.ndarray, weights: np.ndarray
+) -> np.ndarray:
+    """Return a weighted-orthonormal basis spanning the supplied waveforms."""
+
+    n_waveforms = len(waveforms)
+    covariance = np.empty((n_waveforms, n_waveforms), dtype=np.complex128)
+    for row in range(n_waveforms):
+        for column in range(n_waveforms):
+            covariance[row, column] = complex_overlap(
+                waveforms[row], waveforms[column], weights
+            )
+    reverse_inverse = np.linalg.inv(covariance[::-1, ::-1])
+    cholesky = np.linalg.cholesky(reverse_inverse)[::-1, ::-1]
+    return np.dot(cholesky.conj().T, waveforms)
 
 
 def make_orthogonal_mode_templates(params: np.ndarray, data) -> np.ndarray:
+    """Build the five literature mode-pair filters for one intrinsic point."""
+
     par_dict = parameter_dict_from_row(params)
-    modes = np.zeros((3, len(data.frequencies_hz)), dtype=np.complex128)
-    for idx, mode_group in enumerate(ORTHOGONAL_MODE_GROUPS):
-        modes[idx] = compute_hplus_hcross(
+    modes = np.empty(
+        (len(ORTHOGONAL_MODE_GROUPS), len(data.frequencies_hz)),
+        dtype=np.complex128,
+    )
+    for index, mode_group in enumerate(ORTHOGONAL_MODE_GROUPS):
+        waveform = compute_hplus_hcross(
             data.frequencies_hz,
             par_dict,
             approximant="IMRPhenomXHM",
             harmonic_modes=mode_group,
         )[0] / data.amplitude_reference
-        modes[idx] /= np.sqrt(overlap(modes[idx], modes[idx], data.weights))
-    return orthogonalize_wfs(modes, data.weights)
+        modes[index] = normalize_waveform(waveform, data.weights)
+    return orthogonalize_waveforms(modes, data.weights)
 
 
-def evaluate_literature_reference(literature_params_path: Path, evaluation_params: np.ndarray, data, threshold: float) -> dict | None:
+def evaluate_literature_reference(
+    literature_params_path: Path,
+    evaluation_params: np.ndarray,
+    data,
+    threshold: float,
+    target_coverage: float,
+) -> dict | None:
+    """Evaluate the mode-decomposed literature comparison on hidden targets."""
+
     if not literature_params_path.exists():
         return None
 
-    literature_params = np.load(literature_params_path)
-    template_wfs = np.asarray(
+    literature_params = np.loadtxt(literature_params_path)
+    template_groups = np.asarray(
         [make_orthogonal_mode_templates(params, data) for params in literature_params]
     )
-
-    best_scores = []
+    best_matches = []
     for params in evaluation_params:
-        href = normalize_waveform(
+        target = normalize_waveform(
             compute_hplus_hcross(
                 data.frequencies_hz,
                 parameter_dict_from_row(params),
@@ -101,31 +117,92 @@ def evaluate_literature_reference(literature_params_path: Path, evaluation_param
             / data.amplitude_reference,
             data.weights,
         )
-        z = np.empty((template_wfs.shape[0], 3), dtype=np.float64)
-        for i in range(template_wfs.shape[0]):
-            for j in range(3):
-                z[i, j] = overlap(href, template_wfs[i, j], data.weights)
-        best_scores.append(float(np.sqrt(np.max(np.sum(z**2, axis=1)))))
+        group_matches = []
+        for group in template_groups:
+            overlaps = np.asarray(
+                [complex_overlap(target, waveform, data.weights) for waveform in group]
+            )
+            group_matches.append(float(np.sqrt(np.sum(np.abs(overlaps) ** 2))))
+        best_matches.append(max(group_matches))
 
-    best_scores = np.asarray(best_scores, dtype=np.float64)
+    best_matches = np.clip(np.asarray(best_matches, dtype=np.float64), 0.0, 1.0)
+    coverage_count = int(np.count_nonzero(best_matches >= threshold))
+    coverage_fraction = float(coverage_count / len(best_matches))
     return {
-        "n_templates": int(len(literature_params)),
-        "coverage_fraction_ge_threshold": float(np.mean(best_scores >= threshold)),
-        "median_best_score": float(np.median(best_scores)),
-        "min_best_score": float(np.min(best_scores)),
+        "n_intrinsic_points": int(len(literature_params)),
+        "n_waveforms": int(
+            len(literature_params) * len(ORTHOGONAL_MODE_GROUPS)
+        ),
+        "threshold": float(threshold),
+        "target_coverage": float(target_coverage),
+        "coverage_operator": ">",
+        "match_operator": ">=",
+        "coverage_count": coverage_count,
+        "required_coverage_count": int(
+            np.floor(target_coverage * len(best_matches))
+        )
+        + 1,
+        "coverage_fraction": coverage_fraction,
+        "median_match": float(np.median(best_matches)),
+        "min_match": float(np.min(best_matches)),
+        "passed_target": coverage_fraction > target_coverage,
     }
 
 
-def load_submission(submission_dir: Path) -> tuple[np.ndarray, dict]:
-    bank_path = submission_dir / "bank_params.npy"
+def load_reconstruction_function(submission_dir: Path) -> Callable:
+    function_path = submission_dir / "reconstruction_function.py"
+    if not function_path.exists():
+        raise FileNotFoundError(f"Missing submission file: {function_path}")
+    spec = importlib.util.spec_from_file_location(
+        "template_bank_submission_reconstruction", function_path
+    )
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Could not load reconstruction module: {function_path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    reconstruct = getattr(module, "reconstruct_from_overlaps", None)
+    if not callable(reconstruct):
+        raise AttributeError(
+            f"{function_path} must define callable reconstruct_from_overlaps("
+            "complex_overlaps, bank_waveforms, indices)."
+        )
+    return reconstruct
+
+
+def load_submission(
+    submission_dir: Path, expected_frequency_count: int
+) -> tuple[np.ndarray, np.ndarray, dict, Callable]:
+    bank_path = submission_dir / "bank_waveforms.npy"
+    indices_path = submission_dir / "waveform_indices.npy"
     summary_path = submission_dir / "run_summary.json"
-    if not bank_path.exists():
-        raise FileNotFoundError(f"Missing submission file: {bank_path}")
-    if not summary_path.exists():
-        raise FileNotFoundError(f"Missing submission file: {summary_path}")
+    for path in (bank_path, indices_path, summary_path):
+        if not path.exists():
+            raise FileNotFoundError(f"Missing submission file: {path}")
+
+    bank_waveforms = np.asarray(np.load(bank_path), dtype=np.complex128)
+    if bank_waveforms.ndim != 2 or bank_waveforms.shape[1] != expected_frequency_count:
+        raise ValueError(
+            "bank_waveforms.npy must have shape (n_waveforms, n_frequencies); "
+            f"expected second dimension {expected_frequency_count}, got "
+            f"{bank_waveforms.shape}."
+        )
+    if len(bank_waveforms) == 0:
+        raise ValueError("Submitted waveform bank is empty.")
+
+    waveform_indices = np.asarray(np.load(indices_path), dtype=np.int64)
+    if waveform_indices.shape != (len(bank_waveforms),):
+        raise ValueError(
+            "waveform_indices.npy must have shape (n_waveforms,), got "
+            f"{waveform_indices.shape}."
+        )
     with open(summary_path, encoding="utf-8") as stream:
         summary = json.load(stream)
-    return np.load(bank_path), summary
+    return (
+        bank_waveforms,
+        waveform_indices,
+        summary,
+        load_reconstruction_function(submission_dir),
+    )
 
 
 def main() -> None:
@@ -134,7 +211,9 @@ def main() -> None:
     if args.submission_dir:
         submission_dir = (repo_root / args.submission_dir).resolve()
     elif args.agent:
-        submission_dir = repo_root / "llm_agents" / "results" / args.agent / "template_bank"
+        submission_dir = (
+            repo_root / "llm_agents" / "results" / args.agent / "template_bank"
+        )
     else:
         raise SystemExit("Provide --agent or --submission-dir.")
 
@@ -151,32 +230,51 @@ def main() -> None:
     hidden_params = append_phase_column(
         np.load(hidden_data_path), seed=HIDDEN_TEST_PHASE_SEED
     )
-    bank_params, agent_summary = load_submission(submission_dir)
-    submission_metrics = bench.evaluate_bank(bank_params, hidden_params, data)
+    bank_waveforms, waveform_indices, agent_summary, reconstruct = load_submission(
+        submission_dir, len(data.frequencies_hz)
+    )
+    submission_metrics = bench.evaluate_bank(
+        bank_waveforms,
+        hidden_params,
+        data,
+        reconstruct_from_overlaps=reconstruct,
+        waveform_indices=waveform_indices,
+    )
 
     public_eval_metrics = None
     eval_indices_path = submission_dir / "eval_indices.npy"
     if eval_indices_path.exists():
-        eval_indices = np.load(eval_indices_path)
+        eval_indices = np.asarray(np.load(eval_indices_path), dtype=np.int64)
         public_eval_params = append_phase_column(
             data.public_params[eval_indices], seed=PUBLIC_EVAL_PHASE_SEED
         )
-        public_eval_metrics = bench.evaluate_bank(bank_params, public_eval_params, data)
+        public_eval_metrics = bench.evaluate_bank(
+            bank_waveforms,
+            public_eval_params,
+            data,
+            reconstruct_from_overlaps=reconstruct,
+            waveform_indices=waveform_indices,
+        )
 
+    threshold = float(bench.config.get("threshold", 0.97))
+    target_coverage = float(bench.config.get("target_coverage", 0.9))
     literature_metrics = evaluate_literature_reference(
         literature_params_path,
         hidden_params,
         data,
-        float(bench.config.get("threshold", 0.97)),
+        threshold,
+        target_coverage,
     )
-
     report = {
         "submission_dir": str(submission_dir),
-        "threshold": float(bench.config.get("threshold", 0.97)),
-        "target_coverage": float(bench.config.get("target_coverage", 0.5)),
+        "threshold": threshold,
+        "target_coverage": target_coverage,
+        "coverage_operator": ">",
+        "match_operator": ">=",
         "agent_summary": agent_summary,
         "public_eval_metrics": public_eval_metrics,
         "hidden_test_size": int(len(hidden_params)),
+        "submission_waveform_shape": list(bank_waveforms.shape),
         "submission_metrics": submission_metrics,
         "hidden_literature_reference": literature_metrics,
     }

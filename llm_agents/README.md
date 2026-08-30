@@ -212,8 +212,10 @@ The agent regenerates its copy automatically at the start of each benchmark via
 python gwBenchmarks/llm_agents/evaluate_template_bank.py --agent opus46
 ```
 
-This requires public data in `gwBenchmarks/datasets/template_bank/`. Hidden-test evaluation
-additionally requires `bank_wf_params_test.npy`.
+This requires public data in `gwBenchmarks/datasets/template_bank/`. A
+submission contains `bank_waveforms.npy`, `waveform_indices.npy`,
+`reconstruction_function.py`, split indices, and `run_summary.json`. Hidden-test
+evaluation additionally requires `bank_wf_params_test.npy`.
 
 ## Wiping a Run
 
