@@ -1,72 +1,94 @@
 # Template Bank Benchmark Dataset
 
-Template banks are a core computational object in gravitational-wave searches:
-they discretize a continuous compact-binary parameter space into a finite set
-of waveform templates, so that incoming or simulated signals can be matched
-against a manageable bank rather than an intractable continuum. This benchmark
-tests whether an agent can design such a bank under an explicitly numerical
-coverage objective, balancing physical waveform fidelity against the practical
-cost of overlap evaluations.
+Template banks are how gravitational-wave searches find signals in noisy data:
+the data are filtered against a finite set of waveforms, and a detection
+statistic computed from the filter outputs is compared with a threshold set by
+the tolerated false-alarm rate. This benchmark asks an agent to design both
+parts, the filters and the statistic, for binary-black-hole signals with
+strong higher harmonics in stationary Gaussian noise.
 
-The task gives the agent a public pool of binary-black-hole parameters and asks
-it to construct an ordered waveform bank plus code that reconstructs a best-fit
-waveform from complex bank overlaps. The hidden evaluator independently
-normalizes the reconstruction and the physical target before calculating their
-match. The primary score is the smallest prefix length with match at least 0.97
-for strictly more than 90% of hidden test waveforms.
+> **Version note (2026-11).** This is the second version of the benchmark. The
+> first, noiseless version scored how few waveforms were needed to reconstruct
+> hidden signals with match >= 0.97. It saturated: a weighted POD (SVD) basis
+> with orthogonal projection is essentially optimal there, and agents found it.
+> With noise, every extra filter dimension also adds noise, so the statistic
+> matters and there is no closed-form answer. Results under
+> `llm_agents/results/*/template_bank/` dated before 2026-11 belong to the
+> noiseless version and are not comparable.
 
-The Template Bank Bench accepts arbitrary finite waveform rows on the supplied
-frequency grid. Public parameter rows are:
+## Task in one paragraph
+
+Submit at most 32 filter waveforms `b_i` on the frequency grid below and a
+function `detection_statistic(z)` of the complex filter outputs
+`z_i = <d, b_i>`. The evaluator draws 2,000,000 noise-only trials and 10,000
+signal trials `d = rho * h + n` (1,000 hidden targets x 10), with
+`p(rho) ~ rho^-4` for `rho >= 5` (sources uniform in volume). The threshold is
+set at false-alarm probability 1e-4 from the noise trials. The **loss** is
 
 ```text
-[m1, m2, s1z, s2z]
+loss = 1 - detection_fraction / oracle_detection_fraction = 1 - VT / VT_oracle
 ```
+
+where the oracle is a single exactly known template (detection fraction 0.948).
+Lower is better. The full agent-facing statement is
+`llm_agents/agent_prompts/template_bank.md`.
+
+## Conventions
+
+- Inner product: `<a, b> = sum(a * conj(b) * weights)` with `weights` from
+  `Aref_weights.npy`. Waveforms are divided by `A_ref` and normalized to unit norm.
+- Noise: circular complex Gaussian with `E|n_f|^2 = 2 / weights_f`, so the
+  filter outputs have covariance `E[z z^H] = 2 conj(G)`, `G` the Gram matrix of
+  the filters, and `|z|^2` is chi-squared with 2 degrees of freedom for one
+  unit-norm filter. The evaluator samples `z` directly from this distribution.
+- Signals: IMRPhenomXHM, `h_plus` only, edge-on (`iota = pi/2`, where the
+  higher harmonics are strongest), aligned spins, random reference phase,
+  modes `(2,±2), (2,±1), (3,±3), (3,±2), (4,±4)`.
+- Parameter rows: `[m1, m2, s1z, s2z]` (detector-frame solar masses,
+  dimensionless aligned spins).
 
 ## Files
 
-Public files expected in this directory:
+Public (copied into every agent workspace):
 
-- `f_amp.npy` - frequency grid in Hz
-- `Aref_weights.npy` - amplitude normalization and quadrature weights
-- `bank_wf_params.npy` - public 4D parameter pool for agent train/eval splits
+| File | Content |
+|---|---|
+| `f_amp.npy` | frequency grid in Hz |
+| `Aref_weights.npy` | `(2, n_freq)`: amplitude normalization `A_ref` and quadrature weights |
+| `bank_wf_params.npy` | public parameter pool for the agent's own train/eval splits |
 
-Hidden/local evaluation files:
+Evaluator-only (never give these to a running agent):
 
-- `bank_wf_params_test.npy` - hidden 4D parameter pool for final scoring
-- `calpha_grid_params.txt` - 29 tracked literature-reference intrinsic points
+| File | Content |
+|---|---|
+| `bank_wf_params_test.npy` | 1,000 hidden target parameter rows |
+| `calpha_grid_params.npy` / `.txt` | intrinsic points of the literature mode-filter bank (reference solution only) |
 
-The public dataset will be hosted at:
+The current `f_amp.npy` and `Aref_weights.npy` are the corrected grid of
+2026-11-13 (md5 `0b9ff31c…` and `21eaa5e0…`). Make sure the Hugging Face copy
+matches before running agents.
 
-```text
-https://huggingface.co/datasets/GWagents/gwBenchmarks
-```
+## Code
 
-## Evaluation
+- `gwbenchmarks/benchmarks/template_bank_core.py`: waveform generation, noise
+  model and `score_detection`, which implements the hidden scoring exactly.
+- `llm_agents/make_template_bank_workspace.py`: builds an isolated agent workspace.
+- `llm_agents/evaluate_template_bank.py`: hidden evaluator.
+- `llm_agents/template_bank_reference_scores.json`: scores of reference solutions.
 
-The hidden evaluator appends evaluator-private deterministic phases to the
-hidden 4D test parameters and generates full IMRPhenomXHM h-plus waveforms. For
-each target it computes complex overlaps, calls the submitted reconstruction
-function, and normalizes both the reconstructed and target waveforms. A prefix
-passes only if strictly more than 90% of targets have match at least 0.97 (at
-least 901 of the 1,000 hidden waveforms).
+## Reference scores (hidden set)
 
-Hidden validation/test waveforms use the full higher-mode set:
+| Solution | Rows | Detection fraction | 1 - VT/VT_oracle |
+|---|---|---|---|
+| Starter: farthest-first templates, max \|z\|² | 16 | 0.721 | 0.240 |
+| Literature mode filters + marginalized likelihood ratio | 27 | 0.834 | 0.121 |
+| POD basis + library-marginalized likelihood ratio | 16 | 0.857 | 0.097 |
+| Oracle (exact template) | 1 | 0.948 | 0 |
 
-```text
-[(2, 2), (2, 1), (3, 3), (3, 2), (4, 4),
- (2, -2), (2, -1), (3, -3), (3, -2), (4, -4)]
-```
-
-Agents may use any subset of these modes while constructing cheap public
-proxies, but final scoring uses the full set above.
-
-The literature comparison uses all five positive/negative mode-pair filters at
-each of its 29 intrinsic points, for an evaluation cost of 145 waveforms. The
-29-point grid was selected greedily using public data and reaches 93.2% hidden
-coverage at the 0.97 threshold.
+Statistical uncertainty on a detection fraction is about 0.004.
 
 ## Regeneration
 
-The prototype data-generation notebook/script lives outside the merged package
-for now. When the hosted dataset is finalized, record its exact generation
-command and checksums here.
+The parameter pools, the grid and the weights come from the benchmark design
+notebook (not part of this repository). Record exact generation commands and checksums
+here when the hosted dataset is finalized.

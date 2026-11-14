@@ -79,6 +79,12 @@ if __name__ == "__main__":
 
     if write:
         out = Path(__file__).parent / "results" / agent / benchmark / "AGENT_PROMPT.md"
+        if benchmark == "template_bank" and not out.parent.exists():
+            # Template Bank needs a full workspace (public data, helper module,
+            # starter files, output/), not just the prompt. See
+            # make_template_bank_workspace.py; it also writes AGENT_PROMPT.md.
+            from make_template_bank_workspace import build_workspace
+            build_workspace(out.parent, sys.executable, AGENT_LABELS[agent], agent)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(prompt)
         print(f"Written to {out}")

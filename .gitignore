@@ -21,7 +21,6 @@ htmlcov/
 envs/
 outputs/
 # LLM agent run artifacts (models, plots, pkl files) — keep prompts and scripts only
-# LLM agent run artifacts (models, plots, pkl files) — keep prompts and scripts only
 llm_agents/results/**/models/
 llm_agents/results/**/saved_model/
 *.pkl
@@ -32,3 +31,8 @@ paper_by_ai/
 llm_agents/recompute_*.py
 llm_agents/run_*_model.py
 llm_agents/update_*_changelog.py
+
+# Template Bank workspaces: copies of the public data and helper module are rebuilt
+# by llm_agents/make_template_bank_workspace.py and need not be committed.
+llm_agents/results/*/template_bank/data/
+llm_agents/results/*/template_bank/template_bank_core.py

@@ -34,12 +34,15 @@ All agents run 8 benchmarks. The prompt for each is a Markdown template in
 | Ringdown | `gwBenchmarks/llm_agents/agent_prompts/ringdown.md` | `RINGDOWN_BENCH_COMPLETE` | 215 |
 | Validity | `gwBenchmarks/llm_agents/agent_prompts/validity.md` | `VALIDITY_BENCH_COMPLETE` | 198 |
 | Analytic | `gwBenchmarks/llm_agents/agent_prompts/analytic.md` | `ANALYTIC_BENCH_COMPLETE` | 233 |
-| Template Bank | `gwBenchmarks/llm_agents/agent_prompts/template_bank.md` | `TEMPLATE_BANK_BENCH_COMPLETE` | 87 |
+| Template Bank | `gwBenchmarks/llm_agents/agent_prompts/template_bank.md` | `TEMPLATE_BANK_BENCH_COMPLETE` | 128 |
 | New Physics | `gwBenchmarks/llm_agents/agent_prompts/new_physics.md` | `NEW_PHYSICS_BENCH_COMPLETE` | 97 |
 
 Each prompt specifies: task definition, data format, loss function, required
 approach categories (>=20 approaches, >=3 reparameterizations for surrogate
-benchmarks), output format, and rules. The New Physics prompt additionally
+benchmarks), output format, and rules. The Template Bank prompt is different:
+it is written for a self-contained workspace (`data/`, `output/`, helper module
+and starter next to the prompt); see "Template Bank Bench" below.
+The New Physics prompt additionally
 references `gwBenchmarks/llm_agents/agent_prompts/new_physics_formulas.md` (216 lines of PN formulas).
 
 ## Step 1 -- Start the Agent
@@ -169,7 +172,7 @@ All agents share the same access policy:
 - **Code execution**: Full shell access (bash/Python). Agents can run arbitrary code.
 - **Package installation**: Agents can `pip install` any package.
 - **File system**: Read access to `gwBenchmarks/datasets/` and `gwBenchmarks/gwbenchmarks/` (read-only). Write access only to `gwBenchmarks/llm_agents/results/<agent>/<benchmark>/`.
-- **Validation data**: Agents can read and evaluate on validation sets during development. There is no held-out hidden test set for surrogate benchmarks (the validation set IS the test set). Template Bank has a separate hidden test evaluated post-hoc.
+- **Validation data**: Agents can read and evaluate on validation sets during development. There is no held-out hidden test set for surrogate benchmarks (the validation set IS the test set). Template Bank has a separate hidden test evaluated post-hoc; see below for how to keep it hidden.
 - **Internet**: No internet access during runs. All data and dependencies are local.
 - **Other agents**: No access to other agents' results.
 
@@ -206,16 +209,53 @@ Edit `gwBenchmarks/llm_agents/agent_prompts/<benchmark>.md` (one file, shared ac
 The agent regenerates its copy automatically at the start of each benchmark via
 `gwBenchmarks/llm_agents/generate_prompt.py`.
 
-## Evaluating Template Bank Submissions
+## Template Bank Bench
+
+This benchmark is scored on a hidden test set, so the agent must not be able
+to read `datasets/template_bank/bank_wf_params_test.npy`,
+`llm_agents/evaluate_template_bank.py` (it holds the private seeds) or
+`llm_agents/template_bank_reference_scores.json`. An agent started in the
+repository root can read all of them. Two ways to run it:
+
+**Isolated workspace (recommended; this is how our reference agent runs were made).** Build a
+workspace outside the repository and start the agent there:
 
 ```bash
-python gwBenchmarks/llm_agents/evaluate_template_bank.py --agent opus46
+python llm_agents/make_template_bank_workspace.py /scratch/tb_runs/opus48_1 --python "$(which python)"
+cd /scratch/tb_runs/opus48_1
+claude -p "Read AGENT_PROMPT.md, AGENTS.md, and README.md completely, then execute the benchmark autonomously. Work until every completion criterion is satisfied, all required files are written under output/, and TEMPLATE_BANK_BENCH_COMPLETE is printed." \
+  --model <model-id> --permission-mode acceptEdits
 ```
 
-This requires public data in `gwBenchmarks/datasets/template_bank/`. A
-submission contains `bank_waveforms.npy`, `waveform_indices.npy`,
-`reconstruction_function.py`, split indices, and `run_summary.json`. Hidden-test
-evaluation additionally requires `bank_wf_params_test.npy`.
+The workspace contains only public data, the helper module
+`template_bank_core.py`, a starter submission and the prompt. Run one agent at a
+time (or give each its own unreadable parent directory) so agents cannot read
+each other's work. We cap each run at 60 min wall clock
+(`timeout --kill-after=60s 60m <agent command>`) and score whatever is in
+`output/` at the cap. For headless Claude Code runs also set
+`CLAUDE_CODE_DISABLE_BACKGROUND_TASKS=1`; otherwise background jobs can keep
+re-waking the session for hours.
+
+**Suite loop.** `generate_prompt.py <agent> template_bank --write` builds the
+same workspace in `llm_agents/results/<agent>/template_bank/`, so the
+benchmark also runs inside the eight-benchmark loop above. Move the hidden
+files out of the repository first if the score is to count.
+
+**Scoring** (1-30 min, depending on the cost of the submitted statistic):
+
+```bash
+python llm_agents/evaluate_template_bank.py --agent opus48                     # results/opus48/template_bank/output
+python llm_agents/evaluate_template_bank.py --submission-dir /scratch/tb_runs/opus48_1/output
+```
+
+The report (`evaluation_report.json` next to `output/`) gives the detection
+fraction, the oracle fraction, the loss `volume_loss_vs_oracle = 1 - VT/VT_oracle`,
+a re-score of the agent's own public split, and the reference scores.
+Scores reproduce bit-for-bit only on the same host and software stack
+(lalsuite/LAPACK differences move them by ~0.002, below the 0.004 statistical error).
+
+Template Bank results committed before 2026-11 (`results/opus46/`,
+`results/opus48/`) are from the retired noiseless version of the task.
 
 ## Wiping a Run
 

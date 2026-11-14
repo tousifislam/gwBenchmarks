@@ -1,147 +1,128 @@
-# Template Bank Bench — {AGENT_LABEL} Agent
+# Template Bank Detection Benchmark — {AGENT_LABEL} Agent
 
-You are an autonomous agent building a compact ordered waveform bank for
-frequency-domain gravitational-wave coverage.
-Your work directory is: `llm_agents/results/{AGENT}/template_bank/`
+You are an autonomous agent designing a gravitational-wave search: a bank of
+filter waveforms plus a detection statistic computed from the filter outputs.
+Your work directory is the folder containing this file.
 
 ## Task
 
-Use the public parameter pool in `datasets/template_bank/bank_wf_params.npy` to
-construct:
+Using the public parameter pool in `data/bank_wf_params.npy`, construct:
 
-1. a public training subset
-2. a public evaluation subset
-3. an ordered waveform bank
-4. a function that reconstructs a best-fit waveform from complex bank overlaps
+1. an ordered set of at most 32 filter waveforms (`output/bank_waveforms.npy`)
+2. a function `detection_statistic` that maps the complex filter outputs of a
+   stretch of data to one real number (`output/detection_statistic.py`)
 
-Your objective is to pass the hidden coverage requirement with as few submitted
-waveforms as possible. Hidden-test evaluation cost scales with the number of
-submitted waveforms; training-time overlap calculations are diagnostic only.
+so that, at a fixed false-alarm probability, as many hidden signals as possible
+are detected. Do not stop at the first working solution. Perform at least one
+evidence-based refinement of the filters, the statistic, or both, and retain
+the best robust public-evaluation result.
 
-A literature-motivated reference has an evaluation cost equivalent to 145
-submitted waveforms and passes the target. Try to pass with fewer waveforms,
-then minimize the smallest successful prefix. This reference number is a cost
-comparison, not a restriction on the waveform construction method.
+## Data model
 
-Do not stop at the first bank that reaches the public target. Perform at least
-one evidence-based refinement of its waveform content, ordering, or
-reconstruction method, and retain the best robust public-evaluation result.
+All waveforms live on the frequency grid `data/f_amp.npy` and use the inner
+product
 
-## Completion Criteria
+```python
+<a, b> = sum(a * conj(b) * weights)        # weights from data/Aref_weights.npy
+```
+
+Every filter row is normalized to `<b, b> = 1` by the evaluator.
+
+Each trial is a data stretch `d`. A trial is either
+
+- **noise only**: `d = n`, or
+- **signal plus noise**: `d = rho * h + n`, where `h` is a unit-norm hidden
+  IMRPhenomXHM waveform (full higher-mode set, random reference phase) and
+  `rho` is its optimal signal-to-noise ratio.
+
+The noise `n` is stationary Gaussian: independent circular complex Gaussian
+values with `E|n_f|^2 = 2 / weights_f`. Consequently, for filter rows `b_i`,
+the filter outputs `z_i = <d, b_i>` are jointly complex Gaussian with
+`E[z_i conj(z_j)] = 2 <b_j, b_i>` under noise, and for one unit-norm filter
+`|z|^2` is chi-squared with 2 degrees of freedom. Signal SNRs are drawn from
+`p(rho) ∝ rho^-4` for `rho >= 5` (sources uniform in volume).
+
+## Scoring
+
+The hidden evaluator:
+
+1. draws 2,000,000 noise-only trials and 10 signal trials for each of 1,000
+   hidden target waveforms (10,000 signal trials), with private random seeds;
+2. computes the complex filter outputs `z = <d, b_i>` for every trial and
+   calls your `detection_statistic` on shuffled batches of 50,000 trials
+   that mix noise-only and signal trials;
+3. sets the threshold so that exactly a fraction `1e-4` of the noise-only
+   trials exceed it;
+4. reports the **detection fraction**: the fraction of signal trials whose
+   statistic exceeds the threshold. Higher is better.
+
+It also reports the detection fraction an exactly known single template would
+achieve on the same SNRs; that number is an upper bound, not a target.
+
+`template_bank_core.score_detection(...)` implements this procedure exactly.
+Use it, with your own public splits, fewer trials and your own seeds, to
+evaluate candidate solutions.
+
+## Required output
+
+Write all outputs under `output/`:
+
+```text
+output/
+|-- bank_waveforms.npy        complex array, shape (n_rows, len(data/f_amp.npy)), 1 <= n_rows <= 32
+|-- waveform_indices.npy      int array, shape (n_rows,), passed to detection_statistic
+|-- detection_statistic.py    defines detection_statistic(complex_overlaps, bank_waveforms, indices)
+|-- train_indices.npy         indices into data/bank_wf_params.npy
+|-- eval_indices.npy          indices into data/bank_wf_params.npy
+`-- run_summary.json
+```
+
+`detection_statistic(complex_overlaps, bank_waveforms, indices)`:
+
+- `complex_overlaps`: complex array of shape `(n_trials, n_rows)`, entry
+  `[t, i] = <d_t, b_i>`
+- `bank_waveforms`: your normalized rows; `indices`: your `waveform_indices`
+- returns a finite real array of shape `(n_trials,)`; larger means more
+  signal-like. Only the ordering of values matters, because the threshold is
+  set from the noise-only trials.
+
+`detection_statistic.py` may load additional files that you place in
+`output/` (locate them relative to `__file__`). It must be deterministic, use
+only the trial data it is given, and must not read anything outside `output/`.
+The hidden evaluation makes about 2,010,000 trial evaluations; keep the total
+statistic runtime under 30 minutes on 5 cores.
+
+`run_summary.json` must report at least: `method`, `n_waveforms`,
+`public_train_size`, `public_eval_size`, `public_eval_noise_trials`,
+`public_eval_signal_trials`, `public_eval_false_alarm_probability`,
+`public_eval_detection_fraction`, `public_eval_detection_fraction_stderr`,
+`public_eval_oracle_detection_fraction`, and `notes`.
+
+## Completion criteria
 
 Before declaring DONE, verify:
 
-- [ ] `bank_waveforms.npy` has shape `(n_waveforms, len(datasets/template_bank/f_amp.npy))`
-- [ ] every bank row has finite values and nonzero norm
-- [ ] `waveform_indices.npy` has shape `(n_waveforms,)`
-- [ ] `reconstruction_function.py` defines `reconstruct_from_overlaps(complex_overlaps, bank_waveforms, indices)`
-- [ ] `train_indices.npy` indexes the public parameter pool
-- [ ] `eval_indices.npy` indexes the public parameter pool
-- [ ] `run_summary.json` reports:
-  - [ ] `method`
-  - [ ] `n_waveforms`
-  - [ ] `overlap_evaluations` (diagnostic only)
-  - [ ] `public_train_size`
-  - [ ] `public_eval_size`
-  - [ ] `public_eval_threshold`
-  - [ ] `public_eval_target_coverage`
-  - [ ] `public_eval_coverage_fraction`
-  - [ ] `public_eval_median_match`
-  - [ ] `public_eval_prefix_length_to_target`
-- [ ] the bank is ordered from highest-priority waveform to lowest-priority waveform
-- [ ] the public evaluation result is explicitly reported in `run_summary.json`
-- [ ] the reconstruction function returns one finite waveform with the same frequency-grid shape as a bank row
+- [ ] all six output files exist with the shapes above
+- [ ] `detection_statistic` runs on a batch of 50,000 trials and returns finite values
+- [ ] the public evaluation result in `run_summary.json` was produced with
+      `score_detection` on public data not used for construction
+- [ ] the result was checked on more than one deterministic public split or seed
 
 When all criteria are met, print `TEMPLATE_BANK_BENCH_COMPLETE` on its own line.
 
-## Scoring Target
+## Public files
 
-For each hidden-test waveform and each ordered bank prefix, the evaluator:
-
-1. computes the complex inner products between the target and the submitted bank waveforms
-2. calls `reconstruct_from_overlaps(...)` to obtain a best-fit waveform
-3. normalizes the returned waveform and the physical target waveform
-4. computes their absolute inner product as the final match
-
-The submission never returns the final scalar match. A prefix passes only when
-strictly more than 90% of hidden-test waveforms have evaluator-computed match
-greater than or equal to `0.97`. For the 1,000-waveform hidden set, this means
-at least 901 waveforms. The primary score is the smallest passing prefix length.
-A submission that never passes has infinite loss.
-
-## Public Data
-
-Expected files:
-
-- `datasets/template_bank/f_amp.npy`
-- `datasets/template_bank/Aref_weights.npy`
-- `datasets/template_bank/bank_wf_params.npy`
-
-The public dataset is hosted at:
-
-```text
-https://huggingface.co/datasets/GWagents/gwBenchmarks
-```
-
-## Waveform Convention
-
-The hidden evaluator generates validation/test waveforms with IMRPhenomXHM,
-`h_plus`, and the full higher-mode set:
-
-```text
-[(2, 2), (2, 1), (3, 3), (3, 2), (4, 4),
- (2, -2), (2, -1), (3, -3), (3, -2), (4, -4)]
-```
-
-During your own search, you may query any subset of these modes, or the full
-set, as a speed/accuracy tradeoff. The helper function
-`make_reference_waveform(..., harmonic_modes=...)` supports custom mode lists;
-`make_full_reference_waveform(...)` uses the final hidden-evaluation convention.
-
-## Required Output
-
-Write all outputs directly under `llm_agents/results/{AGENT}/template_bank/`:
-
-```text
-bank_waveforms.npy
-waveform_indices.npy
-reconstruction_function.py
-train_indices.npy
-eval_indices.npy
-run_summary.json
-```
-
-`bank_waveforms.npy` may contain any physically useful real or complex waveform
-rows. Normalize each row with the benchmark inner product for your own public
-evaluation; the evaluator also normalizes every row defensively.
-
-`waveform_indices.npy` contains one integer identifier per bank row. The
-evaluator passes the corresponding prefix of these identifiers to the
-reconstruction function. The identifiers may encode public-pool indices,
-groups, basis labels, or another convention used by your method.
-
-`reconstruction_function.py` must define:
-
-```python
-def reconstruct_from_overlaps(complex_overlaps, bank_waveforms, indices=None):
-    ...
-```
-
-`complex_overlaps` is a one-dimensional complex NumPy array with entries
-`sum(target * conj(bank_waveform) * weights)`. `bank_waveforms` contains the
-corresponding rows in the current prefix, and `indices` contains their submitted
-identifiers. Return one complex or real best-fit waveform with shape
-`(len(datasets/template_bank/f_amp.npy),)`. You may select a row, form a linear
-combination, project onto a reduced basis, or use another method justified by
-the public data. The evaluator assigns match zero to a zero-norm reconstruction
-and rejects malformed or non-finite output.
+- `data/f_amp.npy`, `data/Aref_weights.npy`, `data/bank_wf_params.npy`
+- `template_bank_core.py`: waveform generation (`make_full_reference_waveform`,
+  `generate_normalized_waveforms`), inner products, the noise model, and
+  `score_detection`
+- `detection_statistic.py`: starter statistic (maximum of `|z_i|^2`)
+- `create_submission.py`: starter submission you may replace or improve
 
 ## Rules
 
-- Treat `datasets/` and `gwbenchmarks/` as read-only.
-- Do not use hidden files such as `bank_wf_params_test.npy`.
-- Do not assume all public parameters belong in the final bank.
-- Choose your own public training/evaluation split and optimize for hidden generalization.
-- When practical, check more than one deterministic public split.
-- Use any public-data optimization strategy; the objective is the smallest passing waveform-bank prefix.
-- `reconstruct_from_overlaps()` must return a best-fit waveform, not a scalar score.
+- `data/` is read-only; keep all writes inside your work directory
+- Use only the public data and public helper code in this workspace
+- Use five or fewer CPU cores for any parallel work
+- Use the Python interpreter given in `AGENTS.md` for every Python command;
+  do not create another environment or install packages

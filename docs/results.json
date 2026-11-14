@@ -24,10 +24,6 @@
       "loss": 0.0521565170374327,
       "model": "phen_imr_cheb14_logq_p4"
     },
-    "template_bank": {
-      "loss": 0.3333,
-      "model": "greedy_bank"
-    },
     "new_physics": {
       "loss": 1.2882e-05,
       "model": "candidate_waveform"
@@ -57,10 +53,6 @@
     "analytic": {
       "loss": 0.1675373753024337,
       "model": "pn_qnm_blend_eta"
-    },
-    "template_bank": {
-      "loss": 0.3293,
-      "model": "greedy_bank"
     },
     "new_physics": {
       "loss": 0.00014182,
@@ -92,10 +84,6 @@
       "loss": 0.27208402287550043,
       "model": "phenom_pysr_freq"
     },
-    "template_bank": {
-      "loss": 0.4219,
-      "model": "greedy_bank"
-    },
     "new_physics": {
       "loss": 0.003842,
       "model": "candidate_waveform"
@@ -114,10 +102,6 @@
     "ringdown": null,
     "validity": null,
     "analytic": null,
-    "template_bank": {
-      "loss": 0.2673,
-      "model": "greedy_bank"
-    },
     "new_physics": {
       "loss": 0.003808,
       "model": "candidate_waveform"
@@ -147,10 +131,6 @@
     "analytic": {
       "loss": 0.35109237267813603,
       "model": "Damped-Sinusoids"
-    },
-    "template_bank": {
-      "loss": 0.3375,
-      "model": "greedy_bank"
     },
     "new_physics": {
       "loss": 1.2867e-05,
@@ -182,10 +162,6 @@
       "loss": 0.6386078428427667,
       "model": "symbolic_pysr_freq_delta"
     },
-    "template_bank": {
-      "loss": 0.1015,
-      "model": "greedy_bank"
-    },
     "new_physics": {
       "loss": 0.003821,
       "model": "candidate_waveform"
@@ -215,10 +191,6 @@
     "analytic": {
       "loss": 0.35109237267813603,
       "model": "Damped-Sinusoids"
-    },
-    "template_bank": {
-      "loss": 0.3068,
-      "model": "greedy_bank"
     },
     "new_physics": {
       "loss": 0.505144,
@@ -250,10 +222,6 @@
       "loss": 0.27197858463072794,
       "model": "closed_form"
     },
-    "template_bank": {
-      "loss": 0.1364,
-      "model": "greedy_bank"
-    },
     "new_physics": {
       "loss": 0.001191,
       "model": "candidate_waveform"
@@ -283,10 +251,6 @@
     "analytic": {
       "loss": 0.7903484987263402,
       "model": "2_taylort4_q"
-    },
-    "template_bank": {
-      "loss": 0.0796,
-      "model": "greedy_bank"
     },
     "new_physics": {
       "loss": 0.00014736,
@@ -318,10 +282,6 @@
       "loss": 0.413900228599356,
       "model": "damped_sin"
     },
-    "template_bank": {
-      "loss": 0.0523,
-      "model": "greedy_bank"
-    },
     "new_physics": {
       "loss": 0.00014736,
       "model": "candidate_waveform"
@@ -352,10 +312,6 @@
       "loss": 0.58,
       "model": "23_pade_q"
     },
-    "template_bank": {
-      "loss": 0.4355,
-      "model": "greedy_bank"
-    },
     "new_physics": null
   },
   "deepseek_v4_pro_max": {
@@ -382,10 +338,6 @@
     "analytic": {
       "loss": 0.5043,
       "model": "pade_resummed_pn_eta"
-    },
-    "template_bank": {
-      "loss": 0.3253,
-      "model": "greedy_bank"
     },
     "new_physics": {
       "loss": 1.2921e-05,

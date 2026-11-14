@@ -1,0 +1,75 @@
+{
+  "_about": "Hidden-set scores of internal reference solutions, computed with llm_agents/evaluate_template_bank.py on elara (lalsuite 7.7.1 / lalsimulation 6.2.1). volume_loss_vs_oracle = 1 - relative_to_oracle (lower is better). Scores reproduce exactly only on the same host and software stack; expect ~0.002 scatter otherwise.",
+  "starter_ff16_max": {
+    "description": "Starter submission: 16 farthest-first physical templates, statistic max_i |z_i|^2.",
+    "n_rows": 16,
+    "detection_fraction": 0.7209,
+    "detection_fraction_stderr": 0.004485567857027692,
+    "oracle_detection_fraction": 0.9483316181805097,
+    "relative_to_oracle": 0.7601771217784923,
+    "volume_loss_vs_oracle": 0.23982287822150772
+  },
+  "pod4_projection": {
+    "description": "4 weighted-POD (SVD) basis rows, statistic ||C^{-1/2} z||^2 (projection onto the span).",
+    "n_rows": 4,
+    "detection_fraction": 0.7688,
+    "detection_fraction_stderr": 0.004215999999999999,
+    "oracle_detection_fraction": 0.9483316181805097,
+    "relative_to_oracle": 0.8106868792111318,
+    "volume_loss_vs_oracle": 0.1893131207888682
+  },
+  "pod8_projection": {
+    "description": "8 POD rows, projection statistic. Worse than 4 rows: more noise dimensions.",
+    "n_rows": 8,
+    "detection_fraction": 0.6947,
+    "detection_fraction_stderr": 0.004605343743956579,
+    "oracle_detection_fraction": 0.9483316181805097,
+    "relative_to_oracle": 0.7325496552913283,
+    "volume_loss_vs_oracle": 0.2674503447086717
+  },
+  "pod8_library_max": {
+    "description": "8 POD rows, max over a prior-sampled signal library of the whitened per-sample statistic.",
+    "n_rows": 8,
+    "detection_fraction": 0.8175,
+    "detection_fraction_stderr": 0.0038625606791350213,
+    "oracle_detection_fraction": 0.9483316181805097,
+    "relative_to_oracle": 0.862040223406738,
+    "volume_loss_vs_oracle": 0.13795977659326197
+  },
+  "pod8_library_lr": {
+    "description": "8 POD rows, likelihood ratio marginalized (logsumexp) over the same signal library.",
+    "n_rows": 8,
+    "detection_fraction": 0.8456,
+    "detection_fraction_stderr": 0.003613317589141591,
+    "oracle_detection_fraction": 0.9483316181805097,
+    "relative_to_oracle": 0.8916712084559483,
+    "volume_loss_vs_oracle": 0.10832879154405173
+  },
+  "pod16_library_max": {
+    "description": "16 POD rows, library max statistic.",
+    "n_rows": 16,
+    "detection_fraction": 0.8276,
+    "detection_fraction_stderr": 0.0037772773263291116,
+    "oracle_detection_fraction": 0.9483316181805097,
+    "relative_to_oracle": 0.8726905062891944,
+    "volume_loss_vs_oracle": 0.12730949371080558
+  },
+  "pod16_library_lr": {
+    "description": "16 POD rows, library-marginalized likelihood ratio. Best internal reference.",
+    "n_rows": 16,
+    "detection_fraction": 0.8565,
+    "detection_fraction_stderr": 0.0035058201608182925,
+    "oracle_detection_fraction": 0.9483316181805097,
+    "relative_to_oracle": 0.9031650781013715,
+    "volume_loss_vs_oracle": 0.09683492189862852
+  },
+  "literature27_marg_lr_w270_phi32": {
+    "description": "Literature mode-filter bank (9 points x 3 orthogonal mode filters, Wadekar et al. 2024, arXiv:2405.17400) with a likelihood ratio marginalized over 270 population-weighted mode-ratio samples and 32 reference phases.",
+    "n_rows": 27,
+    "detection_fraction": 0.8339,
+    "detection_fraction_stderr": 0.003721703776498071,
+    "oracle_detection_fraction": 0.9483316181805097,
+    "relative_to_oracle": 0.8793337520475583,
+    "volume_loss_vs_oracle": 0.12066624795244174
+  }
+}

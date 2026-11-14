@@ -1,21 +1,34 @@
+# Template Bank Bench: filter bank + detection statistic for signals in Gaussian noise.
+# The numbers below document the hidden evaluation; the code constants live in
+# gwbenchmarks/benchmarks/template_bank_core.py (keep the two in sync).
 name: template_bank
-description: "Ordered frequency-domain waveform-bank reconstruction"
+description: "Filter bank and detection statistic for IMRPhenomXHM signals in Gaussian noise"
 
-# Main target: strictly more than 90% of hidden matches >= threshold.
-threshold: 0.97
-target_coverage: 0.9
+# Loss = 1 - detection_fraction / oracle_detection_fraction  (= 1 - VT / VT_oracle; lower is better)
+loss: volume_loss_vs_oracle
 
-parameters:
-  submitted_waveform: bank_waveforms.npy
-  reconstruction_function: reconstruction_function.py
-  public_parameter_row: [m1, m2, s1z, s2z]
+scoring:
+  max_bank_rows: 32
+  false_alarm_probability: 1.0e-4
+  snr_min: 5.0               # p(rho) ~ rho^-4 for rho >= snr_min (uniform in volume)
+  noise_trials: 2000000
+  signal_repeats: 10         # per hidden target
+  statistic_batch_size: 50000
+
+submission:                  # files in <workspace>/output/
+  bank_waveforms: bank_waveforms.npy
+  detection_statistic: detection_statistic.py
+  waveform_indices: waveform_indices.npy
+  run_summary: run_summary.json
+  public_split: [train_indices.npy, eval_indices.npy]
 
 dataset:
   public_dir: datasets/template_bank
+  public_parameter_row: [m1, m2, s1z, s2z]
   public_files:
     - f_amp.npy
     - Aref_weights.npy
     - bank_wf_params.npy
-  hidden_files:
+  hidden_files:              # evaluator only
     - bank_wf_params_test.npy
-    - calpha_grid_params.txt
+    - calpha_grid_params.npy
